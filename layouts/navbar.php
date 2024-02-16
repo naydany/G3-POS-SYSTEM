@@ -1,4 +1,5 @@
  <!-- Sidebar -->
+ 
  <ul class="navbar-nav bg-gradient-primary sidebar sidebar-dark accordion" id="accordionSidebar">
 
      <!-- Sidebar - Brand -->
@@ -55,6 +56,11 @@
          <a class="nav-link" href="/reports">
              <i class="fas fa-fw fa-chart-area"></i>
              <span>Reports</span></a>
+     </li>
+     <li class="nav-item">
+         <a class="nav-link" href="/payments">
+         <i class="	fab fa-cc-amazon-pay"></i>
+             <span>Payments</span></a>
      </li>
 
      <!-- Nav Item - Tables -->
