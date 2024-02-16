@@ -9,7 +9,11 @@ $routes = [
     '/reports' => 'controllers/reports/report.controller.php',
     '/users' => 'controllers/users/user.controller.php',
 <<<<<<< HEAD
+<<<<<<< HEAD
     '/create_form' => 'controllers/categories/form.category.controller.php',
+=======
+    '/payments' => 'controllers/payments/payment.controller.php',
+>>>>>>> ed246fb890ad9fb8d6812d553173c2c7c18e4e07
 =======
     '/payments' => 'controllers/payments/payment.controller.php',
 >>>>>>> ed246fb890ad9fb8d6812d553173c2c7c18e4e07
