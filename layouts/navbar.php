@@ -62,6 +62,11 @@
          <i class="	fab fa-cc-amazon-pay"></i>
              <span>Payments</span></a>
      </li>
+     <li class="nav-item">
+         <a class="nav-link" href="/staffs">
+         <i class="fas fa-restroom"></i>
+             <span>staffs</span></a>
+     </li>
 
      <!-- Nav Item - Tables -->
      <li class="nav-item">
