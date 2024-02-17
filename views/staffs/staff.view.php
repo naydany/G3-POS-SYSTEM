@@ -6,10 +6,6 @@
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
     <title>Staffs</title>
-<<<<<<< HEAD
-=======
-
->>>>>>> create_table_store_staff
 </head>
 <body>
 
@@ -17,11 +13,7 @@
     <button class="btn btn-primary"><i class="fas fa-user-plus"></i> Add new staff</button>
 </div>
 
-<<<<<<< HEAD
-<div class="container mt-4">
-=======
 <div class="container mt-4 (1rem = 16px)">
->>>>>>> create_table_store_staff
     <table class="table">
         <thead class="bg-primary text-white">
             <tr>
@@ -36,33 +28,6 @@
             </tr>
         </thead>
         <tbody>
-<<<<<<< HEAD
-            <?php
-                // Replace this with data from your database
-                $staffData = array(
-                    array("001", "Nyny", "19", "ny.@gmail.com", "17/02/2024", "STREET 2004 SORLA", "1"),
-                    array("002", "channy", "20", "channy.@gmail.com", "18/02/2024", "STREET 2004 SORLA", "2")
-                );
-
-                foreach ($staffData as $staff) {
-                    echo "<tr>";
-                    echo "<td class='text-center'>" . $staff[0] . "</td>";
-                    echo "<td class='text-center'>" . $staff[1] . "</td>";
-                    echo "<td class='text-center'>" . $staff[2] . "</td>";
-                    echo "<td class='text-center'>" . $staff[3] . "</td>";
-                    echo "<td class='text-center'>" . $staff[4] . "</td>";
-                    echo "<td class='text-center'>" . $staff[5] . "</td>";
-                    echo "<td class='text-center'>" . $staff[6] . "</td>";
-                    echo "<td class='text-center'>";
-                    echo "<div class='btn-group'>";
-                    echo "<a href='delete.php?staff_id=" . $staff[0] . "' class='btn btn-danger'><i class='fas fa-trash'></i> Delete</a>";
-                    echo "<a href='update.php?staff_id=" . $staff[0] . "' class='btn btn-warning'><i class='fas fa-edit'></i> Update</a>";
-                    echo "</div>";
-                    echo "</td>";
-                    echo "</tr>";
-                }
-            ?>
-=======
             <tr>
                 <td class="text-center">001</td>
                 <td class="text-center">Nyny</td>
@@ -95,7 +60,6 @@
                     </div>
                 </td>
             </tr>
->>>>>>> create_table_store_staff
         </tbody>
     </table>
 </div>
@@ -106,7 +70,3 @@
 
 </body>
 </html>
-<<<<<<< HEAD
-=======
-
->>>>>>> create_table_store_staff
