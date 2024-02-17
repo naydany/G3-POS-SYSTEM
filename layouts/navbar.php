@@ -52,11 +52,7 @@
              <i class="fas fa-fw fa-shopping-cart"></i>
              <span>Order</span></a>
      </li>
-     <li class="nav-item">
-         <a class="nav-link" href="/reports">
-             <i class="fas fa-fw fa-chart-area"></i>
-             <span>Reports</span></a>
-     </li>
+
      <li class="nav-item">
          <a class="nav-link" href="/payments">
          <i class="	fab fa-cc-amazon-pay"></i>
@@ -78,6 +74,11 @@
      <!-- Divider -->
      <hr class="sidebar-divider d-none d-md-block">
 
+     <li class="nav-item">
+         <a class="nav-link" href="/reports">
+             <i class="fas fa-fw fa-chart-area"></i>
+             <span>Reports</span></a>
+     </li>
      <!-- Sidebar Toggler (Sidebar) -->
      <div class="text-center d-none d-md-inline">
          <button class="rounded-circle border-0" id="sidebarToggle"></button>
