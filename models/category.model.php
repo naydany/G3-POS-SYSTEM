@@ -1,19 +1,21 @@
 <?php
-
-function createPost(string $title, string $description) : bool
+function createCategory(string $category): bool
 {
+    $timezone = new DateTimeZone('Asia/Phnom_Penh');
+    $date = new DateTime('now', $timezone);
+    $time = $date->format('Y-m-d H:i:s');
+     
     global $connection;
-    $statement = $connection->prepare("insert into posts (title, description) values (:title, :description)");
+    $statement = $connection->prepare("insert into category(cate_name, date) values (:cate_name, :date)");
     $statement->execute([
-        ':title' => $title,
-        ':description' => $description
-
+        ':cate_name' => $category,
+        ':date' => $time
     ]);
 
     return $statement->rowCount() > 0;
 }
 
-function getPost(int $id) : array
+function getPost(int $id): array
 {
     global $connection;
     $statement = $connection->prepare("select * from posts where id = :id");
@@ -21,15 +23,15 @@ function getPost(int $id) : array
     return $statement->fetch();
 }
 
-function getPosts() : array
+function getCategory(): array
 {
     global $connection;
-    $statement = $connection->prepare("select * from posts");
+    $statement = $connection->prepare("select * from category");
     $statement->execute();
     return $statement->fetchAll();
 }
 
-function updatePost(string $title, string $description, int $id) : bool
+function updatePost(string $title, string $description, int $id): bool
 {
     global $connection;
     $statement = $connection->prepare("update posts set title = :title, description = :description where id = :id");
@@ -37,13 +39,12 @@ function updatePost(string $title, string $description, int $id) : bool
         ':title' => $title,
         ':description' => $description,
         ':id' => $id
-
     ]);
 
     return $statement->rowCount() > 0;
 }
 
-function deletePost(int $id) : bool
+function deletePost(int $id): bool
 {
     global $connection;
     $statement = $connection->prepare("delete from posts where id = :id");
