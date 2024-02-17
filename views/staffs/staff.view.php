@@ -6,6 +6,10 @@
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
     <title>Staffs</title>
+<<<<<<< HEAD
+=======
+
+>>>>>>> create_table_store_staff
 </head>
 <body>
 
@@ -13,7 +17,11 @@
     <button class="btn btn-primary"><i class="fas fa-user-plus"></i> Add new staff</button>
 </div>
 
+<<<<<<< HEAD
 <div class="container mt-4">
+=======
+<div class="container mt-4 (1rem = 16px)">
+>>>>>>> create_table_store_staff
     <table class="table">
         <thead class="bg-primary text-white">
             <tr>
@@ -28,6 +36,7 @@
             </tr>
         </thead>
         <tbody>
+<<<<<<< HEAD
             <?php
                 // Replace this with data from your database
                 $staffData = array(
@@ -53,6 +62,40 @@
                     echo "</tr>";
                 }
             ?>
+=======
+            <tr>
+                <td class="text-center">001</td>
+                <td class="text-center">Nyny</td>
+                <td class="text-center">19</td>
+                <td class="text-center">ny.@gmail.com</td>
+                <td class="text-center">17/02/2024</td>
+                <td class="text-center">STREET 2004 SORLA</td>
+                <td class="text-center">1</td>
+                <td class="text-center">
+                    <div class="btn-group">
+                        <button class="btn btn-danger" onclick="deleteStaff(1)"><i class="fas fa-trash"></i> Delete</button>
+                        <button class="btn btn-warning" onclick="updateStaff(1)"><i class="fas fa-edit"></i> Update</button>
+                    </div>
+                </td>
+            </tr>
+        </tbody>
+        <tbody>
+            <tr>
+                <td class="text-center">002</td>
+                <td class="text-center">channy</td>
+                <td class="text-center">20</td>
+                <td class="text-center">channy.@gmail.com</td>
+                <td class="text-center">18/02/2024</td>
+                <td class="text-center">STREET 2004 SORLA</td>
+                <td class="text-center">2</td>
+                <td class="text-center">
+                    <div class="btn-group">
+                        <button class="btn btn-danger" onclick="deleteStaff(2)"><i class="fas fa-trash"></i> Delete</button>
+                        <button class="btn btn-warning" onclick="updateStaff(2)"><i class="fas fa-edit"></i> Update</button>
+                    </div>
+                </td>
+            </tr>
+>>>>>>> create_table_store_staff
         </tbody>
     </table>
 </div>
@@ -63,3 +106,7 @@
 
 </body>
 </html>
+<<<<<<< HEAD
+=======
+
+>>>>>>> create_table_store_staff
