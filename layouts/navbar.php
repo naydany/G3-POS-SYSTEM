@@ -1,6 +1,6 @@
  <!-- Sidebar -->
  
- <ul class="navbar-nav bg-gradient-primary sidebar sidebar-dark accordion" id="accordionSidebar">
+<ul class="navbar-nav bg-gradient-primary sidebar sidebar-dark accordion" id="accordionSidebar">
 
      <!-- Sidebar - Brand -->
      <a class="sidebar-brand d-flex align-items-center justify-content-center" href="/">
@@ -41,7 +41,7 @@
                  <a class="collapse-item" href="/items">Items</a>
              </div>
          </div>
-     </li>
+    </li>
 
      <!-- Nav Item - Pages Collapse Menu -->
 
@@ -62,17 +62,20 @@
          <i class="	fab fa-cc-amazon-pay"></i>
              <span>Payments</span></a>
      </li>
-     <li class="nav-item">
-         <a class="nav-link" href="/staffs">
-         <i class="fas fa-restroom"></i>
-             <span>staffs</span></a>
-     </li>
 
      <!-- Nav Item - Tables -->
      <li class="nav-item">
-         <a class="nav-link" href="/users">
+     <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapse" aria-expanded="true" aria-controls="collapse">
              <i class="fas fa-fw fa-users"></i>
-             <span>Users</span></a>
+             <span>Users</span>
+        </a>
+        <div id="collapse" class="collapse" aria-labelledby="headingTwo" data-parent="#accordionSidebar">
+             <div class="bg-white py-2 collapse-inner rounded">
+                 <h6 class="collapse-header">staff Contains:</h6>
+                 <a class="collapse-item" href="/staffs">staffs</a>
+                 <a class="collapse-item" href="/items">admin</a>
+             </div>
+         </div>
      </li>
 
      <!-- Divider -->
