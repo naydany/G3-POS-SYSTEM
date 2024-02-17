@@ -22,7 +22,7 @@
     </div>
     <div class="container mt-3 ">
         <table class="table table-bordered text-center mt-2 rounded">
-            <thead class=" text-secondary thead-light">
+            <thead class="text-secondary thead-light">
                 <tr>
                     <th>Code</th>
                     <th>Customer</th>

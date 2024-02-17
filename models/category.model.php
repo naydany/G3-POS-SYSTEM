@@ -4,12 +4,13 @@ function createCategory(string $category): bool
     $timezone = new DateTimeZone('Asia/Phnom_Penh');
     $date = new DateTime('now', $timezone);
     $time = $date->format('Y-m-d H:i:s');
-     
+     echo $time;
+     echo $category;
     global $connection;
-    $statement = $connection->prepare("insert into category(cate_name, date) values (:cate_name, :date)");
+    $statement = $connection->prepare("insert into categories(cate_name, cate_date) values (:cate_name, :cate_date)");
     $statement->execute([
         ':cate_name' => $category,
-        ':date' => $time
+        ':cate_date' => $time
     ]);
 
     return $statement->rowCount() > 0;
@@ -26,7 +27,7 @@ function getPost(int $id): array
 function getCategory(): array
 {
     global $connection;
-    $statement = $connection->prepare("select * from category");
+    $statement = $connection->prepare("select * from categories");
     $statement->execute();
     return $statement->fetchAll();
 }
