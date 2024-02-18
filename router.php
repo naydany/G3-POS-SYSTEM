@@ -11,6 +11,7 @@ $routes = [
     '/create_form_cate' => 'controllers/categories/form_category.controller.php',
     '/payments' => 'controllers/payments/payment.controller.php',
     '/staffs' => 'controllers/staffs/staff.controller.php',
+    '/create_staffs' => 'controllers/staffs/create_form_staff.controller.php',
 
 
 ];
