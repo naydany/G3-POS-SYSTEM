@@ -10,11 +10,11 @@
 <body>
 
 <div class="container mt-4">
-    <button class="btn btn-primary"><i class="fas fa-user-plus"></i> Add new staff</button>
+    <button class="btn btn-outline-primary"><i class="fas fa-user-plus"></i> Add new staff</button>
 </div>
 
-<div class="container mt-4 (1rem = 16px)">
-    <table class="table">
+<div class="container mt-4">
+    <table class="table" style = "font-size: 15px">
         <thead class="bg-primary text-white">
             <tr>
                 <th class="text-center">STAFF ID</th>
@@ -38,8 +38,8 @@
                 <td class="text-center">1</td>
                 <td class="text-center">
                     <div class="btn-group">
-                        <button class="btn btn-danger" onclick="deleteStaff(1)"><i class="fas fa-trash"></i> Delete</button>
-                        <button class="btn btn-warning" onclick="updateStaff(1)"><i class="fas fa-edit"></i> Update</button>
+                        <button class="btn btn-danger" onclick="deleteStaff(1)" style = "font-size: 12px"><i class="fas fa-trash"></i> Delete</button>
+                        <button class="btn btn-success" onclick="updateStaff(1)" style = "font-size: 12px"><i class="fas fa-edit"></i> Update</button>
                     </div>
                 </td>
             </tr>
@@ -55,8 +55,8 @@
                 <td class="text-center">2</td>
                 <td class="text-center">
                     <div class="btn-group">
-                        <button class="btn btn-danger" onclick="deleteStaff(2)"><i class="fas fa-trash"></i> Delete</button>
-                        <button class="btn btn-warning" onclick="updateStaff(2)"><i class="fas fa-edit"></i> Update</button>
+                        <button class="btn btn-danger" onclick="deleteStaff(2)"  style = "font-size: 12px"><i class="fas fa-trash"></i> Delete</button>
+                        <button class="btn btn-success" onclick="updateStaff(2)"  style = "font-size: 12px"><i class="fas fa-edit"></i> Update</button>
                     </div>
                 </td>
             </tr>
