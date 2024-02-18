@@ -15,6 +15,12 @@ $routes = [
     '/admin_signin' => 'controllers/adminlogin/admin.login.controller.php',
     '/form_admin_signin' => 'controllers/adminlogin/form.signin.controller.php',
     '/form_admin_signup' => 'controllers/adminlogin/admin.signup.controller.php',
+
+    '/form_create_pro' => 'controllers/items/create_item.controller.php',
+
+
+
+
 ];
 
 

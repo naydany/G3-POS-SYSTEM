@@ -1,13 +1,21 @@
 <?php
-
-function createPost(string $title, string $description) : bool
+function createItem(string $pro_name, string $pro_code, $pro_desc, $pro_img,
+string $pro_price, string $pro_date): bool
 {
     global $connection;
-    $statement = $connection->prepare("insert into posts (title, description) values (:title, :description)");
+    $statement = $connection->prepare("insert into products (pro_name, pro_code, pro_desc, pro_img, pro_price, pro_date) 
+    values (:pro_name, :pro_code, :pro_desc, :pro_img, :pro_price, :pro_date)");
     $statement->execute([
-        ':title' => $title,
-        ':description' => $description
+        ':pro_name' => $pro_name,
+        ':pro_code' => $pro_code,
+        ':pro_desc' => $pro_desc,
+        ':pro_img' => $pro_img,
+        ':pro_price' => $pro_price,
+        ':pro_date' => $pro_date,
+
+
     ]);
+
     return $statement->rowCount() > 0;
 }
 
