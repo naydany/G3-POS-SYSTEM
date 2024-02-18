@@ -5,7 +5,7 @@
     <div class="card shadow ">
         <div class="card-header py-3 d-flex justify-content-between">
             <h6 class="m-0 font-weight-bold text-primary">Products</h6>
-            <button class="btn btn-primary">Create Product</button>
+            <a href="/form_create_pro" class="btn btn-primary">Create Product</a>
         </div>
         <div class="card-body">
             <div class="table-responsive">

@@ -12,6 +12,10 @@ $routes = [
     '/payments' => 'controllers/payments/payment.controller.php',
     '/staffs' => 'controllers/staffs/staff.controller.php',
 
+    '/form_create_pro' => 'controllers/items/create_item.controller.php',
+
+
+
 
 ];
 
