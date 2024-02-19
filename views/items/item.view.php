@@ -42,7 +42,7 @@
                                 <td>4</td>
                                 <td>2</td>
                                 <td class="d-flex">
-                                    <a href="#" class="btn btn-danger">Delete</a>
+                                    <a href="../../controllers/items/delete_item.controller.php?id=<?= $product['pro_id'] ?>" class="btn btn-danger">Delete</a>
                                     <a href="#" class="btn btn-primary ml-3">Update</a>
                                 </td>
                             </tr>
