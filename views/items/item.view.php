@@ -24,23 +24,29 @@
                             <th>Action</th>
                         </tr>
                     </thead>
-                    
+
                     <tbody>
-                        <tr>
-                            <td>1</td>
-                            <td>Apple</td>
-                            <td>006</td>
-                            <td>Apple</td>
-                            <td>I like apple</td>
-                            <td>100$</td>
-                            <td>Monday 23</td>
-                            <td>4</td>
-                            <td>2</td>
-                            <td class="d-flex">
-                                <a href="#" class="btn btn-danger">Delete</a>
-                                <a href="#" class="btn btn-primary ml-3">Update</a>
-                            </td>
-                        </tr>
+                        <?php
+                        require './models/item.model.php';
+                        $products = getItem();
+                        foreach ($products as $product) :
+                        ?>
+                            <tr>
+                                <td><?= $product['pro_id'] ?></td>
+                                <td><?= $product['pro_name'] ?></td>
+                                <td><?= $product['pro_code'] ?></td>
+                                <td><?= $product['pro_img'] ?></t>
+                                <td><?= $product['pro_desc'] ?></td>
+                                <td><?= $product['pro_price'] ?></td>
+                                <td><?= $product['pro_date'] ?></td>
+                                <td>4</td>
+                                <td>2</td>
+                                <td class="d-flex">
+                                    <a href="#" class="btn btn-danger">Delete</a>
+                                    <a href="#" class="btn btn-primary ml-3">Update</a>
+                                </td>
+                            </tr>
+                        <?php endforeach ?>
                     </tbody>
                 </table>
             </div>
