@@ -6,10 +6,10 @@ function createCategory(string $category): bool
     $time = $date->format('Y-m-d H:i:s');
      
     global $connection;
-    $statement = $connection->prepare("insert into category(cate_name, date) values (:cate_name, :date)");
+    $statement = $connection->prepare("insert into categories(cate_name, cate_date) values (:cate_name, :cate_date)");
     $statement->execute([
         ':cate_name' => $category,
-        ':date' => $time
+        ':cate_date' => $time
     ]);
 
     return $statement->rowCount() > 0;
@@ -26,7 +26,7 @@ function getPost(int $id): array
 function getCategory(): array
 {
     global $connection;
-    $statement = $connection->prepare("select * from category");
+    $statement = $connection->prepare("select * from categories");
     $statement->execute();
     return $statement->fetchAll();
 }
@@ -44,10 +44,10 @@ function updatePost(string $title, string $description, int $id): bool
     return $statement->rowCount() > 0;
 }
 
-function deletePost(int $id): bool
+function deleteCategory(int $id): bool
 {
     global $connection;
-    $statement = $connection->prepare("delete from posts where id = :id");
-    $statement->execute([':id' => $id]);
+    $statement = $connection->prepare("delete from categories where cate_id = :cate_id");
+    $statement->execute([':cate_id' => $id]);
     return $statement->rowCount() > 0;
 }
