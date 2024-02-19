@@ -42,7 +42,7 @@
                 <td class="text-center">1</td>
                 <td class="text-center">
                     <div class="btn-group">
-                        <button class="btn btn-sm btn-success" onclick="deleteStaff(1)"  style = "font-size: 10px"><i class="fas fa-trash"></i> Delete</button>
+                        <a href="controllers/staffs/delete_staff.controller.php?id=<?=$staff['cas_id']?>"><button class="btn btn-sm btn-success" onclick="deleteStaff(1)"  style = "font-size: 10px"><i class="fas fa-trash"></i> Delete</button></a>
                         <button class="btn btn-sm btn-danger ml-3" onclick="updateStaff(1)"  style = "font-size: 10px"><i class="fas fa-edit"></i> Update</button>
                     </div>
                 </td>

@@ -26,3 +26,13 @@ function getstaffs(): array
     $statement->execute();
     return $statement->fetchAll();
 }
+
+
+function deleteStaffs(int $id) : bool
+
+{
+    global $connection;
+    $statement = $connection->prepare("delete from staffs where cas_id = :id");
+    $statement->execute([':id' => $id]);
+    return $statement->rowCount() > 0;
+}

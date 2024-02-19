@@ -12,13 +12,12 @@ $routes = [
     '/payments' => 'controllers/payments/payment.controller.php',
     '/staffs' => 'controllers/staffs/staff.controller.php',
     '/create_staffs' => 'controllers/staffs/create_form_staff.controller.php',
-
     '/form_create_pro' => 'controllers/items/create_item.controller.php',
 
 
 
 
-];
+]; 
 
 if (array_key_exists($uri, $routes)) {
     $page = $routes[$uri];
