@@ -15,11 +15,11 @@ function createCategory(string $category): bool
     return $statement->rowCount() > 0;
 }
 
-function getPost(int $id): array
+function editeCategory(int $id): array
 {
     global $connection;
-    $statement = $connection->prepare("select * from posts where id = :id");
-    $statement->execute([':id' => $id]);
+    $statement = $connection->prepare("select * from categories where cate_id = :cate_id");
+    $statement->execute([':cate_id' => $id]);
     return $statement->fetch();
 }
 
@@ -31,14 +31,14 @@ function getCategory(): array
     return $statement->fetchAll();
 }
 
-function updatePost(string $title, string $description, int $id): bool
+function updateCategory(int $id, string $name): bool
 {
     global $connection;
-    $statement = $connection->prepare("update posts set title = :title, description = :description where id = :id");
+    $statement = $connection->prepare("update categories set cate_name = :cate_name where cate_id = :cate_id");
     $statement->execute([
-        ':title' => $title,
-        ':description' => $description,
-        ':id' => $id
+        ':cate_name' => $name,
+        ':cate_id' => $id
+      
     ]);
 
     return $statement->rowCount() > 0;
