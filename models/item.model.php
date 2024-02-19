@@ -1,19 +1,17 @@
 <?php
-function createItem(string $pro_name, string $pro_code, $pro_desc, $pro_img,
-string $pro_price, string $pro_date): bool
+function createItem(string $pro_name, string $pro_code, $pro_quan, $pro_img,
+string $pro_price, string $pro_cate): bool
 {
     global $connection;
-    $statement = $connection->prepare("insert into products (pro_name, pro_code, pro_desc, pro_img, pro_price, pro_date) 
-    values (:pro_name, :pro_code, :pro_desc, :pro_img, :pro_price, :pro_date)");
+    $statement = $connection->prepare("insert into products (pro_name, pro_code,pro_img, pro_price, pro_quantity, cate_id ) 
+    values (:name, :code, :image, :quantity, :cate, :price)");
     $statement->execute([
-        ':pro_name' => $pro_name,
-        ':pro_code' => $pro_code,
-        ':pro_desc' => $pro_desc,
-        ':pro_img' => $pro_img,
-        ':pro_price' => $pro_price,
-        ':pro_date' => $pro_date,
-
-
+        ':name' => $pro_name,
+        ':code' => $pro_code,
+        'image' => $pro_img,
+        ':price' => $pro_price,
+        ':quantity' => $pro_quan,
+        ':cate' => $pro_cate,
     ]);
 
     return $statement->rowCount() > 0;

@@ -4,14 +4,14 @@ require_once '../../models/item.model.php';
 
 if($_SERVER['REQUEST_METHOD']=='POST'){
     // $pro_id = $_POST['pro_id'];
-    $pro_name = $_POST['pro_name'];
-    $pro_code = $_POST['pro_code'];
-    $pro_desc = $_POST['pro_desc'];
-    $pro_img = $_POST['pro_image'];
-    $pro_price = $_POST['pro_price'];
-    $pro_date = $_POST['pro_date'];
+    $pro_name = $_POST['name'];
+    $pro_img = $_POST['image'];
+    $pro_code = $_POST['code'];
+    $pro_quan = $_POST['quantity'];
+    $pro_price = $_POST['price'];
+    $pro_cate = $_POST['cate'];
 
-    $isCreated = createItem($pro_name, $pro_code, $pro_desc, $pro_img, $pro_price, $pro_date);
+    $isCreated = createItem($pro_name, $pro_code, $pro_img, $pro_price, $pro_quan, $pro_cate);
 
     if ($isCreated){
         header('location: /items');
