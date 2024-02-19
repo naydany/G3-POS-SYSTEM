@@ -4,12 +4,12 @@ string $pro_price, string $pro_date): bool
 {
     global $connection;
     $statement = $connection->prepare("insert into products (pro_name, pro_code, pro_desc, pro_img, pro_price, pro_date) 
-    values (:pro_name, :pro_code, :pro_desc, :pro_img, :pro_price, :pro_date)");
+    values (:pro_name, :pro_code, :pro_desc, :pro_image, :pro_price, :pro_date)");
     $statement->execute([
         ':pro_name' => $pro_name,
         ':pro_code' => $pro_code,
         ':pro_desc' => $pro_desc,
-        ':pro_img' => $pro_img,
+        ':pro_image' => $pro_img,
         ':pro_price' => $pro_price,
         ':pro_date' => $pro_date,
 
@@ -27,10 +27,10 @@ function getPost(int $id) : array
     return $statement->fetch();
 }
 
-function getPosts() : array
+function getItem() : array
 {
     global $connection;
-    $statement = $connection->prepare("select * from posts");
+    $statement = $connection->prepare("select * from products");
     $statement->execute();
     return $statement->fetchAll();
 }
@@ -49,10 +49,10 @@ function updatePost(string $title, string $description, int $id) : bool
     return $statement->rowCount() > 0;
 }
 
-function deletePost(int $id) : bool
+function deleteItem(int $pro_id): bool
 {
     global $connection;
-    $statement = $connection->prepare("delete from posts where id = :id");
-    $statement->execute([':id' => $id]);
+    $statement = $connection->prepare("delete from products where pro_id = :pro_id");
+    $statement->execute([':pro_id' => $pro_id]);
     return $statement->rowCount() > 0;
 }

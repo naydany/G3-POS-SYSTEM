@@ -10,19 +10,11 @@
 <body>
 
 <div class="container mt-4">
-<<<<<<< HEAD
-    <button class="btn btn-outline-primary"><i class="fas fa-user-plus"></i> Add new staff</button>
-</div>
-
-<div class="container mt-4">
-    <table class="table" style = "font-size: 15px">
-=======
     <a href="/create_staffs" class="btn btn-outline-primary"> <i class="fas fa-user-plus"></i> Add new staff</a>
 </div>
 
 <div class="container mt-4">
     <table class="table" style = "font-size: 14px">
->>>>>>> 7ecd8b4c9dcc7ad4d24bd177c6b10712d7632252
         <thead class="bg-primary text-white">
             <tr>
                 <th class="text-center">Staff ID</th>
@@ -50,37 +42,14 @@
                 <td class="text-center">1</td>
                 <td class="text-center">
                     <div class="btn-group">
-<<<<<<< HEAD
-                        <button class="btn btn-danger" onclick="deleteStaff(1)" style = "font-size: 12px"><i class="fas fa-trash"></i> Delete</button>
-                        <button class="btn btn-success" onclick="updateStaff(1)" style = "font-size: 12px"><i class="fas fa-edit"></i> Update</button>
-=======
-                        <button class="btn btn-sm btn-success" onclick="deleteStaff(1)"  style = "font-size: 10px"><i class="fas fa-trash"></i> Delete</button>
+                        <a href="controllers/staffs/delete_staff.controller.php?id=<?=$staff['cas_id']?>"><button class="btn btn-sm btn-success" onclick="deleteStaff(1)"  style = "font-size: 10px"><i class="fas fa-trash"></i> Delete</button></a>
                         <button class="btn btn-sm btn-danger ml-3" onclick="updateStaff(1)"  style = "font-size: 10px"><i class="fas fa-edit"></i> Update</button>
->>>>>>> 7ecd8b4c9dcc7ad4d24bd177c6b10712d7632252
                     </div>
                 </td>
             </tr> 
         </tbody>
         <tbody>
-<<<<<<< HEAD
-            <tr>
-                <td class="text-center">002</td>
-                <td class="text-center">channy</td>
-                <td class="text-center">20</td>
-                <td class="text-center">channy.@gmail.com</td>
-                <td class="text-center">18/02/2024</td>
-                <td class="text-center">STREET 2004 SORLA</td>
-                <td class="text-center">2</td>
-                <td class="text-center">
-                    <div class="btn-group">
-                        <button class="btn btn-danger" onclick="deleteStaff(2)"  style = "font-size: 12px"><i class="fas fa-trash"></i> Delete</button>
-                        <button class="btn btn-success" onclick="updateStaff(2)"  style = "font-size: 12px"><i class="fas fa-edit"></i> Update</button>
-                    </div>
-                </td>
-            </tr>
-=======
             <?php endforeach; ?>
->>>>>>> 7ecd8b4c9dcc7ad4d24bd177c6b10712d7632252
         </tbody>
     </table>
 </div>
