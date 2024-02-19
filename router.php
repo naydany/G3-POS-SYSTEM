@@ -20,10 +20,11 @@ $routes = [
     '/update_category' => 'controllers/categories/edite_category.controller.php',
 
 
-
-
-]; 
-
+    '/form_create' => 'controllers/items/create_item.controller.php',
+    '/edit_item' => 'controllers/items/edit_item.controller.php',
+ 
+    
+];
 
 if (array_key_exists($uri, $routes)) {
     $page = $routes[$uri];
