@@ -17,7 +17,7 @@ $routes = [
     '/form_admin_signup' => 'controllers/adminlogin/admin.signup.controller.php',
     '/create_staffs' => 'controllers/staffs/create_form_staff.controller.php',
     '/form_create_pro' => 'controllers/items/create_item.controller.php',
-
+    '/update_staff' => 'controllers/staffs/edite.staff.contrller.php',
 
 
 
