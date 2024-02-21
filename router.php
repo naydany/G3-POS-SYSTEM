@@ -2,7 +2,8 @@
 $uri = parse_url($_SERVER['REQUEST_URI'])['path'];
 $page = "";
 $routes = [
-    '/' => 'controllers/admin/admin.controller.php',
+    '/admin' => 'controllers/admin/admin.controller.php',
+    '/' => 'controllers/wellcom/wellcom.controller.php',
     '/categories' => 'controllers/categories/category.controller.php',
     '/items' => 'controllers/items/item.controller.php',
     '/orders' => 'controllers/orders/order.controller.php',
@@ -14,6 +15,19 @@ $routes = [
     '/profile' => 'controllers/profile/profile.controller.php',
     '/update_profile' => 'controllers/profile/update_detail.controller.php',
 
+    '/admin_signin' => 'controllers/adminlogin/admin.login.controller.php',
+    '/form_admin_signin' => 'controllers/adminlogin/form.signin.controller.php',
+    '/form_admin_signup' => 'controllers/adminlogin/admin.signup.controller.php',
+    '/create_staffs' => 'controllers/staffs/create_form_staff.controller.php',
+    '/form_create_pro' => 'controllers/items/create_item.controller.php',
+    '/update_staff' => 'controllers/staffs/edite.staff.contrller.php',
+    '/update_category' => 'controllers/categories/edite_category.controller.php',
+
+
+    '/form_create' => 'controllers/items/create_item.controller.php',
+    '/edit_item' => 'controllers/items/edit_item.controller.php',
+ 
+    
 ];
 
 if (array_key_exists($uri, $routes)) {
@@ -22,7 +36,17 @@ if (array_key_exists($uri, $routes)) {
    http_response_code(404);
    $page = 'views/errors/404.php';
 }
+
 require "layouts/header.php";
-require "layouts/navbar.php";
+// require "layouts/navbar.php";
+// require "layouts/footer.php";
+if ($uri !== "/" && $uri !== "/admin_signin" && $uri !='/form_admin_signin' && $uri !=='/form_admin_signup') {
+    require "layouts/navbar.php";
+}
+
 require $page;
-require "layouts/footer.php";
+
+// Include the footer only if the user is logged in
+if ($uri !== "/" && $uri !== "/admin_signin"  && $uri !='/form_admin_signin' && $uri !=='/form_admin_signup') {
+    require "layouts/footer.php";
+}
