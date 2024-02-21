@@ -12,18 +12,23 @@ $routes = [
     '/create_form_cate' => 'controllers/categories/form_category.controller.php',
     '/payments' => 'controllers/payments/payment.controller.php',
     '/staffs' => 'controllers/staffs/staff.controller.php',
+    '/profile' => 'controllers/profile/profile.controller.php',
+    '/update_profile' => 'controllers/profile/update_detail.controller.php',
+
     '/admin_signin' => 'controllers/adminlogin/admin.login.controller.php',
     '/form_admin_signin' => 'controllers/adminlogin/form.signin.controller.php',
     '/form_admin_signup' => 'controllers/adminlogin/admin.signup.controller.php',
     '/create_staffs' => 'controllers/staffs/create_form_staff.controller.php',
-
     '/form_create_pro' => 'controllers/items/create_item.controller.php',
+    '/update_staff' => 'controllers/staffs/edite.staff.contrller.php',
+    '/update_category' => 'controllers/categories/edite_category.controller.php',
 
 
-
-
+    '/form_create' => 'controllers/items/create_item.controller.php',
+    '/edit_item' => 'controllers/items/edit_item.controller.php',
+ 
+    
 ];
-
 
 if (array_key_exists($uri, $routes)) {
     $page = $routes[$uri];
