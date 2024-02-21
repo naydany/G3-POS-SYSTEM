@@ -7,9 +7,10 @@ if($_SERVER['REQUEST_METHOD']=='POST'){
     $pro_name = $_POST['name'];
     $pro_img = $_POST['image'];
     $pro_code = $_POST['code'];
+    $pro_cate = $_POST['cate'];
     $pro_quan = $_POST['quantity'];
     $pro_price = $_POST['price'];
-    $pro_cate = $_POST['cate'];
+   
 
     $isCreated = createItem($pro_name, $pro_code, $pro_img, $pro_price, $pro_quan, $pro_cate);
 

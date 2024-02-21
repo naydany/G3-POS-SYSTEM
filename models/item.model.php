@@ -7,11 +7,13 @@ string $pro_price, string $pro_cate): bool
     values (:name, :code, :image, :quantity, :cate, :price)");
     $statement->execute([
         ':name' => $pro_name,
-        ':code' => $pro_code,
         'image' => $pro_img,
-        ':price' => $pro_price,
-        ':quantity' => $pro_quan,
+        ':code' => $pro_code,
         ':cate' => $pro_cate,
+        ':quantity' => $pro_quan,
+        ':price' => $pro_price,
+        
+        
     ]);
 
     return $statement->rowCount() > 0;

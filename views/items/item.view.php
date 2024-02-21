@@ -25,20 +25,22 @@
                     </thead>
 
                     <tbody>
-                        <?php 
+                        <?php
                         require "database/database.php";
                         require "models/item.model.php";
+
                         $products = getItem();
-                        foreach ($products as $pro):
+                        // print_r($products);
+                        foreach ($products as $pro) :
                         ?>
                         <tr>
-                            <td>1</td>
-                            <td>Apple</td>
-                            <td>Apple</td>
-                            <td>009</td>
-                            <td>Fruit</td>
-                            <td>100</td>
-                            <td>4$</td>
+                            <td><?= $pro['pro_id'] ?></td>
+                            <td><?= $pro['pro_name'] ?></td>
+                            <td><?= $pro['pro_img'] ?></td>
+                            <td><?= $pro['pro_code'] ?></td>
+                            <td><?= $pro['cate_id'] ?></td>
+                            <td><?= $pro['pro_quantity'] ?></td>
+                            <td><?= $pro['pro_price'] ?></td>
                             <td>
                                 <a href="" class="btn btn-success">Update</a>
                             </td>
