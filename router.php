@@ -11,6 +11,9 @@ $routes = [
     '/create_form_cate' => 'controllers/categories/form_category.controller.php',
     '/payments' => 'controllers/payments/payment.controller.php',
     '/staffs' => 'controllers/staffs/staff.controller.php',
+    '/profile' => 'controllers/profile/profile.controller.php',
+    '/update_profile' => 'controllers/profile/update_detail.controller.php',
+
 ];
 
 if (array_key_exists($uri, $routes)) {
