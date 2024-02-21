@@ -8,6 +8,9 @@ $routes = [
     '/orders' => 'controllers/orders/order.controller.php',
     '/reports' => 'controllers/reports/report.controller.php',
     '/users' => 'controllers/users/user.controller.php',
+    '/profile' => 'controllers/profile/profile.controller.php',
+    '/update_profile' => 'controllers/profile/update_detail.controller.php',
+
 ];
 
 if (array_key_exists($uri, $routes)) {
