@@ -10,18 +10,17 @@
         <div class="card-body">
             <div class="table-responsive">
                 <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
-                    <thead class="bg-primary text-white">
-                        <tr>
+                    <thead class="thead-light">
+                    <tr>
                             <th>ID</th>
                             <th>Name</th>
                             <th>Image</th>
                             <th>Code</th>
-                            <th>Quantity</th>
                             <th>Category</th>
+                            <th>Quantity</th>
                             <th>Price</th>
                             <th>Update</th>
                             <th>Delete</th>
-
                         </tr>
                     </thead>
 
@@ -31,16 +30,16 @@
                             <td>Apple</td>
                             <td>Apple</td>
                             <td>009</td>
-                            <td>234</td>
-                            <td>Snack</td>
-                            <td>90$</td>
+                            <td>Fruit</td>
+                            <td>100</td>
+                            <td>4$</td>
                             <td>
-                                <a href="" class="btn btn-primary">Update</a>
+                                <a href="" class="btn btn-success">Update</a>
                             </td>
                             <td>
                                 <a href="" class="btn btn-danger">Delete</a>
                             </td>
-
+                            
                         </tr>
                     </tbody>
                 </table>
