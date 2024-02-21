@@ -5,7 +5,7 @@
     <div class="card shadow ">
         <div class="card-header py-3 d-flex justify-content-between">
             <h6 class="m-0 font-weight-bold text-primary">Products</h6>
-            <a href="" class="btn btn-primary">Create Product</a>
+            <a href="/form_create" class="btn btn-primary">Create Product</a>
         </div>
         <div class="card-body">
             <div class="table-responsive">
@@ -45,7 +45,7 @@
                                 <a href="" class="btn btn-success">Update</a>
                             </td>
                             <td>
-                                <a href="../../controllers/items/delete_item.controller.php?id=<?= $pro['id'] ?>" class="btn btn-danger">Delete</a>
+                                <a href="../../controllers/items/delete_item.controller.php?id=<?= $pro['pro_id'] ?>" class="btn btn-danger">Delete</a>
                             </td>
                             
                         </tr>
