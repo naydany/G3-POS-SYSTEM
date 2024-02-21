@@ -4,9 +4,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     $name = $_POST["name"];
     $role = $_POST["role"];
     $genders = $_POST["gender"];
-    
-    $imgProfile = $_FILES['image'];
-
+    // echo $genders
     $birthdate = $_POST["birthdate"];
     $country = $_POST["country"];
 
