@@ -81,11 +81,11 @@
                 <!-- For more projects: Visit NetGO+  -->
 
                 <a href="/form_admin_signin">Admin Login</a>  |
-                <a href="/form_admin_signin">Staff Login</a>
+                <a href="/form_staff_signin">Staff Login</a>
 
-                <div class="mt-5">
+                <!-- <div class="mt-5">
                     <a href="/form_admin_signup">Create Account</a>
-                </div>
+                </div> -->
             </div>
         </div>
     </div>
