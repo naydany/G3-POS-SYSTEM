@@ -1,5 +1,5 @@
 <div class="m-5 d-flex justify-content-center flex-column">
-    <form action="../../controllers/items/create.controller.php" method="post" ">
+    <form action="../../controllers/items/create.controller.php" method="post">
         <div class=" form-group">
         <label for="pro_name">Name</label>
         <input type="text" class="form-control" placeholder="Enter Name" name="name">
