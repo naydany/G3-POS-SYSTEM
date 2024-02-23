@@ -29,6 +29,7 @@ $routes = [
     '/edit_item' => 'controllers/items/edit_item.controller.php',
     '/suppliers' => 'controllers/suppliers/supplier.controller.php',
     
+    '/logout' => 'controllers/users/logout.controller.php',
     
 ];
 

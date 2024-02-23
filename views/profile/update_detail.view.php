@@ -5,6 +5,11 @@
             <label for="exampleFormControlDate1" class="col-sm-3 col-form-label">Name</label>
             <input type="text" class="form-control" name="name" placeholder="Your Name">
         </div>
+        <!-- Bio -->
+        <div class="form-group">
+            <label for="exampleFormControlDate1" class="col-sm-3 col-form-label">Bio</label>
+            <input type="text" class="form-control" name="bio" placeholder="Your Name">
+        </div>
         <!-- role -->
         <label for="exampleFormControlDate1" class="col-sm-3 col-form-label">Role</label>
         <select class="custom-select my-1 mr-sm-2" name="role" id="inlineFormCustomSelectPref">

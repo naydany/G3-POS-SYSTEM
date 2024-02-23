@@ -43,10 +43,8 @@
                                 </button>
                             </a>
                             <a href="">
-                                <button class="btn btn-sm btn-danger ml-3">
-                                    <i class="fas fa-window-close"></i>
-                                    Cancel Order
-                                </button>
+                            <button type="button" class="btn btn-outline-danger"><i class="fas fa-window-close"></i>
+                                    Cancel Order</button>
                             </a>
                         </div>
                     </td>
