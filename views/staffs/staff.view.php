@@ -42,8 +42,8 @@
                 <td class="text-center">1</td>
                 <td class="text-center">
                     <div class="btn-group">
-                        <button class="btn btn-sm btn-success" onclick="deleteStaff(1)"  style = "font-size: 10px"><i class="fas fa-trash"></i> Delete</button>
-                        <button class="btn btn-sm btn-danger ml-3" onclick="updateStaff(1)"  style = "font-size: 10px"><i class="fas fa-edit"></i> Update</button>
+                        <a href="controllers/staffs/delete_staff.controller.php?id=<?=$staff['cas_id']?>"><button class="btn btn-sm btn-danger" onclick="deleteStaff(1)"  style = "font-size: 10px"><i class="fas fa-trash"></i> Delete</button></a>
+                        <a href="/update_staff?id=<?=$staff['cas_id']?>"><button class="btn btn-sm btn-success ml-3" onclick="updateStaff(1)"  style = "font-size: 10px"><i class="fas fa-edit"></i> Update</button></a>
                     </div>
                 </td>
             </tr> 

@@ -42,7 +42,7 @@
                     <td>
                         <div class="btn-group">
 
-                            <a href="">
+                            <a href="views/payments/form.payment.view.php">
                                 <button class="btn btn-sm btn-success ">
                                     <i class="fas fa-handshake"></i>
                                     Pay Order
