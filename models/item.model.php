@@ -40,14 +40,21 @@ function getItem(): array
     return $statement->fetchAll();
 }
 
-function updateItem(string $title, string $description, int $id): bool
+function updateItem( string $pro_name,
+string $pro_code,
+$pro_quan,
+string $pro_price,
+string $pro_cate): bool
 {
     global $connection;
-    $statement = $connection->prepare("update posts set title = :title, description = :description where id = :id");
+    $statement = $connection->prepare("update products set pro_name = :name, pro_code = :code, pro_price = :price,
+    cate_id = :cate, pro_quantity = :quantity where id = :id");
     $statement->execute([
-        ':title' => $title,
-        ':description' => $description,
-        ':id' => $id
+        ':name' => $pro_name,
+        ':code' => $pro_code,
+        ':cate' => $pro_cate,
+        ':quantity' => $pro_quan,
+        ':price' => $pro_price,
     ]);
 
     return $statement->rowCount() > 0;

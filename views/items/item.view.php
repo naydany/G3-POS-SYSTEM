@@ -42,7 +42,8 @@
                                 <td><?= $pro['cate_id'] ?></td>
                                 <td><?= $pro['pro_quantity'] ?></td>
                                 <td>
-                                    <a href="" class="btn btn-success">Update</a>
+                                    <a href="./update_item?id=<?= $pro['pro_id'] ?>" class="btn btn-success">Update</a>
+                                    
                                 </td>
                                 <td>
                                     <a href="../../controllers/items/delete_item.controller.php?id=<?= $pro['pro_id'] ?>" class="btn btn-danger">Delete</a>

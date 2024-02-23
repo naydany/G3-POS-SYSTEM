@@ -15,7 +15,6 @@
             <input type="file" class="form-control" placeholder="Insert Image" name="image">
         </div>
         <button type="submit" class="btn btn-primary w-25">Submit</button>
-        <button type="submit" class="btn btn-danger ml-5 w-25">Cancel</button>
         
 </div>
 
