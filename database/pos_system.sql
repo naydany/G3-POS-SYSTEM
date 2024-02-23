@@ -42,6 +42,7 @@ CREATE TABLE `Admins`(
     `Admin_id` INT UNSIGNED NOT NULL AUTO_INCREMENT PRIMARY KEY,
     `Admin_name` VARCHAR(255) NOT NULL,
     `Admin_email` VARCHAR(255) NOT NULL,
+    `Admin_emage` VARCHAR(255) NOT NULL,
     `Admin_passwbigintord` VARCHAR(255) NOT NULL
 );
 
@@ -115,6 +116,14 @@ CREATE TABLE `products`(
 );
 
 
+INSERT INTO `users`(`name`, `password`, `email`, `role`) 
+VALUES ('dany',123456,'admin@email.com','admin');
+
+
+INSERT INTO `staffs`(`name`, `password`, `email`, `role`) 
+VALUES ('dyna',123456,'staff@email.com','staffs');
+
+
 ALTER TABLE
     `products` ADD INDEX `products_sup_id_index`(`sup_id`);
 ALTER TABLE
@@ -140,4 +149,3 @@ ALTER TABLE
 ALTER TABLE
     `products` ADD CONSTRAINT `products_pro_name_foreign` FOREIGN KEY(`pro_name`) REFERENCES `categories`(`cate_id`);
 
-    
