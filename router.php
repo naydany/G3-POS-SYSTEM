@@ -22,6 +22,7 @@ $routes = [
     '/form_create_pro' => 'controllers/items/create_item.controller.php',
     '/update_staff' => 'controllers/staffs/edite.staff.contrller.php',
     '/update_category' => 'controllers/categories/edite_category.controller.php',
+    '/order_product' => 'controllers/orders/update_order.controller.php',
 
 
     '/form_create' => 'controllers/items/create_item.controller.php',
