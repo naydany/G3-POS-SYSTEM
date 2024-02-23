@@ -16,8 +16,8 @@
 <body>
     <div class="card-header border-0">
         <a href="/create_form_cate" class="btn btn-outline-primary">
-            <i class="fas fa-plus"></i> <i class="fas fa-utensils"></i>
             Make A New Order
+            <i class="fas fa-plus"></i>
         </a>
     </div>
 
