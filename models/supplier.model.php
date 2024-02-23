@@ -25,3 +25,11 @@ function getSuppliers(): array
     $statement->execute();
     return $statement->fetchAll();
 }
+function deleteSupplier(int $id) : bool
+
+{
+    global $connection;
+    $statement = $connection->prepare("delete from suppliers where sup_id = :sup_id");
+    $statement->execute([':sup_id' => $id]);
+    return $statement->rowCount() > 0;
+}
