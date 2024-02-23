@@ -6,6 +6,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     $genders = $_POST["gender"];
     $birthdate = $_POST["birthdate"];
     $country = $_POST["country"];
+    $bio = $_POST["bio"];
 }
 ?>
 
@@ -15,6 +16,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         <div class="card-body d-flex flex-column align-items-center justify-content-start">
             <img class="rounded-circle img-thumbnail mr-3" src="https://t4.ftcdn.net/jpg/03/83/25/83/360_F_383258331_D8imaEMl8Q3lf7EKU2Pi78Cn0R7KkW9o.jpg" alt="Profile Image" id="profileImage" style="height: 140px; width: 140px; object-fit: cover; z-index: 1; margin-top: 70px;">
             <h2 class="card-title text-center mt-3"><?= $name ?></h2>
+            <h6><b>Bio: </b><?= $bio ?></h6>
             <div style="display: flex;">
                 <div>
                     <label for="coverImageInput" class="d-block text-center btn btn-light btn-sm mt-2">
