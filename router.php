@@ -39,15 +39,19 @@ if (array_key_exists($uri, $routes)) {
 }
 
 require "layouts/header.php";
-// require "layouts/navbar.php";
-// require "layouts/footer.php";
-if ($uri !== "/" && $uri !== "/admin_signin" && $uri !='/form_admin_signin' && $uri !=='/form_admin_signup') {
+if ($uri !== "/" && 
+$uri !== "/admin_signin" && 
+$uri !='/form_admin_signin' && 
+$uri !=='/form_admin_signup') {
     require "layouts/navbar.php";
 }
 
 require $page;
 
 // Include the footer only if the user is logged in
-if ($uri !== "/" && $uri !== "/admin_signin"  && $uri !='/form_admin_signin' && $uri !=='/form_admin_signup') {
+if ($uri !== "/" &&
+ $uri !== "/admin_signin"  && 
+ $uri !='/form_admin_signin' && 
+ $uri !=='/form_admin_signup') {
     require "layouts/footer.php";
 }
