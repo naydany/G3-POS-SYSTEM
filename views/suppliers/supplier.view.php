@@ -11,23 +11,30 @@
 
 <body>
     <div class="container mt-4">
-        <a href="/suppliers" class="btn btn-outline-primary"> <i class="fas fa-user-plus"></i> Add new supplier</a>
+        <a href="/create_suppliers" class="btn btn-outline-primary"> <i class="fas fa-user-plus"></i> Add new supplier</a>
     </div>
     <div class="container mt-3">
         <table class="table table-bordered text-center mt-2 rounded">
             <thead class="text-secondary thead-light">
                 <tr>
+                    <th>Supplier ID</th>
                     <th>Supplier Name</th>
                     <th>Supplier Country</th>
                     <th>Supplier Address</th>
                     <th>Action</th>
                 </tr>
             </thead>
+            <?php
+
+                $suppliers = getSuppliers();
+                foreach ($suppliers as $supplier) :
+            ?>
             <tbody>
                 <tr>
-                    <td>sreyny</td>
-                    <td>Kompong Cham</td>
-                    <td>រាស្រ្តសាមញ្ញ</td>
+                    <td><?= $supplier['sup_id'] ?></td>
+                    <td><?= $supplier['sup_name'] ?></td>
+                    <td><?= $supplier['sup_country'] ?></td>
+                    <td><?= $supplier['sup_address'] ?></td>
                     <td>
                         <div class="btn-group">
                             <button class="btn btn-sm btn-danger"><i class="fas fa-trash"></i> Delete</button>
@@ -36,6 +43,7 @@
                     </td>
                 </tr>
             </tbody>
+            <?php endforeach; ?>
         </table>
     </div>
 

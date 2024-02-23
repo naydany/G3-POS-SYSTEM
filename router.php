@@ -28,6 +28,7 @@ $routes = [
     '/form_create' => 'controllers/items/create_item.controller.php',
     '/edit_item' => 'controllers/items/edit_item.controller.php',
     '/suppliers' => 'controllers/suppliers/supplier.controller.php',
+    '/create_suppliers' => 'controllers/suppliers/form_supplier.controller.php',
     
     '/logout' => 'controllers/users/logout.controller.php',
     
