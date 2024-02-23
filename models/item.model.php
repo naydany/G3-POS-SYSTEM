@@ -27,7 +27,7 @@ function createItem(
 function getItemID(int $id): array
 {
     global $connection;
-    $statement = $connection->prepare("select * from products where id = :id");
+    $statement = $connection->prepare("select * from products where pro_id = :id");
     $statement->execute([':id' => $id]);
     return $statement->fetch();
 }
@@ -40,21 +40,20 @@ function getItem(): array
     return $statement->fetchAll();
 }
 
-function updateItem( string $pro_name,
-string $pro_code,
-$pro_quan,
-string $pro_price,
-string $pro_cate): bool
+function updateItem( string $pro_name,string $pro_code , string $pro_price, int $pro_quan,int $pro_cate, int $pro_id): bool
 {
+ 
     global $connection;
-    $statement = $connection->prepare("update products set pro_name = :name, pro_code = :code, pro_price = :price,
-    cate_id = :cate, pro_quantity = :quantity where id = :id");
+    $statement = $connection->prepare("update products set pro_name = :pro_name, pro_code = :pro_code, pro_price = :pro_price,
+    cate_id = :cate_id, pro_quantity = :pro_quantity where pro_id = :pro_id");
+    // $statement->execute();
     $statement->execute([
-        ':name' => $pro_name,
-        ':code' => $pro_code,
-        ':cate' => $pro_cate,
-        ':quantity' => $pro_quan,
-        ':price' => $pro_price,
+        ":pro_name" => $pro_name,
+        ":pro_code" => $pro_code,
+        ":cate_id" => $pro_cate,
+        ":pro_quantity" => $pro_quan,
+        ":pro_price" => $pro_price,
+        ":pro_id"=> $pro_id,
     ]);
 
     return $statement->rowCount() > 0;

@@ -42,7 +42,7 @@
                                 <td><?= $pro['cate_id'] ?></td>
                                 <td><?= $pro['pro_quantity'] ?></td>
                                 <td>
-                                    <a href="./update_item?id=<?= $pro['pro_id'] ?>" class="btn btn-success">Update</a>
+                                    <a href="/update_item?id=<?= $pro['pro_id'] ?>" class="btn btn-success">Update</a>
                                     
                                 </td>
                                 <td>
