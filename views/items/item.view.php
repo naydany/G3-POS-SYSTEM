@@ -11,7 +11,7 @@
             <div class="table-responsive">
                 <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
                     <thead class="thead-light">
-                    <tr>
+                        <tr>
                             <th>ID</th>
                             <th>Name</th>
                             <th>Image</th>
@@ -33,22 +33,22 @@
                         // print_r($products);
                         foreach ($products as $pro) :
                         ?>
-                        <tr>
-                            <td><?= $pro['pro_id'] ?></td>
-                            <td><?= $pro['pro_name'] ?></td>
-                            <td><?= $pro['pro_img'] ?></td>
-                            <td><?= $pro['pro_code'] ?></td>
-                            <td><?= $pro['cate_id'] ?></td>
-                            <td><?= $pro['pro_quantity'] ?></td>
-                            <td><?= $pro['pro_price'] ?></td>
-                            <td>
-                                <a href="" class="btn btn-success">Update</a>
-                            </td>
-                            <td>
-                                <a href="../../controllers/items/delete_item.controller.php?id=<?= $pro['pro_id'] ?>" class="btn btn-danger">Delete</a>
-                            </td>
-                            
-                        </tr>
+                            <tr>
+                                <td><?= $pro['pro_id'] ?></td>
+                                <td><?= $pro['pro_name'] ?></td>
+                                <td><?= $pro['pro_code'] ?></td>
+                                <td><?= $pro['pro_img'] ?></td>
+                                <td><?= $pro['pro_price'] ?></td>
+                                <td><?= $pro['cate_id'] ?></td>
+                                <td><?= $pro['pro_quantity'] ?></td>
+                                <td>
+                                    <a href="" class="btn btn-success">Update</a>
+                                </td>
+                                <td>
+                                    <a href="../../controllers/items/delete_item.controller.php?id=<?= $pro['pro_id'] ?>" class="btn btn-danger">Delete</a>
+                                </td>
+
+                            </tr>
                         <?php endforeach ?>
                     </tbody>
                 </table>

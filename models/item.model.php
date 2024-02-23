@@ -1,33 +1,38 @@
 <?php
-function createItem(string $pro_name, string $pro_code, $pro_quan, $pro_img,
-string $pro_price, string $pro_cate): bool
-{
+function createItem(
+    string $pro_name,
+    string $pro_code,
+    $pro_quan,
+    $pro_img,
+    string $pro_price,
+    string $pro_cate
+): bool {
     global $connection;
-    $statement = $connection->prepare("insert into products (pro_name, pro_code,pro_img, pro_price, pro_quantity, cate_id ) 
-    values (:name, :code, :image, :quantity, :cate, :price)");
+    $statement = $connection->prepare("insert into products (pro_name, pro_code, pro_img, pro_price, cate_id,  pro_quantity ) 
+    values (:name, :image, :code, :cate,:quantity,  :price)");
     $statement->execute([
         ':name' => $pro_name,
-        'image' => $pro_img,
         ':code' => $pro_code,
+        'image' => $pro_img,
         ':cate' => $pro_cate,
         ':quantity' => $pro_quan,
         ':price' => $pro_price,
-        
-        
+
+
     ]);
 
     return $statement->rowCount() > 0;
 }
 
-function getPost(int $id) : array
+function getItemID(int $id): array
 {
     global $connection;
-    $statement = $connection->prepare("select * from posts where id = :id");
+    $statement = $connection->prepare("select * from products where id = :id");
     $statement->execute([':id' => $id]);
     return $statement->fetch();
 }
 
-function getItem() : array
+function getItem(): array
 {
     global $connection;
     $statement = $connection->prepare("select * from products");
@@ -35,7 +40,7 @@ function getItem() : array
     return $statement->fetchAll();
 }
 
-function updatePost(string $title, string $description, int $id) : bool
+function updateItem(string $title, string $description, int $id): bool
 {
     global $connection;
     $statement = $connection->prepare("update posts set title = :title, description = :description where id = :id");
@@ -43,7 +48,6 @@ function updatePost(string $title, string $description, int $id) : bool
         ':title' => $title,
         ':description' => $description,
         ':id' => $id
-
     ]);
 
     return $statement->rowCount() > 0;

@@ -5,12 +5,16 @@
         <input type="text" class="form-control" placeholder="Enter Name" name="name">
 </div>
 <div class="form-group">
+    <label>Code</label>
+    <input type="number" class="form-control" placeholder="Enter Code" name="code">
+</div>
+<div class="form-group">
     <label>Image</label>
     <input type="file" class="form-control" placeholder="Insert Image" name="image">
 </div>
 <div class="form-group">
-    <label>Code</label>
-    <input type="number" class="form-control" placeholder="Enter Code" name="code">
+    <label>Price</label>
+    <input type="text" class="form-control" placeholder="Enter Price" name="price">
 </div>
 <div class="form-group">
     <label>Category</label>
@@ -21,11 +25,6 @@
     <label>Quantity</label>
     <input type="number" class="form-control" placeholder="Enter Quantity" name="quantity">
 </div>
-<div class="form-group">
-    <label>Price</label>
-    <input type="text" class="form-control" placeholder="Enter Price" name="price">
-</div>
-
 <button type="submit" class="btn btn-primary w-25 mx-auto m-4">Submit</button>
 </form>
 </div>
