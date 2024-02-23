@@ -1,5 +1,3 @@
-
-
 <!DOCTYPE html>
 <!-- <html lang="{{ str_replace('_', '-', app()->getLocale()) }}"> -->
 
@@ -29,7 +27,7 @@
         }
 
         .flex-center {
-            
+
             display: flex;
             margin: auto;
             align-items: center;
@@ -38,7 +36,7 @@
 
         .position-ref {
             position: relative;
-            
+
         }
 
         .top-right {
@@ -49,7 +47,7 @@
 
         .content {
             text-align: center;
-           
+
         }
 
         .title {
@@ -65,13 +63,14 @@
             text-decoration: none;
             text-transform: uppercase;
         }
+
         .m-b-md {
             margin-bottom: 30px;
         }
     </style>
 </head>
 
-<body>
+<body class="bg-light text-primary">
     <div class="flex-center position-ref full-height ">
         <div class="content">
             <div class="title m-b-md">
@@ -79,10 +78,14 @@
             </div>
 
             <div class="links">
-			<!-- For more projects: Visit NetGO+  -->
-                <a href="/admin_signin">Admin Log In</a>
-                <a href="pos/cashier/">Staff Log In</a>
-                
+                <!-- For more projects: Visit NetGO+  -->
+
+                <a href="/form_admin_signin">Admin Login</a>  |
+                <a href="/form_admin_signin">Staff Login</a>
+
+                <div class="mt-5">
+                    <a href="/form_admin_signup">Create Account</a>
+                </div>
             </div>
         </div>
     </div>
