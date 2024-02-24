@@ -1,6 +1,4 @@
-
-
-<div class="main-content  " style="margin: auto; width:1200px" >
+<div class="main-content  " style="margin: auto; width:1200px">
     <div class="header bg-gradient-primar py-7">
         <div class="container">
             <div class="header-body text-center mb-7">
@@ -41,8 +39,9 @@
                                     <span class="text-dark">Remember me</span>
                                 </label>
                             </div>
-                            <div class="text-center">
-                                <button type="submit" name="login" class="btn btn-primary my-4">Log In</button>
+                            <div class="row justify-content-between">
+                                <a href="/" class="btn btn-primary my-4">< Back</a>
+                                <a href="/admin" class="btn btn-primary my-4">Log In</a>
                             </div>
                         </form>
 
