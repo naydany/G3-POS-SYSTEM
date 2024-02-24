@@ -1,5 +1,4 @@
 <?php
-
 function createAccount(string $name, string $email, string $password, string $role): bool
 {
     global $connection;

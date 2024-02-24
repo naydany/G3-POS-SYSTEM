@@ -10,6 +10,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 }
 ?>
 
+
 <div class="card mx-auto" style="width: 50rem; border: 1px solid gray;">
     <div class="card">
         <img class="card-img-top" src="https://marketplace.canva.com/EAE2cQaUHVA/1/0/1600w/canva-black-minimal-motivation-quote-linkedin-banner-HoRi-2buBWk.jpg" alt="Cover Image" id="coverImage" style="height: 180px; object-fit: cover; position: absolute;">
@@ -46,6 +47,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     </div>
 </div>
 
+
 <script>
     function loadFile(event, targetImageId) {
         var image = document.getElementById(targetImageId);
@@ -58,3 +60,63 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         document.getElementById("profileImageInput").click();
     });
 </script>
+
+<script>
+    var uploadCoverCrop;
+    var uploadProfileCrop;
+
+    $(document).ready(function() {
+                uploadCoverCrop = $('#upload-cover-demo').croppie({
+                    enableExif: true,
+                    viewport: {
+                        width: 500,
+                        height: 180,
+                        type: 'custom'
+                    },
+                    boundary: {
+                        width: 500,
+                        height: 180
+                    }
+                });
+            });
+                uploadProfileCrop = $('#upload-profile-demo').croppie({
+                    enableExif: true,
+                    viewport: {
+                        width: 140,
+                        height: 140,
+                        type: 'circle'
+                    },
+                    boundary: {
+                        width: 140,
+                        height: 140
+                    }
+                });
+
+                $('#coverImageInput').on('change', function() {
+                    var reader = new FileReader();
+                    reader.onload = function(e) {
+                        uploadCoverCrop.croppie('bind', {
+                            url: e.target.result
+                        }).then(function() {
+                            console.log('jQuery bind complete');
+                        });
+                    }
+                    reader.readAsDataURL(this.files[0]);
+                });
+
+                $('#profileImageInput').on('change', function() {
+                    var reader = new FileReader();
+                    reader.onload = function(e) {
+                        uploadProfileCrop.croppie('bind', {
+                            url: e.target.result
+                        }).then(function() {
+                            console.log('jQuery bind complete');
+                        });
+                    }
+                    reader.readAsDataURL(this.files[0]);
+                });
+
+                // Add event listeners
+</script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/croppie/2.6.5/croppie.min.js"></script>
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/croppie/2.6.5/croppie.min.css">
