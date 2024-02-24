@@ -6,8 +6,9 @@ if ($_SERVER['REQUEST_METHOD'] == "POST"){
     if ($_POST['id'] !== '' && $_POST['category'] !== '' ){
         $id = $_POST["id"];
         $category = $_POST["category"];
+        $description = $_POST["description"];
 
-        $update = updateCategory($id, $category);
+        $update = updateCategory($id, $category, $description);
 
         if($update){
             header("Location:/categories");
