@@ -117,11 +117,11 @@ CREATE TABLE `products`(
 
 
 INSERT INTO `users`(`name`, `password`, `email`, `role`) 
-VALUES ('dany',123456,'admin@email.com','admin');
+VALUES ('dany',123456,'admin@gmail.com','admin');
 
 
 INSERT INTO `staffs`(`name`, `password`, `email`, `role`) 
-VALUES ('dyna',123456,'staff@email.com','staffs');
+VALUES ('dyna',123456,'staff@gmail.com','staffs');
 
 
 ALTER TABLE

@@ -3,13 +3,8 @@
         <form action="../../controllers/staffs/create_staff.controller.php" class='d-flex flex-xl-column' method='post'>
 
             <div class="form-group">
-<<<<<<< HEAD
-                <label for="name">name address:</label>
-                <input type="text" class="form-control" id="name" name='name'>
-=======
                 <label for="name">name:</label>
                 <input type="text" class="form-control" id="name" name ='name'>
->>>>>>> 0922f07124f001b73d7acaea69d92b70b62d699b
             </div>
 
             <div class="form-group">
