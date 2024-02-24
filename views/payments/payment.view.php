@@ -37,13 +37,13 @@
                     <td>
                         <div class="btn-group">
                             <a href="#">
-                                <button class="btn btn-sm btn-success ">
+                                <button class="btn btn-sm btn-success mr-3">
                                     <i class="fas fa-handshake"></i>
                                     Pay Order
                                 </button>
                             </a>
                             <a href="">
-                            <button type="button" class="btn btn-outline-danger"><i class="fas fa-window-close"></i>
+                            <button class="btn btn-sm btn-danger"><i class="fas fa-window-close"></i>
                                     Cancel Order</button>
                             </a>
                         </div>
