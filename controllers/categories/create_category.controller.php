@@ -1,17 +1,16 @@
 <?php
-require_once("../../database/database.php");
-require_once ("../../models/category.model.php");
+require "../../database/database.php";
+require "../../models/category.model.php";
 
 if ($_SERVER['REQUEST_METHOD'] == "POST") {
-      $category = $_POST["category"];
+    if ($_POST['category'] !== '' && $_POST['description'] !== '' ) {
+        $category = $_POST["category"];
+        $description = $_POST['description'];
 
-    $add = createCategory($category);
-    echo $add;
-
-    if($add){
-        header("Location:/categories");
-    }else{
+        $add = createCategory($category, $description);
+        // echo $add;
+            header("Location:/categories");
+    }else {
         header("Location:/create_form_cate");
     }
 }
-?>
