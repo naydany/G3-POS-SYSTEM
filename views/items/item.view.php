@@ -13,8 +13,8 @@
                     <thead class="bg-primary text-white thead-light">
                         <tr>
                             <th>ID</th>
-                            <th>Name</th>
                             <th>Image</th>
+                            <th>Name</th>
                             <th>Code</th>
                             <th>Category</th>
                             <th>Quantity</th>
@@ -35,9 +35,9 @@
                         ?>
                             <tr>
                                 <td><?= $pro['pro_id'] ?></td>
+                                <td><img width="50px" height="50px" class="rounded-circle" src="assets/images/<?= $pro['pro_img'] ?>" alt=""></td>
                                 <td><?= $pro['pro_name'] ?></td>
                                 <td><?= $pro['pro_code'] ?></td>
-                                <td><?= $pro['pro_img'] ?></td>
                                 <td><?= $pro['pro_price'] ?></td>
                                 <td><?= $pro['cate_id'] ?></td>
                                 <td><?= $pro['pro_quantity'] ?></td>

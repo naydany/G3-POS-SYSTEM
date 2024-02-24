@@ -2,14 +2,14 @@
 function createItem(
     string $pro_name,
     string $pro_code,
-    $pro_quan,
-    $pro_img,
+    int $pro_quan,
+    string $pro_img,
     string $pro_price,
     string $pro_cate
 ): bool {
     global $connection;
-    $statement = $connection->prepare("insert into products (pro_name, pro_code, pro_img, pro_price, cate_id,  pro_quantity ) 
-    values (:name, :image, :code, :cate,:quantity,  :price)");
+    $statement = $connection->prepare("insert into products (pro_img,pro_name, pro_code, pro_price, cate_id,  pro_quantity ) 
+    values ( :image, :name,:code, :cate,:quantity,  :price)");
     $statement->execute([
         ':name' => $pro_name,
         ':code' => $pro_code,

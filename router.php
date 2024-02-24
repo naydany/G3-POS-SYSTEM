@@ -1,4 +1,5 @@
 <?php
+session_start();
 $uri = parse_url($_SERVER['REQUEST_URI'])['path'];
 $page = "";
 $routes = [
@@ -65,3 +66,27 @@ if ($uri !== "/" &&
  {
     require "layouts/footer.php";
 }
+
+if (empty($_SESSION['user'])){
+    if ($page === 'controllers/adminlogin/form.signin.controller.php'){
+        session_destroy();
+        // require "layouts/header.php";
+        // require $page;
+        // require "layouts/footer.php";
+
+        echo 'hello';
+    } else{
+        header('location: /');
+    }
+}else{
+    if ($page != 'controllers/adminlogin/form.signin.controller.php'){
+        // require "layouts/header.php";
+        // require "layouts/navbar.php";
+        // require $page;
+        // require "layouts/footer.php";
+
+
+    }
+}
+
+echo $_SERVER['REQUEST_URI'];
