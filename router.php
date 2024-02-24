@@ -17,6 +17,7 @@ $routes = [
 
     '/admin_signin' => 'controllers/adminlogin/admin.login.controller.php',
     '/form_admin_signin' => 'controllers/adminlogin/form.signin.controller.php',
+    '/form_staff_signin' => 'controllers/staffsignin/form.signin.controller.php',
     '/form_admin_signup' => 'controllers/adminlogin/admin.signup.controller.php',
     '/create_staffs' => 'controllers/staffs/create_form_staff.controller.php',
     '/form_create_pro' => 'controllers/items/create_item.controller.php',
@@ -45,7 +46,8 @@ require "layouts/header.php";
 if ($uri !== "/" && 
 $uri !== "/admin_signin" && 
 $uri !='/form_admin_signin' && 
-$uri !=='/form_admin_signup') {
+$uri !=='/form_admin_signup' &&
+$uri !=='/form_staff_signin') {
     require "layouts/navbar.php";
 }
 
@@ -55,6 +57,8 @@ require $page;
 if ($uri !== "/" &&
  $uri !== "/admin_signin"  && 
  $uri !='/form_admin_signin' && 
- $uri !=='/form_admin_signup') {
+ $uri !=='/form_admin_signup' &&
+ $uri !=='/form_staff_signin')
+ {
     require "layouts/footer.php";
 }

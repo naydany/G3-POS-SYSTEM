@@ -1,6 +1,6 @@
 <?php
 
-function createStaffs( string $name, int $number, string $email, string $password, string $address) : bool
+function createStaffs( string $name, int $number, string $email, string $password, string $address ) : bool
 {
 
     $timezone = new DateTimeZone('Asia/Phnom_Penh');
@@ -8,14 +8,15 @@ function createStaffs( string $name, int $number, string $email, string $passwor
     $time = $date->format('Y-m-d H:i:s');
 
     global $connection;
-    $statement = $connection->prepare("insert into staffs (cas_name,cas_number,cas_email,cas_password,date, staff_addres) values (:name,:number,:email,:password,:date, :address)");
+    $statement = $connection->prepare("insert into staffs (cas_name,cas_number,cas_email,cas_password,date, staff_addres, role) values (:name,:number,:email,:password,:date, :address, :role)");
     $statement->execute([
         ':name' => $name,
         ':number' => $number,
         ':email' => $email,
         ':password' => $password,
         ':date' => $time,
-        ':address' => $address
+        ':address' => $address,
+        ':role' => 'staff',
     ]);
     return $statement->rowCount() > 0;
 }
@@ -66,4 +67,19 @@ function updateStaffs( int $id, string $name, int $number, string $email, string
     ]);
 
     return $statement->rowCount() > 0;
+}
+
+
+function accountExist(string $email): array
+{
+    global $connection;
+    $statement = $connection->prepare("SELECT * FROM users WHERE email = :email");
+    $statement->execute([
+        ':email' => $email
+    ]);
+    if ($statement->rowCount() > 0) {
+        return $statement->fetch();
+    } else {
+        return [];
+    }
 }

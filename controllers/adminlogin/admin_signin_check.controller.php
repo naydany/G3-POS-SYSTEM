@@ -24,11 +24,11 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
 
         } else {
             $_SESSION['error'] = "Wrong password";
-            header('Location:/admin_signin');
+            header('Location:/form_admin_signin');
         }
     } else {
         $_SESSION['error'] = "Please enter a valid email";
-        header('Location: /admin');
+        header('Location: /form_admin_signin');
     }
 }
 
