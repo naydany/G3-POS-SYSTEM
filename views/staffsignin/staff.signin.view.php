@@ -61,9 +61,10 @@ endif;
                                         <span class="text-dark">Remember me</span>
                                     </label>
                                 </div>
-                                <div class="text-center">
-                                    <button type="submit" name="login" class="btn btn-primary my-4">Log In</button>
-                                    <!-- <a href="/signin">Already have account</a> -->
+                                <div class="row justify-content-between">
+                                    <a href="/" class="btn btn-primary my-4">
+                                        < Back</a>
+                                            <a href="/admin" class="btn btn-primary my-4">Log In</a>
                                 </div>
 
                             </form>
