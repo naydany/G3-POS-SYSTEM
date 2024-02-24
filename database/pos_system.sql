@@ -65,7 +65,7 @@ CREATE TABLE `roles`(
 CREATE TABLE `suppliers`(
     `sup_id` INT UNSIGNED NOT NULL AUTO_INCREMENT PRIMARY KEY,
     `sup_name` VARCHAR(255) NOT NULL,
-    `sup_countbigintry` VARCHAR(255) NOT NULL,
+    `sup_country` VARCHAR(255) NOT NULL,
     `sup_address` VARCHAR(255) NOT NULL
 );
 
@@ -95,7 +95,8 @@ ALTER TABLE
 CREATE TABLE `categories`(
     `cate_id` INT NOT NULL AUTO_INCREMENT PRIMARY KEY,
     `cate_name` VARCHAR(255) NOT NULL,
-    `cate_date` DATETIME NOT NULL
+    `cate_date` DATETIME NOT NULL,
+    `cate_desc` VARCHAR(255) NOT NULL
 );
 
 
@@ -117,11 +118,11 @@ CREATE TABLE `products`(
 
 
 INSERT INTO `users`(`name`, `password`, `email`, `role`) 
-VALUES ('dany',123456,'admin@email.com','admin');
+VALUES ('dany',123456,'admin@gmail.com','admin');
 
 
 INSERT INTO `staffs`(`name`, `password`, `email`, `role`) 
-VALUES ('dyna',123456,'staff@email.com','staffs');
+VALUES ('dyna',123456,'staff@gmail.com','staffs');
 
 
 ALTER TABLE
