@@ -10,36 +10,40 @@
 </head>
 
 <body>
-    <p class="ml-5">Select any product to make an order</p>
+    <div class="container mt-4">
+        <a href="/create_suppliers" class="btn btn-outline-primary"> <i class="fas fa-user-plus"></i> Add new supplier</a>
+    </div>
     <div class="container mt-3">
         <table class="table table-bordered text-center mt-2 rounded">
             <thead class="text-secondary thead-light">
                 <tr>
-                    <th>Image</th>
-                    <th>Product code</th>
-                    <th>Name</th>
-                    <th>Price</th>
+                    <th>Supplier ID</th>
+                    <th>Supplier Name</th>
+                    <th>Supplier Country</th>
+                    <th>Supplier Address</th>
                     <th>Action</th>
                 </tr>
             </thead>
+            <?php
+
+                $suppliers = getSuppliers();
+                foreach ($suppliers as $supplier) :
+            ?>
             <tbody>
                 <tr>
-                    <td>food</td>
-                    <td> FcWu-123 </td>
-                    <td>Koko sup</td>
-                    <td> $ 7 </td>
+                    <td><?= $supplier['sup_id'] ?></td>
+                    <td><?= $supplier['sup_name'] ?></td>
+                    <td><?= $supplier['sup_country'] ?></td>
+                    <td><?= $supplier['sup_address'] ?></td>
                     <td>
                         <div class="btn-group">
-                            <a href="/order_product">
-                                <button class="btn btn-sm btn-success">
-                                    <i class="fas fa-handshake"></i>
-                                    Place order
-                                </button>
-                            </a>
+                            <a href="controllers/suppliers/delete_supplier.controller.php?id=<?=$supplier['sup_id']?>"><button class="btn btn-sm btn-danger"><i class="fas fa-trash"></i> Delete</button></a>
+                            <a href="/update_supplier?id=<?=$supplier['sup_id']?>"><button class="btn btn-sm btn-success ml-3">Update</button></a>
                         </div>
                     </td>
                 </tr>
             </tbody>
+            <?php endforeach; ?>
         </table>
     </div>
 
