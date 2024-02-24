@@ -31,7 +31,7 @@ $routes = [
     '/create_suppliers' => 'controllers/suppliers/form_supplier.controller.php',
     
     '/logout' => 'controllers/users/logout.controller.php',
-    
+    '/update_supplier' => 'controllers/suppliers/edite_spplier.controller.php',
 ];
 
 if (array_key_exists($uri, $routes)) {
