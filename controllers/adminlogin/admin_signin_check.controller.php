@@ -10,18 +10,17 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
     $password = htmlspecialchars($_POST['admin_password']);
 
     $user = accountExist($email);
-    if(count($user) > 0) {
+    if (count($user) > 0) {
         if (password_verify($password, $user['password'])) {
             $_SESSION['success'] = "Login successful";
             // $_SESSION['user'] = [$user['id'], $user['email']];
-            $_SESSION['user'] = $user ;
+            $_SESSION['user'] = $user;
 
             if ($user['role'] === 'Admin') {
                 header('Location:/admin');
             } else {
                 header('Location:/normal');
             }
-
         } else {
             $_SESSION['error'] = "Wrong password";
             header('Location:/form_admin_signin');
@@ -31,4 +30,3 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
         header('Location: /form_admin_signin');
     }
 }
-
