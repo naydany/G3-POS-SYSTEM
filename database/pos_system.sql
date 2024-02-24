@@ -95,7 +95,8 @@ ALTER TABLE
 CREATE TABLE `categories`(
     `cate_id` INT NOT NULL AUTO_INCREMENT PRIMARY KEY,
     `cate_name` VARCHAR(255) NOT NULL,
-    `cate_date` DATETIME NOT NULL
+    `cate_date` DATETIME NOT NULL,
+    `cate_desc` VARCHAR(255) NOT NULL
 );
 
 
