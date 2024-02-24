@@ -23,8 +23,8 @@
         <table class="table table-bordered text-center mt-2 rounded">
             <thead class=" text-secondary thead-light">
                 <tr>
-                    <th>Cate Id</th>
-                    <th>Cate Name</th>
+                    <th>Id</th>
+                    <th>Category Name</th>
                     <th>Date</th>
                     <th>Action</th>
                 </tr>
