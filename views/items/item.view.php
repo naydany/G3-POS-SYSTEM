@@ -10,7 +10,7 @@
         <div class="card-body">
             <div class="table-responsive">
                 <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
-                    <thead class="bg-primary text-white">
+                    <thead class="bg-primary text-white thead-light">
                         <tr>
                             <th>ID</th>
                             <th>Name</th>
