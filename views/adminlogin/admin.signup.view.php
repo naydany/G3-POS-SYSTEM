@@ -1,10 +1,22 @@
+<?php
+//    if(isset($_SESSION['admin'])) {
+//     $user = $_SESSION['admin'];
+//     if ($user['role'] === "Admin") {
+//       header("Location: /admin");
+//     } else {
+//       header('Location: /normal');
+//     }
+//     die();
+// }
+?>
+
 <?php if (isset($_SESSION['error'])) : ?>
     <div class="alert alert-danger alert-dismissible fade show" id="alert">
         <button type="button" class="close" data-dismiss="alert">&times;</button>
         <?= $_SESSION['error'] ?>
     </div>
 <?php
-    session_destroy();
+    unset($_SESSION['error']);
 endif;
 ?>
 
@@ -28,7 +40,7 @@ endif;
                 <div class="col-lg-5 col-md-7">
                     <div class="card bg-secondary shadow border-0">
                         <div class="card-body px-lg-5 py-lg-5">
-                            <form method="post" role="form">
+                            <form action='controllers/adminlogin/create_admin.controller.php' method="post" role="form">
                                 <div class="form-group">
                                     <div class="input-group input-group-alternative">
                                         <div class="input-group-prepend">
@@ -42,7 +54,7 @@ endif;
                                         <div class="input-group-prepend">
                                             <span class="input-group-text"><i class="bi bi-envelope-fill"></i></span>
                                         </div>
-                                        <input class="form-control" required name="staff_email" placeholder="Email" type="email">
+                                        <input class="form-control" required name="admin_email" placeholder="Email" type="email">
                                     </div>
                                 </div>
                                 <div class="form-group">
@@ -50,19 +62,26 @@ endif;
                                         <div class="input-group-prepend">
                                             <span class="input-group-text"><i class="bi bi-unlock-fill"></i></span>
                                         </div>
-                                        <input class="form-control" required name="staff_password" placeholder="Password" type="password">
+                                        <input class="form-control" required name="admin_password" placeholder="Password" type="password">
                                     </div>
                                 </div>
                                 <div class="form-group">
                                     <label for="">Profile:</label>
                                     <input type="file" class="form-control" name="image">
                                 </div>
+                                <div class="form-group" style="height: max-content; ">
+                                    <select class="selectpicker" name="role">
+                                        <option>Admin</option>
+                                        <option>Staffs</option>
+                                        <!-- <option>Barbecue</option> -->
+                                    </select>
+                                </div>
                                 <div class="custom-control custom-control-alternative custom-checkbox">
                                     <input class="custom-control-input" id=" customCheckLogin" type="checkbox">
                                     <div class="text-center">
                                         <button type="submit" class="btn btn-primary">Submit</button>
                                         <hr>
-                                        <a href="/signin">Already have account</a>
+                                        <a href="/">Already have account</a>
                                     </div>
                             </form>
                         </div>

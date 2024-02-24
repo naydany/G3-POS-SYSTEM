@@ -3,7 +3,7 @@
 
 <div class="align-item-center container mt-5">
     <div class="text-center">
-        <h1 class="text-dark text-center">Welcome to Page Admin Signin</h1>
+        <h1 class="text-center text-primary">Welcome to Page Admin Signin</h1>
         <?php if (!isset($_SESSION['user'])) : ?>
             <div class=" mt-5">
                 <a href="/form_admin_signin">Sign In</a> /

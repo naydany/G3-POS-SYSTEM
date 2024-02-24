@@ -1,14 +1,3 @@
-<?php
-//    if(isset($_SESSION['user'])) {
-//     $user = $_SESSION['user'];
-//     if ($user['role'] === "Admin") {
-//       header("Location: /admin");
-//     } else {
-//       header('Location: /normal');
-//     }
-//     die();
-// }
-?>
 <?php if (isset($_SESSION['success'])) : ?>
     <div class="alert alert-success alert-dismissible fade show" id="alert">
         <button type="button" class="close" data-dismiss="alert">&times;</button>
@@ -30,7 +19,8 @@ endif;
 
 <body class="bg-dark">
 
-    <div class="main-content  " style="margin: auto; width:1200px">
+
+    <div class="main-content" style="margin: auto; width:1200px">
         <div class="header bg-gradient-primar py-7">
             <div class="container">
                 <div class="header-body text-center mb-7">
@@ -48,13 +38,13 @@ endif;
                 <div class="col-lg-5 col-md-7">
                     <div class="card bg-secondary shadow border-0">
                         <div class="card-body px-lg-5 py-lg-5">
-                            <form action="../../controllers/adminlogin/admin_signin_check.controller.php" method="post">
+                            <form action="../../controllers/staffsignin/staff_signin_check.controller.php" ; method="post">
                                 <div class="form-group mb-3">
                                     <div class="input-group input-group-alternative">
                                         <div class="input-group-prepend">
                                             <span class="input-group-text"><i class="bi bi-envelope-fill"></i></span>
                                         </div>
-                                        <input class="form-control" required name="admin_email" placeholder="Email" type="email">
+                                        <input class="form-control" required name="staff_email" placeholder="Email" type="email">
                                     </div>
                                 </div>
                                 <div class="form-group">
@@ -62,7 +52,7 @@ endif;
                                         <div class="input-group-prepend">
                                             <span class="input-group-text"><i class="bi bi-unlock-fill"></i></span>
                                         </div>
-                                        <input class="form-control" required name="admin_password" placeholder="Password" type="password">
+                                        <input class="form-control" required name="staff_password" placeholder="Password" type="password">
                                     </div>
                                 </div>
                                 <div class="custom-control custom-control-alternative custom-checkbox">
@@ -80,14 +70,9 @@ endif;
 
                         </div>
                     </div>
-                    <div class="row mt-3">
-                        <div class="col-6">
-                            <!-- <a href="../admin/forgot_pwd.php" target="_blank" class="text-light"><small>Forgot password?</small></a> -->
-                        </div>
-                    </div>
+
                 </div>
             </div>
         </div>
     </div>
-
 </body>
