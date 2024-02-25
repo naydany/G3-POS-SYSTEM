@@ -144,3 +144,4 @@ ALTER TABLE
 ALTER TABLE
     `products` ADD CONSTRAINT `products_pro_name_foreign` FOREIGN KEY(`pro_name`) REFERENCES `categories`(`cate_id`);
 
+
