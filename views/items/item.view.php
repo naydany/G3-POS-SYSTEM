@@ -47,7 +47,7 @@
                                 <td><?= $pro['pro_code'] ?></td>
                                 <td><?= $pro['cate_name'] ?></td>
                                 <td><?= $pro['pro_quantity'] ?></td>
-                                <td><?= $pro['pro_price'] ?></td>
+                                <td><?= $pro['pro_price'] ?>$</td>
                                
                                 <td>
                                     <a href="/update_item?id=<?= $pro['pro_id'] ?>" class="btn btn-sm btn-success ml-3"><i class="bi bi-pencil-square"></i>Update</a>
@@ -55,7 +55,7 @@
                                 </td>
 
                             </tr>
-                        <?php endforeach ?>
+                        <?php endforeach; ?>
                     </tbody>
                 </table>
             </div>
