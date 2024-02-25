@@ -148,7 +148,7 @@
                                 $name = $_POST["name"];
                             }
                             ?>
-                         <span class="mr-2 d-none d-lg-inline text-gray-600 small"><?= $name ?></span>
+                         <span class="mr-2 d-none d-lg-inline text-gray-600 small"></span>
                          <img class="img-profile rounded-circle" src="assets/images/undraw_profile.svg">
                      </a>
                      <!-- Dropdown - User Information -->

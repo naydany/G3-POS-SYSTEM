@@ -42,7 +42,7 @@
                         <th>
                             <div class="btn-group">
                                 <div class="btn-group">
-                                    <a href="/update_category?id=<?= $cate['cate_id'] ?>">
+                                    <a href="/update_category?id=<?= $cate['cate_name'] ?>">
                                         <button class="btn btn-sm btn-success"><i class="fa fa-pen"></i>Edite</button></a>
 
                                     <a href="../../controllers/categories/delete_category.controller.php?id=<?= $cate['cate_id'] ?> " onclick="return functionDelete()">
