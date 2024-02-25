@@ -1,5 +1,5 @@
-<div class="m-5 d-flex justify-content-center flex-column">
 
+<div class="m-5 d-flex justify-content-center flex-column">
 
     <form action="../../controllers/items/create.controller.php" method="post" class="d-flex ml-5" enctype="multipart/form-data">
 
@@ -27,7 +27,15 @@
             </div>
             <div class="form-group">
                 <label>Category</label>
-                <input type="text" class="form-control" placeholder="Enter Category" name="cate">
+                <!-- <input type="text" class="form-control" placeholder="Enter Category" name="cate"> -->
+                <div class="input-group mb-3">
+                    <select class="custom-select" id="inputGroupSelect01" name="category">
+                        <option selected>Choose category...</option>
+                        <?php for($i = 0; $i<count($categories);$i++) : ?>
+                              <option value="<?= $categories[$i][0] ?>"><?= $categories[$i][0] ?></option>  
+                        <?php endfor; ?>
+                    </select>
+                </div>
             </div>
 
             <div class="form-group">

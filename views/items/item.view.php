@@ -1,3 +1,10 @@
+
+<?php
+// $tests = countNameCategory();
+
+// var_dump($tests);
+?>
+
 <!-- Begin Page Content -->
 <div class="container-fluid">
 
@@ -39,7 +46,7 @@
                                 <td><?= $pro['pro_name'] ?></td>
                                 <td><?= $pro['pro_code'] ?></td>
                                 <td><?= $pro['pro_price'] ?></td>
-                                <td><?= $pro['cate_id'] ?></td>
+                                <td><?= $pro['cate_name'] ?></td>
                                 <td><?= $pro['pro_quantity'] ?></td>
                                 <td>
                                     <a href="/update_item?id=<?= $pro['pro_id'] ?>" class="btn btn-outline-success">Update</a>

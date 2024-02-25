@@ -1,6 +1,7 @@
 <?php
 require_once '../../database/database.php';
 require_once '../../models/item.model.php';
+require_once '../../models/category.model.php';
 
 if ($_SERVER['REQUEST_METHOD'] == 'POST') {
 
@@ -9,7 +10,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
     $pro_code = $_POST['code'];
     // $pro_img = $_POST['image'];
     $pro_price = $_POST['price'];
-    $pro_cate = $_POST['cate'];
+    $pro_cate = $_POST['category'];
     $pro_quan = $_POST['quantity'];
 
     // echo $imgProfile;
@@ -22,7 +23,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
         if ($checkImageSize) {
             if ($imageFileType != "jpg" && $imageFileType != "png" && $imageFileType != "jpeg") {
                 $_SESSION['error'] = "Wrong Image extension!";
-                header('Location: /');
+                header('Location: /form_create');
             } else {
                 $imageExtension = explode('.', $target_file)[6];
                 $newFileName = uniqid();
@@ -39,7 +40,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
             }
         }else {
             $_SESSION['error'] = "Not Image file!";
-            header('Location: /');
+            header('Location: /form_create');
         }
     }
 }

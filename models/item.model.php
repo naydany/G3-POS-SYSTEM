@@ -8,8 +8,8 @@ function createItem(
     string $pro_cate
 ): bool {
     global $connection;
-    $statement = $connection->prepare("insert into products (pro_img,pro_name, pro_code, pro_price, cate_id,  pro_quantity ) 
-    values ( :image, :name,:code, :cate,:quantity,  :price)");
+    $statement = $connection->prepare("insert into products (pro_img,pro_name, pro_code, pro_price, cate_name,  pro_quantity ) 
+    values ( :image, :name,:code, :cate,:quantity, :price)");
     $statement->execute([
         ':name' => $pro_name,
         ':code' => $pro_code,
@@ -65,4 +65,12 @@ function deleteItem(int $pro_id): bool
     $statement = $connection->prepare("delete from products where pro_id = :pro_id");
     $statement->execute([':pro_id' => $pro_id]);
     return $statement->rowCount() > 0;
+}
+
+
+function countNameCategory(): array{
+    global $connection;
+    $statement = $connection->prepare("select cate_name from categories");
+    $statement->execute();
+    return $statement->fetchAll();
 }
