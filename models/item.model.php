@@ -8,7 +8,7 @@ function createItem(
     string $pro_cate
 ): bool {
     global $connection;
-    $statement = $connection->prepare("insert into products (pro_img,pro_name, pro_code, pro_price, cate_name,  pro_quantity ) 
+    $statement = $connection->prepare("insert into products (pro_img,pro_name, pro_code, cate_name,  pro_quantity, pro_price ) 
     values ( :image, :name,:code, :cate,:quantity, :price)");
     $statement->execute([
         ':name' => $pro_name,
@@ -40,17 +40,16 @@ function getItem(): array
     return $statement->fetchAll();
 }
 
-function updateItem( string $pro_name,string $pro_code , string $pro_price, int $pro_quan,int $pro_cate, int $pro_id): bool
+function updateItem( string $pro_name,string $pro_code , string $pro_price, int $pro_quan, int $pro_id): bool
 {
  
     global $connection;
     $statement = $connection->prepare("update products set pro_name = :pro_name, pro_code = :pro_code, pro_price = :pro_price,
-    cate_id = :cate_id, pro_quantity = :pro_quantity where pro_id = :pro_id");
+    pro_quantity = :pro_quantity where pro_id = :pro_id");
     // $statement->execute();
     $statement->execute([
         ":pro_name" => $pro_name,
         ":pro_code" => $pro_code,
-        ":cate_id" => $pro_cate,
         ":pro_quantity" => $pro_quan,
         ":pro_price" => $pro_price,
         ":pro_id"=> $pro_id,
