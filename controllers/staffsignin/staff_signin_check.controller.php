@@ -22,7 +22,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
             if ($staff['role'] === 'staff') {
                 header('Location:/admin');
             } 
-
+            
         } else {
             $_SESSION['error'] = "Wrong password";
             header('Location:/form_staff_signin');

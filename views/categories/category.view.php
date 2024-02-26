@@ -42,8 +42,13 @@
                         <th>
                             <div class="btn-group">
                                 <div class="btn-group">
+<<<<<<< HEAD
                                     <a href="/update_category?id=<?= $cate['cate_id'] ?>">
                                         <button class="btn btn-sm text-success"><h5><i class="bi bi-pencil-fill"></i></i></i></h5></button></a>
+=======
+                                    <a href="/update_category?id=<?= $cate['cate_name'] ?>">
+                                        <button class="btn btn-sm btn-success"><i class="fa fa-pen"></i>Edite</button></a>
+>>>>>>> e98b5ad9105a4f40eb6f812e41844ea2ec192765
 
                                     <a href="../../controllers/categories/delete_category.controller.php?id=<?= $cate['cate_id'] ?> " onclick="return functionDelete()">
                                         <button class="btn btn-sm text-danger ml-3"><h5><i class="bi bi-trash3-fill"></i></h5></button></a>

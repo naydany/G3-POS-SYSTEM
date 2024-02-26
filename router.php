@@ -1,4 +1,5 @@
 <?php
+session_start();
 $uri = parse_url($_SERVER['REQUEST_URI'])['path'];
 $page = "";
 $routes = [
@@ -29,11 +30,11 @@ $routes = [
 
     '/form_create' => 'controllers/items/create_item.controller.php',
     '/update_item' => 'controllers/items/edit_item.controller.php',
- 
+
     '/edit_item' => 'controllers/items/edit_item.controller.php',
     '/suppliers' => 'controllers/suppliers/supplier.controller.php',
     '/create_suppliers' => 'controllers/suppliers/form_supplier.controller.php',
-    
+
     '/logout' => 'controllers/users/logout.controller.php',
     '/update_supplier' => 'controllers/suppliers/edite_spplier.controller.php',
 ];
@@ -41,27 +42,54 @@ $routes = [
 if (array_key_exists($uri, $routes)) {
     $page = $routes[$uri];
 } else {
-   http_response_code(404);
-   $page = 'views/errors/404.php';
+    http_response_code(404);
+    $page = 'views/errors/404.php';
 }
 
 require "layouts/header.php";
-if ($uri !== "/" && 
-$uri !== "/admin_signin" && 
-$uri !='/form_admin_signin' && 
-$uri !=='/form_admin_signup' &&
-$uri !=='/form_staff_signin') {
+if (
+    $uri !== "/" &&
+    $uri !== "/admin_signin" &&
+    $uri != '/form_admin_signin' &&
+    $uri !== '/form_admin_signup' &&
+    $uri !== '/form_staff_signin'
+) {
     require "layouts/navbar.php";
 }
 
 require $page;
 
 // Include the footer only if the user is logged in
-if ($uri !== "/" &&
- $uri !== "/admin_signin"  && 
- $uri !='/form_admin_signin' && 
- $uri !=='/form_admin_signup' &&
- $uri !=='/form_staff_signin')
- {
+if (
+    $uri !== "/" &&
+    $uri !== "/admin_signin"  &&
+    $uri != '/form_admin_signin' &&
+    $uri !== '/form_admin_signup' &&
+    $uri !== '/form_staff_signin'
+) {
     require "layouts/footer.php";
 }
+
+// if (empty($_SESSION['user'])){
+//     if ($page === 'controllers/adminlogin/form.signin.controller.php'){
+//         session_destroy();
+//         // require "layouts/header.php";
+//         // require $page;
+//         // require "layouts/footer.php";
+
+//         echo 'hello';
+//     } else{
+//         header('location: /');
+//     }
+// }else{
+//     if ($page != 'controllers/adminlogin/form.signin.controller.php'){
+//         // require "layouts/header.php";
+//         // require "layouts/navbar.php";
+//         // require $page;
+//         // require "layouts/footer.php";
+
+
+//     }
+// }
+
+// echo $_SERVER['REQUEST_URI'];
