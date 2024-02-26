@@ -82,11 +82,7 @@ $connection;
              <div class="bg-white py-2 collapse-inner rounded">
                  <h6 class="collapse-header">staff Contains:</h6>
                  <a class="collapse-item" href="/staffs">staffs</a>
-<<<<<<< HEAD
                  <a class="collapse-item" href="/admin_table">admin</a>
-=======
-                 <a class="collapse-item" href="">admin</a>
->>>>>>> ef1e60e247488c0d943c49bae937ca8a7e0b3fc9
              </div>
          </div>
      </li>
