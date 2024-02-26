@@ -1,4 +1,19 @@
- <!-- Sidebar -->
+
+<?php
+$connection;
+ global $page; 
+ if ($page == 'controllers/categories/category.controller.php'){
+    $current_poge = "category";
+ }elseif($page =='controllers/items/item.controller.php') {
+    $current_poge = "search";
+ }
+?>
+    <script src=".././vendor/chart.js/search_category.js"></script>
+    <script src=".././/vendor/chart.js/search.js"></script>
+
+
+
+<!-- Sidebar -->
 
  <ul class="navbar-nav bg-gradient-primary sidebar sidebar-dark accordion" id="accordionSidebar">
 
@@ -67,7 +82,11 @@
              <div class="bg-white py-2 collapse-inner rounded">
                  <h6 class="collapse-header">staff Contains:</h6>
                  <a class="collapse-item" href="/staffs">staffs</a>
+<<<<<<< HEAD
                  <a class="collapse-item" href="/admin_table">admin</a>
+=======
+                 <a class="collapse-item" href="">admin</a>
+>>>>>>> ef1e60e247488c0d943c49bae937ca8a7e0b3fc9
              </div>
          </div>
      </li>
@@ -109,7 +128,7 @@
              <!-- Topbar Search -->
              <form class="d-none d-sm-inline-block form-inline mr-auto ml-md-3 my-2 my-md-0 mw-100 navbar-search">
                  <div class="input-group">
-                     <input type="text" class="form-control bg-light border-0 small" placeholder="Search for..." aria-label="Search" aria-describedby="basic-addon2">
+                    <input type="text" class="form-control bg-light border-0 small" placeholder="Search for..." aria-label="Search" aria-describedby="basic-addon2" id="<?php echo $current_poge ?>">
                      <div class="input-group-append">
                          <button class="btn btn-primary" type="button">
                              <i class="fas fa-search fa-sm"></i>
@@ -148,7 +167,7 @@
                                 $name = $_POST["name"];
                             }
                             ?>
-                         <span class="mr-2 d-none d-lg-inline text-gray-600 small"><?= $name ?></span>
+                         <span class="mr-2 d-none d-lg-inline text-gray-600 small"></span>
                          <img class="img-profile rounded-circle" src="assets/images/undraw_profile.svg">
                      </a>
                      <!-- Dropdown - User Information -->

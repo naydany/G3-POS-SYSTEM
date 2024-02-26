@@ -1,14 +1,8 @@
-<?php
-//    if(isset($_SESSION['user'])) {
-//     $user = $_SESSION['user'];
-//     if ($user['role'] === "Admin") {
-//       header("Location: /admin");
-//     } else {
-//       header('Location: /normal');
-//     }
-//     die();
-// }
-?>
+
+
+
+
+
 <?php if (isset($_SESSION['success'])) : ?>
     <div class="alert alert-success alert-dismissible fade show" id="alert">
         <button type="button" class="close" data-dismiss="alert">&times;</button>
@@ -71,23 +65,12 @@ endif;
                                         <span class="text-dark">Remember me</span>
                                     </label>
                                 </div>
-                                <div class="text-center">
-                                    <button type="submit" name="login" class="btn btn-primary my-4">Log In</button>
-                                    <!-- <a href="/signin">Already have account</a> -->
+                                <div class="row justify-content-between">
+                                    <a href="/" class="btn btn-primary my-4 ml-3">Back</a>
+                                   <!-- <a href="/admin" class="btn btn-primary my-4 m r-3">Log In</a> -->
+                                   <button type="submit" name="login" class="btn btn-primary my-4 mr-3">Log In</button>
                                 </div>
-
+                               
                             </form>
-
-                        </div>
-                    </div>
-                    <div class="row mt-3">
-                        <div class="col-6">
-                            <!-- <a href="../admin/forgot_pwd.php" target="_blank" class="text-light"><small>Forgot password?</small></a> -->
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
 
 </body>

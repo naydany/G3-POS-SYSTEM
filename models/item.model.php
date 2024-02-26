@@ -1,33 +1,38 @@
 <?php
-function createItem(string $pro_name, string $pro_code, $pro_quan, $pro_img,
-string $pro_price, string $pro_cate): bool
-{
+function createItem(
+    string $pro_name,
+    string $pro_code,
+    int $pro_quan,
+    string $pro_img,
+    string $pro_price,
+    string $pro_cate
+): bool {
     global $connection;
-    $statement = $connection->prepare("insert into products (pro_name, pro_code,pro_img, pro_price, pro_quantity, cate_id ) 
-    values (:name, :code, :image, :quantity, :cate, :price)");
+    $statement = $connection->prepare("insert into products (pro_img,pro_name, pro_code, cate_name,  pro_quantity, pro_price ) 
+    values ( :image, :name,:code, :cate,:quantity, :price)");
     $statement->execute([
         ':name' => $pro_name,
-        'image' => $pro_img,
         ':code' => $pro_code,
+        'image' => $pro_img,
         ':cate' => $pro_cate,
         ':quantity' => $pro_quan,
         ':price' => $pro_price,
-        
-        
+
+
     ]);
 
     return $statement->rowCount() > 0;
 }
 
-function getPost(int $id) : array
+function getItemID(int $id): array
 {
     global $connection;
-    $statement = $connection->prepare("select * from posts where id = :id");
+    $statement = $connection->prepare("select * from products where pro_id = :id");
     $statement->execute([':id' => $id]);
     return $statement->fetch();
 }
 
-function getItem() : array
+function getItem(): array
 {
     global $connection;
     $statement = $connection->prepare("select * from products");
@@ -35,15 +40,19 @@ function getItem() : array
     return $statement->fetchAll();
 }
 
-function updatePost(string $title, string $description, int $id) : bool
+function updateItem( string $pro_name,string $pro_code , string $pro_price, int $pro_quan, int $pro_id): bool
 {
+ 
     global $connection;
-    $statement = $connection->prepare("update posts set title = :title, description = :description where id = :id");
+    $statement = $connection->prepare("update products set pro_name = :pro_name, pro_code = :pro_code, pro_price = :pro_price,
+    pro_quantity = :pro_quantity where pro_id = :pro_id");
+    // $statement->execute();
     $statement->execute([
-        ':title' => $title,
-        ':description' => $description,
-        ':id' => $id
-
+        ":pro_name" => $pro_name,
+        ":pro_code" => $pro_code,
+        ":pro_quantity" => $pro_quan,
+        ":pro_price" => $pro_price,
+        ":pro_id"=> $pro_id,
     ]);
 
     return $statement->rowCount() > 0;
@@ -55,4 +64,12 @@ function deleteItem(int $pro_id): bool
     $statement = $connection->prepare("delete from products where pro_id = :pro_id");
     $statement->execute([':pro_id' => $pro_id]);
     return $statement->rowCount() > 0;
+}
+
+
+function countNameCategory(): array{
+    global $connection;
+    $statement = $connection->prepare("select cate_name from categories");
+    $statement->execute();
+    return $statement->fetchAll();
 }

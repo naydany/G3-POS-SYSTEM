@@ -98,7 +98,8 @@ endif;
                             <div class="h5 mb-0 font-weight-bold text-gray-800">$180</div>
                         </div>
                         <div class="col-auto">
-                        <i class="fas fa-tags fa-2x text-gray-300"></i>
+                        <i class="bi bi-coin fa-2x text-gray-300"></i>
+                        <!-- <i class="fas fa-tags fa-2x text-gray-300"></i> -->
                         </div>
                     </div>
                 </div>
@@ -108,22 +109,20 @@ endif;
 
     <h1 class="h3 mb-0 text-gray-800">Order Detail</h1><br>
     <table class="table bg-white text-black">
-        <thead class="bg-primary text-white">
+        <thead class="text-secondary thead-light ">
             <tr>
-                <th>ORDER DETAIL ID</th>
-                <th>CUSTOMER NAME</th>
-                <th>PRODUCT NAME</th>
-                <th>PRICE</th>
-                <th>QUANTITY</th>
-                <th>TOTAL</th>
-                <th>STATUS</th>
-                <th>DATE</th>
+                <th>ID</th>
+                <th>Product Name</th>
+                <th>Unit Price</th>
+                <th>quantity</th>
+                <th>Total price</th>
+                <th>Status</th>
+                <th>Date</th>
             </tr>
         </thead>
         <tbody>
             <tr>
                 <td>001</td>
-                <td>Doe</td>
                 <td>Headphone</td>
                 <td>$20</td>
                 <td>2</td>
@@ -133,7 +132,6 @@ endif;
             </tr>
             <tr>
                 <td>002</td>
-                <td>Moe</td>
                 <td>Laptop</td>
                 <td>$1,000</td>
                 <td>2</td>

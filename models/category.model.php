@@ -1,15 +1,16 @@
 <?php
-function createCategory(string $category): bool
+function createCategory(string $category,string $description): bool
 {
     $timezone = new DateTimeZone('Asia/Phnom_Penh');
     $date = new DateTime('now', $timezone);
     $time = $date->format('Y-m-d H:i:s');
      
     global $connection;
-    $statement = $connection->prepare("insert into categories(cate_name, cate_date) values (:cate_name, :cate_date)");
+    $statement = $connection->prepare("insert into categories(cate_name, cate_date, cate_desc) values (:cate_name, :cate_date, :cate_desc)");
     $statement->execute([
         ':cate_name' => $category,
-        ':cate_date' => $time
+        ':cate_date' => $time,
+        ':cate_desc' => $description
     ]);
 
     return $statement->rowCount() > 0;
@@ -31,13 +32,14 @@ function getCategory(): array
     return $statement->fetchAll();
 }
 
-function updateCategory(int $id, string $name): bool
+function updateCategory(int $id, string $name , string $description): bool
 {
     global $connection;
-    $statement = $connection->prepare("update categories set cate_name = :cate_name where cate_id = :cate_id");
+    $statement = $connection->prepare("update categories set cate_name = :cate_name , cate_desc = :cate_desc where cate_id = :cate_id");
     $statement->execute([
         ':cate_name' => $name,
-        ':cate_id' => $id
+        ':cate_id' => $id,
+        ':cate_desc' => $description
       
     ]);
 
@@ -51,3 +53,20 @@ function deleteCategory(int $id): bool
     $statement->execute([':cate_id' => $id]);
     return $statement->rowCount() > 0;
 }
+
+function viewCategory(int $id) : array 
+{
+    global $connection;
+    $statement = $connection->prepare("select * from categories where cate_id = :cate_id");
+    $statement->execute([':cate_id' => $id]);
+    return $statement->fetch();
+}
+
+function countProductInCategory(int $id) : array 
+{
+    global $connection;
+    $statement = $connection->prepare("select * from products where cate_id = :cate_id");
+    $statement->execute([':cate_id' => $id]);
+    return $statement->fetchAll();
+}
+

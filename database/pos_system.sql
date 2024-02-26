@@ -54,13 +54,6 @@ CREATE TABLE `orders`(
 );
 
 
-ALTER TABLE
-    `orders` ADD INDEX `orders_product_id_index`(`product_id`);
-CREATE TABLE `roles`(
-    `role_id` BIGINT UNSIGNED NOT NULL AUTO_INCREMENT PRIMARY KEY,
-    `role_type` VARCHAR(255) NOT NULL
-);
-
 
 CREATE TABLE `suppliers`(
     `sup_id` INT UNSIGNED NOT NULL AUTO_INCREMENT PRIMARY KEY,
@@ -95,7 +88,8 @@ ALTER TABLE
 CREATE TABLE `categories`(
     `cate_id` INT NOT NULL AUTO_INCREMENT PRIMARY KEY,
     `cate_name` VARCHAR(255) NOT NULL,
-    `cate_date` DATETIME NOT NULL
+    `cate_date` DATETIME NOT NULL,
+    `cate_desc` VARCHAR(255) NOT NULL
 );
 
 
@@ -111,8 +105,9 @@ CREATE TABLE `products`(
     `pro_desc` VARCHAR(255) NOT NULL,
     `pro_price` VARCHAR(255) NOT NULL,
     `pro_date` DATETIME NOT NULL,
+    `cate_name` VARCHAR(100) NOT NULL,
     `sup_id` INT NOT NULL,
-    `cate_id` INT NOT NULL
+    
 );
 
 
@@ -148,4 +143,5 @@ ALTER TABLE
     `products` ADD CONSTRAINT `products_pro_img_foreign` FOREIGN KEY(`pro_img`) REFERENCES `Admins`(`Admin_id`);
 ALTER TABLE
     `products` ADD CONSTRAINT `products_pro_name_foreign` FOREIGN KEY(`pro_name`) REFERENCES `categories`(`cate_id`);
+
 

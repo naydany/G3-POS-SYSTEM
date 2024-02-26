@@ -6,32 +6,30 @@
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
     <style>
-        /* .btn-success {
-            margin-right: 30px;
-        } */
+
     </style>
     <title>Category</title>
 </head>
 
 <body>
     <div class="card-header border-0">
-        <a href="/create_form_cate" class="btn btn-outline-primary">
-            Make A New Order
-            <i class="fas fa-plus"></i>
+        <a href="/create_form_cate" class="btn btn-outline-primary ml-5">
+            <i class="fas fa-plus"></i> <i class="fas fa-utensils"></i>
+            Make A New Category
         </a>
     </div>
 
     <div class="container mt-3">
         <table class="table table-bordered text-center mt-2 rounded">
-            <thead class=" text-secondary thead-light">
+            <thead class=" text-secondary thead-light text-black-50">
                 <tr>
-                    <th>Cate Id</th>
-                    <th>Cate Name</th>
+                    <th>Id</th>
+                    <th>Category Name</th>
                     <th>Date</th>
                     <th>Action</th>
                 </tr>
             </thead>
-            <tbody class="light">
+            <tbody class="text-secondary">
                 <?php
                 $cates = getCategory();
                 foreach ($cates as $cate) :
@@ -42,14 +40,34 @@
                         <th><?= $cate['cate_name'] ?></th>
                         <th><?= $cate['cate_date'] ?></th>
                         <th>
-                        <div class="btn-group">
-                                <a  href="/update_category?id=<?= $cate['cate_id'] ?>">
-                                <button class="btn btn-sm btn-success"><i class="fa fa-pen"></i>Edite</button></a>
+                            <div class="btn-group">
+                                <div class="btn-group">
+                                    <a href="/update_category?id=<?= $cate['cate_id'] ?>">
+                                        <button class="btn btn-sm text-success">
+                                            <h5><i class="bi bi-pencil-fill"></i></i></i></h5>
+                                        </button></a>
 
-                                <a href="../../controllers/categories/delete_category.controller.php?id=<?= $cate['cate_id'] ?>">
-                                <button class="btn btn-sm btn-danger ml-3"><i class="fa fa-trash"></i>Delete</button></a>
+                                    <a href="../../controllers/categories/delete_category.controller.php?id=<?= $cate['cate_id'] ?> " onclick="return functionDelete()">
+                                        <button class="btn btn-sm text-danger ml-3">
+                                            <h5><i class="bi bi-trash3-fill"></i></h5>
+                                        </button></a>
 
-                            </div>
+                                    <script>
+                                        function functionDelete() {
+                                            if (confirm("Are you sure you want to delete this category?")) {
+
+                                                return true;
+                                            } else {
+                                                return false;
+                                            }
+                                        }
+                                    </script>
+
+                                    <a href="/view_category?id=<?= $cate['cate_id'] ?>">
+                                        <button class="btn btn-sm text-primary ml-3">
+                                            <h5><i class="fa fa-eye"></h5></i>
+                                        </button></a>
+                                </div>
                         </th>
                     </tr>
                 <?php endforeach; ?>
