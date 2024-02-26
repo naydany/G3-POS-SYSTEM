@@ -21,7 +21,7 @@
 
     <div class="container mt-3">
         <table class="table table-bordered text-center mt-2 rounded">
-            <thead class=" text-secondary thead-light">
+            <thead class=" text-secondary thead-light text-black-50" >
                 <tr>
                     <th>Id</th>
                     <th>Category Name</th>
@@ -29,7 +29,7 @@
                     <th>Action</th>
                 </tr>
             </thead>
-            <tbody class="light">
+            <tbody class="text-secondary">
                 <?php
                 $cates = getCategory();
                 foreach ($cates as $cate) :
@@ -43,10 +43,10 @@
                             <div class="btn-group">
                                 <div class="btn-group">
                                     <a href="/update_category?id=<?= $cate['cate_id'] ?>">
-                                        <button class="btn btn-sm btn-success"><i class="fa fa-pen"></i>Edite</button></a>
+                                        <button class="btn btn-sm text-success"><h5><i class="bi bi-pencil-fill"></i></i></i></h5></button></a>
 
                                     <a href="../../controllers/categories/delete_category.controller.php?id=<?= $cate['cate_id'] ?> " onclick="return functionDelete()">
-                                        <button class="btn btn-sm btn-danger ml-4"><i class="bi bi-trash3-fill"></i>Delete</button></a>
+                                        <button class="btn btn-sm text-danger ml-3"><h5><i class="bi bi-trash3-fill"></i></h5></button></a>
 
                                     <script>
                                         function functionDelete() {
@@ -60,7 +60,7 @@
                                     </script>
 
                                     <a href="/view_category?id=<?= $cate['cate_id'] ?>">
-                                        <button class="btn btn-sm btn-primary ml-3"><i class="fa fa-eye">View</i></button></a>
+                                        <button class="btn btn-sm text-primary ml-3"><h5><i class="fa fa-eye"></h5></i></button></a>
                                 </div>
                         </th>
                     </tr>
