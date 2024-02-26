@@ -1,5 +1,5 @@
 
-document.addEventListener('DOMContentLoaded', function () {
+document.addEventListener('keyup', function () {
     const searchInput = document.querySelector('#search');
     const nameProduct = document.querySelectorAll('tr');
     searchInput.addEventListener('input', function () {

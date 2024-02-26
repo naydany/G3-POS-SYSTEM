@@ -1,5 +1,20 @@
- <!-- Sidebar -->
-<script src=".././/vendor/chart.js/search.js"></script>
+
+<?php
+$connection;
+ global $page; 
+ if ($page == 'controllers/categories/category.controller.php'){
+    $current_poge = "category";
+ }elseif($page =='controllers/items/item.controller.php') {
+    $current_poge = "search";
+ }
+?>
+    <script src=".././vendor/chart.js/search_category.js"></script>
+    <script src=".././/vendor/chart.js/search.js"></script>
+
+
+
+<!-- Sidebar -->
+
  <ul class="navbar-nav bg-gradient-primary sidebar sidebar-dark accordion" id="accordionSidebar">
 
      <!-- Sidebar - Brand -->
@@ -109,7 +124,7 @@
              <!-- Topbar Search -->
              <form class="d-none d-sm-inline-block form-inline mr-auto ml-md-3 my-2 my-md-0 mw-100 navbar-search">
                  <div class="input-group">
-                    <input type="text" class="form-control bg-light border-0 small" placeholder="Search for..." aria-label="Search" aria-describedby="basic-addon2" id="search">
+                    <input type="text" class="form-control bg-light border-0 small" placeholder="Search for..." aria-label="Search" aria-describedby="basic-addon2" id="<?php echo $current_poge ?>">
                      <div class="input-group-append">
                          <button class="btn btn-primary" type="button">
                              <i class="fas fa-search fa-sm"></i>

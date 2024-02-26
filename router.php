@@ -41,6 +41,7 @@ $routes = [
 
 if (array_key_exists($uri, $routes)) {
     $page = $routes[$uri];
+    // var_dump($page);
 } else {
     http_response_code(404);
     $page = 'views/errors/404.php';
