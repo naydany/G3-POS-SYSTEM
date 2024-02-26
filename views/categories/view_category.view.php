@@ -3,7 +3,7 @@
 
     <!-- DataTales Example -->
     <div class="card shadow">
-    
+
         <div class="card-header py-3 d-flex justify-content-between">
             <h4 class="m-0 font-weight-bold text-primary">View Category</h4>
         </div>
@@ -15,20 +15,18 @@
                 </div>
                 <div>
                     <h4><span class="text-primary font-weight-bold">Cate Date :</span> <?= $cate['cate_date'] ?></h4>
-                    <h4><span class="text-primary font-weight-bold">Products :</span> <?php echo $numberOfproduct;?> </h3>
+                    <h4><span class="text-primary font-weight-bold">Products :</span> <?php echo $numberOfproduct; ?> </h3>
                 </div>
             </div>
             <br>
             <h4><span class="text-primary font-weight-bold">Descriptionn :</span> <?= $cate['cate_desc'] ?></h4>
         </div>
     </div>
-    <div class="d-flex row justify-content-end align-items-center mt-5 mr-3">
+    <div class="d-flex row justify-content-end align-items-center mt-5 mb-5 mr-1">
         <div class="d-flex row justify-content-end align-items-center">
-            <a href="/categories">
-                <button class="btn btn-sm btn-danger p-3"> <i class="fas fa-chevron-left"></i>Backed</i></button></a>
+            <a href="/categories" class="btn btn-outline-primary"><i class="bi bi-chevron-double-left"> Back</i></a>
         </div>
-    </div>
 
-</div>
+    </div>
 </div>
 <!-- /.container-fluid -->
