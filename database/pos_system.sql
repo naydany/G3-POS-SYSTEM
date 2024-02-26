@@ -65,7 +65,7 @@ CREATE TABLE `roles`(
 CREATE TABLE `suppliers`(
     `sup_id` INT UNSIGNED NOT NULL AUTO_INCREMENT PRIMARY KEY,
     `sup_name` VARCHAR(255) NOT NULL,
-    `sup_countbigintry` VARCHAR(255) NOT NULL,
+    `sup_country` VARCHAR(255) NOT NULL,
     `sup_address` VARCHAR(255) NOT NULL
 );
 

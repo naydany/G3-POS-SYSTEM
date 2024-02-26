@@ -1,7 +1,7 @@
 
 <?php
-require '../../database/database.php';
-require '../../models/staff.model.php';
+    require '../../database/database.php';
+    require '../../models/staff.model.php';
 if ($_SERVER['REQUEST_METHOD'] == 'POST') {
 
     $name = $_POST['name'];

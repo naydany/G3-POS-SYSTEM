@@ -67,7 +67,7 @@
              <div class="bg-white py-2 collapse-inner rounded">
                  <h6 class="collapse-header">staff Contains:</h6>
                  <a class="collapse-item" href="/staffs">staffs</a>
-                 <a class="collapse-item" href="/items">admin</a>
+                 <a class="collapse-item" href="/admin_table">admin</a>
              </div>
          </div>
      </li>
