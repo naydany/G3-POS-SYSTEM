@@ -21,7 +21,7 @@
 
     <div class="container mt-3">
         <table class="table table-bordered text-center mt-2 rounded">
-            <thead class=" text-secondary thead-light text-black-50" >
+            <thead class=" text-secondary thead-light text-black-50">
                 <tr>
                     <th>Id</th>
                     <th>Category Name</th>
@@ -43,16 +43,20 @@
                             <div class="btn-group">
                                 <div class="btn-group">
                                     <a href="/update_category?id=<?= $cate['cate_id'] ?>">
-                                        <button class="btn btn-sm text-success"><h5><i class="bi bi-pencil-fill"></i></i></i></h5></button></a>
+                                        <button class="btn btn-sm text-success">
+                                            <h5><i class="bi bi-pencil-fill"></i></i></i></h5>
+                                        </button></a>
 
                                     <a href="../../controllers/categories/delete_category.controller.php?id=<?= $cate['cate_id'] ?> " onclick="return functionDelete()">
-                                        <button class="btn btn-sm text-danger ml-3"><h5><i class="bi bi-trash3-fill"></i></h5></button></a>
+                                        <button class="btn btn-sm text-danger ml-3">
+                                            <h5><i class="bi bi-trash3-fill"></i></h5>
+                                        </button></a>
 
                                     <script>
                                         function functionDelete() {
                                             if (confirm("Are you sure you want to delete this category?")) {
 
-                                                return true; 
+                                                return true;
                                             } else {
                                                 return false;
                                             }
@@ -60,7 +64,9 @@
                                     </script>
 
                                     <a href="/view_category?id=<?= $cate['cate_id'] ?>">
-                                        <button class="btn btn-sm text-primary ml-3"><h5><i class="fa fa-eye"></h5></i></button></a>
+                                        <button class="btn btn-sm text-primary ml-3">
+                                            <h5><i class="fa fa-eye"></h5></i>
+                                        </button></a>
                                 </div>
                         </th>
                     </tr>

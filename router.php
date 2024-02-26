@@ -37,10 +37,14 @@ $routes = [
 
     '/logout' => 'controllers/users/logout.controller.php',
     '/update_supplier' => 'controllers/suppliers/edite_spplier.controller.php',
+    '/admin_table' => 'controllers/admin/table_admin.controller.php',
+    '/form_admin' => 'controllers/admin/form_admin.controller.php',
+    '/update_admin' => 'controllers/admin/edit_admin.controller.php',
 ];
 
 if (array_key_exists($uri, $routes)) {
     $page = $routes[$uri];
+    // var_dump($page);
 } else {
     http_response_code(404);
     $page = 'views/errors/404.php';
