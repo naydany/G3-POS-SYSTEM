@@ -38,7 +38,7 @@
                 <td><?= $admin['address'] ?></td>
                 <td>
                     <div class="btn-group">
-                        <button class="btn btn-sm btn-danger" onclick="deleteAdmin(1)"><i class="fas fa-trash"></i> Delete</button>
+                        <a href="controllers/admin/delete_admin.controller.php?id=<?=$admin['id']?>"><button class="btn btn-sm btn-danger" onclick="deleteAdmin(1)"><i class="fas fa-trash"></i> Delete</button></a>
                         <button class="btn btn-sm btn-success ml-3" onclick="updateAdmin(1)"><i class="fas fa-edit"></i> Update</button>
                     </div>
                 </td>

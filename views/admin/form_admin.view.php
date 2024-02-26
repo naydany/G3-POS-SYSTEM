@@ -1,6 +1,6 @@
 <div class="container d-flex justify-content-center">
     <div class="card p-5 ml-5 w-50">
-        <form action="controllers/admin/add_new_admin.contrller.php" class='d-flex flex-xl-column' method='post'>
+        <form action="controllers/admin/add_new_admin.controller.php" class='d-flex flex-xl-column' method='post'>
 
             <div class="form-group">
                 <label for="name">name:</label>

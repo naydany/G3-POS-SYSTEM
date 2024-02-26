@@ -20,3 +20,12 @@ function getAdmin(): array
     $statement->execute();
     return $statement->fetchAll();
 }
+
+function deleteAdmin(int $id) : bool
+
+{
+    global $connection;
+    $statement = $connection->prepare("delete from users where id = :id");
+    $statement->execute([':id' => $id]);
+    return $statement->rowCount() > 0;
+}
