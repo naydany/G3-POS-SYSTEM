@@ -10,7 +10,7 @@
             </div>
             <div class="form-group">
                 <label>Code</label>
-                <input type="number" class="form-control" placeholder="Enter Code" name="code">
+                <input type="text" class="form-control" placeholder="Enter Code" name="code">
             </div>
             <div class="form-group">
                 <label>Image</label>

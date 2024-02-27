@@ -8,8 +8,8 @@
             </div>
 
             <div class="form-group">
-                <label for="number">number:</label>
-                <input type="text" class="form-control" id="number" name='number'>
+                <label for="number">number phone:</label>
+                <input type="number" class="form-control" id="number" name='number'>
             </div>
 
             <div class="form-group">

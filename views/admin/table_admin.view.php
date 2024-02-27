@@ -20,7 +20,6 @@
                 <th>ID</th>
                 <th>Name</th>
                 <th>Email</th>
-                <th>Password</th>
                 <th>Address</th>
                 <th>Action</th>
             </tr>
@@ -33,13 +32,12 @@
             <tr>
                 <td><?= $admin['id'] ?></td>
                 <td><?= $admin['name'] ?></td>
-                <td><?= $admin['password'] ?></td>
                 <td><?= $admin['email'] ?></td>
                 <td><?= $admin['address'] ?></td>
                 <td>
                     <div class="btn-group">
-                        <a href="controllers/admin/delete_admin.controller.php?id=<?=$admin['id']?>"><button class="btn btn-sm btn-danger" onclick="deleteAdmin(1)"style = "font-size: 10px"><i class="fas fa-trash"></i> Delete</button></a>
-                        <a href="/update_admin?id=<?=$admin['id']?>"><button class="btn btn-sm btn-success ml-3" onclick="updateAdmin(1)"style = "font-size: 10px"><i class="fas fa-edit"></i> Update</button></a>
+                        <a href="controllers/admin/delete_admin.controller.php?id=<?=$admin['id']?>"><button class="btn btn-sm btn-danger" onclick="deleteAdmin(1)"style = "font-size: 12px"><i class="fas fa-trash"></i> Delete</button></a>
+                        <a href="/update_admin?id=<?=$admin['id']?>"><button class="btn btn-sm btn-success ml-3" onclick="updateAdmin(1)"style = "font-size: 12px"><i class="fas fa-edit"></i> Update</button></a>
                     </div>
                 </td>
             </tr>
