@@ -10,12 +10,15 @@ $connection;
     $current_page = "order";
  }elseif($page == 'controllers/payments/payment.controller.php') {
     $current_page = "payment";
+ }elseif($page == 'controllers/staffs/staff.controller.php') {
+    $current_page = "staff";
  }
 ?>
     <script src=".././vendor/chart.js/search_category.js"></script>
     <script src=".././/vendor/chart.js/search.js"></script>
     <script src=".././/vendor/chart.js/search_order.js"></script>
     <script src=".././/vendor/chart.js/search_payment.js"></script>
+    <script src=".././/vendor/chart.js/search_staff.js"></script>
 
 
 
