@@ -15,7 +15,7 @@
 
 <div class="container mt-4">
     <table class="table" style="font-size: 14px; text-align: center;">
-        <thead class="bg-primary text-white">
+        <thead class="bg-primary text-white thead-light">
             <tr>
                 <th>ID</th>
                 <th>Name</th>
