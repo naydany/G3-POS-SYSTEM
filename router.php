@@ -30,17 +30,13 @@ $routes = [
 
     '/form_create' => 'controllers/items/create_item.controller.php',
     '/update_item' => 'controllers/items/edit_item.controller.php',
-    '/view_item' => 'controllers/items/view_item.controller.php',
 
-    // '/edit_item' => 'controllers/items/edit_item.controller.php',
+    '/edit_item' => 'controllers/items/edit_item.controller.php',
     '/suppliers' => 'controllers/suppliers/supplier.controller.php',
     '/create_suppliers' => 'controllers/suppliers/form_supplier.controller.php',
 
     '/logout' => 'controllers/users/logout.controller.php',
     '/update_supplier' => 'controllers/suppliers/edite_spplier.controller.php',
-    '/admin_table' => 'controllers/admin/table_admin.controller.php',
-    '/form_admin' => 'controllers/admin/form_admin.controller.php',
-    '/update_admin' => 'controllers/admin/edit_admin.controller.php',
 ];
 
 if (array_key_exists($uri, $routes)) {
@@ -75,3 +71,26 @@ if (
     require "layouts/footer.php";
 }
 
+// if (empty($_SESSION['user'])){
+//     if ($page === 'controllers/adminlogin/form.signin.controller.php'){
+//         session_destroy();
+//         // require "layouts/header.php";
+//         // require $page;
+//         // require "layouts/footer.php";
+
+//         echo 'hello';
+//     } else{
+//         header('location: /');
+//     }
+// }else{
+//     if ($page != 'controllers/adminlogin/form.signin.controller.php'){
+//         // require "layouts/header.php";
+//         // require "layouts/navbar.php";
+//         // require $page;
+//         // require "layouts/footer.php";
+
+
+//     }
+// }
+
+// echo $_SERVER['REQUEST_URI'];
