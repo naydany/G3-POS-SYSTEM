@@ -1,13 +1,9 @@
-
-
-
-
-
 <?php if (isset($_SESSION['success'])) : ?>
     <div class="alert alert-success alert-dismissible fade show" id="alert">
         <button type="button" class="close" data-dismiss="alert">&times;</button>
         <?= $_SESSION['success'] ?>
     </div>
+    
 <?php
     unset($_SESSION['success']);
 endif;
@@ -15,7 +11,9 @@ endif;
 <?php if (isset($_SESSION['error'])) : ?>
     <div class="alert alert-danger alert-dismissible fade show" id="alert">
         <button type="button" class="close" data-dismiss="alert">&times;</button>
+    
         <?= $_SESSION['error'] ?>
+
     </div>
 <?php
     unset($_SESSION['error']);
@@ -30,7 +28,7 @@ endif;
                 <div class="header-body text-center mb-7">
                     <div class="row justify-content-center">
                         <div class="col-lg-8 col-md-6 mt-5">
-                            <h1 class="text-light">Point Of Sale Management System</h1>
+                            <h1 class="text-light">Point Of Sale Management System Admin</h1>
                         </div>
                     </div>
                 </div>
@@ -67,10 +65,10 @@ endif;
                                 </div>
                                 <div class="row justify-content-between">
                                     <a href="/" class="btn btn-primary my-4 ml-3">Back</a>
-                                   <!-- <a href="/admin" class="btn btn-primary my-4 m r-3">Log In</a> -->
-                                   <button type="submit" name="login" class="btn btn-primary my-4 mr-3">Log In</button>
+                                    <!-- <a href="/admin" class="btn btn-primary my-4 m r-3">Log In</a> -->
+                                    <button type="submit" name="login" class="btn btn-primary my-4 mr-3">Log In</button>
                                 </div>
-                               
+
                             </form>
 
 </body>

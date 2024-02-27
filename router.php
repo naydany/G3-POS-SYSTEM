@@ -38,10 +38,14 @@ $routes = [
 
     '/logout' => 'controllers/users/logout.controller.php',
     '/update_supplier' => 'controllers/suppliers/edite_spplier.controller.php',
+    '/admin_table' => 'controllers/admin/table_admin.controller.php',
+    '/form_admin' => 'controllers/admin/form_admin.controller.php',
+    '/update_admin' => 'controllers/admin/edit_admin.controller.php',
 ];
 
 if (array_key_exists($uri, $routes)) {
     $page = $routes[$uri];
+    // var_dump($page);
 } else {
     http_response_code(404);
     $page = 'views/errors/404.php';
@@ -71,26 +75,3 @@ if (
     require "layouts/footer.php";
 }
 
-// if (empty($_SESSION['user'])){
-//     if ($page === 'controllers/adminlogin/form.signin.controller.php'){
-//         session_destroy();
-//         // require "layouts/header.php";
-//         // require $page;
-//         // require "layouts/footer.php";
-
-//         echo 'hello';
-//     } else{
-//         header('location: /');
-//     }
-// }else{
-//     if ($page != 'controllers/adminlogin/form.signin.controller.php'){
-//         // require "layouts/header.php";
-//         // require "layouts/navbar.php";
-//         // require $page;
-//         // require "layouts/footer.php";
-
-
-//     }
-// }
-
-// echo $_SERVER['REQUEST_URI'];

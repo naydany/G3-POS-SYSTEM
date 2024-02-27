@@ -30,7 +30,7 @@ endif;
                 <div class="header-body text-center mb-7">
                     <div class="row justify-content-center">
                         <div class="col-lg-8 col-md-6 mt-5">
-                            <h1 class="text-light">Point Of Sale Management System</h1>
+                            <h1 class="text-light">Point Of Sale Management System Staff</h1>
                         </div>
                     </div>
                 </div>

@@ -37,8 +37,8 @@
                     <td><?= $supplier['sup_address'] ?></td>
                     <td>
                         <div class="btn-group">
-                            <a href="controllers/suppliers/delete_supplier.controller.php?id=<?=$supplier['sup_id']?>"><button class="btn btn-sm btn-danger"><i class="fas fa-trash"></i> Delete</button></a>
-                            <a href="/update_supplier?id=<?=$supplier['sup_id']?>"><button class="btn btn-sm btn-success ml-3">Update</button></a>
+                            <a href="controllers/suppliers/delete_supplier.controller.php?id=<?=$supplier['sup_id']?>"><button class="btn btn-sm btn-danger" onclick="deleteAdmin(1)"style = "font-size: 10px"><i class="fas fa-trash"></i> Delete</button></a>
+                            <a href="/update_supplier?id=<?=$supplier['sup_id']?>"><button class="btn btn-sm btn-success ml-3" onclick="deleteAdmin(1)"style = "font-size: 10px"><i class="fas fa-edit"></i>Update</button></a>
                         </div>
                     </td>
                 </tr>

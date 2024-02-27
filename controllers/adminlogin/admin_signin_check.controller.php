@@ -16,13 +16,14 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
             // $_SESSION['user'] = [$user['id'], $user['email']];
             $_SESSION['user'] = $user;
 
-            if ($user['role'] === 'Admin') {
+            if ($user['role'] === 'admin') {
                 header('Location:/admin');
             } else {
                 header('Location:/normal');
             }
         } else {
             $_SESSION['error'] = "Wrong password";
+            
             header('Location:/form_admin_signin');
         }
     } else {
@@ -30,3 +31,5 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
         header('Location: /form_admin_signin');
     }
 }
+
+
