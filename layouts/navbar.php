@@ -6,10 +6,13 @@ $connection;
     $current_poge = "category";
  }elseif($page =='controllers/items/item.controller.php') {
     $current_poge = "search";
+ }elseif($page == 'controllers/orders/order.controller.php') {
+    $current_poge = "order";
  }
 ?>
     <script src=".././vendor/chart.js/search_category.js"></script>
     <script src=".././/vendor/chart.js/search.js"></script>
+    <script src=".././/vendor/chart.js/search_order.js"></script>
 
 
 
