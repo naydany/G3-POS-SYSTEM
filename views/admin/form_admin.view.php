@@ -1,26 +1,4 @@
 <div class="container d-flex justify-content-center">
-    <!-- <div class="card p-5 ml-5 w-50"> -->
-
-
-    <!-- <div class="form-group">
-                <label for="name">name:</label>
-                <input type="text" class="form-control" id="name" name ='name'>
-            </div>
-
-            <div class="form-group">
-                <label for="email">email:</label>
-                <input type="text" class="form-control" id="email" name='email'>
-            </div>
-
-            <div class="form-group">
-                <label for="password">password:</label>
-                <input type="number" class="form-control" id="password" name='password'>
-            </div>
-
-            <div class="form-group">
-                <label for="address">address:</label>
-                <input type="text" class="form-control" id="address" name='address'>
-            </div> -->
     <div class="row">
         <div class="col">
             <div class="card shadow " style="width: 700px;">
@@ -53,10 +31,6 @@
                         </div>
                         <hr>
                         <div class="form-row">
-                            <!-- <div class="col-md-12">
-                                <label>Product Description</label>
-                                <textarea rows="5" name="prod_desc" class="form-control" value=""></textarea>
-                            </div> -->
                             <div class="col-md-6">
                                 <label for="number">number phone:</label>
                                 <input type="number" class="form-control" id="number" name='number'>
