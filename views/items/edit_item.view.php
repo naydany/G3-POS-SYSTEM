@@ -1,7 +1,5 @@
 
-<div 
-
-class="m-5 d-flex justify-content-center flex-column">
+<div class="m-5 d-flex justify-content-center flex-column">
     <form action="controllers/items/update_item.controller.php" method="post" class="d-flex ml-5">
         <input type="hidden" name="id" value="<?= $pro['pro_id'] ?>">
 

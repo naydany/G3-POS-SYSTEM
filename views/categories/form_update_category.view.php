@@ -1,4 +1,4 @@
-<div class="container m-5 d-flex justify-content-center text-left ">
+<!-- <div class="container m-5 d-flex justify-content-center text-left ">
   <div class="card p-5 ml-5 w-75">
     <form action="controllers/categories/update_category.controller.php" class="d-flex flex-xl-column" method="post">
       <input type="hidden" name="id" value="<?= $cate['cate_id'] ?>">
@@ -17,4 +17,6 @@
  
     </form>
   </div>
-</div>
+</div> -->
+
+

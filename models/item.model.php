@@ -8,7 +8,7 @@ function createItem(
     string $pro_cate
 ): bool {
     global $connection;
-    $statement = $connection->prepare("insert into products (pro_img,pro_name, pro_code, cate_name,  pro_quantity, pro_price ) 
+    $statement = $connection->prepare("insert into products (pro_img,pro_name, pro_code, cate_name, pro_quantity, pro_price ) 
     values ( :image, :name,:code, :cate,:quantity, :price)");
     $statement->execute([
         ':name' => $pro_name,

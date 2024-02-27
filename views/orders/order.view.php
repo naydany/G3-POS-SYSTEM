@@ -26,7 +26,7 @@
             <tbody>
                 <?php foreach ($products as $product) : ?>
                     <tr>
-                        <td><img width="50px" height="50px" class="rounded-circle" src="../../assets/images/<?= $product['pro_img'] ?>" alt=""></td>
+                        <td><img width="50px" height="50px" style="object-fit: cover;" class="rounded-circle" src="../../assets/images/<?= $product['pro_img'] ?>" alt=""></td>
                         <td> <?=$product['pro_code']; ?></td>
                         <td><?=$product['pro_name']; ?></td>
                         <td> <?=$product['pro_price']; ?>$</td>
