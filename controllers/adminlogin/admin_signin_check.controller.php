@@ -23,6 +23,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
             }
         } else {
             $_SESSION['error'] = "Wrong password";
+            
             header('Location:/form_admin_signin');
         }
     } else {
@@ -30,3 +31,5 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
         header('Location: /form_admin_signin');
     }
 }
+
+
