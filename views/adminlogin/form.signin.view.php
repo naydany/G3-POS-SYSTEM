@@ -3,7 +3,7 @@
         <button type="button" class="close" data-dismiss="alert">&times;</button>
         <?= $_SESSION['success'] ?>
     </div>
-    
+
 <?php
     unset($_SESSION['success']);
 endif;
@@ -11,7 +11,7 @@ endif;
 <?php if (isset($_SESSION['error'])) : ?>
     <div class="alert alert-danger alert-dismissible fade show" id="alert">
         <button type="button" class="close" data-dismiss="alert">&times;</button>
-    
+
         <?= $_SESSION['error'] ?>
 
     </div>
@@ -70,5 +70,11 @@ endif;
                                 </div>
 
                             </form>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
 
 </body>
