@@ -1,19 +1,21 @@
 <?php
 
-function createAdmin( string $name, string $email, string $password, string $address, string $role ) : bool
+function createAdmin( string $name, string $email, string $password, string $address, int $phone , string $role ) : bool
 {
 
     global $connection;
-    $statement = $connection->prepare("insert into users (name,password,email,address,role) values (:name,:password,:email,:address,:role)");
+    $statement = $connection->prepare("insert into users (name,password,email,address,phone,role) values (:name,:password,:email,:address,:phone,:role)");
     $statement->execute([
         ':name' => $name,
         ':password' => $password,
         ':email' => $email,
         ':address' => $address,
+        ':phone' => $phone,
         ':role' => $role,
     ]);
     return $statement->rowCount() > 0;
 }
+
 function getAdmin(): array
 {
     global $connection;
