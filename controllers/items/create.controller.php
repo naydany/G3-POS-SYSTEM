@@ -8,7 +8,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
     $imgProfile = $_FILES['image'];
     $pro_name = $_POST['name'];
     $pro_code = $_POST['code'];
-    // $pro_img = $_POST['image'];
+    $sup_name = $_POST['supplier'];
     $pro_price = $_POST['price'];
     $pro_cate = $_POST['category'];
     $pro_quan = $_POST['quantity'];
@@ -31,7 +31,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
                 $nameInDB = $newFileName . '.' . $imageExtension;
                 move_uploaded_file($_FILES["image"]["tmp_name"], $nameInDirectory);
 
-                $isCreated = createItem($pro_name, $pro_code, $pro_quan, $nameInDB , $pro_price, $pro_cate);
+                $isCreated = createItem($pro_name, $pro_code, $pro_quan, $nameInDB , $pro_price, $pro_cate, $sup_name);
                 if ($isCreated) {
                     header('location: /items');
                 } else {

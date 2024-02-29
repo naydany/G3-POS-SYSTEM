@@ -5,6 +5,7 @@
                 <div class="card-header border-0 text-primary text-center">
                     <h3>Please input data of admin</h3>
                 </div>
+
                 <div class="card-body">
                     <form action="../../controllers/admin/add_new_admin.controller.php" class='d-flex flex-xl-column' method='post'>
                         <div class="form-row">
@@ -37,7 +38,7 @@
                             </div>
                             <div class="col-md-6 mt-4">
                                 <select class="custom-select" name="role" id="inputGroupSelect02">
-                                    <option selected>Choose...</option>
+                                    <!-- <option selected>Choose...</option> -->
                                     <option value="admin">Admin</option>
                                 </select>
 

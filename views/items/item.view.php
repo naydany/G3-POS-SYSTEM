@@ -99,6 +99,9 @@
                                                         <div class="form-group">
                                                             <label for="recipient-name" class="col-form-label">Price: $ <?= $pro['pro_price'] ?></label>
                                                         </div>
+                                                        <div class="form-group">
+                                                            <label for="recipient-name" class="col-form-label">Supplier: <?= $pro['sup_name'] ?></label>
+                                                        </div>
                                                     </form>
                                                 </div>
                                             </div>
