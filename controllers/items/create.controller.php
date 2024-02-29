@@ -21,7 +21,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
         $imageFileType = strtolower(pathinfo($target_file, PATHINFO_EXTENSION));
         $checkImageSize = getimagesize($_FILES["image"]["tmp_name"]);
         if ($checkImageSize) {
-            if ($imageFileType != "jpg" && $imageFileType != "png" && $imageFileType != "jpeg") {
+            if ($imageFileType != "jpg" && $imageFileType != "png" && $imageFileType != "jpeg"  && $imageFileType != "webp") {
                 $_SESSION['error'] = "Wrong Image extension!";
                 header('Location: /form_create');
             } else {
@@ -44,5 +44,3 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
         }
     }
 }
-
-
