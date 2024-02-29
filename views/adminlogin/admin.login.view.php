@@ -1,6 +1,4 @@
 
-
-
 <div class="align-item-center container mt-5">
     <div class="text-center">
         <h1 class="text-center text-primary">Welcome to Page Admin Signin</h1>
