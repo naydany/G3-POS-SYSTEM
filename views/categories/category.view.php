@@ -13,9 +13,9 @@
 
 <body>
 
-    <div class="card-header py-3 d-flex justify-content-between">
-        <h5 class="m-0 font-weight-bold text-primary">Category</h5>
-        <a href="/create_form_cate" class="btn btn-outline-primary ml-5">
+    <div class="card-header mr-5 ml-4 py-3 d-flex justify-content-between">
+        <h5 class="ml-3 font-weight-bold text-primary">Category</h5>
+        <a href="/create_form_cate" class="btn btn-outline-primary mr-3">
             <i class="bi bi-plus-circle mr-2"></i>Make A New Category</a>
     </div>
 
