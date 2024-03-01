@@ -12,11 +12,6 @@
 </head>
 
 <body>
-    <!-- <div class="card-header py-3 d-flex justify-content-between">
-        <h5 class="m-0 font-weight-bold text-primary">Products</h5>
-        <a href=/create_form_cate" class="btn btn-outline-primary ml-5">
-        <i class="bi bi-plus-circle mr-3"></i></i>Make New Product</i></a>
-    </div> -->
 
     <div class="card-header py-3 d-flex justify-content-between">
         <h5 class="m-0 font-weight-bold text-primary">Category</h5>

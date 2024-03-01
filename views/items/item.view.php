@@ -52,15 +52,6 @@
                                     <i class="bi bi-question-circle text-info btn btn-lg ml-1" data-toggle="modal" data-target="#exampleModal<?= $pro['pro_id'] ?>"></i>
                                 </td>
                                 
-                                <!-- <script>
-                                    $('#exampleModal').on('show.bs.modal', function(event) {
-                                        var button = $(event.relatedTarget) // Button that triggered the modal
-                                        var recipient = button.data('whatever') // Extract info from data-* attributes
-                                        var modal = $(this)
-                                        modal.find('.modal-title').text('New message to ' + recipient)
-                                        modal.find('.modal-body input').val(recipient)
-                                    })
-                                </script> -->
                             </tr>
 
 

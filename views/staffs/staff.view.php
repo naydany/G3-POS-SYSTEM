@@ -40,8 +40,8 @@
                 <td class="text-center"><?= $staff['staff_addres'] ?></td>
                 <td class="text-center">
                     <div class="btn-group">
-                        <a href="controllers/staffs/delete_staff.controller.php?id=<?=$staff['cas_id']?>"><button class="btn btn-sm btn-danger" onclick="deleteStaff(1)"style = "font-size: 12px"><i class="fas fa-trash"></i> Delete</button></a>
-                        <a href="/update_staff?id=<?=$staff['cas_id']?>"><button class="btn btn-sm btn-success ml-3" onclick="updateStaff(1)"style = "font-size: 12px"><i class="fas fa-edit"></i> Update</button></a>
+                        <a onclick="return confirm('Do you want to delete this product?')" href="controllers/staffs/delete_staff.controller.php?id=<?=$staff['cas_id']?>"><i class="bi bi-trash3 text-danger btn btn-lg ml-1"></i></a>
+                        <a href="/update_staff?id=<?=$staff['cas_id']?>"><i class="bi bi-pencil-square text-success btn btn-lg ml-1"></i></a>
                     </div>
                 </td>
             </tr> 

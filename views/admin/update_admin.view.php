@@ -13,11 +13,6 @@
             </div>
 
             <div class="form-group">
-                <label for="password">password:</label>
-                <input type="text" class="form-control" id="password" name='password' value="<?= $admin['password']?>">
-            </div>
-
-            <div class="form-group">
                 <label for="address">address:</label>
                 <input type="text" class="form-control" id="address" name='address' value="<?= $admin['address'] ?>">
             </div>
