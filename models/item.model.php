@@ -14,7 +14,7 @@ function createItem(
     $statement->execute([
         ':name' => $pro_name,
         ':code' => $pro_code,
-        'image' => $pro_img,
+        ':image' => $pro_img,
         ':cate' => $pro_cate,
         ':sup_name' =>  $sup_name,
         ':quantity' => $pro_quan,
