@@ -159,3 +159,7 @@
 </div>
 </div>
 <!-- /.container-fluid -->
+
+<?php
+
+require "layouts/footer.php";

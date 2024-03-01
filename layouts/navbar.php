@@ -2,27 +2,27 @@
 // session_start();
 
 $connection;
- global $page; 
- if ($page == 'controllers/categories/category.controller.php'){
+global $page;
+if ($page == 'controllers/categories/category.controller.php') {
     $current_poge = "category";
- }elseif($page =='controllers/items/item.controller.php') {
+} elseif ($page == 'controllers/items/item.controller.php') {
     $current_poge = "search";
- }elseif($page =='controllers/orders/order.controller.php') {
+} elseif ($page == 'controllers/orders/order.controller.php') {
     $current_poge = "order";
- }elseif($page =='controllers/payments/payment.controller.php') {
+} elseif ($page == 'controllers/payments/payment.controller.php') {
     $current_poge = "payment";
- }elseif($page =='controllers/staffs/staff.controller.php') {
+} elseif ($page == 'controllers/staffs/staff.controller.php') {
     $current_poge = "staff";
- }elseif($page =='controllers/suppliers/supplier.controller.php') {
+} elseif ($page == 'controllers/suppliers/supplier.controller.php') {
     $current_poge = "supplier";
- }
+}
 ?>
-    <script src=".././vendor/chart.js/search_category.js"></script>
-    <script src=".././/vendor/chart.js/search.js"></script>
-    <script src=".././/vendor/chart.js/search_order.js"></script>
-    <script src=".././/vendor/chart.js/search_payment.js"></script>
-    <script src=".././/vendor/chart.js/search_staff.js"></script>
-    <script src=".././/vendor/chart.js/search_supplier.js"></script>
+<script src=".././vendor/chart.js/search_category.js"></script>
+<script src=".././/vendor/chart.js/search.js"></script>
+<script src=".././/vendor/chart.js/search_order.js"></script>
+<script src=".././/vendor/chart.js/search_payment.js"></script>
+<script src=".././/vendor/chart.js/search_staff.js"></script>
+<script src=".././/vendor/chart.js/search_supplier.js"></script>
 
 
 
@@ -135,17 +135,17 @@ $connection;
                 <i class="fa fa-bars"></i>
             </button>
 
-             <!-- Topbar Search -->
-             <form class="d-none d-sm-inline-block form-inline mr-auto ml-md-3 my-2 my-md-0 mw-100 navbar-search">
-                 <div class="input-group">
+            <!-- Topbar Search -->
+            <form class="d-none d-sm-inline-block form-inline mr-auto ml-md-3 my-2 my-md-0 mw-100 navbar-search">
+                <div class="input-group">
                     <input type="text" class="form-control bg-light border-0 small" placeholder="Search for..." aria-label="Search" aria-describedby="basic-addon2" id="<?php echo $current_poge ?>">
-                     <div class="input-group-append">
-                         <button class="btn btn-primary" type="button">
-                             <i class="fas fa-search fa-sm"></i>
-                         </button>
-                     </div>
-                 </div>
-             </form>
+                    <div class="input-group-append">
+                        <button class="btn btn-primary" type="button">
+                            <i class="fas fa-search fa-sm"></i>
+                        </button>
+                    </div>
+                </div>
+            </form>
 
             <!-- Topbar Navbar -->
             <ul class="navbar-nav ml-auto">

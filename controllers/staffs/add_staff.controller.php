@@ -9,6 +9,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
     $email = $_POST['email'];
     $password = $_POST['password'];
     $address = $_POST['address'];
+    $address = $_POST['roles'];
     echo $name;
     echo $number;
     echo $email;
@@ -16,7 +17,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
     echo $address;
 
 
-    $add = createStaffs( $name,  $number,  $email,  $password,  $address);
+    $add = createStaffs( $name,  $number,  $email,  $password,  $address,$role);
 
     if ($add ){
         header('Location:/staffs');
