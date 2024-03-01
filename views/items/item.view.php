@@ -3,12 +3,24 @@
 
     <!-- DataTales Example -->
     <div class="card shadow ">
+<<<<<<< HEAD
         <div class="card-header py-3 d-flex justify-content-between">
             <h5 class="m-0 font-weight-bold text-primary">Products</h5>
             <a href="/form_create" class="btn btn-outline-primary"><i class="bi bi-file-plus-fill mr-3"></i></i>Create New Product</i></a>
+=======
+        <div class="card-header d-flex justify-content-between">
+            <h5 class="mt-4 ml-4 font-weight-bold text-primary">Items</h5>
+
+            <!-- <i class="bi bi-pencil-square text-success btn btn-lg ml-3" data-toggle="modal" data-target="#exampleModalUpdate<?= $pro['pro_id'] ?>"></i> -->
+
+            <div class="card-header py-3 d-flex justify-content-between">
+                <a href="/form_create" class="btn btn-outline-primary" data-toggle="modal" data-target="#exampleModals" data-whatever="@getbootstrap"><i class="bi bi-plus-circle mr-3"></i></i>Create New Product</i></a>
+            </div>
+
+>>>>>>> search_supplier
         </div>
         <div class="card-body">
-            <div class="table-responsive">
+            <div class="table-responsive pr-3 pl-3">
                 <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
                     <thead class="bg-primary text-white thead-light">
                         <tr>
@@ -152,6 +164,67 @@
                                     </div>
                                 </div>
                             </div>
+<<<<<<< HEAD
+=======
+
+
+                            <!-- popup create product  -->
+
+                            <div class="modal fade" id="exampleModals" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                                <div class="modal-dialog" role="document">
+                                    <div class="modal-content">
+                                        <div class="modal-header">
+                                            <h5 class="modal-title" id="exampleModalLabel">New message</h5>
+                                            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                                <span aria-hidden="true">&times;</span>
+                                            </button>
+                                        </div>
+
+                                        <div class="m-5 d-flex justify-content-center flex-column">
+                                            <form action="../../controllers/items/create.controller.php" method="post" class="d-flex ml-5" enctype="multipart/form-data">
+                                                <input type="hidden" name="id">
+                                                <div class=" div-1 w-200">
+                                                    <div class="form-group">
+                                                        <label>Image</label>
+                                                        <input type="file" class="form-control" placeholder="Insert Image" name="image">
+                                                    </div>
+                                                    <div class=" form-group">
+                                                        <label for="pro_name">Name</label>
+                                                        <input type="text" class="form-control" placeholder="Enter Name" name="name">
+                                                    </div>
+                                                    <div class="form-group">
+                                                        <label>Code</label>
+                                                        <input type="number" class="form-control" placeholder="Enter Code" name="code">
+                                                    </div>
+                                                    <div class="form-group">
+                                                        <label>Category</label>
+                                                        <input type="text" class="form-control" placeholder="Enter Category" name="category">
+                                                    </div>
+                                                    <div class="form-group">
+                                                        <label>Price</label>
+                                                        <input type="text" class="form-control" placeholder="Enter Price" name="price">
+                                                    </div>
+                                                    <div class="form-group">
+                                                        <label>Quantity</label>
+                                                        <input type="number" class="form-control" placeholder="Enter Quantity" name="quantity">
+                                                    </div>
+                                                    <div class="form-group">
+                                                        <label>Supplier</label>
+                                                        <input type="text" class="form-control" placeholder="Enter Quantity" name="supplier">
+                                                    </div>
+
+                                                </div>
+
+                                                <button type="submit" class="btn btn-primary w-25">Submit</button>
+
+                                            </form>
+                                        </div>
+
+                                    </div>
+                                </div>
+                            </div>
+
+>>>>>>> search_supplier
                             <!-- end  -->
                         <?php endforeach; ?>
                     </tbody>
@@ -161,4 +234,5 @@
     </div>
 </div>
 </div>
+<?php require "layouts/footer.php"?>
 <!-- /.container-fluid -->
