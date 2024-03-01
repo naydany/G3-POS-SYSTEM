@@ -225,13 +225,8 @@
     </div>
 </div>
 </div>
-<<<<<<< HEAD
 <!-- /.container-fluid -->
 
 <?php
 
 require "layouts/footer.php";
-=======
-<?php require "layouts/footer.php"?>
-<!-- /.container-fluid -->
->>>>>>> 10f336529caeb35b01b0d71739f8c33bb4c69ebf
