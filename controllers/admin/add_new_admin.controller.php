@@ -9,13 +9,14 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
     $email = $_POST['email'];
     $password = $_POST['password'];
     $address = $_POST['address'];
+    $phone = $_POST['number'];
     $role = $_POST['role'];
 
-    if (!empty($_POST['name']) && !empty($_POST['email']) && !empty($_POST['password']) && !empty($_POST['address']) && !empty($_POST['address']) && !empty($_POST['role'])) {
+    if (!empty($_POST['name']) && !empty($_POST['email']) && !empty($_POST['password']) && !empty($_POST['address']) && !empty($_POST['number'])  && !empty($_POST['role'])) {
         $encryptPassword = password_hash($password, PASSWORD_BCRYPT);
         $admin = accountExist($email);
         if (count($admin) == 0) {
-            $add = createAdmin($name, $email, $encryptPassword, $address, $role);
+            $add = createAdmin($name, $email, $encryptPassword, $address, $phone, $role);
             header('Location:/admin_table');
             $_SESSION['success'] = "Account successfully created";
         } else {
