@@ -225,8 +225,5 @@
     </div>
 </div>
 </div>
+<?php require "layouts/footer.php"?>
 <!-- /.container-fluid -->
-
-<?php
-
-require "layouts/footer.php";
