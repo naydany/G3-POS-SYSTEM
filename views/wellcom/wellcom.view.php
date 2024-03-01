@@ -1,11 +1,8 @@
 <!DOCTYPE html>
 <!-- <html lang="{{ str_replace('_', '-', app()->getLocale()) }}"> -->
-<<<<<<< HEAD
-=======
 <?php 
 session_destroy();
 ?>
->>>>>>> 93859432f13413f70483c0d9f68f8a072a687688
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
