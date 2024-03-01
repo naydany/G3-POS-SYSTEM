@@ -3,11 +3,6 @@
 
     <!-- DataTales Example -->
     <div class="card shadow ">
-<<<<<<< HEAD
-        <div class="card-header py-3 d-flex justify-content-between">
-            <h5 class="m-0 font-weight-bold text-primary">Products</h5>
-            <a href="/form_create" class="btn btn-outline-primary"><i class="bi bi-file-plus-fill mr-3"></i></i>Create New Product</i></a>
-=======
         <div class="card-header d-flex justify-content-between">
             <h5 class="mt-4 ml-4 font-weight-bold text-primary">Items</h5>
 
@@ -17,7 +12,6 @@
                 <a href="/form_create" class="btn btn-outline-primary" data-toggle="modal" data-target="#exampleModals" data-whatever="@getbootstrap"><i class="bi bi-plus-circle mr-3"></i></i>Create New Product</i></a>
             </div>
 
->>>>>>> search_supplier
         </div>
         <div class="card-body">
             <div class="table-responsive pr-3 pl-3">
@@ -164,8 +158,6 @@
                                     </div>
                                 </div>
                             </div>
-<<<<<<< HEAD
-=======
 
 
                             <!-- popup create product  -->
@@ -224,7 +216,6 @@
                                 </div>
                             </div>
 
->>>>>>> search_supplier
                             <!-- end  -->
                         <?php endforeach; ?>
                     </tbody>
