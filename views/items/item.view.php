@@ -3,18 +3,18 @@
 
     <!-- DataTales Example -->
     <div class="card shadow ">
-        <div class="card-header py-3 d-flex justify-content-between">
-            <h5 class="m-0 font-weight-bold text-primary">Items</h5>
+        <div class="card-header d-flex justify-content-between">
+            <h5 class="mt-4 ml-4 font-weight-bold text-primary">Items</h5>
 
             <!-- <i class="bi bi-pencil-square text-success btn btn-lg ml-3" data-toggle="modal" data-target="#exampleModalUpdate<?= $pro['pro_id'] ?>"></i> -->
 
             <div class="card-header py-3 d-flex justify-content-between">
-                <a href="/form_create" class="btn btn-outline-primary ml-5" data-toggle="modal" data-target="#exampleModals" data-whatever="@getbootstrap"><i class="bi bi-plus-circle mr-2"></i></i>Create New Product</i></a>`
+                <a href="/form_create" class="btn btn-outline-primary" data-toggle="modal" data-target="#exampleModals" data-whatever="@getbootstrap"><i class="bi bi-plus-circle mr-3"></i></i>Create New Product</i></a>
             </div>
 
         </div>
         <div class="card-body">
-            <div class="table-responsive">
+            <div class="table-responsive pr-3 pl-3">
                 <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
                     <thead class="bg-primary text-white thead-light">
                         <tr class="text-center">
@@ -195,6 +195,10 @@
                                                         <label>Quantity</label>
                                                         <input type="number" class="form-control" placeholder="Enter Quantity" name="quantity">
                                                     </div>
+                                                    <div class="form-group">
+                                                        <label>Supplier</label>
+                                                        <input type="text" class="form-control" placeholder="Enter Quantity" name="supplier">
+                                                    </div>
 
                                                 </div>
 
@@ -216,4 +220,5 @@
     </div>
 </div>
 </div>
+<?php require "layouts/footer.php"?>
 <!-- /.container-fluid -->
