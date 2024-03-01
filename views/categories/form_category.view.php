@@ -6,8 +6,8 @@
         <input type="text" class="form-control" name="category" placeholder="Category_name">
       </div>
       <div class="form-group">
-        <label for="comment" class="text-primary m-2">Comment:</label>
-        <textarea class="form-control" name='description' rows="5" id="comment" placeholder="description"></textarea>
+        <label for="comment" class="text-primary m-2">Comment</label>
+        <textarea class="form-control" name='description' rows="5" id="comment" placeholder="Comment"></textarea>
       </div>
       <button type="submit" class="btn btn-primary align-self-end">Add</button>
     </form>

@@ -62,11 +62,11 @@ function viewCategory(int $id) : array
     return $statement->fetch();
 }
 
-function countProductInCategory(int $id) : array 
+function countProductInCategory(string $name_category) : array 
 {
     global $connection;
-    $statement = $connection->prepare("select * from products where cate_id = :cate_id");
-    $statement->execute([':cate_id' => $id]);
+    $statement = $connection->prepare("select * from products where cate_name = :cate_name");
+    $statement->execute([':cate_name' => $name_category]);
     return $statement->fetchAll();
 }
 

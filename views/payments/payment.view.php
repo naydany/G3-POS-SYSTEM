@@ -42,9 +42,9 @@
                                     Pay Order
                                 </button>
                             </a>
-                            <a href="">
-                            <button class="btn btn-sm btn-danger"><i class="fas fa-window-close"></i>
-                                    Cancel Order</button>
+                            <a href="controllers/payments/cancel_payment.controller.php?id=<?=$payment['pay_id']?>">
+                                <button class="btn btn-sm btn-danger"><i class="fas fa-window-close"></i>
+                                Cancel Order</button>
                             </a>
                         </div>
                     </td>
