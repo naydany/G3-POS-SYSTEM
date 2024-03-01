@@ -1,6 +1,6 @@
 <div class="m-5 d-flex justify-content-center flex-column">
 
-    <form action="../../controllers/items/create.controller.php" method="post" class="d-flex ml-5" enctype="multipart/form-data">
+    <form action="../../controllers/items/create.controller.php" method="post" class=" text-center d-flex ml-5" enctype="multipart/form-data">
 
         <div class=" div-1">
             <div class=" form-group">
