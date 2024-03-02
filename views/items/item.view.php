@@ -15,7 +15,7 @@
         </div>
         <div class="card-body">
             <div class="table-responsive pr-3 pl-3">
-                <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
+                <table class="table table-bordered text-center" id="dataTable" width="100%" cellspacing="0">
                     <thead class="bg-primary text-white thead-light">
                         <tr>
                             <th>ID</th>
@@ -35,7 +35,7 @@
                         require "models/item.model.php";
 
                         $products = getItem();
-                        // print_r($products);
+               
                         foreach ($products as $pro) :
                         ?>
                             <tr>
@@ -46,23 +46,19 @@
                                 <td><?= $pro['cate_name'] ?></td>
                                 <td><?= $pro['pro_quantity'] ?></td>
                                 <td><?= $pro['pro_price'] ?>$</td>
-
                                 <td>
-                                    <!-- <a href="/update_item" class="btn btn-sm btn-success ml-3"><i class="bi bi-pencil-square"></i>Update</a> -->
-                                    <!-- <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModalUpdate">Update</button> -->
-                                    <a onclick="return confirm('Do you want to delete this product?')" href="../../controllers/items/delete_item.controller.php?id=<?= $pro['pro_id'] ?>"><i class="bi bi-trash3 text-danger btn btn-lg ml-3"></i></a>
                                     
-                                    <i class="bi bi-pencil-fill text-success btn btn-lg ml-3" data-toggle="modal" data-target="#exampleModalUpdate<?= $pro['pro_id'] ?>"></i>
-
-                                    <i class="bi bi-eye-fill text-info btn btn-lg ml-3" data-toggle="modal" data-target="#exampleModal<?= $pro['pro_id'] ?>"></i>
+                                    <i class="bi bi-pencil-square text-success btn btn-lg" data-toggle="modal" data-target="#exampleModalUpdate<?= $pro['pro_id'] ?>"></i>
+                                    <a onclick="return confirm('Do you want to delete this product?')" href="../../controllers/items/delete_item.controller.php?id=<?= $pro['pro_id'] ?>"><i class="bi bi-trash3 text-danger btn btn-lg"></i></a>
+                                    <i class="bi bi-question-circle text-info btn btn-lg" data-toggle="modal" data-target="#exampleModal<?= $pro['pro_id'] ?>"></i>
 
                                 </td>
 
                                 <!-- popup view -->
                                 <script>
                                     $('#exampleModal').on('show.bs.modal', function(event) {
-                                        var button = $(event.relatedTarget) // Button that triggered the modal
-                                        var recipient = button.data('whatever') // Extract info from data-* attributes
+                                        var button = $(event.relatedTarget)
+                                        var recipient = button.data('whatever') 
                                         var modal = $(this)
                                         modal.find('.modal-title').text('New message to ' + recipient)
                                         modal.find('.modal-body input').val(recipient)

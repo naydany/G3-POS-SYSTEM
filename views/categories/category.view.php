@@ -35,9 +35,66 @@
                 foreach ($cates as $cate) :
                 ?>
 
+                    <!-- popup view -->
+                    <script>
+                        $('#exampleModal').on('show.bs.modal', function(event) {
+                            var button = $(event.relatedTarget)
+                            var recipient = button.data('whatever')
+                            modal.find('.modal-title').text('New message to ' + recipient)
+                            modal.find('.modal-body input').val(recipient)
+                        })
+                    </script>
+                    </tr>
+                    <div class="modal fade" id="exampleModal<?= $pro['pro_id'] ?>" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                        <div class="modal-dialog" role="document">
+                            <div class="modal-content">
+                                <div class="modal-header">
+                                    <h5 class="modal-title" id="exampleModalLabel">Detail Product</h5>
+                                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                        <span aria-hidden="true">&times;</span>
+                                    </button>
+                                </div>
+                                <div class="modal-body">
+                                    <div class="row">
+                                        <div class="col-md-6">
+                                            <img src="assets/images/<?= $pro['pro_img'] ?>" alt="" width="100%" height="auto" class="">
+                                        </div>
+                                        <div class="col-md-6">
+                                            <form>
+                                                <div class="form-group">
+                                                    <label for="recipient-name" class="col-form-label">ID: <?= $pro['pro_id'] ?></label>
+                                                </div>
+                                                <div class="form-group">
+                                                    <label for="recipient-name" class="col-form-label">Name: <?= $pro['pro_name'] ?></label>
+                                                </div>
+                                                <div class="form-group">
+                                                    <label for="recipient-name" class="col-form-label">Code: <?= $pro['pro_code'] ?></label>
+                                                </div>
+                                                <div class="form-group">
+                                                    <label for="recipient-name" class="col-form-label">Category: <?= $pro['cate_name'] ?></label>
+                                                </div>
+                                                <div class="form-group">
+                                                    <label for="recipient-name" class="col-form-label">Quantity: <?= $pro['pro_quantity'] ?></label>
+                                                </div>
+                                                <div class="form-group">
+                                                    <label for="recipient-name" class="col-form-label">Price: <?= $pro['pro_price'] ?>$</label>
+                                                </div>
+                                                <div class="form-group">
+                                                    <label for="recipient-name" class="col-form-label">Supplier: <?= $pro['sup_name'] ?></label>
+                                                </div>
+                                            </form>
+                                        </div>
+                                    </div>
+                                </div>
+
+                            </div>
+                        </div>
+                    </div>
+
+
                     <!-- popup update  -->
 
-                    <div class="modal fade" id="exampleModal<?= $cate['cate_id'] ?>" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                    <!-- <div class="modal fade" id="exampleModal<?= $cate['cate_id'] ?>" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
                         <div class="modal-dialog" role="document">
                             <div class="modal-content">
                                 <div class="modal-header">
@@ -65,7 +122,7 @@
                                 </div>
                             </div>
                         </div>
-                    </div>
+                    </div> -->
 
                     <!-- end  -->
                     <tr>
@@ -78,11 +135,6 @@
 
                                     <i class="bi bi-pencil-square text-success btn btn-lg ml-1" data-toggle="modal" data-target="#exampleModal<?= $cate['cate_id'] ?>"></i>
 
-                                    <!-- <a href="/update_category?id=<?= $cate['cate_id'] ?>">
-                                    <button class="btn btn-sm text-success">
-                                        <h5><i class="bi bi-pencil-fill"></i></i></i></h5>
-                                    </button>
-                                </a> -->
                                     <a href="../../controllers/categories/delete_category.controller.php?id=<?= $cate['cate_id'] ?> " onclick="return confirm('Do you want to delete this product?')">
                                         <i class="bi bi-trash3 text-danger btn btn-lg ml-1"></i></a>
 
