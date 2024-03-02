@@ -38,7 +38,7 @@
                
                         foreach ($products as $pro) :
                         ?>
-                            <tr>
+                            <tr> 
                                 <td><?= $pro['pro_id'] ?></td>
                                 <td><img width="50px" height="50px" style="object-fit: cover;" class="rounded-circle" src="assets/images/<?= $pro['pro_img'] ?>" alt=""></td>
                                 <td><?= $pro['pro_name'] ?></td>
@@ -255,7 +255,6 @@
 </div>
 </div>
 <!-- /.container-fluid -->
-
 <?php
 
 require "layouts/footer.php";
