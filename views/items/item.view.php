@@ -1,4 +1,7 @@
 <!-- Begin Page Content -->
+
+
+
 <div class="container-fluid">
 
     <!-- DataTales Example -->
@@ -9,7 +12,7 @@
             <!-- <i class="bi bi-pencil-square text-success btn btn-lg ml-3" data-toggle="modal" data-target="#exampleModalUpdate<?= $pro['pro_id'] ?>"></i> -->
 
             <div class="card-header py-3 d-flex justify-content-between">
-                <a href="/form_create" class="btn btn-outline-primary" data-toggle="modal" data-target="#exampleModals" data-whatever="@getbootstrap"><i class="bi bi-plus-circle mr-3"></i></i>Create New Product</i></a>
+                <a id='create_item' onclick="openForm()" class="btn btn-outline-primary" data-toggle="modal" data-target="#ModalItems" data-whatever="@getbootstrap"><i class="bi bi-plus-circle mr-3"></i></i>Create New Product</i></a>
             </div>
 
         </div>
@@ -159,6 +162,42 @@
                                 </div>
                             </div>
 
+                            <!-- !test -->
+
+                            <style>
+                                .create_item {
+                                    display: none;
+                                    position: fixed;
+                                    z-index: 8;
+                                    left: 0;
+                                    top: 0;
+                                    width: 100%;
+                                    height: 100%;
+                                    overflow: auto;
+                                    background-color: rgb(0, 0, 0);
+                                    background-color: rgba(0, 0, 0, 0.4);
+
+                                }
+
+                                form {
+                                    box-shadow: 0 3px 5px #f5f5f5;
+                                    background: #eee;
+                                }
+                            </style>
+
+                            <script>
+                                const pop = document.querySelector('.create_item');
+                                const open_pop = document.querySelector('#create_item');
+
+                                function openForm() {
+                                    document.querySelector(".create_item").style.display = "block";
+                                }
+
+                                function closeForm() {
+                                    document.querySelector(".create_item").style.display = "none";
+                                }
+                            </script>
+
 
                             <!-- popup create product  -->
 
@@ -167,20 +206,20 @@
                             $suppliers = countNameSuppliers();
                             ?>
 
-                            <div class="modal fade" id="exampleModals" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
-                                <div class="modal-dialog" class="border border-danger" role="document" >
-                                    <div class="modal-content rounded-top" style="width: 600px; border:6px solid ">
+                            <div class="modal create_item" id="exampleIteams" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                                <div class="modal-dialog" class="border border-danger" role="document">
+                                    <div class="modal-content rounded-top" style="width: 600px;">
                                         <div class="modal-header">
                                             <h3 class="modal-title text-danger text-bold ml-4" id="exampleModalLabel">Form create</h3>
-                                            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                            <button type="button" onclick="closeForm()" class="close_item" data-dismiss="modal" aria-label="Close">
                                                 <span aria-hidden="true">&times;</span>
                                             </button>
                                         </div>
 
-                                        <div class="m-2 d-flex flex-colum container justify-content-center" >
+                                        <div class="m-2 d-flex flex-colum container justify-content-center">
                                             <div class="card-body">
                                                 <form action="../../controllers/items/create.controller.php" method="post" class="d-flex flex-xl-column" enctype="multipart/form-data">
-                                                    <input type="hidden" name="id">
+                                                    <!-- <input type="hidden" name="id" onclick="closeForm()" class="close_item"> -->
                                                     <!-- <div class=" div-1 w-400 " > -->
                                                     <div class="form-row">
 
@@ -189,8 +228,8 @@
                                                             <input type="text" class="form-control" placeholder="Enter Name" name="name">
                                                         </div>
                                                         <div class="form-group">
-                                                            <!-- <label>supplier</label> -->
-                                                            <select class="custom-select mt-4" id="inputGroupSelect01" name="supplier" style="width: 240px;">
+                                                            <label>supplier</label><br>
+                                                            <select class="custom-select " id="inputGroupSelect01" name="supplier" style="width: 240px;">
                                                                 <option selected>Choose supplier...</option>
                                                                 <?php for ($i = 0; $i < count($suppliers); $i++) : ?>
                                                                     <option value="<?= $suppliers[$i][0] ?>"><?= $suppliers[$i][0] ?></option>
