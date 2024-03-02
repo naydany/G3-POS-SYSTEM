@@ -34,7 +34,7 @@ if (isset($_SESSION['user'])) {
             '/form_create_pro' => 'controllers/items/create_item.controller.php',
             '/update_staff' => 'controllers/staffs/edite.staff.contrller.php',
             '/update_category' => 'controllers/categories/edite_category.controller.php',
-            // '/view_category' => 'controllers/categories/view_category.controller.php',
+            '/view_category' => 'controllers/categories/view_category.controller.php',
             '/order_product' => 'controllers/orders/update_order.controller.php',
 
 

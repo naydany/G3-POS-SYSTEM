@@ -6,8 +6,10 @@
         <div class="card-header py-3 d-flex justify-content-between">
             <h5 class="m-0 font-weight-bold text-primary">Items</h5>
 
+            <!-- <i class="bi bi-pencil-square text-success btn btn-lg ml-3" data-toggle="modal" data-target="#exampleModalUpdate<?= $pro['pro_id'] ?>"></i> -->
+
             <div class="card-header py-3 d-flex justify-content-between">
-                <a href="/form_create" class="btn btn-outline-primary ml-5" data-toggle="modal" data-target="#exampleModals" data-whatever="@getbootstrap"><i class="bi bi-plus-circle"></i></i>Create New Product</i></a>`
+                <a href="/form_create" class="btn btn-outline-primary ml-5" data-toggle="modal" data-target="#exampleModals" data-whatever="@getbootstrap"><i class="bi bi-plus-circle mr-2"></i></i>Create New Product</i></a>`
             </div>
 
         </div>
@@ -50,6 +52,15 @@
                                     <i class="bi bi-question-circle text-info btn btn-lg ml-1" data-toggle="modal" data-target="#exampleModal<?= $pro['pro_id'] ?>"></i>
                                 </td>
                                 
+                                <!-- <script>
+                                    $('#exampleModal').on('show.bs.modal', function(event) {
+                                        var button = $(event.relatedTarget) // Button that triggered the modal
+                                        var recipient = button.data('whatever') // Extract info from data-* attributes
+                                        var modal = $(this)
+                                        modal.find('.modal-title').text('New message to ' + recipient)
+                                        modal.find('.modal-body input').val(recipient)
+                                    })
+                                </script> -->
                             </tr>
 
 

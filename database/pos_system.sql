@@ -1,26 +1,26 @@
 
 
 
-CREATE TABLE `staffs`(
-    `cas_id` INT UNSIGNED NOT NULL AUTO_INCREMENT PRIMARY KEY,
-    `cas_name` VARCHAR(255) NOT NULL,
-    `cas_number` INT NOT NULL,
-    `cas_email` VARCHAR(255) NOT NULL,
-    `cas_password` VARCHAR(255) NOT NULL,
-    `date` DATETIME NOT NULL,
-    `staff_addres` VARCHAR(255) NOT NULL,
-    `role_id` BIGINT NOT NULL
-);
+-- CREATE TABLE `staffs`(
+--     `cas_id` INT UNSIGNED NOT NULL AUTO_INCREMENT PRIMARY KEY,
+--     `cas_name` VARCHAR(255) NOT NULL,
+--     `cas_number` INT NOT NULL,
+--     `cas_email` VARCHAR(255) NOT NULL,
+--     `cas_password` VARCHAR(255) NOT NULL,
+--     `date` DATETIME NOT NULL,
+--     `staff_addres` VARCHAR(255) NOT NULL,
+--     `role_id` BIGINT NOT NULL
+-- );
 
 
-ALTER TABLE
-    `staffs` ADD INDEX `staffs_role_id_index`(`role_id`);
+-- ALTER TABLE
+--     `staffs` ADD INDEX `staffs_role_id_index`(`role_id`);
 
 
 CREATE TABLE `payments`(
     `pay_id` VARCHAR(255) NOT NULL,
     `pay_code` VARCHAR(255) NOT NULL,
-    `ordre_id` VARCHAR(255) NOT NULL,
+    `order_id` VARCHAR(255) NOT NULL,
     `order_code` VARCHAR(255) NOT NULL,
     `cus_id` INT NOT NULL,
     `pay_atm` VARCHAR(255) NOT NULL,
@@ -38,12 +38,17 @@ ALTER TABLE
 ALTER TABLE
     `payments` ADD INDEX `payments_cus_id_index`(`cus_id`);
 
-CREATE TABLE `Admins`(
-    `Admin_id` INT UNSIGNED NOT NULL AUTO_INCREMENT PRIMARY KEY,
-    `Admin_name` VARCHAR(255) NOT NULL,
-    `Admin_email` VARCHAR(255) NOT NULL,
-    `Admin_emage` VARCHAR(255) NOT NULL,
-    `Admin_passwbigintord` VARCHAR(255) NOT NULL
+
+CREATE TABLE `users`(
+    `id` INT UNSIGNED NOT NULL AUTO_INCREMENT PRIMARY KEY,
+    `name` VARCHAR(255) NOT NULL,
+    `password` VARCHAR(255) NOT NULL
+    `email` VARCHAR(255) NOT NULL,
+    `role` VARCHAR(255) NOT NULL,
+    `address` VARCHAR(255) NOT NULL,
+    `phone` INT(255) NOT NULL,
+    `image` VARCHAR(255) NOT NULL,
+    
 );
 
 
@@ -79,8 +84,7 @@ CREATE TABLE `orders_detail`(
 
 ALTER TABLE
     `orders_detail` ADD PRIMARY KEY(`order_detail_id`);
-ALTER TABLE
-    `orders_detail` ADD INDEX `orders_detail_cus_id_index`(`cus_id`);
+
 ALTER TABLE
     `orders_detail` ADD INDEX `orders_detail_pro_id_index`(`pro_id`);
 
@@ -105,6 +109,8 @@ CREATE TABLE `products`(
     `pro_desc` VARCHAR(255) NOT NULL,
     `pro_price` VARCHAR(255) NOT NULL,
     `pro_date` DATETIME NOT NULL,
+    `pro_quantity` INT(30) NOT NULL,
+    `cate_id` INT NOT NULL,
     `cate_name` VARCHAR(100) NOT NULL,
     `supplier` VARCHAR(100) NOT NULL,
     `sup_id` INT NOT NULL,
