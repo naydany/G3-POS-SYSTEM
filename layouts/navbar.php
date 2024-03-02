@@ -178,7 +178,8 @@ if ($page == 'controllers/categories/category.controller.php') {
                         }
                         ?>
                         <h4 class="mr-2 d-none d-lg-inline text-gray-600 small"><?= $_SESSION['user']['role']; ?></h4>
-                        <img class="img-profile rounded-circle" src="assets/images/undraw_profile.svg">
+                        <img class="img-profile rounded-circle" src="<?=$_SESSION['user']['name']; ?>">
+                        
                     </a>
                     <!-- Dropdown - User Information -->
                     <div class="dropdown-menu dropdown-menu-right shadow animated--grow-in" aria-labelledby="userDropdown">
