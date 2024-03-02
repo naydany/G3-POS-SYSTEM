@@ -52,14 +52,51 @@
                                 <td>
                                     <!-- <a href="/update_item" class="btn btn-sm btn-success ml-3"><i class="bi bi-pencil-square"></i>Update</a> -->
                                     <!-- <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModalUpdate">Update</button> -->
+<<<<<<< HEAD
                                     
                                     <i class="bi bi-pencil-square text-success btn btn-lg" data-toggle="modal" data-target="#exampleModalUpdate<?= $pro['pro_id'] ?>"></i>
                                     <a onclick="return confirm('Do you want to delete this product?')" href="../../controllers/items/delete_item.controller.php?id=<?= $pro['pro_id'] ?>"><i class="bi bi-trash3 text-danger btn btn-lg"></i></a>
                                     <i class="bi bi-question-circle text-info btn btn-lg" data-toggle="modal" data-target="#exampleModal<?= $pro['pro_id'] ?>"></i>
+=======
+                                    <a onclick="return confirm('Do you want to delete this product?')" href="../../controllers/items/delete_item.controller.php?id=<?= $pro['pro_id'] ?>"><i class="bi bi-trash3 text-danger btn btn-lg ml-3"></i></a>
+
+                                    <i class="bi bi-pencil-fill text-success btn btn-lg ml-3" data-toggle="modal" data-target="#exampleModalUpdate<?= $pro['pro_id'] ?>"></i>
+
+                                    <i class="bi bi-eye-fill text-info btn btn-lg ml-3 " id="view_item" onclick="viewItem()" data-toggle="modal" data-target="#ModalView<?= $pro['pro_id'] ?>"></i>
+>>>>>>> f2af0fda195ffc71109c5a92609ae547a8f6a71d
 
                                 </td>
 
                                 <!-- popup view -->
+
+                                <style>
+                                    .view_item {
+                                        display: none;
+                                        /* position: fixed; */
+                                        /* z-index: 8;
+                                        left: 0;
+                                        top: 0;
+                                        width: 100%;
+                                        height: 100%;
+                                        overflow: auto;
+                                        background-color: rgb(0, 0, 0);
+                                        background-color: rgba(0, 0, 0, 0.4); */
+
+                                    }
+                                </style>
+
+                                <script>
+                                    const pop_view = document.querySelector('#view_item');
+                                    const start_pop_view = document.querySelector('.view_item');
+
+                                    function closeView() {
+                                        start_pop_view.style.display = 'none';
+                                    }
+                                </script>
+
+
+
+
                                 <script>
                                     $('#exampleModal').on('show.bs.modal', function(event) {
                                         var button = $(event.relatedTarget)
@@ -70,12 +107,12 @@
                                     })
                                 </script>
                             </tr>
-                            <div class="modal fade" id="exampleModal<?= $pro['pro_id'] ?>" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                            <div class="modal view_item" id="ModalView<?= $pro['pro_id'] ?>" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
                                 <div class="modal-dialog" role="document">
                                     <div class="modal-content">
                                         <div class="modal-header">
                                             <h4 class="modal-title text-danger" id="exampleModalLabel">Detail Product</h4>
-                                            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                            <button type="button" onclick="closeView()" class="close" data-dismiss="modal" aria-label="Close">
                                                 <span aria-hidden="true">&times;</span>
                                             </button>
                                         </div>
@@ -180,6 +217,11 @@
                                 form {
                                     box-shadow: 0 3px 5px #f5f5f5;
                                     background: #eee;
+                                }
+
+                                .modal_dialog {
+                                    position: absolute;
+                                    z-index: 3;
                                 }
                             </style>
 
@@ -291,9 +333,14 @@
         </div>
     </div>
 </div>
-<!-- <?php require "../../layouts/footer.php"?> -->
 </div>
 <!-- /.container-fluid -->
 <?php
 
+<<<<<<< HEAD
 require "layouts/footer.php";
+=======
+<!-- /.container-fluid -->
+
+<?php require "layouts/footer.php" ?>
+>>>>>>> f2af0fda195ffc71109c5a92609ae547a8f6a71d
