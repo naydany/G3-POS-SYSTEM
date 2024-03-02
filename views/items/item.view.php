@@ -57,11 +57,40 @@
 
                                     <i class="bi bi-pencil-fill text-success btn btn-lg ml-3" data-toggle="modal" data-target="#exampleModalUpdate<?= $pro['pro_id'] ?>"></i>
 
-                                    <i class="bi bi-eye-fill text-info btn btn-lg ml-3" data-toggle="modal" data-target="#exampleModal<?= $pro['pro_id'] ?>"></i>
+                                    <i class="bi bi-eye-fill text-info btn btn-lg ml-3 " id="view_item" onclick="viewItem()" data-toggle="modal" data-target="#ModalView<?= $pro['pro_id'] ?>"></i>
 
                                 </td>
 
                                 <!-- popup view -->
+
+                                <style>
+                                    .view_item {
+                                        display: none;
+                                        /* position: fixed; */
+                                        /* z-index: 8;
+                                        left: 0;
+                                        top: 0;
+                                        width: 100%;
+                                        height: 100%;
+                                        overflow: auto;
+                                        background-color: rgb(0, 0, 0);
+                                        background-color: rgba(0, 0, 0, 0.4); */
+
+                                    }
+                                </style>
+
+                                <script>
+                                    const pop_view = document.querySelector('#view_item');
+                                    const start_pop_view = document.querySelector('.view_item');
+
+                                    function closeView() {
+                                        start_pop_view.style.display = 'none';
+                                    }
+                                </script>
+
+
+
+
                                 <script>
                                     $('#exampleModal').on('show.bs.modal', function(event) {
                                         var button = $(event.relatedTarget) // Button that triggered the modal
@@ -72,12 +101,12 @@
                                     })
                                 </script>
                             </tr>
-                            <div class="modal fade" id="exampleModal<?= $pro['pro_id'] ?>" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                            <div class="modal view_item" id="ModalView<?= $pro['pro_id'] ?>" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
                                 <div class="modal-dialog" role="document">
                                     <div class="modal-content">
                                         <div class="modal-header">
                                             <h4 class="modal-title text-danger" id="exampleModalLabel">Detail Product</h4>
-                                            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                            <button type="button" onclick="closeView()" class="close" data-dismiss="modal" aria-label="Close">
                                                 <span aria-hidden="true">&times;</span>
                                             </button>
                                         </div>
@@ -182,6 +211,11 @@
                                 form {
                                     box-shadow: 0 3px 5px #f5f5f5;
                                     background: #eee;
+                                }
+
+                                .modal_dialog {
+                                    position: absolute;
+                                    z-index: 3;
                                 }
                             </style>
 
@@ -293,7 +327,8 @@
         </div>
     </div>
 </div>
-<!-- <?php require "../../layouts/footer.php"?> -->
 </div>
 
 <!-- /.container-fluid -->
+
+<?php require "layouts/footer.php" ?>
