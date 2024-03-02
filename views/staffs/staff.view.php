@@ -46,8 +46,8 @@
                         <!-- <td class="text-center">1</td> -->
                         <td class="text-center">
                             <div class="btn-group">
-                                <a href="controllers/staffs/delete_staff.controller.php?id=<?= $user['id'] ?>"><button class="btn btn-sm btn-danger" onclick="deleteStaff(1)" style="font-size: 12px"><i class="fas fa-trash"></i> Delete</button></a>
-                                <a href="/update_staff?id=<?= $user['id'] ?>"><button class="btn btn-sm btn-success ml-3" onclick="updateStaff(1)" style="font-size: 12px"><i class="fas fa-edit"></i> Update</button></a>
+                                <a onclick="return confirm('Do you want to delete this product?')" href="controllers/staffs/delete_staff.controller.php?id=<?= $user['id'] ?>"><i class="bi bi-trash3 text-danger btn btn-lg ml-1"></i></a>
+                                <a href="/update_staff?id=<?= $user['id'] ?>"><i class="bi bi-pencil-square text-success btn btn-lg ml-1"></i></a>
                             </div>
                         </td>
                     </tr>
