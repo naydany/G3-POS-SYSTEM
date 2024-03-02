@@ -112,6 +112,7 @@ CREATE TABLE `products`(
     `pro_quantity` INT(30) NOT NULL,
     `cate_id` INT NOT NULL,
     `cate_name` VARCHAR(100) NOT NULL,
+    `supplier` VARCHAR(100) NOT NULL,
     `sup_id` INT NOT NULL,
     
 );
