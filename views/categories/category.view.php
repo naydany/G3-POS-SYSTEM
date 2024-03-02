@@ -69,10 +69,10 @@
 
                     <!-- end  -->
                     <tr>
-                        <th><?= $cate['cate_id'] ?></th>
-                        <th><?= $cate['cate_name'] ?></th>
-                        <th><?= $cate['cate_date'] ?></th>
-                        <th>
+                        <td><?= $cate['cate_id'] ?></td>
+                        <td><?= $cate['cate_name'] ?></td>
+                        <td><?= $cate['cate_date'] ?></td>
+                        <td>
                             <div class="btn-group">
                                 <div class="btn-group">
 
@@ -90,7 +90,7 @@
                                         <i class="bi bi-question-circle text-info btn btn-lg ml-1"></i></a>
 
                                 </div>
-                        </th>
+                        </td>
                     </tr>
                 <?php endforeach; ?>
             </tbody>
