@@ -6,4 +6,4 @@ require 'models/item.model.php';
 $categories = countNameCategory();
 $suppliers = countNameSuppliers();
 
-require 'views/items/form_create_product_view.php';
+require 'views/items/item.view.php';
