@@ -49,7 +49,6 @@ if (isset($_SESSION['user'])) {
             '/update_supplier' => 'controllers/suppliers/edite_spplier.controller.php',
             '/admin_table' => 'controllers/admin/table_admin.controller.php',
             '/form_admin' => 'controllers/admin/form_admin.controller.php',
-            '/update_admin' => 'controllers/admin/edit_admin.controller.php',
 
         ];
     }

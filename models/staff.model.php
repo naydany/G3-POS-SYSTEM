@@ -49,18 +49,14 @@ function editeStaff(int $id): array
 function updateStaffs( int $id, string $name, int $number, string $email, string $password, string $address) : bool
 {
 
-    $timezone = new DateTimeZone('Asia/Phnom_Penh');
-    $date = new DateTime('now', $timezone);
-    $time = $date->format('Y-m-d H:i:s');
 
     global $connection;
-    $statement = $connection->prepare("update users set name = :name, number = :number, email = :email, password = :password,date = :time, staff_addres = :address where id = :id");
+    $statement = $connection->prepare("update staffs set cas_name = :name, cas_number = :number, cas_email = :email, cas_password = :password, address = :address where cas_id = :id");
     $statement->execute([
         ':name' => $name,
         ':number' => $number,
         ':email' => $email,
         ':password' => $password,
-        ':time' => $time,
         ':address' => $address,
         ':id' => $id
 
