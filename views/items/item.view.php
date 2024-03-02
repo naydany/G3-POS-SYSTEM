@@ -9,7 +9,7 @@
             <!-- <i class="bi bi-pencil-square text-success btn btn-lg ml-3" data-toggle="modal" data-target="#exampleModalUpdate<?= $pro['pro_id'] ?>"></i> -->
 
             <div class="card-header py-3 d-flex justify-content-between">
-                <a href="/form_create" class="btn btn-outline-primary" data-toggle="modal" data-target="#exampleModals" data-whatever="@getbootstrap"><i class="bi bi-plus-circle mr-3"></i></i>Create New Product</i></a>
+                <a href="/form_create" class="btn btn-outline-primary" data-toggle="modal" data-target="#exampleModals" data-whatever="@getbootstrap"><i class="bi bi-plus-circle mr-3"></i><i>Create New Product</i></a>
             </div>
 
         </div>
@@ -224,9 +224,7 @@
         </div>
     </div>
 </div>
+<!-- <?php require "../../layouts/footer.php"?> -->
 </div>
+
 <!-- /.container-fluid -->
-
-<?php
-
-require "layouts/footer.php";
