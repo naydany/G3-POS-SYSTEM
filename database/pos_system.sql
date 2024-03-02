@@ -106,6 +106,7 @@ CREATE TABLE `products`(
     `pro_price` VARCHAR(255) NOT NULL,
     `pro_date` DATETIME NOT NULL,
     `cate_name` VARCHAR(100) NOT NULL,
+    `supplier` VARCHAR(100) NOT NULL,
     `sup_id` INT NOT NULL,
     
 );
