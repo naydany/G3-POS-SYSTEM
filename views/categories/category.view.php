@@ -1,17 +1,4 @@
-<!DOCTYPE html>
-<html lang="en">
 
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
-    <style>
-
-    </style>
-    <title>Category</title>
-</head>
-
-<body>
 
     <div class="card-header pl-5 pr-5 py-3 d-flex justify-content-between">
         <h5 class="ml-5 font-weight-bold text-primary">Category</h5>
@@ -169,13 +156,3 @@
     </div>
 
     </div>
-    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"></script>
-    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
-
-</body>
-<?php
-require "layouts/footer.php";
-?>
-
-</html>
