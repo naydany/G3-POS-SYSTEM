@@ -1,21 +1,8 @@
-<!DOCTYPE html>
-<html lang="en">
 
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
-    <style>
-
-    </style>
-    <title>Category</title>
-</head>
-
-<body>
 
     <div class="card-header pl-5 pr-5 py-3 d-flex justify-content-between">
         <h5 class="ml-5 font-weight-bold text-primary">Category</h5>
-        <button type="button" class="btn btn-outline-primary mr-5" data-toggle="modal" data-target="#exampleModales">
+        <button type="button" class="btn btn-outline-primary mr-5" data-toggle="modal" data-target="#medalCreate">
             <i class="bi bi-plus-circle mr-2"></i>Add new Category
         </button>
     </div>
@@ -112,7 +99,7 @@
 
                     <!-- popup create  -->
 
-                    <div class="modal fade" id="exampleModales" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                    <div class="modal fade" id="medalCreate" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
                         <div class="modal-dialog">
                             <div class="modal-content">
                                 <div class="modal-header">
@@ -169,13 +156,3 @@
     </div>
 
     </div>
-    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"></script>
-    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
-
-</body>
-<?php
-require "layouts/footer.php";
-?>
-
-</html>

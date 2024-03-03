@@ -1,10 +1,10 @@
 <?php
 
-function createAdmin( string $name, string $email, string $password, string $address, int $phone , string $role ) : bool
+function createAdmin(string $name, string $email, string $password, string $address, int $phone, string $role, string $img): bool
 {
 
     global $connection;
-    $statement = $connection->prepare("insert into users (name,password,email,address,phone,role) values (:name,:password,:email,:address,:phone,:role)");
+    $statement = $connection->prepare("insert into users (name,password,email,address,phone,role,image) values (:name,:password,:email,:address,:phone,:role,:image)");
     $statement->execute([
         ':name' => $name,
         ':password' => $password,
@@ -12,6 +12,7 @@ function createAdmin( string $name, string $email, string $password, string $add
         ':address' => $address,
         ':phone' => $phone,
         ':role' => $role,
+        ':image' => $img,
     ]);
     return $statement->rowCount() > 0;
 }
@@ -24,7 +25,7 @@ function getUser(): array
     return $statement->fetchAll();
 }
 
-function deleteAdmin(int $id) : bool
+function deleteAdmin(int $id): bool
 
 {
     global $connection;
@@ -42,7 +43,7 @@ function editeAdmin(int $id): array
     return $statement->fetch();
 }
 
-function updateAdmin( int $id, string $name, string $email, string $address) : bool
+function updateAdmin(int $id, string $name, string $email, string $address): bool
 {
 
     global $connection;
@@ -75,7 +76,8 @@ function accountExist(string $email): array
 
 
 
-function countNameCategory(): array{
+function countNameCategory(): array
+{
     global $connection;
     $statement = $connection->prepare("select cate_name from categories");
     $statement->execute();

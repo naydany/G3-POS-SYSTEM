@@ -1,5 +1,4 @@
 <?php
-// session_start();
 
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
     $name = $_POST["name"];
@@ -10,7 +9,6 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     $bio = $_POST["bio"];
 }
 
-// print_r($_SESSION['user']);
 ?>
 
 
@@ -31,9 +29,20 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
                 </div>
                 <div>
                     <label for="profileImageInput" class="d-block text-center btn btn-light btn-sm mt-2">
-                        <!-- <i class="fas fa-camera fa-lg"></i> Change Profile -->
                         <input type="file" id="profileImageInput" accept="image/*" class="d-none" onchange="loadFile(event, 'profileImage')">
+                        <?php if ($_SESSION['user']['image']) : ?>
+                            <img id="profileImage" src="<?= $_SESSION['user']['imageprofile'] ?>" alt="Profile Image">
+                        <?php else : ?>
+                            <img id="profileImage" src="path_to_default_image" alt="Default Profile Image">
+                        <?php endif; ?>
                     </label>
+
+                    <script>
+                        function loadFile(event, imgId) {
+                            const output = document.getElementById(imgId);
+                            output.src = URL.createObjectURL(event.target.files[0]);
+                        }
+                    </script>
                 </div>
             </div>
         </div>
