@@ -83,5 +83,5 @@ if (!empty($_SESSION['user'])) {
         require $page;
     }
 }
-
+require "layouts/footer.php";
 

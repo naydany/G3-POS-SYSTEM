@@ -1,28 +1,22 @@
-<!DOCTYPE html>
-<html lang="en">
+<<<<<<< HEAD
 
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
-    <style>
-
-    </style>
-    <title>Category</title>
-</head>
-
-<body>
 
     <div class="card-header pl-5 pr-5 py-3 d-flex justify-content-between">
         <h5 class="ml-5 font-weight-bold text-primary">Category</h5>
-        <button type="button" class="btn btn-outline-primary mr-5" data-toggle="modal" data-target="#exampleModales">
+        <button type="button" class="btn btn-outline-primary mr-5" data-toggle="modal" data-target="#medalCreate">
+=======
+<div class="container-fluid">
+    <div class="card shadow">
+    <div class="card-header pt-3 d-flex justify-content-between">
+        <h5 class="ml-4 mt-2 font-weight-bold text-primary">Category</h5>
+        <button type="button" class="btn btn-outline-primary mr-3" data-toggle="modal" data-target="#exampleModales">
+>>>>>>> search_order
             <i class="bi bi-plus-circle mr-2"></i>Add new Category
         </button>
     </div>
 
-
-    <div class="container mt-3">
-        <table class="table table-bordered text-center mt-2 rounded">
+    <div class="container pr-5 ml-3 mr-5 mt-4">
+        <table class="table table-bordered text-center rounded">
             <thead class=" text-secondary thead-light text-black-50">
                 <tr>
                     <th>Id</th>
@@ -31,12 +25,69 @@
                     <th>Action</th>
                 </tr>
             </thead>
-            <tbody class="text-secondary">
+            <tbody>
                 <?php
 
                 $cates = getCategory();
                 foreach ($cates as $cate) :
                 ?>
+
+                    <!-- popup view -->
+                    <script>
+                        $('#exampleModal').on('show.bs.modal', function(event) {
+                            var button = $(event.relatedTarget)
+                            var recipient = button.data('whatever')
+                            modal.find('.modal-title').text('New message to ' + recipient)
+                            modal.find('.modal-body input').val(recipient)
+                        })
+                    </script>
+                    </tr>
+                    <div class="modal fade" id="exampleModal<?= $pro['pro_id'] ?>" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                        <div class="modal-dialog" role="document">
+                            <div class="modal-content">
+                                <div class="modal-header">
+                                    <h5 class="modal-title" id="exampleModalLabel">Detail Product</h5>
+                                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                        <span aria-hidden="true">&times;</span>
+                                    </button>
+                                </div>
+                                <div class="modal-body">
+                                    <div class="row">
+                                        <div class="col-md-6">
+                                            <img src="assets/images/<?= $pro['pro_img'] ?>" alt="" width="100%" height="auto" class="">
+                                        </div>
+                                        <div class="col-md-6">
+                                            <form>
+                                                <div class="form-group">
+                                                    <label for="recipient-name" class="col-form-label">ID: <?= $pro['pro_id'] ?></label>
+                                                </div>
+                                                <div class="form-group">
+                                                    <label for="recipient-name" class="col-form-label">Name: <?= $pro['pro_name'] ?></label>
+                                                </div>
+                                                <div class="form-group">
+                                                    <label for="recipient-name" class="col-form-label">Code: <?= $pro['pro_code'] ?></label>
+                                                </div>
+                                                <div class="form-group">
+                                                    <label for="recipient-name" class="col-form-label">Category: <?= $pro['cate_name'] ?></label>
+                                                </div>
+                                                <div class="form-group">
+                                                    <label for="recipient-name" class="col-form-label">Quantity: <?= $pro['pro_quantity'] ?></label>
+                                                </div>
+                                                <div class="form-group">
+                                                    <label for="recipient-name" class="col-form-label">Price: <?= $pro['pro_price'] ?>$</label>
+                                                </div>
+                                                <div class="form-group">
+                                                    <label for="recipient-name" class="col-form-label">Supplier: <?= $pro['sup_name'] ?></label>
+                                                </div>
+                                            </form>
+                                        </div>
+                                    </div>
+                                </div>
+
+                            </div>
+                        </div>
+                    </div>
+
 
                     <!-- popup update  -->
 
@@ -112,7 +163,7 @@
 
                     <!-- popup create  -->
 
-                    <div class="modal fade" id="exampleModales" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                    <div class="modal fade" id="medalCreate" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
                         <div class="modal-dialog">
                             <div class="modal-content">
                                 <div class="modal-header">
@@ -166,16 +217,12 @@
         </table>
     </div>
     </div>
+</div>
+
+<<<<<<< HEAD
     </div>
-
-    </div>
-    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"></script>
-    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
-
-</body>
-<?php
-require "layouts/footer.php";
-?>
-
-</html>
+=======
+<script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
+>>>>>>> search_order
