@@ -8,9 +8,9 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
     $phone = $_POST['phone'];
     $address = $_POST['address'];
 
-    // echo $name;
-    // echo $phone;
-    // echo $address;
+    echo $name;
+    echo $phone;
+    echo $address;
 
 
     $add = createSupplier( $name,  $phone, $address);

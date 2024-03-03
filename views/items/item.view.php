@@ -1,17 +1,14 @@
 <!-- Begin Page Content -->
 
 
-
 <div class="container-fluid">
 
     <!-- DataTales Example -->
     <div class="card shadow ">
-        <div class="card-header d-flex justify-content-between">
-            <h5 class="mt-4 ml-4 font-weight-bold text-primary">Items</h5>
+        <div class="card-header py-3 d-flex justify-content-between">
+            <h5 class="mt-2 ml-4 font-weight-bold text-primary">Items</h5>
 
-            <!-- <i class="bi bi-pencil-square text-success btn btn-lg ml-3" data-toggle="modal" data-target="#exampleModalUpdate<?= $pro['pro_id'] ?>"></i> -->
-
-            <div class="card-header py-3 d-flex justify-content-between">
+            <div class="mr-4">
                 <a id='create_item' onclick="openForm()" class="btn btn-outline-primary" data-toggle="modal" data-target="#ModalItems" data-whatever="@getbootstrap"><i class="bi bi-plus-circle mr-3"></i></i>Create New Product</i></a>
             </div>
 
@@ -52,18 +49,10 @@
                                 <td>
                                     <!-- <a href="/update_item" class="btn btn-sm btn-success ml-3"><i class="bi bi-pencil-square"></i>Update</a> -->
                                     <!-- <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModalUpdate">Update</button> -->
-<<<<<<< HEAD
                                     
                                     <i class="bi bi-pencil-square text-success btn btn-lg" data-toggle="modal" data-target="#exampleModalUpdate<?= $pro['pro_id'] ?>"></i>
                                     <a onclick="return confirm('Do you want to delete this product?')" href="../../controllers/items/delete_item.controller.php?id=<?= $pro['pro_id'] ?>"><i class="bi bi-trash3 text-danger btn btn-lg"></i></a>
                                     <i class="bi bi-question-circle text-info btn btn-lg" data-toggle="modal" data-target="#exampleModal<?= $pro['pro_id'] ?>"></i>
-=======
-                                    <a onclick="return confirm('Do you want to delete this product?')" href="../../controllers/items/delete_item.controller.php?id=<?= $pro['pro_id'] ?>"><i class="bi bi-trash3 text-danger btn btn-lg ml-3"></i></a>
-
-                                    <i class="bi bi-pencil-fill text-success btn btn-lg ml-3" data-toggle="modal" data-target="#exampleModalUpdate<?= $pro['pro_id'] ?>"></i>
-
-                                    <i class="bi bi-eye-fill text-info btn btn-lg ml-3 " id="view_item" onclick="viewItem()" data-toggle="modal" data-target="#ModalView<?= $pro['pro_id'] ?>"></i>
->>>>>>> f2af0fda195ffc71109c5a92609ae547a8f6a71d
 
                                 </td>
 
@@ -337,10 +326,4 @@
 <!-- /.container-fluid -->
 <?php
 
-<<<<<<< HEAD
 require "layouts/footer.php";
-=======
-<!-- /.container-fluid -->
-
-<?php require "layouts/footer.php" ?>
->>>>>>> f2af0fda195ffc71109c5a92609ae547a8f6a71d
