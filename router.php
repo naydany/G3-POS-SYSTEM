@@ -83,4 +83,4 @@ if (!empty($_SESSION['user'])) {
     }
 }
 
-
+require "layouts/footer.php";

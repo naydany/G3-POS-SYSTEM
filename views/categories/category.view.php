@@ -15,7 +15,7 @@
 
     <div class="card-header pl-5 pr-5 py-3 d-flex justify-content-between">
         <h5 class="ml-5 font-weight-bold text-primary">Category</h5>
-        <button type="button" class="btn btn-outline-primary mr-5" data-toggle="modal" data-target="#exampleModales">
+        <button type="button" class="btn btn-outline-primary mr-5" data-toggle="modal" data-target="#medalCreate">
             <i class="bi bi-plus-circle mr-2"></i>Add new Category
         </button>
     </div>
@@ -112,7 +112,7 @@
 
                     <!-- popup create  -->
 
-                    <div class="modal fade" id="exampleModales" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                    <div class="modal fade" id="medalCreate" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
                         <div class="modal-dialog">
                             <div class="modal-content">
                                 <div class="modal-header">
