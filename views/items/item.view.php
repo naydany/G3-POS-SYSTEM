@@ -195,7 +195,7 @@
 
                             <style>
                                 .create_item {
-                                    display: none;
+                                    /* display: none; */
                                     position: fixed;
                                     z-index: 8;
                                     left: 0;
