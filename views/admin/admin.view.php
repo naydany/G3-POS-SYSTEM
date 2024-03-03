@@ -142,3 +142,6 @@ endif;
         </tbody>
     </table>
 </div>
+<?php
+    require "layouts/footer.php"
+?>
