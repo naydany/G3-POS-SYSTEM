@@ -1,5 +1,4 @@
 <?php
-
 require "models/item.model.php";
 require "database/database.php";
 
