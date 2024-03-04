@@ -55,19 +55,19 @@
 
                                     <i class="bi bi-pencil-fill text-success btn btn-lg ml-3" data-toggle="modal" data-target="#exampleModalUpdate<?= $pro['pro_id'] ?>"></i>
 
-                                    <i class="bi bi-eye-fill text-info btn btn-lg ml-3 " id="view_item" onclick="viewItem()" data-toggle="modal" data-target="#ModalView<?= $pro['pro_id'] ?>"></i>
+                                    <i class="bi bi-eye-fill text-info btn btn-lg ml-3 " id="view_item" data-toggle="modal" data-target="#ModalView<?= $pro['pro_id'] ?>"></i>
 
                                 </td>
 
                                 <!-- popup view -->
 
                             </tr>
-                            <div class="modal view_item" id="ModalView<?= $pro['pro_id'] ?>" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                            <div class="modal fade" id="ModalView<?= $pro['pro_id'] ?>" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
                                 <div class="modal-dialog" role="document">
                                     <div class="modal-content">
                                         <div class="modal-header">
                                             <h4 class="modal-title text-danger" id="exampleModalLabel">Detail Product</h4>
-                                            <button type="button" onclick="closeView()" class="close" data-dismiss="modal" aria-label="Close">
+                                            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                                                 <span aria-hidden="true">&times;</span>
                                             </button>
                                         </div>
@@ -152,11 +152,6 @@
                                 </div>
                             </div>
 
-
-                            <!-- popup create product  -->
-
-
-
                         <?php endforeach; ?>
                     </tbody>
                 </table>
@@ -167,7 +162,7 @@
 </div>
 </div>
 
-
+<!-- popup create product  -->
 <!-- /.container-fluid -->
 <!-- The Modal -->
 <div class="modal fade" id="myModal">
@@ -181,7 +176,7 @@
             </div>
 
             <!-- Modal body -->
-            <div class="modal-body">
+            <div class="modal-body d-flex justify-content-center">
                 <form action="../../controllers/items/create.controller.php" method="post" class="d-flex flex-xl-column" enctype="multipart/form-data">
                     <div class="form-row">
                         <div class=" form-group mr-5">
@@ -237,7 +232,7 @@
 
 
 
-            <button type="submit" class="btn btn-primary w-25 mt-3">Submit</button>
+            <button type="submit" class="btn btn-primary w-25 mt-3 md-5">Submit</button>
             <!-- </div> -->
             </form>
         </div>
