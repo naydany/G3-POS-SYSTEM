@@ -7,7 +7,7 @@
                 </div>
 
                 <div class="card-body">
-                    <form action="../../controllers/admin/add_new_admin.controller.php" class='d-flex flex-xl-column' method='post'>
+                    <form action="../../controllers/admin/add_new_admin.controller.php" class='d-flex flex-xl-column' method='post' enctype="multipart/form-data">
                         <div class="form-row">
                             <div class="col-md-6">
                                 <label>Admin Name:</label>
@@ -44,12 +44,18 @@
 
                             </div>
                         </div>
-                        <br>
                         <div class="form-row">
+                            <div class="form-group " style="width: 700px;">
+                                <label>Image</label>
+                                <input type="file" class="form-control" placeholder="Insert Image" name="imageprofile">
+                            </div>
+                        </div>
+                        <br>
+           
                             <div class="col-md-6">
                                 <button type="submit" class="btn btn-primary">Add admin</button>
                             </div>
-                        </div>
+           
                     </form>
                 </div>
             </div>

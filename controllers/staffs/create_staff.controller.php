@@ -11,17 +11,16 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
     $email = htmlspecialchars($_POST['email']);
     $password = htmlspecialchars($_POST['password']);
     $address = htmlspecialchars($_POST['address']);
-    // $role = htmlspecialchars($_POST['role']);
+    $role = htmlspecialchars($_POST['roles']);
 
-    // echo $role;
     
-    if (!empty($name) && !empty($email) && !empty($password) && !empty($number) && !empty($address)) {
+    if (!empty($name) && !empty($email) && !empty($password) && !empty($number) && !empty($address) && !empty($role)) {
         $encryptPassword = password_hash($password, PASSWORD_BCRYPT);
     
         $staff = accountExist($email);
 
         if (count($staff) == 0) {
-            createStaffs($name, $number, $email, $encryptPassword,$address);
+            createStaffs($name, $number, $email, $encryptPassword,$address,$role);
             header('Location: /staffs');
             $_SESSION['success'] = "Account successfully created";
           

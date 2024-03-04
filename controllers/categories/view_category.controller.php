@@ -3,6 +3,7 @@ require 'database/database.php';
 require 'models/category.model.php';
 if (isset($_GET['id'])) {
     $id = $_GET['id'];
+
     $cate = viewCategory($id);
     $counts = countProductInCategory($id);
     $numberOfproduct = 0 ;

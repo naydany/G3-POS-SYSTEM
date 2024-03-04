@@ -36,9 +36,9 @@
                                 <input type="text" class="form-control" id="address" name='address'>
                             </div>
                             <div class="col-md-6 mt-4">
-                                <select class="custom-select" name="role" id="inputGroupSelect02">
-                                    <option selected>Choose...</option>
-                                    <option value="admin">Staff</option>
+                                <select class="custom-select" name="roles" id="inputGroupSelect02">
+                                    <!-- <option selected>Choose...</option> -->
+                                    <option value="staff">Staff</option>
                                 </select>
                             </div>
                         </div>

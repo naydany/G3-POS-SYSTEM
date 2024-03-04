@@ -5,16 +5,18 @@ function createItem(
     int $pro_quan,
     string $pro_img,
     string $pro_price,
-    string $pro_cate
+    string $pro_cate,
+    string $sup_name
 ): bool {
     global $connection;
-    $statement = $connection->prepare("insert into products (pro_img,pro_name, pro_code, cate_name, pro_quantity, pro_price ) 
-    values ( :image, :name,:code, :cate,:quantity, :price)");
+    $statement = $connection->prepare("insert into products (pro_img,pro_name, pro_code, cate_name, sup_name, pro_quantity, pro_price) 
+    values ( :image, :name,:code, :cate, :sup_name, :quantity, :price)");
     $statement->execute([
         ':name' => $pro_name,
         ':code' => $pro_code,
-        'image' => $pro_img,
+        ':image' => $pro_img,
         ':cate' => $pro_cate,
+        ':sup_name' =>  $sup_name,
         ':quantity' => $pro_quan,
         ':price' => $pro_price,
 
@@ -40,9 +42,9 @@ function getItem(): array
     return $statement->fetchAll();
 }
 
-function updateItem( string $pro_name,string $pro_code , string $pro_price, int $pro_quan, int $pro_id): bool
+function updateItem(string $pro_name, string $pro_code, string $pro_price, int $pro_quan, int $pro_id): bool
 {
- 
+
     global $connection;
     $statement = $connection->prepare("update products set pro_name = :pro_name, pro_code = :pro_code, pro_price = :pro_price,
     pro_quantity = :pro_quantity where pro_id = :pro_id");
@@ -52,7 +54,7 @@ function updateItem( string $pro_name,string $pro_code , string $pro_price, int 
         ":pro_code" => $pro_code,
         ":pro_quantity" => $pro_quan,
         ":pro_price" => $pro_price,
-        ":pro_id"=> $pro_id,
+        ":pro_id" => $pro_id,
     ]);
 
     return $statement->rowCount() > 0;
@@ -67,9 +69,18 @@ function deleteItem(int $pro_id): bool
 }
 
 
-function countNameCategory(): array{
+function countNameCategory(): array
+{
     global $connection;
     $statement = $connection->prepare("select cate_name from categories");
+    $statement->execute();
+    return $statement->fetchAll();
+}
+
+function countNameSuppliers(): array
+{
+    global $connection;
+    $statement = $connection->prepare("select sup_name from suppliers");
     $statement->execute();
     return $statement->fetchAll();
 }

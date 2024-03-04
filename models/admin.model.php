@@ -1,10 +1,10 @@
 <?php
 
-function createAdmin( string $name, string $email, string $password, string $address, int $phone , string $role ) : bool
+function createAdmin(string $name, string $email, string $password, string $address, int $phone, string $role, string $img): bool
 {
 
     global $connection;
-    $statement = $connection->prepare("insert into users (name,password,email,address,phone,role) values (:name,:password,:email,:address,:phone,:role)");
+    $statement = $connection->prepare("insert into users (name,password,email,address,phone,role,image) values (:name,:password,:email,:address,:phone,:role,:image)");
     $statement->execute([
         ':name' => $name,
         ':password' => $password,
@@ -12,19 +12,20 @@ function createAdmin( string $name, string $email, string $password, string $add
         ':address' => $address,
         ':phone' => $phone,
         ':role' => $role,
+        ':image' => $img,
     ]);
     return $statement->rowCount() > 0;
 }
 
-function getAdmin(): array
+function getUser(): array
 {
     global $connection;
-    $statement = $connection->prepare("select * from users");
+    $statement = $connection->prepare("select * from users where role='admin'");
     $statement->execute();
     return $statement->fetchAll();
 }
 
-function deleteAdmin(int $id) : bool
+function deleteAdmin(int $id): bool
 
 {
     global $connection;
@@ -42,15 +43,14 @@ function editeAdmin(int $id): array
     return $statement->fetch();
 }
 
-function updateAdmin( int $id, string $name, string $email, string $password, string $address) : bool
+function updateAdmin(int $id, string $name, string $email, string $address): bool
 {
 
     global $connection;
-    $statement = $connection->prepare("update users set name = :name, email = :email, password = :password, address = :address where id = :id");
+    $statement = $connection->prepare("update users set name = :name, email = :email, address = :address where id = :id");
     $statement->execute([
         ':name' => $name,
         ':email' => $email,
-        ':password' => $password,
         ':address' => $address,
         ':id' => $id
 
@@ -72,4 +72,14 @@ function accountExist(string $email): array
     } else {
         return [];
     }
+}
+
+
+
+function countNameCategory(): array
+{
+    global $connection;
+    $statement = $connection->prepare("select cate_name from categories");
+    $statement->execute();
+    return $statement->fetchAll();
 }

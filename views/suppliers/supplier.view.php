@@ -17,10 +17,10 @@
         <table class="table table-bordered text-center mt-2 rounded">
             <thead class="text-secondary thead-light">
                 <tr>
-                    <th>Supplier ID</th>
-                    <th>Supplier Name</th>
-                    <th>Supplier Country</th>
-                    <th>Supplier Address</th>
+                    <th> ID</th>
+                    <th> Name</th>
+                    <th> phone</th>
+                    <th> Address</th>
                     <th>Action</th>
                 </tr>
             </thead>
@@ -33,17 +33,18 @@
                 <tr>
                     <td><?= $supplier['sup_id'] ?></td>
                     <td><?= $supplier['sup_name'] ?></td>
-                    <td><?= $supplier['sup_country'] ?></td>
+                    <td><?= $supplier['phone'] ?></td>
                     <td><?= $supplier['sup_address'] ?></td>
                     <td>
                         <div class="btn-group">
-                            <a href="controllers/suppliers/delete_supplier.controller.php?id=<?=$supplier['sup_id']?>"><button class="btn btn-sm btn-danger" onclick="deleteAdmin(1)"style = "font-size: 10px"><i class="fas fa-trash"></i> Delete</button></a>
-                            <a href="/update_supplier?id=<?=$supplier['sup_id']?>"><button class="btn btn-sm btn-success ml-3" onclick="deleteAdmin(1)"style = "font-size: 10px"><i class="fas fa-edit"></i>Update</button></a>
+                            <a onclick="return confirm('Do you want to delete this product?')" href="controllers/suppliers/delete_supplier.controller.php?id=<?=$supplier['sup_id']?>"><i class="bi bi-trash3 text-danger btn btn-lg ml-1"></i></a>
+                            <a href="/update_supplier?id=<?=$supplier['sup_id']?>"><i class="bi bi-pencil-square text-success btn btn-lg ml-1"></i></a>
                         </div>
                     </td>
                 </tr>
             </tbody>
             <?php endforeach; ?>
+            
         </table>
     </div>
 

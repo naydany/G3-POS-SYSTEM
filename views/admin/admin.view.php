@@ -143,5 +143,5 @@ endif;
     </table>
 </div>
 <?php
-    require "layouts/footer.php"
+    require "layouts/footer.php";
 ?>

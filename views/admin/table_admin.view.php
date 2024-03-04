@@ -26,18 +26,18 @@
         </thead>
         <tbody>
         <?php
-            $admins = getAdmin();
-            foreach ($admins as $admin) :
+            $users = getUser();
+            foreach ($users as $user) :
         ?>
             <tr>
-                <td><?= $admin['id'] ?></td>
-                <td><?= $admin['name'] ?></td>
-                <td><?= $admin['email'] ?></td>
-                <td><?= $admin['address'] ?></td>
+                <td><?= $user['id'] ?></td>
+                <td><?= $user['name'] ?></td>
+                <td><?= $user['email'] ?></td>
+                <td><?= $user['address'] ?></td>
                 <td>
                     <div class="btn-group">
-                        <a href="controllers/admin/delete_admin.controller.php?id=<?=$admin['id']?>"><button class="btn btn-sm btn-danger" onclick="deleteAdmin(1)"style = "font-size: 12px"><i class="fas fa-trash"></i> Delete</button></a>
-                        <a href="/update_admin?id=<?=$admin['id']?>"><button class="btn btn-sm btn-success ml-3" onclick="updateAdmin(1)"style = "font-size: 12px"><i class="fas fa-edit"></i> Update</button></a>
+                        <a onclick="return confirm('Do you want to delete this product?')" href="controllers/admin/delete_admin.controller.php?id=<?=$user['id']?>"><i class="bi bi-trash3 text-danger btn btn-lg ml-1"></i></a>
+                        <a href="/update_admin?id=<?=$user['id']?>"><i class="bi bi-pencil-square text-success btn btn-lg ml-1"></i></a>
                     </div>
                 </td>
             </tr>
