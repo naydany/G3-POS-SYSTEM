@@ -10,7 +10,7 @@
 
             <div class="card-header py-3 d-flex justify-content-between">
                 <button type="button" class="btn btn-outline-primary " data-toggle="modal" data-target="#myModal"><i class="bi bi-plus-circle mr-3"></i>
-                <i>Create New Product</i>
+                    <i>Create New Product</i>
                 </button>
             </div>
 
@@ -38,7 +38,7 @@
                         $products = getItem();
                         foreach ($products as $pro) :
                         ?>
-                            <tr> 
+                            <tr>
                                 <td><?= $pro['pro_id'] ?></td>
                                 <td><img width="50px" height="50px" style="object-fit: cover;" class="rounded-circle" src="assets/images/<?= $pro['pro_img'] ?>" alt=""></td>
                                 <td><?= $pro['pro_name'] ?></td>
@@ -236,6 +236,11 @@
     </div>
 
 </div>
+<<<<<<< HEAD
 
 
 
+=======
+</div>
+</div>
+>>>>>>> 55b0cfa0ea49267ef7925eb380730fbbf71daf04
