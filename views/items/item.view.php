@@ -8,15 +8,10 @@
         <div class="card-header py-3 d-flex justify-content-between">
             <h5 class="mt-2 ml-4 font-weight-bold text-primary">Items</h5>
 
-<<<<<<< HEAD
             <div class="card-header py-3 d-flex justify-content-between">
                 <button type="button" class="btn btn-outline-primary " data-toggle="modal" data-target="#myModal"><i class="bi bi-plus-circle mr-3"></i>
                 <i>Create New Product</i>
                 </button>
-=======
-            <div class="mr-4">
-                <a id='create_item' onclick="openForm()" class="btn btn-outline-primary" data-toggle="modal" data-target="#ModalItems" data-whatever="@getbootstrap"><i class="bi bi-plus-circle mr-3"></i></i>Create New Product</i></a>
->>>>>>> search_order
             </div>
 
         </div>
@@ -41,11 +36,6 @@
 
 
                         $products = getItem();
-<<<<<<< HEAD
-
-=======
-               
->>>>>>> search_order
                         foreach ($products as $pro) :
                         ?>
                             <tr> 
@@ -57,66 +47,17 @@
                                 <td><?= $pro['pro_quantity'] ?></td>
                                 <td><?= $pro['pro_price'] ?>$</td>
                                 <td>
-<<<<<<< HEAD
 
                                     <a onclick="return confirm('Do you want to delete this product?')" href="../../controllers/items/delete_item.controller.php?id=<?= $pro['pro_id'] ?>"><i class="bi bi-trash3 text-danger btn btn-lg ml-3"></i></a>
 
                                     <i class="bi bi-pencil-fill text-success btn btn-lg ml-3" data-toggle="modal" data-target="#exampleModalUpdate<?= $pro['pro_id'] ?>"></i>
 
                                     <i class="bi bi-eye-fill text-info btn btn-lg ml-3 " id="view_item" onclick="viewItem()" data-toggle="modal" data-target="#ModalView<?= $pro['pro_id'] ?>"></i>
-=======
-                                    <!-- <a href="/update_item" class="btn btn-sm btn-success ml-3"><i class="bi bi-pencil-square"></i>Update</a> -->
-                                    <!-- <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModalUpdate">Update</button> -->
-                                    
-                                    <i class="bi bi-pencil-square text-success btn btn-lg" data-toggle="modal" data-target="#exampleModalUpdate<?= $pro['pro_id'] ?>"></i>
-                                    <a onclick="return confirm('Do you want to delete this product?')" href="../../controllers/items/delete_item.controller.php?id=<?= $pro['pro_id'] ?>"><i class="bi bi-trash3 text-danger btn btn-lg"></i></a>
-                                    <i class="bi bi-question-circle text-info btn btn-lg" data-toggle="modal" data-target="#exampleModal<?= $pro['pro_id'] ?>"></i>
->>>>>>> search_order
 
                                 </td>
 
                                 <!-- popup view -->
 
-<<<<<<< HEAD
-=======
-                                <style>
-                                    .view_item {
-                                        display: none;
-                                        /* position: fixed; */
-                                        /* z-index: 8;
-                                        left: 0;
-                                        top: 0;
-                                        width: 100%;
-                                        height: 100%;
-                                        overflow: auto;
-                                        background-color: rgb(0, 0, 0);
-                                        background-color: rgba(0, 0, 0, 0.4); */
-
-                                    }
-                                </style>
-
-                                <script>
-                                    const pop_view = document.querySelector('#view_item');
-                                    const start_pop_view = document.querySelector('.view_item');
-
-                                    function closeView() {
-                                        start_pop_view.style.display = 'none';
-                                    }
-                                </script>
-
-
-
-
-                                <script>
-                                    $('#exampleModal').on('show.bs.modal', function(event) {
-                                        var button = $(event.relatedTarget)
-                                        var recipient = button.data('whatever') 
-                                        var modal = $(this)
-                                        modal.find('.modal-title').text('New message to ' + recipient)
-                                        modal.find('.modal-body input').val(recipient)
-                                    })
-                                </script>
->>>>>>> search_order
                             </tr>
                             <div class="modal view_item" id="ModalView<?= $pro['pro_id'] ?>" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
                                 <div class="modal-dialog" role="document">
@@ -313,10 +254,9 @@
 </div>
 </div>
 </div>
->>>>>>> 34964c5ee1a086b2d08b37432414571255e571e1
-=======
+
 <!-- /.container-fluid -->
 <?php
 
 require "layouts/footer.php";
->>>>>>> search_order
+
