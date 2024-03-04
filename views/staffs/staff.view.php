@@ -14,6 +14,7 @@
                 <th class="text-center">number</th>
                 <th class="text-center">emial</th>
                 <th class="text-center">address</th>
+                <th class="text-center">role</th>
                 <th class="text-center">Action</th>
             </tr>
         </thead>
@@ -30,6 +31,7 @@
                     <td class="text-center"><?= $user['phone'] ?></td>
                     <td class="text-center"><?= $user['email'] ?></td>
                     <td class="text-center"><?= $user['address'] ?></td>
+                    <td class="text-center"><?= $user['role'] ?></td>
                     <td class="text-center">
                         <div class="btn-group">
                             <a onclick="return confirm('Do you want to delete this product?')" href="controllers/staffs/delete_staff.controller.php?id=<?= $user['id'] ?>"><i class="bi bi-trash3 text-danger btn btn-lg ml-1"></i></a>
@@ -43,7 +45,7 @@
                 <div class="modal fade" id="modalUpdateStaff<?= $user['id'] ?>" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
                     <div class="modal-dialog">
                         <div class="d-flex justify-content-center modal-content">
-                            <div class="card p-5 ">
+                            <div class="card p-5">
                                 <div>
                                     <h4 class="text-danger">Update Staff</h4>
                                     <hr>
@@ -101,7 +103,7 @@
                             </button>
                         </div>
                         <hr>
-                        <div class="modal-body">
+                        <div class="modal-body pl-5 pr-5">
                             <form action="../../controllers/staffs/create_staff.controller.php" class='d-flex flex-xl-column' method='post' enctype="multipart/form-data">
                                 <div class="form-row">
                                     <div class="col-md-6">
@@ -133,8 +135,9 @@
                                     </div>
                                     <div class="col-md-6 mt-4">
                                         <select class="custom-select" name="roles" id="inputGroupSelect02">
-                                            <!-- <option selected>Choose...</option> -->
-                                            <option value="staff">Staff</option>
+                                            <option selected>Choose...</option>
+                                            <option value="cashier">Cashier</option>
+                                            <option value="stock manager">Stock Manager</option>
                                         </select>
                                     </div>
                                 </div>
