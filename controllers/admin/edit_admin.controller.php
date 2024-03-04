@@ -6,5 +6,5 @@ if (isset($_GET['id']) ) {
     
     $admin = editeAdmin($id);
 }
- require 'views/admin/update_admin.view.php';
+//  require 'views/admin/table_admin.view.php';
 

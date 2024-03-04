@@ -31,14 +31,14 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
                 $nameInDB = $newFileName . '.' . $imageExtension;
                 move_uploaded_file($_FILES["image"]["tmp_name"], $nameInDirectory);
 
-                $isCreated = createItem($pro_name, $pro_code, $pro_quan, $nameInDB , $pro_price, $pro_cate, $sup_name);
+                $isCreated = createItem($pro_name, $pro_code, $pro_quan, $nameInDB, $pro_price, $pro_cate, $sup_name);
                 if ($isCreated) {
                     header('location: /items');
                 } else {
                     header('location: /form_create_pro');
                 }
             }
-        }else {
+        } else {
             $_SESSION['error'] = "Not Image file!";
             header('Location: /form_create');
         }

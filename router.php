@@ -40,6 +40,7 @@ if (isset($_SESSION['user'])) {
 
             '/form_create' => 'controllers/items/create_item.controller.php',
             '/update_item' => 'controllers/items/edit_item.controller.php',
+            '/update_admin' => 'controllers/admin/edit_admin.controller.php',
 
             '/edit_item' => 'controllers/items/edit_item.controller.php',
             '/suppliers' => 'controllers/suppliers/supplier.controller.php',
@@ -70,6 +71,7 @@ if (!empty($_SESSION['user'])) {
     if ($uri != '/' && $uri != '/form_admin_signin' && $uri != '/form_staff_signin') {
         require "layouts/navbar.php";
         require $page;
+        require "layouts/footer.php";
     }else{
         require $page;
     }
@@ -78,10 +80,13 @@ if (!empty($_SESSION['user'])) {
         // $page = 'views/errors/404.php';
         $page = 'controllers/wellcom/wellcom.controller.php';
         require $page;
+        require "layouts/footer.php";
     } else {
 
         require $page;
     }
 }
-require "layouts/footer.php";
+
+
+
 
