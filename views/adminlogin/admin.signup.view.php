@@ -1,13 +1,13 @@
 <?php
-//    if(isset($_SESSION['admin'])) {
-//     $user = $_SESSION['admin'];
-//     if ($user['role'] === "Admin") {
-//       header("Location: /admin");
-//     } else {
-//       header('Location: /normal');
-//     }
-//     die();
-// }
+   if(isset($_SESSION['admin'])) {
+    $user = $_SESSION['admin'];
+    if ($user['role'] === "Admin") {
+      header("Location: /admin");
+    } else {
+      header('Location: /normal');
+    }
+    die();
+}
 ?>
 
 <?php if (isset($_SESSION['error'])) : ?>

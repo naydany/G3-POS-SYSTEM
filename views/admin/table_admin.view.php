@@ -1,4 +1,3 @@
-
 <div class="container mt-4">
     <button type="button" class="btn btn-outline-primary mr-5" data-toggle="modal" data-target="#modalAdmin">
         <i class="fas fa-user-plus"></i> Add new admin
@@ -16,11 +15,46 @@
                 <th>Action</th>
             </tr>
         </thead>
+
         <tbody>
             <?php
             $users = getUser();
             foreach ($users as $user) :
             ?>
+
+                <!-- *popup update admin -->
+
+                <div class="modal fade" id="modalUpdate<?= $user['id'] ?>" role="dialog" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                    <div class="modal-dialog" role="document">
+                        <div class=" d-flex justify-content-center admin_show modal-content">
+                            <div class="card p-5 ml-3 w-200">
+
+                                <h3>Update</h3>
+                                <form action="../../controllers/admin/update_admin.controller.php" class='d-flex flex-xl-column' method='post'>
+                                    <input type="hidden" name="id" value="<?= $user['id'] ?>">
+                                    <div class="form-group">
+                                        <label for="name">name:</label>
+                                        <input type="text" class="form-control" id="name" name='name' value="<?= $user['name'] ?>">
+                                    </div>
+
+                                    <div class="form-group">
+                                        <label for="email">email:</label>
+                                        <input type="text" class="form-control" id="email" name='email' value="<?= $user['email'] ?>">
+                                    </div>
+
+                                    <div class="form-group">
+                                        <label for="address">address:</label>
+                                        <input type="text" class="form-control" id="address" name='address' value="<?= $user['address'] ?>">
+                                    </div>
+
+                                    <button type="submit" class="btn btn-primary">Submit</button>
+                                </form>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+
                 <tr>
                     <td><?= $user['id'] ?></td>
                     <td><?= $user['name'] ?></td>
@@ -29,7 +63,7 @@
                     <td>
                         <div class="btn-group">
                             <a onclick="return confirm('Do you want to delete this product?')" href="controllers/admin/delete_admin.controller.php?id=<?= $user['id'] ?>"><i class="bi bi-trash3 text-danger btn btn-lg ml-1"></i></a>
-                            <a href="/update_admin?id=<?= $user['id'] ?>"><i class="bi bi-pencil-square text-success btn btn-lg ml-1"></i></a>
+                            <i class="bi bi-pencil-square text-success btn btn-lg ml-1" data-toggle="modal" data-target="#modalUpdate<?= $user['id'] ?>"></i>
                         </div>
                     </td>
                 </tr>
@@ -38,10 +72,8 @@
     </table>
 </div>
 
-<!-- *popup create staff -->
 
-
-
+<!-- *popup create admin -->
 <div class="modal fade" id="modalAdmin" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
     <div class="modal-dialog">
         <div class=" d-flex justify-content-center admin_show modal-content">
@@ -50,6 +82,9 @@
                     <div class="card shadow " style="width: 700px;">
                         <div class="card-header border-0 text-primary text-center">
                             <h3>Please input data of admin</h3>
+                            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                <span aria-hidden="true">&times;</span>
+                            </button>
                         </div>
 
                         <div class="card-body">
@@ -113,5 +148,3 @@
         </div>
     </div>
 </div>
-
-
