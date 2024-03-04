@@ -160,10 +160,6 @@
 </div>
 
 <!-- popup create product  -->
-
-<?php require "layouts/footer.php"?>
-
-
 <!-- /.container-fluid -->
 <!-- The Modal -->
 <div class="modal fade" id="myModal">
@@ -240,17 +236,6 @@
     </div>
 
 </div>
-</div>
-</div>
 
-<!-- Modal footer -->
 
-</div>
-</div>
-</div>
-
-<!-- /.container-fluid -->
-<?php
-
-require "layouts/footer.php";
 

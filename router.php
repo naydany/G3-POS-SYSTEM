@@ -46,7 +46,6 @@ if (isset($_SESSION['user'])) {
             '/suppliers' => 'controllers/suppliers/supplier.controller.php',
             '/create_suppliers' => 'controllers/suppliers/form_supplier.controller.php',
 
-            // '/logout' => 'controllers/users/logout.controller.php',
             '/update_supplier' => 'controllers/suppliers/edite_spplier.controller.php',
             '/admin_table' => 'controllers/admin/table_admin.controller.php',
             '/form_admin' => 'controllers/admin/form_admin.controller.php',
