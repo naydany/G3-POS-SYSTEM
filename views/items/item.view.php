@@ -10,7 +10,7 @@
 
             <div class="card-header py-3 d-flex justify-content-between">
                 <button type="button" class="btn btn-outline-primary " data-toggle="modal" data-target="#myModal"><i class="bi bi-plus-circle mr-3"></i>
-                <i>Create New Product</i>
+                Create New Product
                 </button>
             </div>
 
@@ -193,7 +193,7 @@
                     <div class="form-row  mt-3">
                         <div class="form-group mr-5">
                             <label>Code</label>
-                            <input type="number" class="form-control" placeholder="Enter Code" name="code">
+                            <input type="text" class="form-control" placeholder="Enter Code" name="code">
                         </div>
                         <div class="form-group">
                             <label>Category</label>
