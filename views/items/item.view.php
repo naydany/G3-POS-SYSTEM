@@ -1,7 +1,5 @@
 <!-- Begin Page Content -->
 
-
-
 <div class="container-fluid">
 
     <!-- DataTales Example -->
@@ -36,7 +34,6 @@
                         <?php
                         require "database/database.php";
                         require "models/item.model.php";
-
                         $products = getItem();
                         // print_r($products);
                         foreach ($products as $pro) :
@@ -51,8 +48,6 @@
                                 <td><?= $pro['pro_price'] ?>$</td>
 
                                 <td>
-                                    <!-- <a href="/update_item" class="btn btn-sm btn-success ml-3"><i class="bi bi-pencil-square"></i>Update</a> -->
-                                    <!-- <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModalUpdate">Update</button> -->
                                     <a onclick="return confirm('Do you want to delete this product?')" href="../../controllers/items/delete_item.controller.php?id=<?= $pro['pro_id'] ?>"><i class="bi bi-trash3 text-danger btn btn-lg ml-3"></i></a>
 
                                     <i class="bi bi-pencil-fill text-success btn btn-lg ml-3" data-toggle="modal" data-target="#exampleModalUpdate<?= $pro['pro_id'] ?>"></i>
@@ -75,7 +70,6 @@
                                         overflow: auto;
                                         background-color: rgb(0, 0, 0);
                                         background-color: rgba(0, 0, 0, 0.4); */
-
                                     }
                                 </style>
 
@@ -87,9 +81,7 @@
                                         start_pop_view.style.display = 'none';
                                     }
                                 </script>
-
-
-
+                                to night I will 
 
                                 <script>
                                     $('#exampleModal').on('show.bs.modal', function(event) {
@@ -192,7 +184,6 @@
                             </div>
 
                             <!-- !test -->
-
                             <style>
                                 .create_item {
                                     /* display: none; */
@@ -207,18 +198,15 @@
                                     background-color: rgba(0, 0, 0, 0.4);
 
                                 }
-
                                 form {
                                     box-shadow: 0 3px 5px #f5f5f5;
                                     background: #eee;
                                 }
-
                                 .modal_dialog {
                                     position: absolute;
                                     z-index: 3;
                                 }
                             </style>
-
                             <script>
                                 const pop = document.querySelector('.create_item');
                                 const open_pop = document.querySelector('#create_item');
@@ -232,14 +220,11 @@
                                 }
                             </script>
 
-
                             <!-- popup create product  -->
-
                             <?php
                             $categories = countNameCategory();
                             $suppliers = countNameSuppliers();
                             ?>
-
                             <div class="modal create_item" id="exampleIteams" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
                                 <div class="modal-dialog" class="border border-danger" role="document">
                                     <div class="modal-content rounded-top" style="width: 600px;">
@@ -300,14 +285,11 @@
                                                     </div>
 
                                                     <div class="form-row  mt-3">
-
                                                         <div class="form-group " style="width: 500px;">
                                                             <label>Image</label>
                                                             <input type="file" class="form-control" placeholder="Insert Image" name="image">
                                                         </div>
                                                     </div>
-
-
 
                                                     <button type="submit" class="btn btn-primary w-25 mt-3">Submit</button>
                                                     <!-- </div> -->
@@ -318,7 +300,6 @@
                                     </div>
                                 </div>
                             </div>
-
                             <!-- end  -->
                         <?php endforeach; ?>
                     </tbody>
@@ -330,5 +311,4 @@
 </div>
 
 <!-- /.container-fluid -->
-
 <?php require "layouts/footer.php" ?>

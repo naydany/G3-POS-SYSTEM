@@ -44,6 +44,7 @@
                 </tr>
             </tbody>
             <?php endforeach; ?>
+            
         </table>
     </div>
 
