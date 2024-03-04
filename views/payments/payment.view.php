@@ -20,7 +20,7 @@
             <tbody>
                 <?php
                 $payments = getPayments();
-                foreach ($payments as $payment):
+                foreach ($payments as $payment) :
                 ?>
                     <tr>
                         <td><?= $payment['pay_code'] ?></td>
@@ -35,11 +35,11 @@
                                         Pay Order
                                     </button>
                                 </a>
-                                <a href="controllers/payments/cancel_payment.controller.php?id=<?= $payment['pay_id'] ?>">
-                                    <button onclick="return confirm('Do you want to cancel this payment?')" class="btn btn-sm btn-danger"><i class="fas fa-window-close"></i>
-                                        Cancel Order
-                                    </button>
+
+                                <a onclick="return confirm('Do you want cancel this payment?')" href="controllers/payments/cancel_payment.controller.php?id=<?= $payment['pay_id'] ?>">
+                                    <i class="bi bi-x-circle text-danger btn btn-lg ml-3"></i>
                                 </a>
+
                             </div>
                         </td>
                     </tr>
@@ -52,5 +52,3 @@
 <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"></script>
 <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
-
-
