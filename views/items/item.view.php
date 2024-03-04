@@ -1,13 +1,12 @@
 <!-- Begin Page Content -->
 
 
-
 <div class="container-fluid">
 
     <!-- DataTales Example -->
     <div class="card shadow ">
-        <div class="card-header d-flex justify-content-between">
-            <h5 class="mt-4 ml-4 font-weight-bold text-primary">Items</h5>
+        <div class="card-header py-3 d-flex justify-content-between">
+            <h5 class="mt-2 ml-4 font-weight-bold text-primary">Items</h5>
 
             <div class="card-header py-3 d-flex justify-content-between">
                 <button type="button" class="btn btn-outline-primary " data-toggle="modal" data-target="#myModal"><i class="bi bi-plus-circle mr-3"></i>
@@ -18,7 +17,7 @@
         </div>
         <div class="card-body">
             <div class="table-responsive pr-3 pl-3">
-                <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
+                <table class="table table-bordered text-center" id="dataTable" width="100%" cellspacing="0">
                     <thead class="bg-primary text-white thead-light">
                         <tr>
                             <th>ID</th>
@@ -37,10 +36,9 @@
 
 
                         $products = getItem();
-
                         foreach ($products as $pro) :
                         ?>
-                            <tr>
+                            <tr> 
                                 <td><?= $pro['pro_id'] ?></td>
                                 <td><img width="50px" height="50px" style="object-fit: cover;" class="rounded-circle" src="assets/images/<?= $pro['pro_img'] ?>" alt=""></td>
                                 <td><?= $pro['pro_name'] ?></td>
@@ -48,7 +46,6 @@
                                 <td><?= $pro['cate_name'] ?></td>
                                 <td><?= $pro['pro_quantity'] ?></td>
                                 <td><?= $pro['pro_price'] ?>$</td>
-
                                 <td>
 
                                     <a onclick="return confirm('Do you want to delete this product?')" href="../../controllers/items/delete_item.controller.php?id=<?= $pro['pro_id'] ?>"><i class="bi bi-trash3 text-danger btn btn-lg ml-3"></i></a>
@@ -163,6 +160,10 @@
 </div>
 
 <!-- popup create product  -->
+
+<?php require "layouts/footer.php"?>
+
+
 <!-- /.container-fluid -->
 <!-- The Modal -->
 <div class="modal fade" id="myModal">
@@ -247,3 +248,9 @@
 </div>
 </div>
 </div>
+
+<!-- /.container-fluid -->
+<?php
+
+require "layouts/footer.php";
+

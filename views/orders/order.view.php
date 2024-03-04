@@ -32,7 +32,7 @@
                         <td> <?=$product['pro_price']; ?>$</td>
                         <td>
                             <div class="btn-group">
-                                <a href="/order_product">
+                                <a href="/order_product?id=<?= $product['pro_id'] ?>">
                                     <button class="btn btn-sm btn-danger">
                                         <i class="fas fa-handshake"></i>
                                         Place order

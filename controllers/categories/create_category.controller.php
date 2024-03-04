@@ -8,9 +8,8 @@ if ($_SERVER['REQUEST_METHOD'] == "POST") {
         $description = $_POST['description'];
 
         $add = createCategory($category, $description);
-        // echo $add;
             header("Location:/categories");
     }else {
-        header("Location:/create_form_cate");
+        echo "Please file all form";
     }
 }
