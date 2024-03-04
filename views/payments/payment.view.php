@@ -36,7 +36,7 @@
                                     </button>
                                 </a>
 
-                                <a onclick="return confirm('Do you want cancel this payment?')" href="controllers/payments/cancel_payment.controller.php?id=<?= $payment['pay_id'] ?>">
+                                <a onclick="return confirm('Do you want to cancel this payment?')" href="controllers/payments/cancel_payment.controller.php?id=<?= $payment['pay_id'] ?>">
                                     <i class="bi bi-x-circle text-danger btn btn-lg ml-3"></i>
                                 </a>
 
