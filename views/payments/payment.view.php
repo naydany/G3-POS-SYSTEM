@@ -36,7 +36,7 @@
                                     </button>
                                 </a>
                                 <a href="controllers/payments/cancel_payment.controller.php?id=<?= $payment['pay_id'] ?>">
-                                    <button class="btn btn-sm btn-danger"><i class="fas fa-window-close"></i>
+                                    <button onclick="return confirm('Do you want to cancel this payment?')" class="btn btn-sm btn-danger"><i class="fas fa-window-close"></i>
                                         Cancel Order
                                     </button>
                                 </a>
