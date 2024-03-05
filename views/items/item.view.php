@@ -10,7 +10,7 @@
 
             <div class="card-header py-3 d-flex justify-content-between">
                 <button type="button" class="btn btn-outline-primary " data-toggle="modal" data-target="#myModal"><i class="bi bi-plus-circle mr-3"></i>
-                    <i>Create New Product</i>
+                    Create New Product
                 </button>
             </div>
 

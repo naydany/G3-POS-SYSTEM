@@ -24,7 +24,7 @@ function createStaffs( string $name, int $number, string $email, string $passwor
 function getstaffs(): array
 {
     global $connection;
-    $statement = $connection->prepare("select * from users where role='staff'");
+    $statement = $connection->prepare("select * from users where role='cashier' or role='stock manager'");
     $statement->execute();
     return $statement->fetchAll();
 }

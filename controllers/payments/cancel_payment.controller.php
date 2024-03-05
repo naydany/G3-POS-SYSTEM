@@ -2,9 +2,9 @@
 require '../../database/database.php';
 require '../../models/payment.model.php';
 
-echo $_GET['pay_id'];
+// echo $_GET['id'];
 
-$id = $_GET['pay_id'];
+$id = $_GET['id'];
 
 $cancel = cancelPayment($id);
 
