@@ -121,6 +121,7 @@ endif;
             </tr>
         </thead>
         <tbody>
+            
             <tr>
                 <td>001</td>
                 <td>Headphone</td>
@@ -129,15 +130,6 @@ endif;
                 <td>$40</td>
                 <td>Paid</td>
                 <td>17/02/2024</td>
-            </tr>
-            <tr>
-                <td>002</td>
-                <td>Laptop</td>
-                <td>$1,000</td>
-                <td>2</td>
-                <td>$2,000</td>
-                <td>Not Paid</td>
-                <td>16/02/2024</td>
             </tr>
         </tbody>
     </table>
