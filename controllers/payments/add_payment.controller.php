@@ -14,33 +14,6 @@ if ($_SERVER['REQUEST_METHOD'] == "POST") {
         $add = createPayment($code, $resultWithSymbol, $name);
     }
 }
-?>
-<script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
-<script>
-    document.addEventListener('DOMContentLoaded', function () {
-        document.getElementById('orderForm').addEventListener('submit', function (event) {
-            event.preventDefault();
+    header('location: /order');
 
-            // Check if quantity input is empty
-            var quantityInput = document.querySelector('input[name="quantity"]').value;
-            if (quantityInput.trim() === '') {
-                Swal.fire({
-                    icon: "error",
-                    title: "Please input quantity",
-                    text: "Something went wrong!",
-                });
-            } else {
-                // If quantity is not empty, show success message
-                Swal.fire({
-                    icon: "success",
-                    title: "Order Successful",
-                    text: "Thank you! Your order is complete",
-                }).then(() => {
-                    // Auto-submit the form
-                    document.getElementById('orderForm').submit();
-                });
-            }
-        });
-    });
-</script>
-</script>
+

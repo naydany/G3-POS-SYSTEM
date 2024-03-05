@@ -49,19 +49,18 @@
                     title: "Please input quantity",
                     text: "Something went wrong!",
                 });
-            } else {
-                // If quantity is not empty, show success message
+            } else { 
                 Swal.fire({
                     icon: "success",
                     title: "Order Successful",
                     text: "Thank you! Your order is complete",
                 }).then(() => {
-                    // Auto-submit the form
                     document.getElementById('orderForm').submit();
                 });
             }
-        });
-    });
+        }); 
+
+    });    
 </script>
 
 </body>
