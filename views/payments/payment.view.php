@@ -29,11 +29,8 @@
                         <td><?= $payment['pay_date'] ?></td>
                         <td>
                             <div class="btn-group">
-                                <a href="#">
-                                    <button class="btn btn-sm btn-success mr-3">
-                                        <i class="fas fa-handshake"></i>
-                                        Pay Order
-                                    </button>
+                                <a href="/form_payment?id=<?= $payment['pay_id'] ?>">
+                                <i class="bi bi-credit-card btn btn-lg ml-3 text-success" style="font-size: 24px;"></i>
                                 </a>
 
                                 <a onclick="return confirm('Do you want to cancel this payment?')" href="controllers/payments/cancel_payment.controller.php?id=<?= $payment['pay_id'] ?>">
@@ -49,6 +46,3 @@
     </div>
 </div>
 
-<script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"></script>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"></script>
-<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
