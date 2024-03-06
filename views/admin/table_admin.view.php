@@ -21,9 +21,7 @@
             $users = getUser();
             foreach ($users as $user) :
             ?>
-
                 <!-- *popup update admin -->
-
                 <div class="modal fade" id="modalUpdate<?= $user['id'] ?>" role="dialog" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
                     <div class="modal-dialog" role="document">
                         <div class=" d-flex justify-content-center admin_show modal-content">

@@ -37,4 +37,5 @@ function getPayment(): array
     $statement = $connection->prepare("select * from payments");
     $statement->execute();
     return $statement->fetchAll();
+    
 }
