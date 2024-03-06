@@ -40,8 +40,6 @@
 
 <!-- *popup create staff -->
 
-
-
 <div class="modal fade" id="modalAdmin" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
     <div class="modal-dialog">
         <div class=" d-flex justify-content-center admin_show modal-content">

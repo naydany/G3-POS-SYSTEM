@@ -1,4 +1,4 @@
-<div  class="container d-flex justify-content-center">
+<!-- <div  class="container d-flex justify-content-center">
     <div class="card p-5 ml-5 w-50">
         <form action="controllers/suppliers/update_supplier.controller.php" class='d-flex flex-xl-column' method='post'>
         <input type="hidden" name="sup_id" value="<?= $supplier['sup_id'] ?>">
@@ -20,4 +20,7 @@
             <button type="submit" class="btn btn-primary">Submit</button>
         </form>
     </div>
-</div>
+</div> -->
+
+
+<!-- can delete  this -->

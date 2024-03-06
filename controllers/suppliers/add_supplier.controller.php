@@ -8,14 +8,11 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
     $phone = $_POST['phone'];
     $address = $_POST['address'];
 
-<<<<<<< HEAD
-=======
     echo $name;
     echo $phone;
     echo $address;
 
 
->>>>>>> search_order
     $add = createSupplier( $name,  $phone, $address);
 
     if ($add ){
