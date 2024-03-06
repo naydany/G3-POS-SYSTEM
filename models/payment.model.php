@@ -31,10 +31,19 @@ function cancelPayment(int $id) : bool
     $statement->execute([':pay_id' => $id]);
     return $statement->rowCount() > 0;
 }
-function getPayment(): array
+// function getPayment(): array
+// {
+//     global $connection;
+//     $statement = $connection->prepare("select * from payments");
+//     $statement->execute();
+//     return $statement->fetchAll();
+// }
+
+function successPayment(int $id): array
 {
     global $connection;
-    $statement = $connection->prepare("select * from payments");
-    $statement->execute();
+    $statement = $connection->prepare("select * from payments where pay_id = :id");
+    $statement->execute([':id' => $id]);
     return $statement->fetchAll();
 }
+
