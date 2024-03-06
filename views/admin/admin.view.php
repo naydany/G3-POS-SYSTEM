@@ -1,20 +1,20 @@
+<?php if (isset($_SESSION['success'])) : ?>
+    <div class="alert alert-success alert-dismissible fade show" id="alert">
+        <button type="button" class="close" data-dismiss="alert">&times;</button>
+        <?= $_SESSION['success'] ?>
+    </div>
 
-<?php if (isset($_SESSION['success'])): ?>
-<div class="alert alert-success alert-dismissible fade show" id="alert">
-    <button type="button" class="close" data-dismiss="alert">&times;</button>
-    <?= $_SESSION['success'] ?>
-  </div>
-<?php 
-unset($_SESSION['success']);
+<?php
+    unset($_SESSION['success']);
 endif;
 ?>
-<?php if (isset($_SESSION['error'])): ?>
-<div class="alert alert-danger alert-dismissible fade show" id="alert">
-    <button type="button" class="close" data-dismiss="alert">&times;</button>
-    <?= $_SESSION['error'] ?>
-  </div>
-<?php 
-unset($_SESSION['error']);
+<?php if (isset($_SESSION['error'])) : ?>
+    <div class="alert alert-danger alert-dismissible fade show" id="alert">
+        <button type="button" class="close" data-dismiss="alert">&times;</button>
+        <?= $_SESSION['error'] ?>
+    </div>
+<?php
+    unset($_SESSION['error']);
 endif;
 ?>
 
@@ -81,7 +81,7 @@ endif;
                             </div>
                         </div>
                         <div class="col-auto">
-                        <i class="fas fa-shopping-cart fa-2x text-gray-300"></i>
+                            <i class="fas fa-shopping-cart fa-2x text-gray-300"></i>
                         </div>
                     </div>
                 </div>
@@ -98,8 +98,8 @@ endif;
                             <div class="h5 mb-0 font-weight-bold text-gray-800">$180</div>
                         </div>
                         <div class="col-auto">
-                        <i class="bi bi-coin fa-2x text-gray-300"></i>
-                        <!-- <i class="fas fa-tags fa-2x text-gray-300"></i> -->
+                            <i class="bi bi-coin fa-2x text-gray-300"></i>
+                            <!-- <i class="fas fa-tags fa-2x text-gray-300"></i> -->
                         </div>
                     </div>
                 </div>
