@@ -11,38 +11,28 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 
 ?>
 
-
 <div class="card mx-auto" style="width: 50rem; border: 1px solid gray;">
     <div class="card">
         <img class="card-img-top" src="https://marketplace.canva.com/EAE2cQaUHVA/1/0/1600w/canva-black-minimal-motivation-quote-linkedin-banner-HoRi-2buBWk.jpg" alt="Cover Image" id="coverImage" style="height: 180px; object-fit: cover; position: absolute;">
         <div class="card-body d-flex flex-column align-items-center justify-content-start">
-            <img class="rounded-circle img-thumbnail mr-3" src="https://t4.ftcdn.net/jpg/03/83/25/83/360_F_383258331_D8imaEMl8Q3lf7EKU2Pi78Cn0R7KkW9o.jpg" alt="Profile Image" id="profileImage" style="height: 140px; width: 140px; object-fit: cover; z-index: 1; margin-top: 70px;">
+            <img class="rounded-circle img-thumbnail mr-3" src="../../assets/images/<?=$_SESSION['user']['image'] ?>" alt="Profile Image" id="profileImage" style="height: 140px; width: 140px; object-fit: cover; z-index: 1; margin-top: 70px;">
             <h2 class="card-title text-center mt-3"><?= $_SESSION['user']['name'] ?></h2>
             <h6 class="card-title text-center mt-3"><?= $_SESSION['user']['email'] ?></h6>
 
             <div style="display: flex;">
                 <div>
-                    <label for="coverImageInput" class="d-block text-center btn btn-light btn-sm mt-2">
-                        <!-- <i class="fas fa-camera fa-lg"></i> Change Cover -->
-                        <input type="file" id="coverImageInput" accept="image/*" class="d-none" onchange="loadFile(event, 'coverImage')">
-                    </label>
+                    <form action="../../controllers/admin/update_profile.controller.php" method="post">
+                        <label for="coverImageInput" class="d-block text-center btn btn-light btn-sm mt-2">
+                            <input type="file" id="coverImageInput" accept="image/*" class="d-none" onchange="loadFile(event, 'coverImage')">
+                        </label>
                 </div>
                 <div>
                     <label for="profileImageInput" class="d-block text-center btn btn-light btn-sm mt-2">
-                        <input type="file" id="profileImageInput" accept="image/*" class="d-none" onchange="loadFile(event, 'profileImage')">
-                        <?php if ($_SESSION['user']['image']) : ?>
-                            <img id="profileImage" src="<?= $_SESSION['user']['imageprofile'] ?>" alt="Profile Image">
-                        <?php else : ?>
-                            <img id="profileImage" src="path_to_default_image" alt="Default Profile Image">
-                        <?php endif; ?>
+                        <input type="file" id="profileImageInput" accept="image/*" class="d-none" name="imageprofile">
                     </label>
+                    <button hidden id="upload"></button>
+                    </form>
 
-                    <script>
-                        function loadFile(event, imgId) {
-                            const output = document.getElementById(imgId);
-                            output.src = URL.createObjectURL(event.target.files[0]);
-                        }
-                    </script>
                 </div>
             </div>
         </div>
@@ -64,15 +54,16 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 
 
 <script>
-    function loadFile(event, targetImageId) {
-        var image = document.getElementById(targetImageId);
-        image.src = URL.createObjectURL(event.target.files[0]);
-    }
     document.getElementById("coverImage").addEventListener("click", function() {
         document.getElementById("coverImageInput").click();
     });
     document.getElementById("profileImage").addEventListener("click", function() {
-        document.getElementById("profileImageInput").click();
+        let profile = document.getElementById("profileImageInput");
+        profile.click();
+        if (profile.value != '') {
+            document.getElementById('upload').click();
+            
+        }
     });
 </script>
 

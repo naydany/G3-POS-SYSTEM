@@ -38,7 +38,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
                 $_SESSION['success'] = "Account successfully created";
             } else {
                 $_SESSION['error'] = "Account already exists";
-                header('Location:/create_staffs');
+                header('Location:/staffs');
             }
         }
     } else {

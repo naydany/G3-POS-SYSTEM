@@ -1,6 +1,6 @@
 
 <?php
-require 'views/staffs/create_form_staff.view.php';
+require 'views/staffs/staff.view.php';
 
 
 
