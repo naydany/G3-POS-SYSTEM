@@ -1,9 +1,5 @@
 <!-- Begin Page Content -->
 
-<<<<<<< HEAD
-=======
-
->>>>>>> bd9740e123c314ca67539badf790ec25a1be6998
 <div class="container-fluid">
 
     <!-- DataTales Example -->
@@ -36,13 +32,8 @@
 
                     <tbody>
                         <?php
-<<<<<<< HEAD
-                        require "database/database.php";
-                        require "models/item.model.php";
-=======
 
 
->>>>>>> bd9740e123c314ca67539badf790ec25a1be6998
                         $products = getItem();
                         foreach ($products as $pro) :
                         ?>
@@ -55,10 +46,6 @@
                                 <td><?= $pro['pro_quantity'] ?></td>
                                 <td><?= $pro['pro_price'] ?>$</td>
                                 <td>
-<<<<<<< HEAD
-=======
-
->>>>>>> bd9740e123c314ca67539badf790ec25a1be6998
                                     <a onclick="return confirm('Do you want to delete this product?')" href="../../controllers/items/delete_item.controller.php?id=<?= $pro['pro_id'] ?>"><i class="bi bi-trash3 text-danger btn btn-lg ml-3"></i></a>
 
                                     <i class="bi bi-pencil-fill text-success btn btn-lg ml-3" data-toggle="modal" data-target="#exampleModalUpdate<?= $pro['pro_id'] ?>"></i>
@@ -69,43 +56,6 @@
 
                                 <!-- popup view -->
 
-<<<<<<< HEAD
-                                <style>
-                                    .view_item {
-                                        display: none;
-                                        /* position: fixed; */
-                                        /* z-index: 8;
-                                        left: 0;
-                                        top: 0;
-                                        width: 100%;
-                                        height: 100%;
-                                        overflow: auto;
-                                        background-color: rgb(0, 0, 0);
-                                        background-color: rgba(0, 0, 0, 0.4); */
-                                    }
-                                </style>
-
-                                <script>
-                                    const pop_view = document.querySelector('#view_item');
-                                    const start_pop_view = document.querySelector('.view_item');
-
-                                    function closeView() {
-                                        start_pop_view.style.display = 'none';
-                                    }
-                                </script>
-                                to night I will 
-
-                                <script>
-                                    $('#exampleModal').on('show.bs.modal', function(event) {
-                                        var button = $(event.relatedTarget) // Button that triggered the modal
-                                        var recipient = button.data('whatever') // Extract info from data-* attributes
-                                        var modal = $(this)
-                                        modal.find('.modal-title').text('New message to ' + recipient)
-                                        modal.find('.modal-body input').val(recipient)
-                                    })
-                                </script>
-=======
->>>>>>> bd9740e123c314ca67539badf790ec25a1be6998
                             </tr>
                             <div class="modal fade" id="ModalView<?= $pro['pro_id'] ?>" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
                                 <div class="modal-dialog" role="document">
@@ -197,127 +147,6 @@
                                 </div>
                             </div>
 
-<<<<<<< HEAD
-                            <!-- !test -->
-                            <style>
-                                .create_item {
-                                    /* display: none; */
-                                    position: fixed;
-                                    z-index: 8;
-                                    left: 0;
-                                    top: 0;
-                                    width: 100%;
-                                    height: 100%;
-                                    overflow: auto;
-                                    background-color: rgb(0, 0, 0);
-                                    background-color: rgba(0, 0, 0, 0.4);
-
-                                }
-                                form {
-                                    box-shadow: 0 3px 5px #f5f5f5;
-                                    background: #eee;
-                                }
-                                .modal_dialog {
-                                    position: absolute;
-                                    z-index: 3;
-                                }
-                            </style>
-                            <script>
-                                const pop = document.querySelector('.create_item');
-                                const open_pop = document.querySelector('#create_item');
-
-                                function openForm() {
-                                    document.querySelector(".create_item").style.display = "block";
-                                }
-
-                                function closeForm() {
-                                    document.querySelector(".create_item").style.display = "none";
-                                }
-                            </script>
-
-                            <!-- popup create product  -->
-                            <?php
-                            $categories = countNameCategory();
-                            $suppliers = countNameSuppliers();
-                            ?>
-                            <div class="modal create_item" id="exampleIteams" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
-                                <div class="modal-dialog" class="border border-danger" role="document">
-                                    <div class="modal-content rounded-top" style="width: 600px;">
-                                        <div class="modal-header">
-                                            <h3 class="modal-title text-danger text-bold ml-4" id="exampleModalLabel">Form create</h3>
-                                            <button type="button" onclick="closeForm()" class="close_item" data-dismiss="modal" aria-label="Close">
-                                                <span aria-hidden="true">&times;</span>
-                                            </button>
-                                        </div>
-
-                                        <div class="m-2 d-flex flex-colum container justify-content-center">
-                                            <div class="card-body">
-                                                <form action="../../controllers/items/create.controller.php" method="post" class="d-flex flex-xl-column" enctype="multipart/form-data">
-                                                    <!-- <input type="hidden" name="id" onclick="closeForm()" class="close_item"> -->
-                                                    <!-- <div class=" div-1 w-400 " > -->
-                                                    <div class="form-row">
-
-                                                        <div class=" form-group mr-5">
-                                                            <label for="pro_name">Name</label>
-                                                            <input type="text" class="form-control" placeholder="Enter Name" name="name">
-                                                        </div>
-                                                        <div class="form-group">
-                                                            <label>supplier</label><br>
-                                                            <select class="custom-select " id="inputGroupSelect01" name="supplier" style="width: 240px;">
-                                                                <option selected>Choose supplier...</option>
-                                                                <?php for ($i = 0; $i < count($suppliers); $i++) : ?>
-                                                                    <option value="<?= $suppliers[$i][0] ?>"><?= $suppliers[$i][0] ?></option>
-                                                                <?php endfor; ?>
-                                                            </select>
-                                                        </div>
-                                                    </div>
-                                                    <div class="form-row  mt-3">
-                                                        <div class="form-group mr-5">
-                                                            <label>Code</label>
-                                                            <input type="number" class="form-control" placeholder="Enter Code" name="code">
-                                                        </div>
-                                                        <div class="form-group">
-                                                            <label>Category</label>
-                                                            <select class="custom-select" id="inputGroupSelect01" name="category">
-                                                                <option selected>Choose category...</option>
-                                                                <?php for ($i = 0; $i < count($categories); $i++) : ?>
-                                                                    <option value="<?= $categories[$i][0] ?>"><?= $categories[$i][0] ?></option>
-                                                                <?php endfor; ?>
-                                                            </select>
-
-                                                        </div>
-                                                    </div>
-
-                                                    <div class="form-row  mt-3">
-                                                        <div class="form-group mr-5">
-                                                            <label>Price</label>
-                                                            <input type="text" class="form-control" placeholder="Enter Price" name="price">
-                                                        </div>
-                                                        <div class="form-group" style="width: 240px;">
-                                                            <label>Quantity</label>
-                                                            <input type="number" class="form-control" placeholder="Enter Quantity" name="quantity">
-                                                        </div>
-                                                    </div>
-
-                                                    <div class="form-row  mt-3">
-                                                        <div class="form-group " style="width: 500px;">
-                                                            <label>Image</label>
-                                                            <input type="file" class="form-control" placeholder="Insert Image" name="image">
-                                                        </div>
-                                                    </div>
-
-                                                    <button type="submit" class="btn btn-primary w-25 mt-3">Submit</button>
-                                                    <!-- </div> -->
-                                                </form>
-                                            </div>
-                                        </div>
-
-                                    </div>
-                                </div>
-                            </div>
-                            <!-- end  -->
-=======
->>>>>>> bd9740e123c314ca67539badf790ec25a1be6998
                         <?php endforeach; ?>
                     </tbody>
                 </table>
@@ -330,9 +159,6 @@
 
 <!-- popup create product  -->
 <!-- /.container-fluid -->
-<<<<<<< HEAD
-<?php require "layouts/footer.php" ?>
-=======
 <!-- The Modal -->
 <div class="modal fade" id="myModal">
     <div class="modal-dialog">
@@ -411,4 +237,3 @@
 
 
 
->>>>>>> bd9740e123c314ca67539badf790ec25a1be6998
