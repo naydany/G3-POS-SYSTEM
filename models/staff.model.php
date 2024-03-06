@@ -1,6 +1,6 @@
 <?php
 
-function createStaffs( string $name, int $number, string $email, string $password, string $address,string $role ) : bool
+function createStaffs( string $name, int $number, string $email, string $password, string $address,string $role,string $image ) : bool
 {
 
     $timezone = new DateTimeZone('Asia/Phnom_Penh');
@@ -8,7 +8,7 @@ function createStaffs( string $name, int $number, string $email, string $passwor
     $time = $date->format('Y-m-d H:i:s');
 
     global $connection;
-    $statement = $connection->prepare("insert into users (name,phone,email,password, address, role) values (:name,:number,:email,:password, :address, :role)");
+    $statement = $connection->prepare("insert into users (name,phone,email,password, address, role, image) values (:name,:number,:email,:password, :address, :role, :image)");
     $statement->execute([
         ':name' => $name,
         ':number' => $number,
@@ -17,13 +17,14 @@ function createStaffs( string $name, int $number, string $email, string $passwor
         // ':date' => $time,
         ':address' => $address,
         ':role' => $role,
+        ':image' => $image,
     ]);
     return $statement->rowCount() > 0;
 }
 function getstaffs(): array
 {
     global $connection;
-    $statement = $connection->prepare("select * from users where role='staff'");
+    $statement = $connection->prepare("select * from users where role='cashier' or role='stock manager'");
     $statement->execute();
     return $statement->fetchAll();
 }
@@ -46,17 +47,16 @@ function editeStaff(int $id): array
     return $statement->fetch();
 }
 
-function updateStaffs( int $id, string $name, int $number, string $email, string $password, string $address) : bool
+function updateStaffs( int $id, string $name, int $number, string $email, string $address) : bool
 {
 
 
     global $connection;
-    $statement = $connection->prepare("update staffs set cas_name = :name, cas_number = :number, cas_email = :email, cas_password = :password, address = :address where cas_id = :id");
+    $statement = $connection->prepare("update users set name = :name,phone = :number,email = :email, address = :address where id = :id");
     $statement->execute([
         ':name' => $name,
         ':number' => $number,
         ':email' => $email,
-        ':password' => $password,
         ':address' => $address,
         ':id' => $id
 

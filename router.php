@@ -36,19 +36,21 @@ if (isset($_SESSION['user'])) {
             '/update_category' => 'controllers/categories/edite_category.controller.php',
             '/view_category' => 'controllers/categories/view_category.controller.php',
             '/order_product' => 'controllers/orders/update_order.controller.php',
+            '/order' => 'controllers/orders/order.controller.php',
 
 
             '/form_create' => 'controllers/items/create_item.controller.php',
             '/update_item' => 'controllers/items/edit_item.controller.php',
+            '/update_admin' => 'controllers/admin/edit_admin.controller.php',
 
             '/edit_item' => 'controllers/items/edit_item.controller.php',
             '/suppliers' => 'controllers/suppliers/supplier.controller.php',
             '/create_suppliers' => 'controllers/suppliers/form_supplier.controller.php',
 
-            // '/logout' => 'controllers/users/logout.controller.php',
             '/update_supplier' => 'controllers/suppliers/edite_spplier.controller.php',
             '/admin_table' => 'controllers/admin/table_admin.controller.php',
             '/form_admin' => 'controllers/admin/form_admin.controller.php',
+            '/form_payment' => 'controllers/payments/form.payment.controller.php',
 
         ];
     }
@@ -69,6 +71,7 @@ if (!empty($_SESSION['user'])) {
     if ($uri != '/' && $uri != '/form_admin_signin' && $uri != '/form_staff_signin') {
         require "layouts/navbar.php";
         require $page;
+        require "layouts/footer.php";
     }else{
         require $page;
     }
@@ -77,6 +80,7 @@ if (!empty($_SESSION['user'])) {
         // $page = 'views/errors/404.php';
         $page = 'controllers/wellcom/wellcom.controller.php';
         require $page;
+        require "layouts/footer.php";
     } else {
 
         require $page;

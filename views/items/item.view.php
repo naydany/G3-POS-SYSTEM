@@ -1,22 +1,26 @@
 <!-- Begin Page Content -->
 
+<<<<<<< HEAD
+=======
+
+>>>>>>> bd9740e123c314ca67539badf790ec25a1be6998
 <div class="container-fluid">
 
     <!-- DataTales Example -->
     <div class="card shadow ">
-        <div class="card-header d-flex justify-content-between">
-            <h5 class="mt-4 ml-4 font-weight-bold text-primary">Items</h5>
-
-            <!-- <i class="bi bi-pencil-square text-success btn btn-lg ml-3" data-toggle="modal" data-target="#exampleModalUpdate<?= $pro['pro_id'] ?>"></i> -->
+        <div class="card-header py-3 d-flex justify-content-between">
+            <h5 class="mt-2 ml-4 font-weight-bold text-primary">Items</h5>
 
             <div class="card-header py-3 d-flex justify-content-between">
-                <a id='create_item' onclick="openForm()" class="btn btn-outline-primary" data-toggle="modal" data-target="#ModalItems" data-whatever="@getbootstrap"><i class="bi bi-plus-circle mr-3"></i></i>Create New Product</i></a>
+                <button type="button" class="btn btn-outline-primary " data-toggle="modal" data-target="#myModal"><i class="bi bi-plus-circle mr-3"></i>
+                    Create New Product
+                </button>
             </div>
 
         </div>
         <div class="card-body">
             <div class="table-responsive pr-3 pl-3">
-                <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
+                <table class="table table-bordered text-center" id="dataTable" width="100%" cellspacing="0">
                     <thead class="bg-primary text-white thead-light">
                         <tr>
                             <th>ID</th>
@@ -32,10 +36,14 @@
 
                     <tbody>
                         <?php
+<<<<<<< HEAD
                         require "database/database.php";
                         require "models/item.model.php";
+=======
+
+
+>>>>>>> bd9740e123c314ca67539badf790ec25a1be6998
                         $products = getItem();
-                        // print_r($products);
                         foreach ($products as $pro) :
                         ?>
                             <tr>
@@ -46,18 +54,22 @@
                                 <td><?= $pro['cate_name'] ?></td>
                                 <td><?= $pro['pro_quantity'] ?></td>
                                 <td><?= $pro['pro_price'] ?>$</td>
-
                                 <td>
+<<<<<<< HEAD
+=======
+
+>>>>>>> bd9740e123c314ca67539badf790ec25a1be6998
                                     <a onclick="return confirm('Do you want to delete this product?')" href="../../controllers/items/delete_item.controller.php?id=<?= $pro['pro_id'] ?>"><i class="bi bi-trash3 text-danger btn btn-lg ml-3"></i></a>
 
                                     <i class="bi bi-pencil-fill text-success btn btn-lg ml-3" data-toggle="modal" data-target="#exampleModalUpdate<?= $pro['pro_id'] ?>"></i>
 
-                                    <i class="bi bi-eye-fill text-info btn btn-lg ml-3 " id="view_item" onclick="viewItem()" data-toggle="modal" data-target="#ModalView<?= $pro['pro_id'] ?>"></i>
+                                    <i class="bi bi-eye-fill text-info btn btn-lg ml-3 " id="view_item" data-toggle="modal" data-target="#ModalView<?= $pro['pro_id'] ?>"></i>
 
                                 </td>
 
                                 <!-- popup view -->
 
+<<<<<<< HEAD
                                 <style>
                                     .view_item {
                                         display: none;
@@ -92,13 +104,15 @@
                                         modal.find('.modal-body input').val(recipient)
                                     })
                                 </script>
+=======
+>>>>>>> bd9740e123c314ca67539badf790ec25a1be6998
                             </tr>
-                            <div class="modal view_item" id="ModalView<?= $pro['pro_id'] ?>" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                            <div class="modal fade" id="ModalView<?= $pro['pro_id'] ?>" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
                                 <div class="modal-dialog" role="document">
                                     <div class="modal-content">
                                         <div class="modal-header">
                                             <h4 class="modal-title text-danger" id="exampleModalLabel">Detail Product</h4>
-                                            <button type="button" onclick="closeView()" class="close" data-dismiss="modal" aria-label="Close">
+                                            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                                                 <span aria-hidden="true">&times;</span>
                                             </button>
                                         </div>
@@ -183,6 +197,7 @@
                                 </div>
                             </div>
 
+<<<<<<< HEAD
                             <!-- !test -->
                             <style>
                                 .create_item {
@@ -301,14 +316,99 @@
                                 </div>
                             </div>
                             <!-- end  -->
+=======
+>>>>>>> bd9740e123c314ca67539badf790ec25a1be6998
                         <?php endforeach; ?>
                     </tbody>
                 </table>
             </div>
+
         </div>
     </div>
 </div>
 </div>
 
+<!-- popup create product  -->
 <!-- /.container-fluid -->
+<<<<<<< HEAD
 <?php require "layouts/footer.php" ?>
+=======
+<!-- The Modal -->
+<div class="modal fade" id="myModal">
+    <div class="modal-dialog">
+        <div class="modal-content" style="width: 580px;">
+
+            <!-- Modal Header -->
+            <div class="modal-header">
+                <h4 class="modal-title text-danger">Form Create</h4>
+                <button type="button" class="close" data-dismiss="modal">&times;</button>
+            </div>
+
+            <!-- Modal body -->
+            <div class="modal-body d-flex justify-content-center">
+                <form action="../../controllers/items/create.controller.php" method="post" class="d-flex flex-xl-column" enctype="multipart/form-data">
+                    <div class="form-row">
+                        <div class=" form-group mr-5">
+                            <label for="pro_name">Name</label>
+                            <input type="text" class="form-control" placeholder="Enter Name" name="name">
+                        </div>
+                        <div class="form-group">
+                            <label>supplier</label><br>
+                            <select class="custom-select " id="inputGroupSelect01" name="supplier" style="width: 240px;">
+                                <option selected>Choose supplier...</option>
+                                <?php for ($i = 0; $i < count($suppliers); $i++) : ?>
+                                    <option value="<?= $suppliers[$i][0] ?>"><?= $suppliers[$i][0] ?></option>
+                                <?php endfor; ?>
+                            </select>
+                        </div>
+                    </div>
+                    <div class="form-row  mt-3">
+                        <div class="form-group mr-5">
+                            <label>Code</label>
+                            <input type="number" class="form-control" placeholder="Enter Code" name="code">
+                        </div>
+                        <div class="form-group">
+                            <label>Category</label>
+                            <select class="custom-select" id="inputGroupSelect01" name="category">
+                                <option selected>Choose category...</option>
+                                <?php for ($i = 0; $i < count($categories); $i++) : ?>
+                        </div>
+                        <option value="<?= $categories[$i][0] ?>"><?= $categories[$i][0] ?></option>
+                    <?php endfor; ?>
+                    </select>
+
+                    </div>
+            </div>
+
+            <div class="form-row  mt-3">
+                <div class="form-group mr-5">
+                    <label>Price</label>
+                    <input type="text" class="form-control" placeholder="Enter Price" name="price">
+                </div>
+                <div class="form-group" style="width: 240px;">
+                    <label>Quantity</label>
+                    <input type="number" class="form-control" placeholder="Enter Quantity" name="quantity">
+                </div>
+            </div>
+
+            <div class="form-row  mt-3">
+
+                <div class="form-group " style="width: 500px;">
+                    <label>Image</label>
+                    <input type="file" class="form-control" placeholder="Insert Image" name="image">
+                </div>
+            </div>
+
+
+
+            <button type="submit" class="btn btn-primary w-25 mt-3 md-5">Submit</button>
+            <!-- </div> -->
+            </form>
+        </div>
+    </div>
+
+</div>
+
+
+
+>>>>>>> bd9740e123c314ca67539badf790ec25a1be6998

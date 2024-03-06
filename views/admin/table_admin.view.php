@@ -1,16 +1,7 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
-    <title>Admin</title>
-</head>
-<body>
-
 <div class="container mt-4">
-    <a href="/form_admin" class="btn btn-outline-primary" id="addAdminBtn"> <i class="fas fa-user-plus"></i> Add new admin</a>
+    <button type="button" class="btn btn-outline-primary mr-5" data-toggle="modal" data-target="#modalAdmin">
+        <i class="fas fa-user-plus"></i> Add new admin
+    </button>
 </div>
 
 <div class="container mt-4">
@@ -24,32 +15,136 @@
                 <th>Action</th>
             </tr>
         </thead>
+
         <tbody>
-        <?php
+            <?php
             $users = getUser();
             foreach ($users as $user) :
-        ?>
-            <tr>
-                <td><?= $user['id'] ?></td>
-                <td><?= $user['name'] ?></td>
-                <td><?= $user['email'] ?></td>
-                <td><?= $user['address'] ?></td>
-                <td>
-                    <div class="btn-group">
-                        <a onclick="return confirm('Do you want to delete this product?')" href="controllers/admin/delete_admin.controller.php?id=<?=$user['id']?>"><i class="bi bi-trash3 text-danger btn btn-lg ml-1"></i></a>
-                        <a href="/update_admin?id=<?=$user['id']?>"><i class="bi bi-pencil-square text-success btn btn-lg ml-1"></i></a>
+            ?>
+
+                <!-- *popup update admin -->
+
+                <div class="modal fade" id="modalUpdate<?= $user['id'] ?>" role="dialog" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                    <div class="modal-dialog" role="document">
+                        <div class=" d-flex justify-content-center admin_show modal-content">
+                            <div class="card p-5 ml-3 w-200">
+
+                                <h3>Update</h3>
+                                <form action="../../controllers/admin/update_admin.controller.php" class='d-flex flex-xl-column' method='post'>
+                                    <input type="hidden" name="id" value="<?= $user['id'] ?>">
+                                    <div class="form-group">
+                                        <label for="name">name:</label>
+                                        <input type="text" class="form-control" id="name" name='name' value="<?= $user['name'] ?>">
+                                    </div>
+
+                                    <div class="form-group">
+                                        <label for="email">email:</label>
+                                        <input type="text" class="form-control" id="email" name='email' value="<?= $user['email'] ?>">
+                                    </div>
+
+                                    <div class="form-group">
+                                        <label for="address">address:</label>
+                                        <input type="text" class="form-control" id="address" name='address' value="<?= $user['address'] ?>">
+                                    </div>
+
+                                    <button type="submit" class="btn btn-primary">Submit</button>
+                                </form>
+                            </div>
+                        </div>
                     </div>
-                </td>
-            </tr>
+                </div>
+
+
+                <tr>
+                    <td><?= $user['id'] ?></td>
+                    <td><?= $user['name'] ?></td>
+                    <td><?= $user['email'] ?></td>
+                    <td><?= $user['address'] ?></td>
+                    <td>
+                        <div class="btn-group">
+                            <a onclick="return confirm('Do you want to delete this product?')" href="controllers/admin/delete_admin.controller.php?id=<?= $user['id'] ?>"><i class="bi bi-trash3 text-danger btn btn-lg ml-1"></i></a>
+                            <i class="bi bi-pencil-square text-success btn btn-lg ml-1" data-toggle="modal" data-target="#modalUpdate<?= $user['id'] ?>"></i>
+                        </div>
+                    </td>
+                </tr>
         </tbody>
-        <?php endforeach; ?>
+    <?php endforeach; ?>
     </table>
 </div>
 
-<script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"></script>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"></script>
-<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
 
-</body>
-</html>
+<!-- *popup create admin -->
+<div class="modal fade" id="modalAdmin" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class=" d-flex justify-content-center admin_show modal-content">
+            <div class="row">
+                <div class="col">
+                    <div class="card shadow " style="width: 700px;">
+                        <div class="card-header border-0 text-primary text-center">
+                            <h3>Please input data of admin</h3>
+                            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                <span aria-hidden="true">&times;</span>
+                            </button>
+                        </div>
 
+                        <div class="card-body">
+                            <form action="../../controllers/admin/add_new_admin.controller.php" class='d-flex flex-xl-column' method='post' enctype="multipart/form-data">
+                                <div class="form-row">
+                                    <div class="col-md-6">
+                                        <label>Admin Name:</label>
+                                        <input type="text" name="name" class="form-control">
+                                        <input type="hidden" name="prod_id" value="" class="form-control">
+                                    </div>
+                                    <div class="col-md-6">
+                                        <label for="email">email:</label>
+                                        <input type="text" class="form-control" id="email" name='email'>
+                                    </div>
+                                </div>
+                                <hr>
+                                <div class="form-row">
+                                    <div class="col-md-6">
+                                        <label for="password">password:</label>
+                                        <input type="number" class="form-control" id="password" name='password'>
+                                    </div>
+                                    <div class="col-md-6">
+                                        <label for="address">address:</label>
+                                        <input type="text" class="form-control" id="address" name='address'>
+                                    </div>
+                                </div>
+                                <hr>
+                                <div class="form-row">
+                                    <div class="col-md-6">
+                                        <label for="number">number phone:</label>
+                                        <input type="number" class="form-control" id="number" name='number'>
+                                    </div>
+                                    <div class="col-md-6 mt-4">
+                                        <select class="custom-select" name="role" id="inputGroupSelect02">
+                                            <!-- <option selected>Choose...</option> -->
+                                            <option value="admin">Admin</option>
+                                        </select>
+
+                                    </div>
+                                </div>
+                                <div class="form-row">
+                                    <div class="form-group " style="width: 700px;">
+                                        <label>Image</label>
+                                        <input type="file" class="form-control" placeholder="Insert Image" name="imageprofile">
+                                    </div>
+                                </div>
+                                <br>
+
+                                <div class="col-md-6">
+                                    <button type="submit" class="btn btn-primary">Add admin</button>
+                                </div>
+
+                            </form>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+
+            </form>
+        </div>
+    </div>
+</div>

@@ -35,7 +35,7 @@ function deleteAdmin(int $id): bool
 }
 
 
-function editeAdmin(int $id): array
+function editeAdmin(int $id): array 
 {
     global $connection;
     $statement = $connection->prepare("select * from users where id = :id");
