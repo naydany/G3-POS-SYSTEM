@@ -20,6 +20,9 @@
     <!-- Custom styles for this template-->
     <link href="vendor/custom/css/sb-admin-2.min.css" rel="stylesheet">
 
+    <!-- CDN jquery -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
+
 </head>
 
 <body id="page-top d-flex">

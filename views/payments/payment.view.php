@@ -29,7 +29,7 @@
                         <td><?= $payment['pay_date'] ?></td>
                         <td>
                             <div class="btn-group">
-                                <a href="/form_payment?id=<?= $payment['pay_id'] ?>">
+                                <a href="/form_payment?id=<?=$payment['pay_id'] ?>">
                                 <i class="bi bi-credit-card btn btn-lg ml-3 text-success" style="font-size: 24px;"></i>
                                 </a>
 

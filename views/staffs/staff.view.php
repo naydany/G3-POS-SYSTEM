@@ -90,6 +90,30 @@
 
 <!-- *create form staff -->
 
+<?php if (isset($_SESSION['success'])) : ?>
+    <div class="alert alert-success alert-dismissible fade show" id="alert">
+        <button type="button" class="close" data-dismiss="alert">&times;</button>
+        <?= $_SESSION['success'] ?>
+    </div>
+
+<?php
+    unset($_SESSION['success']);
+endif;
+?>
+<?php if (isset($_SESSION['error'])) : ?>
+    <div class="alert alert-danger alert-dismissible fade show align-center" id="alert" style="width: 350px;">
+        <div class="card-body px-lg-5 py-lg-5">
+            <form action="" >
+                <button type="button" class="close" data-dismiss="alert">&times;</button>
+                <?= $_SESSION['error'] ?>
+            </form>
+        </div>
+    </div>
+<?php
+    unset($_SESSION['error']);
+endif;
+?>
+
 <div class="modal fade" id="modalsCreate" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
     <div class="modal-dialog">
         <div class="d-flex justify-content-center modal-content" style="width: 700px;">
