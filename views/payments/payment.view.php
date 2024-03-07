@@ -1,9 +1,12 @@
 <div class="container">
+    <div class="py-3 d-flex">
     <div class="card-header border-0">
         <a href="/orders" class="btn btn-outline-primary">
             <i class="fas fa-plus"></i> <i class="fas fa-utensils"></i>
             Make A New Order
         </a>
+    </div>
+    </div>
     </div>
 
     <div class="container mt-3">
@@ -45,4 +48,3 @@
         </table>
     </div>
 </div>
-
