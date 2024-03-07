@@ -107,12 +107,12 @@ endif;
 
     <h1 class="h3 mb-0 text-gray-800">Order Detail</h1><br>
     <table class="table bg-white text-black">
-        <thead class="text-secondary thead-light ">
+        <thead class="text-white bg-primary">
             <tr>
                 <th>ID</th>
                 <th>Product Name</th>
                 <th>Unit Price</th>
-                <th>quantity</th>
+                <th>Quantity</th>
                 <th>Total price</th>
                 <th>Status</th>
                 <th>Date</th>
@@ -120,15 +120,20 @@ endif;
         </thead>
 
         <tbody>
-            <tr>
-                <td>001</td>
-                <td>Headphone</td>
-                <td>$20</td>
-                <td>2</td>
-                <td>$40</td>
-                <td>Paid</td>
-                <td>17/02/2024</td>
-            </tr>
+            <?php
+            require_once('models/payment.model.php');
+            $orders = getPayments();
+            foreach ($orders as $order) : ?>
+                <tr>
+                    <td><?= $order['pay_id'] ?></td>
+                    <td><?= $order['pro_name'] ?></td>
+                    <td><?= $order['pro_price'] ?>$</td>
+                    <td><?= $order['pro_quantity'] ?></td>
+                    <td><?= $order['pay_totalprice'] ?>$</td>
+                    <td>Paid</td>
+                    <td><?= $order['pay_date'] ?></td>
+                </tr>
+            <?php endforeach; ?>
         </tbody>
     </table>
 </div>

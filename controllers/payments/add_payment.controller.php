@@ -11,9 +11,7 @@ if ($_SERVER['REQUEST_METHOD'] == "POST") {
         $price = (float) str_replace("$", "", $price);
         $result = $price * $quantity;
         $resultWithSymbol = number_format($result, 2) . "$";
-        $add = createPayment($code, $resultWithSymbol, $name);
+        $add = createPayment($code, $resultWithSymbol, $name, $price, $quantity);
     }
 }
-    header('location: /order');
-
-
+header('location: /order');
