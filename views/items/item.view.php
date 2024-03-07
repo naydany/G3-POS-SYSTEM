@@ -36,8 +36,6 @@
                         ?>
                             <tr>
                                 <td>
-<<<<<<< HEAD
-=======
                                     <?= $pro['pro_id'] ?>
                                 </td>
                                 <td><img width="50px" height="50px" style="object-fit: cover;" class="rounded-circle" src="assets/images/<?= $pro['pro_img'] ?>" alt=""></td>
@@ -57,7 +55,6 @@
                                     <?= $pro['pro_price'] ?>$
                                 </td>
                                 <td>
->>>>>>> bcce34b250d89a7e2efa0c749a7950b78e56c012
                                     <a onclick="return confirm('Do you want to delete this product?')" href="../../controllers/items/delete_item.controller.php?id=<?= $pro['pro_id'] ?>"><i class="bi bi-trash3 text-danger btn btn-lg ml-3"></i></a>
 
                                     <i class="bi bi-pencil-fill text-success btn btn-lg ml-3" data-toggle="modal" data-target="#exampleModalUpdate<?= $pro['pro_id'] ?>"></i>
@@ -175,128 +172,6 @@
                                     </div>
                                 </div>
 
-<<<<<<< HEAD
-=======
-                            <!-- !test -->
-                            <style>
-                                .create_item {
-                                    /* display: none; */
-                                    position: fixed;
-                                    z-index: 8;
-                                    left: 0;
-                                    top: 0;
-                                    width: 100%;
-                                    height: 100%;
-                                    overflow: auto;
-                                    background-color: rgb(0, 0, 0);
-                                    background-color: rgba(0, 0, 0, 0.4);
-
-                                }
-                                form {
-                                    box-shadow: 0 3px 5px #f5f5f5;
-                                    background: #eee;
-                                }
-                                .modal_dialog {
-                                    position: absolute;
-                                    z-index: 3;
-                                }
-                            </style>
-                            <script>
-                                const pop = document.querySelector('.create_item');
-                                const open_pop = document.querySelector('#create_item');
-
-                                function openForm() {
-                                    document.querySelector(".create_item").style.display = "block";
-                                }
-
-                                function closeForm() {
-                                    document.querySelector(".create_item").style.display = "none";
-                                }
-                            </script>
-
-                            <!-- popup create product  -->
-                            <?php
-                            $categories = countNameCategory();
-                            $suppliers = countNameSuppliers();
-                            ?>
-                            <div class="modal create_item" id="exampleIteams" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
-                                <div class="modal-dialog" class="border border-danger" role="document">
-                                    <div class="modal-content rounded-top" style="width: 600px;">
-                                        <div class="modal-header">
-                                            <h3 class="modal-title text-danger text-bold ml-4" id="exampleModalLabel">Form create</h3>
-                                            <button type="button" onclick="closeForm()" class="close_item" data-dismiss="modal" aria-label="Close">
-                                                <span aria-hidden="true">&times;</span>
-                                            </button>
-                                        </div>
-
-                                        <div class="m-2 d-flex flex-colum container justify-content-center">
-                                            <div class="card-body">
-                                                <form action="../../controllers/items/create.controller.php" method="post" class="d-flex flex-xl-column" enctype="multipart/form-data">
-                                                    <!-- <input type="hidden" name="id" onclick="closeForm()" class="close_item"> -->
-                                                    <!-- <div class=" div-1 w-400 " > -->
-                                                    <div class="form-row">
-
-                                                        <div class=" form-group mr-5">
-                                                            <label for="pro_name">Name</label>
-                                                            <input type="text" class="form-control" placeholder="Enter Name" name="name">
-                                                        </div>
-                                                        <div class="form-group">
-                                                            <label>supplier</label><br>
-                                                            <select class="custom-select " id="inputGroupSelect01" name="supplier" style="width: 240px;">
-                                                                <option selected>Choose supplier...</option>
-                                                                <?php for ($i = 0; $i < count($suppliers); $i++) : ?>
-                                                                    <option value="<?= $suppliers[$i][0] ?>"><?= $suppliers[$i][0] ?></option>
-                                                                <?php endfor; ?>
-                                                            </select>
-                                                        </div>
-                                                    </div>
-                                                    <div class="form-row  mt-3">
-                                                        <div class="form-group mr-5">
-                                                            <label>Code</label>
-                                                            <input type="number" class="form-control" placeholder="Enter Code" name="code">
-                                                        </div>
-                                                        <div class="form-group">
-                                                            <label>Category</label>
-                                                            <select class="custom-select" id="inputGroupSelect01" name="category">
-                                                                <option selected>Choose category...</option>
-                                                                <?php for ($i = 0; $i < count($categories); $i++) : ?>
-                                                                    <option value="<?= $categories[$i][0] ?>"><?= $categories[$i][0] ?></option>
-                                                                <?php endfor; ?>
-                                                            </select>
-
-                                                        </div>
-                                                    </div>
-
-                                                    <div class="form-row  mt-3">
-                                                        <div class="form-group mr-5">
-                                                            <label>Price</label>
-                                                            <input type="text" class="form-control" placeholder="Enter Price" name="price">
-                                                        </div>
-                                                        <div class="form-group" style="width: 240px;">
-                                                            <label>Quantity</label>
-                                                            <input type="number" class="form-control" placeholder="Enter Quantity" name="quantity">
-                                                        </div>
-                                                    </div>
-
-                                                    <div class="form-row  mt-3">
-                                                        <div class="form-group " style="width: 500px;">
-                                                            <label>Image</label>
-                                                            <input type="file" class="form-control" placeholder="Insert Image" name="image">
-                                                        </div>
-                                                    </div>
-
-                                                    <button type="submit" class="btn btn-primary w-25 mt-3">Submit</button>
-                                                    <!-- </div> -->
-                                                </form>
-                                            </div>
-                                        </div>
-
-                                    </div>
-                                </div>
-                            </div>
-                            <!-- end  -->
-
->>>>>>> bcce34b250d89a7e2efa0c749a7950b78e56c012
                         <?php endforeach; ?>
                     </tbody>
                 </table>
@@ -377,8 +252,3 @@
         </div>
 </div>
 
-<<<<<<< HEAD
-
-
-=======
->>>>>>> bcce34b250d89a7e2efa0c749a7950b78e56c012
