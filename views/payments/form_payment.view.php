@@ -39,7 +39,6 @@
             <?php
             endforeach;
             ?>
-
             <button type="submit" class="btn btn-success align-self-end">pay now</button>
         </form>
     </div>
@@ -64,7 +63,7 @@
                 title: "Payment Successful",
                 text: "Thank you! Your payment is complete",
             }).then(() => {
-                window.location.href = "/form_payment";
+                window.location.href = "/payments";
             });
         }
     });

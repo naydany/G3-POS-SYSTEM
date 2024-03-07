@@ -21,7 +21,7 @@
                 </tr>
             </thead>
             <tbody>
-                <?php
+            <?php
                 $payments = getPayments();
                 foreach ($payments as $payment) :
                 ?>

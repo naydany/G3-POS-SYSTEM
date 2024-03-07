@@ -3,7 +3,6 @@
         <button type="button" class="close" data-dismiss="alert">&times;</button>
         <?= $_SESSION['success'] ?>
     </div>
-
 <?php
     unset($_SESSION['success']);
 endif;
@@ -99,7 +98,6 @@ endif;
                         </div>
                         <div class="col-auto">
                             <i class="bi bi-coin fa-2x text-gray-300"></i>
-                            <!-- <i class="fas fa-tags fa-2x text-gray-300"></i> -->
                         </div>
                     </div>
                 </div>
@@ -109,36 +107,33 @@ endif;
 
     <h1 class="h3 mb-0 text-gray-800">Order Detail</h1><br>
     <table class="table bg-white text-black">
-        <thead class="text-secondary thead-light ">
+        <thead class="text-white bg-primary">
             <tr>
                 <th>ID</th>
                 <th>Product Name</th>
                 <th>Unit Price</th>
-                <th>quantity</th>
+                <th>Quantity</th>
                 <th>Total price</th>
                 <th>Status</th>
                 <th>Date</th>
             </tr>
         </thead>
+
         <tbody>
-            <tr>
-                <td>001</td>
-                <td>Headphone</td>
-                <td>$20</td>
-                <td>2</td>
-                <td>$40</td>
-                <td>Paid</td>
-                <td>17/02/2024</td>
-            </tr>
-            <tr>
-                <td>002</td>
-                <td>Laptop</td>
-                <td>$1,000</td>
-                <td>2</td>
-                <td>$2,000</td>
-                <td>Not Paid</td>
-                <td>16/02/2024</td>
-            </tr>
+            <?php
+            require_once('models/payment.model.php');
+            $orders = getPayments();
+            foreach ($orders as $order) : ?>
+                <tr>
+                    <td><?= $order['pay_id'] ?></td>
+                    <td><?= $order['pro_name'] ?></td>
+                    <td><?= $order['pro_price'] ?>$</td>
+                    <td><?= $order['pro_quantity'] ?></td>
+                    <td><?= $order['pay_totalprice'] ?>$</td>
+                    <td>Paid</td>
+                    <td><?= $order['pay_date'] ?></td>
+                </tr>
+            <?php endforeach; ?>
         </tbody>
     </table>
 </div>
