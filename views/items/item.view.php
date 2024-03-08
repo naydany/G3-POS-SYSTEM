@@ -1,12 +1,41 @@
 <!-- Begin Page Content -->
-
-
+<?php
+// print_r(selectCategory());
+?>
 <div class="container-fluid">
 
     <!-- DataTales Example -->
     <div class="card shadow ">
         <div class="card-header py-3 d-flex justify-content-between">
-            <h5 class="mt-2 ml-4 font-weight-bold text-primary">Items</h5>
+            <h5 class="mt-2 ml-4 font-weight-bold text-primary mt-3">All Products</h5>
+
+            <!-- //*button search -->
+            <!-- <form class="d-none d-sm-inline-block form-inline mr-auto ml-md-3 my-2 my-md-0 mw-100 navbar-search"> -->
+            <form>
+
+                <div class="card-header input-group-append w-200 ">
+                    <select name="users" onchange="showUser(this.value)">
+                        <option value="">Select category:</option>
+                        <?php
+                        foreach ($categories as $category) :
+                            // $query = "SELECT cate_name FROM categories";
+                            // $result = mysqli_query($connection, $query);
+                        ?>
+                            <option value="<?= $category['cate_name']; ?>"><?= $category['cate_name']; ?></option>
+                            <?php
+                            // while ($row = mysqli_fetch_assoc($result)) {
+                            //     $categoryName = $category['cate_name'];
+                            //     echo "<option value='$categoryName'>$categoryName</option>";
+                            // }
+                            ?>
+                        <?php
+                        endforeach;
+                        ?>
+                    </select>
+                </div>
+                <!-- <div id="txtHint"><b>Person info will be listed here...</b></div> -->
+
+            </form>
 
             <div class="card-header py-3 d-flex justify-content-between">
                 <button type="button" class="btn btn-outline-primary " data-toggle="modal" data-target="#myModal"><i class="bi bi-plus-circle mr-3"></i>
@@ -15,10 +44,48 @@
             </div>
 
         </div>
+        <!-- *script cate_select -->
+        <script>
+            function showUser(str) {
+                if (str == "") {
+                    document.getElementById("txtHint").innerHTML = "";
+                    return;
+                } else {
+                    var xmlhttp = new XMLHttpRequest();
+                    xmlhttp.onreadystatechange = function() {
+                        if (this.readyState == 4 && this.status == 200) {
+                            document.getElementById("txtHint").innerHTML = this.responseText;
+                        }
+                    };
+                    xmlhttp.open("GET", "family.php?q=" + str, true);
+                    xmlhttp.send();
+                }
+            }
+        </script>
+
+        <!-- *table order -->
+
+        <!-- *php -->
+        <?php
+        // $q = intval($_GET['q']);
+
+        // $con = mysqli_connect('localhost', 'peter', 'abc123');
+        // if (!$con) {
+        //     die('Could not connect: ' . mysqli_error($con));
+        // }
+
+        // mysqli_select_db($con, "ajax_demo");
+        // $sql = "SELECT * FROM user WHERE id = '" . $q . "'";
+        // $result = mysqli_query($con, $sql);
+
+
+        ?>
         <div class="card-body">
             <div class="table-responsive pr-3 pl-3">
                 <table class="table table-bordered text-center" id="dataTable" width="100%" cellspacing="0">
                     <thead class="bg-primary text-white thead-light">
+
+
                         <tr>
                             <th>ID</th>
                             <th>Image</th>
@@ -236,6 +303,3 @@
     </div>
 
 </div>
-
-
-

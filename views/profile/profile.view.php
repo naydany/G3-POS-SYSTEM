@@ -19,24 +19,28 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
             <h2 class="card-title text-center mt-3"><?= $_SESSION['user']['name'] ?></h2>
             <h6 class="card-title text-center mt-3"><?= $_SESSION['user']['email'] ?></h6>
 
-            <div style="display: flex;">
-                <div>
-                    <form action="../../controllers/admin/update_profile.controller.php" method="post">
+            <form action="../../controllers/admin/update_profile.controller.php" method="post">
+                <!-- <div>
                         <label for="coverImageInput" class="d-block text-center btn btn-light btn-sm mt-2">
                             <input type="file" id="coverImageInput" accept="image/*" class="d-none" onchange="loadFile(event, 'coverImage')">
                         </label>
-                </div>
-                <div>
-                    <label for="profileImageInput" class="d-block text-center btn btn-light btn-sm mt-2">
-                        <input type="file" id="profileImageInput" accept="image/*" class="d-none" name="imageprofile">
-                    </label>
-                    <button hidden id="upload"></button>
-                    </form>
-                    
-                </div>
-            </div>
+                    </div> -->
+
+                <input type="file" id="profileImageInput" accept="image/*" name="imageprofile">
+                <button hidden id="upload" type="submit"></button>
+            </form>
         </div>
     </div>
+    <!-- <script>
+        document.getElementById("profileImage").addEventListener("click", function() {
+            let profile = document.getElementById("profileImageInput");
+            profile.click();
+            if (profile.value != '') {
+                document.getElementById('upload').click();
+
+            }
+        });
+    </script> -->
     <h3 class="card-title ml-5 text-danger mt-3">Details:</h3>
     <ul class="list-group list-group-flush">
         <li class="list-group-item ml-3">
@@ -52,20 +56,6 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     </div>
 </div>
 
-
-<script>
-    document.getElementById("coverImage").addEventListener("click", function() {
-        document.getElementById("coverImageInput").click();
-    });
-    document.getElementById("profileImage").addEventListener("click", function() {
-        let profile = document.getElementById("profileImageInput");
-        profile.click();
-        if (profile.value != '') {
-            document.getElementById('upload').click();
-
-        }
-    });
-</script>
 
 <script>
     var uploadCoverCrop;
@@ -110,19 +100,16 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         reader.readAsDataURL(this.files[0]);
     });
 
-    $('#profileImageInput').on('change', function() {
-        var reader = new FileReader();
-        reader.onload = function(e) {
-            uploadProfileCrop.croppie('bind', {
-                url: e.target.result
-            }).then(function() {
-                console.log('jQuery bind complete');
-            });
-        }
-        reader.readAsDataURL(this.files[0]);
-    });
+    // $('#profileImageInput').on('change', function() {
+    //     var reader = new FileReader();
+    //     reader.onload = function(e) {
+    //         uploadProfileCrop.croppie('bind', {
+    //             url: e.target.result
+    //         }).then(function() {
+    //             console.log('jQuery bind complete');
+    //         });
+    //     }
+    //     reader.readAsDataURL(this.files[0]);
+    // });
 
     // Add event listeners
-</script>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/croppie/2.6.5/croppie.min.js"></script>
-<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/croppie/2.6.5/croppie.min.css">
