@@ -1,163 +1,91 @@
-<?php
-session_destroy();
-?>
+<!DOCTYPE html>
+<!-- <html lang="{{ str_replace('_', '-', app()->getLocale()) }}"> -->
 
-<style>
-    html,
-    body {
-        background-color: #000;
-        color: #636b6f;
-        font-family: 'Nunito', sans-serif;
-        font-weight: 200;
-        height: 100vh;
-        margin: 0;
-    }
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
 
-    .full-height {
-        height: 100vh;
-    }
+    <title>POS System</title>
 
-    .flex-center {
+    <!-- Fonts -->
+    <link href="https://fonts.googleapis.com/css?family=Nunito:200,600" rel="stylesheet">
 
-        display: flex;
-        margin: auto;
-        align-items: center;
-        justify-content: center;
-    }
+    <!-- Styles -->
+    <style>
+        html,
+        body {
+            background-color: #000;
+            color: #636b6f;
+            font-family: 'Nunito', sans-serif;
+            font-weight: 200;
+            height: 100vh;
+            margin: 0;
+        }
 
-    .position-ref {
-        position: relative;
+        img {
+            width: 100%;
+            height: 100vh;
+            object-fit: cover;
+            position: absolute;
+            /* filter: blur(15px); */
+        }
 
-    }
+        .full-height {
+            height: 100vh;
+        }
 
-    .top-right {
-        position: absolute;
-        right: 10px;
-        top: 18px;
-    }
+        .flex-center {
+            display: flex;
+            margin: auto;
+            align-items: center;
+            justify-content: center;
+        }
 
-    .content {
-        text-align: center;
+        .position-ref {
+            position: relative;
 
-    }
+        }
 
-    .title {
-        font-size: 84px;
-    }
+        .top-right {
+            position: absolute;
+            right: 10px;
+            top: 18px;
+        }
 
-    .links>a {
-        color: #636b6f;
-        padding: 0 25px;
-        font-size: 13px;
-        font-weight: 600;
-        letter-spacing: .1rem;
-        text-decoration: none;
-        text-transform: uppercase;
-    }
-
-    .m-b-md {
-        margin-bottom: 30px;
-    }
-</style>
-
-
-<body class="bg-light text-primary">
-    <div class="flex-center position-ref full-height ">
-        <div class="content">
-            <div class="title m-b-md">
-                POS Management System
-            </div>
-
-            <div class="links">
-                <!-- <!-For more projects: Visit NetGO+  -->
-                <a href="/form_admin_signin">Admin Login</a> |
-                <a href="/form_staff_signin">Staff Login</a>
-
-                <div class="mt-5">
-                    <a href="/form_admin_signup">Create Account</a>
-                </div>
-            </div>
-        </div>
-    </div>
-</body>
+        .content {
+            text-align: center;
+            padding: 5%;
+            background: linear-gradient(135deg, rgba(3, 138, 255, 0.4), rgba(3, 138, 255, 0.4));            -webkit-backdrop-filter: blur(90px);
+            backdrop-filter: blur(40px);
+            box-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.37);
+            border: 1px solid rgba(255, 255, 255, 0.18);
+            border-radius: 32px;
+        }
 
 
-<style>
-    html,
-    body {
-        background-color: #000;
-        color: #636b6f;
-        font-family: 'Nunito', sans-serif;
-        font-weight: 200;
-        height: 100vh;
-        margin: 0;
-    }
+        .title {
+            font-size: 84px;
+            color: white;
+        }
 
-    img {
-        width: 100%;
-        height: 100vh;
-        object-fit: cover;
-        position: absolute;
-        /* filter: blur(15px); */
-    }
+        .links>a {
+            color: white;
+            padding: 0 25px;
+            font-size: 15px;
+            font-weight: 600;
+            letter-spacing: .1rem;
+            text-decoration: none;
+            text-transform: upបpercase;
+        }
 
-    .full-height {
-        height: 100vh;
-    }
-
-    .flex-center {
-        display: flex;
-        margin: auto;
-        align-items: center;
-        justify-content: center;
-    }
-
-    .position-ref {
-        position: relative;
-
-    }
-
-    .top-right {
-        position: absolute;
-        right: 10px;
-        top: 18px;
-    }
-
-    .content {
-        text-align: center;
-        background-color: #000;
-        padding: 10%;
-        background: linear-gradient(135deg, rgba(255, 255, 255, 0.1), rgba(255, 255, 255, 0));
-        -webkit-backdrop-filter: blur(90px);
-        backdrop-filter: blur(70px);
-        box-shadow: 0 8px 32px 0 rgba (0, 0, 0, 0.37);
-        border: 1px solid rgba(255, 255, 255, 0.18);
-        border-radius: 32px;
-    }
-
-    .title {
-        font-size: 84px;
-        color: white;
-    }
-
-    .links>a {
-        color: white;
-        padding: 0 25px;
-        font-size: 15px;
-        font-weight: 600;
-        letter-spacing: .1rem;
-        text-decoration: none;
-        text-transform: uppercase;
-    }
-
-    .m-b-md {
-        margin-bottom: 30px;
-    }
-</style>
+        .m-b-md {
+            margin-bottom: 30px;
+        }
+    </style>
 </head>
 
 <body class="bg-light text-primary">
-    <img src="https://images.ctfassets.net/v6ivjcl8qjz2/4EPg6nQmCQvE8zIPnITawR/095ca07e1aa51f65df2eb438d0dde21b/homepage-purple-system-line-bg-tablet-1200x450-2x.jpg?fit=scale&fm=webp" alt="">
+    <img src="https://posbytz.com/wp-content/uploads/2022/08/Best-POS-Software-for-Restaurants-in-India.png" alt="">
     <div class="flex-center position-ref full-height ">
         <div class="content">
             <div class="title m-b-md">
@@ -171,3 +99,5 @@ session_destroy();
         </div>
     </div>
 </body>
+
+</html>
