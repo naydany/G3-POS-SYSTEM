@@ -1,6 +1,5 @@
 
 <?php
-
 function accountExist(string $email): array
 {
     global $connection;

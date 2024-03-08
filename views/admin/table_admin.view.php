@@ -21,9 +21,7 @@
             $users = getUser();
             foreach ($users as $user) :
             ?>
-
                 <!-- *popup update admin -->
-
                 <div class="modal fade" id="modalUpdate<?= $user['id'] ?>" role="dialog" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
                     <div class="modal-dialog" role="document">
                         <div class=" d-flex justify-content-center admin_show modal-content">
@@ -72,8 +70,8 @@
     </table>
 </div>
 
+<!-- *popup create staff -->
 
-<!-- *popup create admin -->
 <div class="modal fade" id="modalAdmin" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
     <div class="modal-dialog">
         <div class=" d-flex justify-content-center admin_show modal-content">

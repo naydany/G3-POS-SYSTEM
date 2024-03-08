@@ -13,7 +13,7 @@
         <!-- role -->
         <label for="exampleFormControlDate1" class="col-sm-3 col-form-label">Role</label>
         <select class="custom-select my-1 mr-sm-2" name="role" id="inlineFormCustomSelectPref">
-            <option selected>Choose...</option>
+            <option selected disabled>Choose...</option>
             <option value="Admin">Admin</option>
             <option value="Seller">Seller</option>
             <option value="Stock Manager">Stock Manager</option>
