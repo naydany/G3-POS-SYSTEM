@@ -1,17 +1,13 @@
 <!-- Begin Page Content -->
-<<<<<<< HEAD
 <?php
 // print_r(selectCategory());
 ?>
-=======
 
->>>>>>> c86ca4b4712d4c8c78cde0aa765de606664829cf
 <div class="container-fluid">
 
     <!-- DataTales Example -->
     <div class="card shadow ">
         <div class="card-header py-3 d-flex justify-content-between">
-<<<<<<< HEAD
             <h5 class="mt-2 ml-4 font-weight-bold text-primary mt-3">All Products</h5>
 
             <!-- //*button search -->
@@ -42,9 +38,6 @@
 
             </form>
 
-=======
-            <h5 class="mt-2 ml-4 font-weight-bold text-primary">Items</h5>
->>>>>>> c86ca4b4712d4c8c78cde0aa765de606664829cf
             <div class="card-header py-3 d-flex justify-content-between">
                 <button type="button" class="btn btn-outline-primary " data-toggle="modal" data-target="#myModal"><i class="bi bi-plus-circle mr-3"></i>Create New Product
                 </button>
@@ -446,11 +439,6 @@
                 </form>
             </div>
         </div>
-<<<<<<< HEAD
     </div>
 
 </div>
-=======
-</div>
-
->>>>>>> c86ca4b4712d4c8c78cde0aa765de606664829cf
