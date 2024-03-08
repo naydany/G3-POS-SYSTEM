@@ -1,50 +1,10 @@
 <!-- Begin Page Content -->
-<<<<<<< HEAD
-<?php
-// print_r(selectCategory());
-?>
-=======
-
->>>>>>> c86ca4b4712d4c8c78cde0aa765de606664829cf
 <div class="container-fluid">
 
     <!-- DataTales Example -->
     <div class="card shadow ">
         <div class="card-header py-3 d-flex justify-content-between">
-<<<<<<< HEAD
-            <h5 class="mt-2 ml-4 font-weight-bold text-primary mt-3">All Products</h5>
-
-            <!-- //*button search -->
-            <!-- <form class="d-none d-sm-inline-block form-inline mr-auto ml-md-3 my-2 my-md-0 mw-100 navbar-search"> -->
-            <form>
-
-                <div class="card-header input-group-append w-200 ">
-                    <select name="users" onchange="showUser(this.value)">
-                        <option value="">Select category:</option>
-                        <?php
-                        foreach ($categories as $category) :
-                            // $query = "SELECT cate_name FROM categories";
-                            // $result = mysqli_query($connection, $query);
-                        ?>
-                            <option value="<?= $category['cate_name']; ?>"><?= $category['cate_name']; ?></option>
-                            <?php
-                            // while ($row = mysqli_fetch_assoc($result)) {
-                            //     $categoryName = $category['cate_name'];
-                            //     echo "<option value='$categoryName'>$categoryName</option>";
-                            // }
-                            ?>
-                        <?php
-                        endforeach;
-                        ?>
-                    </select>
-                </div>
-                <!-- <div id="txtHint"><b>Person info will be listed here...</b></div> -->
-
-            </form>
-
-=======
             <h5 class="mt-2 ml-4 font-weight-bold text-primary">Items</h5>
->>>>>>> c86ca4b4712d4c8c78cde0aa765de606664829cf
             <div class="card-header py-3 d-flex justify-content-between">
                 <button type="button" class="btn btn-outline-primary " data-toggle="modal" data-target="#myModal"><i class="bi bi-plus-circle mr-3"></i>Create New Product
                 </button>
@@ -446,11 +406,5 @@
                 </form>
             </div>
         </div>
-<<<<<<< HEAD
-    </div>
-
-</div>
-=======
 </div>
 
->>>>>>> c86ca4b4712d4c8c78cde0aa765de606664829cf
