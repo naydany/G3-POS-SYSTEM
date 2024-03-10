@@ -84,3 +84,15 @@ function countNameSuppliers(): array
     $statement->execute();
     return $statement->fetchAll();
 }
+
+
+function selectCategory(string $name_cate)
+{
+    global $connection;
+    $statement = $connection->prepare("select * from products where cate_name = :name_cate");
+    $statement->execute([
+        ":name_cate" => $name_cate,
+    ]);
+    return $statement->fetchAll();
+}
+

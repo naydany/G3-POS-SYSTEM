@@ -52,7 +52,7 @@ if (isset($_SESSION['user'])) {
             '/admin_table' => 'controllers/admin/table_admin.controller.php',
             '/form_admin' => 'controllers/admin/form_admin.controller.php',
             '/form_payment' => 'controllers/payments/form.payment.controller.php',
-
+        
         ];
     }
 }

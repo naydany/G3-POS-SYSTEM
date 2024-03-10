@@ -1,6 +1,14 @@
 <!-- Begin Page Content -->
+
 <?php
-// print_r(selectCategory());
+$products = null;
+
+if($_SESSION['Products'] != []){
+    $products = $_SESSION['Products'];
+}else{
+    $products = getItem();
+}
+
 ?>
 
 <div class="container-fluid">
@@ -11,16 +19,14 @@
             <h5 class="mt-2 ml-4 font-weight-bold text-primary mt-3">All Products</h5>
 
             <!-- //*button search -->
-            <!-- <form class="d-none d-sm-inline-block form-inline mr-auto ml-md-3 my-2 my-md-0 mw-100 navbar-search"> -->
-            <form>
+
+            <form action="#" method="post">
 
                 <div class="card-header input-group-append w-200 ">
-                    <select name="users" onchange="showUser(this.value)">
+                    <select id="select-categories" name="users">
                         <option value="">Select category:</option>
                         <?php
                         foreach ($categories as $category) :
-                            // $query = "SELECT cate_name FROM categories";
-                            // $result = mysqli_query($connection, $query);
                         ?>
                             <option value="<?= $category['cate_name']; ?>"><?= $category['cate_name']; ?></option>
                             <?php
@@ -32,6 +38,7 @@
                         <?php
                         endforeach;
                         ?>
+
                     </select>
                 </div>
                 <!-- <div id="txtHint"><b>Person info will be listed here...</b></div> -->
@@ -43,32 +50,46 @@
                 </button>
             </div>
         </div>
-        <!-- *script cate_select -->
+        <!-- ajax -->
         <script>
-            function showUser(str) {
-                if (str == "") {
-                    document.getElementById("txtHint").innerHTML = "";
-                    return;
-                } else {
-                    var xmlhttp = new XMLHttpRequest();
-                    xmlhttp.onreadystatechange = function() {
-                        if (this.readyState == 4 && this.status == 200) {
-                            document.getElementById("txtHint").innerHTML = this.responseText;
+            $(document).ready(function() {
+                $('#select-categories').change(() => {
+                    const category = $('#select-categories').val();
+                    $.ajax({
+                        url: '../../controllers/items/select_items.controller.php',
+                        method: "POST",
+                        data: {
+                            category: category
                         }
-                    };
-                    xmlhttp.open("GET", "family.php?q=" + str, true);
-                    xmlhttp.send();
-                }
-            }
+                    })
+                    location.href = '/items';
+                });
+
+            });
+
+            // $.ajax({
+            //     url: '../../controllers/items/select_items.controller.php',
+            //     method: "GET",
+            //     async: true,
+            //     success: function(response){
+            //         var items = JSON.parse(response);
+            //         console.log(response);
+            //     }
+            // })
         </script>
 
         <!-- *table order -->
 
         <!-- *php -->
         <?php
-        // $q = intval($_GET['q']);
 
-        // $con = mysqli_connect('localhost', 'peter', 'abc123');
+        // $user = $_POST['users'];
+
+
+        // $q = $_GET['name'];
+        // echo $q;
+
+        // $connection = mysqli_connect('localhost', 'peter', 'abc123');
         // if (!$con) {
         //     die('Could not connect: ' . mysqli_error($con));
         // }
@@ -99,9 +120,6 @@
 
                     <tbody>
                         <?php
-
-
-                        $products = getItem();
                         foreach ($products as $pro) :
                         ?>
                             <tr>
@@ -242,126 +260,128 @@
                                     </div>
                                 </div>
 
-                            <!-- !test -->
-                            <style>
-                                .create_item {
-                                    /* display: none; */
-                                    position: fixed;
-                                    z-index: 8;
-                                    left: 0;
-                                    top: 0;
-                                    width: 100%;
-                                    height: 100%;
-                                    overflow: auto;
-                                    background-color: rgb(0, 0, 0);
-                                    background-color: rgba(0, 0, 0, 0.4);
+                                <!-- !test -->
+                                <style>
+                                    .create_item {
+                                        /* display: none; */
+                                        position: fixed;
+                                        z-index: 8;
+                                        left: 0;
+                                        top: 0;
+                                        width: 100%;
+                                        height: 100%;
+                                        overflow: auto;
+                                        background-color: rgb(0, 0, 0);
+                                        background-color: rgba(0, 0, 0, 0.4);
 
-                                }
-                                form {
-                                    box-shadow: 0 3px 5px #f5f5f5;
-                                    background: #eee;
-                                }
-                                .modal_dialog {
-                                    position: absolute;
-                                    z-index: 3;
-                                }
-                            </style>
-                            <script>
-                                const pop = document.querySelector('.create_item');
-                                const open_pop = document.querySelector('#create_item');
+                                    }
 
-                                function openForm() {
-                                    document.querySelector(".create_item").style.display = "block";
-                                }
+                                    form {
+                                        box-shadow: 0 3px 5px #f5f5f5;
+                                        background: #eee;
+                                    }
 
-                                function closeForm() {
-                                    document.querySelector(".create_item").style.display = "none";
-                                }
-                            </script>
+                                    .modal_dialog {
+                                        position: absolute;
+                                        z-index: 3;
+                                    }
+                                </style>
+                                <script>
+                                    const pop = document.querySelector('.create_item');
+                                    const open_pop = document.querySelector('#create_item');
 
-                            <!-- popup create product  -->
-                            <?php
-                            $categories = countNameCategory();
-                            $suppliers = countNameSuppliers();
-                            ?>
-                            <div class="modal create_item" id="exampleIteams" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
-                                <div class="modal-dialog" class="border border-danger" role="document">
-                                    <div class="modal-content rounded-top" style="width: 600px;">
-                                        <div class="modal-header">
-                                            <h3 class="modal-title text-danger text-bold ml-4" id="exampleModalLabel">Form create</h3>
-                                            <button type="button" onclick="closeForm()" class="close_item" data-dismiss="modal" aria-label="Close">
-                                                <span aria-hidden="true">&times;</span>
-                                            </button>
-                                        </div>
+                                    function openForm() {
+                                        document.querySelector(".create_item").style.display = "block";
+                                    }
 
-                                        <div class="m-2 d-flex flex-colum container justify-content-center">
-                                            <div class="card-body">
-                                                <form action="../../controllers/items/create.controller.php" method="post" class="d-flex flex-xl-column" enctype="multipart/form-data">
-                                                    <!-- <input type="hidden" name="id" onclick="closeForm()" class="close_item"> -->
-                                                    <!-- <div class=" div-1 w-400 " > -->
-                                                    <div class="form-row">
+                                    function closeForm() {
+                                        document.querySelector(".create_item").style.display = "none";
+                                    }
+                                </script>
 
-                                                        <div class=" form-group mr-5">
-                                                            <label for="pro_name">Name</label>
-                                                            <input type="text" class="form-control" placeholder="Enter Name" name="name">
-                                                        </div>
-                                                        <div class="form-group">
-                                                            <label>supplier</label><br>
-                                                            <select class="custom-select " id="inputGroupSelect01" name="supplier" style="width: 240px;">
-                                                                <option selected>Choose supplier...</option>
-                                                                <?php for ($i = 0; $i < count($suppliers); $i++) : ?>
-                                                                    <option value="<?= $suppliers[$i][0] ?>"><?= $suppliers[$i][0] ?></option>
-                                                                <?php endfor; ?>
-                                                            </select>
-                                                        </div>
-                                                    </div>
-                                                    <div class="form-row  mt-3">
-                                                        <div class="form-group mr-5">
-                                                            <label>Code</label>
-                                                            <input type="number" class="form-control" placeholder="Enter Code" name="code">
-                                                        </div>
-                                                        <div class="form-group">
-                                                            <label>Category</label>
-                                                            <select class="custom-select" id="inputGroupSelect01" name="category">
-                                                                <option selected>Choose category...</option>
-                                                                <?php for ($i = 0; $i < count($categories); $i++) : ?>
-                                                                    <option value="<?= $categories[$i][0] ?>"><?= $categories[$i][0] ?></option>
-                                                                <?php endfor; ?>
-                                                            </select>
-
-                                                        </div>
-                                                    </div>
-
-                                                    <div class="form-row  mt-3">
-                                                        <div class="form-group mr-5">
-                                                            <label>Price</label>
-                                                            <input type="text" class="form-control" placeholder="Enter Price" name="price">
-                                                        </div>
-                                                        <div class="form-group" style="width: 240px;">
-                                                            <label>Quantity</label>
-                                                            <input type="number" class="form-control" placeholder="Enter Quantity" name="quantity">
-                                                        </div>
-                                                    </div>
-
-                                                    <div class="form-row  mt-3">
-                                                        <div class="form-group " style="width: 500px;">
-                                                            <label>Image</label>
-                                                            <input type="file" class="form-control" placeholder="Insert Image" name="image">
-                                                        </div>
-                                                    </div>
-
-                                                    <button type="submit" class="btn btn-primary w-25 mt-3">Submit</button>
-                                                    <!-- </div> -->
-                                                </form>
+                                <!-- popup create product  -->
+                                <?php
+                                $categories = countNameCategory();
+                                $suppliers = countNameSuppliers();
+                                ?>
+                                <div class="modal create_item" id="exampleIteams" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                                    <div class="modal-dialog" class="border border-danger" role="document">
+                                        <div class="modal-content rounded-top" style="width: 600px;">
+                                            <div class="modal-header">
+                                                <h3 class="modal-title text-danger text-bold ml-4" id="exampleModalLabel">Form create</h3>
+                                                <button type="button" onclick="closeForm()" class="close_item" data-dismiss="modal" aria-label="Close">
+                                                    <span aria-hidden="true">&times;</span>
+                                                </button>
                                             </div>
-                                        </div>
 
+                                            <div class="m-2 d-flex flex-colum container justify-content-center">
+                                                <div class="card-body">
+                                                    <form action="../../controllers/items/create.controller.php" method="post" class="d-flex flex-xl-column" enctype="multipart/form-data">
+                                                        <!-- <input type="hidden" name="id" onclick="closeForm()" class="close_item"> -->
+                                                        <!-- <div class=" div-1 w-400 " > -->
+                                                        <div class="form-row">
+
+                                                            <div class=" form-group mr-5">
+                                                                <label for="pro_name">Name</label>
+                                                                <input type="text" class="form-control" placeholder="Enter Name" name="name">
+                                                            </div>
+                                                            <div class="form-group">
+                                                                <label>supplier</label><br>
+                                                                <select class="custom-select " id="inputGroupSelect01" name="supplier" style="width: 240px;">
+                                                                    <option selected>Choose supplier...</option>
+                                                                    <?php for ($i = 0; $i < count($suppliers); $i++) : ?>
+                                                                        <option value="<?= $suppliers[$i][0] ?>"><?= $suppliers[$i][0] ?></option>
+                                                                    <?php endfor; ?>
+                                                                </select>
+                                                            </div>
+                                                        </div>
+                                                        <div class="form-row  mt-3">
+                                                            <div class="form-group mr-5">
+                                                                <label>Code</label>
+                                                                <input type="number" class="form-control" placeholder="Enter Code" name="code">
+                                                            </div>
+                                                            <div class="form-group">
+                                                                <label>Category</label>
+                                                                <select class="custom-select" id="inputGroupSelect01" name="category">
+                                                                    <option selected>Choose category...</option>
+                                                                    <?php for ($i = 0; $i < count($categories); $i++) : ?>
+                                                                        <option value="<?= $categories[$i][0] ?>"><?= $categories[$i][0] ?></option>
+                                                                    <?php endfor; ?>
+                                                                </select>
+
+                                                            </div>
+                                                        </div>
+
+                                                        <div class="form-row  mt-3">
+                                                            <div class="form-group mr-5">
+                                                                <label>Price</label>
+                                                                <input type="text" class="form-control" placeholder="Enter Price" name="price">
+                                                            </div>
+                                                            <div class="form-group" style="width: 240px;">
+                                                                <label>Quantity</label>
+                                                                <input type="number" class="form-control" placeholder="Enter Quantity" name="quantity">
+                                                            </div>
+                                                        </div>
+
+                                                        <div class="form-row  mt-3">
+                                                            <div class="form-group " style="width: 500px;">
+                                                                <label>Image</label>
+                                                                <input type="file" class="form-control" placeholder="Insert Image" name="image">
+                                                            </div>
+                                                        </div>
+
+                                                        <button type="submit" class="btn btn-primary w-25 mt-3">Submit</button>
+                                                        <!-- </div> -->
+                                                    </form>
+                                                </div>
+                                            </div>
+
+                                        </div>
                                     </div>
                                 </div>
-                            </div>
-                            <!-- end  -->
+                                <!-- end  -->
 
-                        <?php endforeach; ?>
+                            <?php endforeach; ?>
                     </tbody>
                 </table>
             </div>
