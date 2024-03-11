@@ -10,11 +10,11 @@
         <table class="table table-bordered text-center mt-2 rounded">
             <thead class="text-secondary thead-light">
                 <tr>
-                    <th>Code</th>
-                    <th>Product</th>
-                    <th>Total Price</th>
-                    <th>Date</th>
-                    <th>Action</th>
+                    <th class="text-center">Code</th>
+                    <th class="text-center">Products</th>
+                    <th class="text-center">Total Price</th>
+                    <th class="text-center">Date</th>
+                    <th class="text-center">Action</th>
                 </tr>
             </thead>
             <tbody>
@@ -23,26 +23,94 @@
                 foreach ($payments as $payment) :
                 ?>
                     <tr>
-                        <td><?= $payment['pay_code'] ?></td>
-                        <td><?= $payment['pro_name'] ?></td>
-                        <td><?= $payment['pay_totalprice'] ?>$</td>
-                        <td><?= $payment['pay_date'] ?></td>
-                        <td>
+                        <td class="text-center"><?= $payment['pay_code'] ?></td>
+                        <td class="text-center"><?= $payment['pro_name'] ?></td>
+                        <td class="text-center"><?= $payment['pay_totalprice'] ?></td>
+                        <td class="text-center"><?= $payment['pay_date'] ?></td>
+                        <td class="text-center">
                             <div class="btn-group">
-                                <a href="/form_payment?id=<?= $payment['pay_id'] ?>">
-                                <i class="bi bi-credit-card btn btn-lg ml-3 text-success" style="font-size: 24px;"></i>
-                                </a>
+
+                                <i class="bi bi-credit-card btn btn-lg ml-3 text-success" data-toggle="modal" data-target="#formpayment<?= $payment['pay_id'] ?>" style="font-size: 24px;"></i>
 
                                 <a onclick="return confirm('Do you want to cancel this payment?')" href="controllers/payments/cancel_payment.controller.php?id=<?= $payment['pay_id'] ?>">
                                     <i class="bi bi-x-circle text-danger btn btn-lg ml-3"></i>
                                 </a>
-
                             </div>
                         </td>
                     </tr>
-                <?php endforeach; ?>
+
+
+                    <!-- Payment Form -->
+                    <div class="modal fade" id="formpayment<?= $payment['pay_id'] ?>" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                        <div class="modal-dialog">
+                            <div class="d-flex justify-content-center modal-content">
+                                <div class="card p-5">
+                                    <div>
+                                        <h4 class="text-danger">Payments</h4>
+                                        <hr>
+                                    </div>
+                                    <form action="controllers/payments/form.payment.controller.php" class='d-flex flex-xl-column' method='post' id="payForm">
+                                        <input type="hidden" value="<?= $payment['pay_id'] ?>">
+
+                                        <div class="form-group">
+                                            <label for="name">Code</label>
+                                            <input type="text" class="form-control" name="code" value="<?= $payment['pay_code'] ?>">
+                                        </div>
+
+                                        <div class="form-group">
+                                            <label for="product">Product</label>
+                                            <input type="text" class="form-control" name="product" value="<?= $payment['pro_name'] ?>">
+                                        </div>
+
+                                        <div class="form-group">
+                                            <label for="total price">Total Price</label>
+                                            <input type="text" class="form-control" name="total_price" value="<?= $payment['pay_totalprice'] ?>$">
+                                        </div>
+
+                                        <div class="form-group">
+                                            <label>Card</label>
+                                            <div class="input-group mb-3">
+                                                <select class="custom-select" id="inputGroupSelect01" name="supplier">
+                                                    <option selected>Choose card...</option>
+                                                    <option>Paypal</option>
+                                                    <option>ABA</option>
+                                                    <option>AC</option>
+                                                    <option>Visa Card</option>
+                                                </select>
+                                            </div>
+                                            <button type="submit" class="btn btn-primary">Submit</button>
+                                        </div>
+                                    </form>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
             </tbody>
+        <?php endforeach; ?>
         </table>
     </div>
 </div>
 
+<script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+<script>
+    document.getElementById('payForm').addEventListener('submit', function (event) {
+        event.preventDefault();
+        // Check if card input is empty
+        var cardInput = document.querySelector('select[name="supplier"]').value;
+        if (cardInput.trim() === 'Choose card...') {
+            Swal.fire({
+                icon: "error",
+                title: "Please choose a card",
+                text: "Something went wrong!",
+            });
+        } else {
+            Swal.fire({
+                icon: "success",
+                title: "Payment Successful",
+                text: "Thank you! Your payment is complete",
+            }).then(() => {
+                window.location.href = "/payments";
+            });
+        }
+    });
+</script>

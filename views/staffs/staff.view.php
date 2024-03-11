@@ -79,12 +79,8 @@
                         </div>
                     </div>
                 </div>
-
-
         </tbody>
-        <tbody>
         <?php endforeach; ?>
-        </tbody>
     </table>
 </div>
 
