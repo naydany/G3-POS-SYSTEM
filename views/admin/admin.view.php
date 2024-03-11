@@ -121,17 +121,17 @@ endif;
 
         <tbody>
             <?php
-            require_once('models/payment.model.php');
-            $orders = getPayments();
+            require "models/order.model.php";
+            $orders = getOrdersDetail();
             foreach ($orders as $order) : ?>
                 <tr>
-                    <td><?= $order['pay_id'] ?></td>
+                    <td><?= $order['order_detail_id'] ?></td>
                     <td><?= $order['pro_name'] ?></td>
                     <td><?= $order['pro_price'] ?>$</td>
-                    <td><?= $order['pro_quantity'] ?></td>
-                    <td><?= $order['pay_totalprice'] ?>$</td>
-                    <td>Paid</td>
-                    <td><?= $order['pay_date'] ?></td>
+                    <td><?= $order['pro_qty'] ?></td>
+                    <td><?= $order['tatal_price'] ?>$</td>
+                    <td>Not Paid</td>
+                    <td><?= $order['order_date'] ?></td>
                 </tr>
             <?php endforeach; ?>
         </tbody>
