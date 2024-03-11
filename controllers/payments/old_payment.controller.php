@@ -1,9 +1,4 @@
 <?php
-<<<<<<< HEAD
-require "../../database";
-require "../../models/payment.model.php";
-
-=======
 require "../../database/database.php";
 require "../../models/payment.model.php";
 
@@ -26,5 +21,4 @@ $getOldPayments = getOldPayments();
 deletOrder();
 header('Location:/payments');
 
->>>>>>> payments
 

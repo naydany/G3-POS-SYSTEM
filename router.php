@@ -52,13 +52,9 @@ if (isset($_SESSION['user'])) {
             '/admin_table' => 'controllers/admin/table_admin.controller.php',
             '/form_admin' => 'controllers/admin/form_admin.controller.php',
             '/form_payment' => 'controllers/payments/form.payment.controller.php',
-<<<<<<< HEAD
             '/old_payment' => 'controllers/payments/old_payment.controller.php',
             '/old_payment' => 'controllers/payments/path_payment.controller.php',
 
-=======
-        
->>>>>>> 10e2fe88aa2944aab781a3ba22078283d03265d0
         ];
     }
 }
