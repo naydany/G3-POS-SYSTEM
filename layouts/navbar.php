@@ -180,8 +180,8 @@ if ($page == 'controllers/categories/category.controller.php') {
                                 $name = $_POST["name"];
                             }
                             ?>
-                         <span class="mr-2 d-none d-lg-inline text-gray-600 small"></span>
-                         <img class="img-profile rounded-circle" src="assets/images/undraw_profile.svg">
+                         <span class="mr-2 d-none d-lg-inline text-gray-600 small"><?= $_SESSION['user']['role'];?></span>
+                         <img class="img-profile rounded-circle " style="object-fit: cover;" src="../assets/images/<?=$_SESSION['user']['image'];?>" >
                      </a>
                      <!-- Dropdown - User Information -->
                      <div class="dropdown-menu dropdown-menu-right shadow animated--grow-in" aria-labelledby="userDropdown">
