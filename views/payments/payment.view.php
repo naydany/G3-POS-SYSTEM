@@ -1,12 +1,4 @@
 <div class="container">
-<<<<<<< HEAD
-    <div class="py-3 d-flex">
-    <div class="card-header border-0">
-        <a href="/orders" class="btn btn-outline-primary">
-            <i class="fas fa-plus"></i> <i class="fas fa-utensils"></i>
-            Make A New Order
-        </a>
-=======
     <div class="card-header py-3 d-flex justify-content-between ">
         <div class="card-header border-0">
             <a href="/orders" class="btn btn-outline-primary">
@@ -22,7 +14,6 @@
                 </a>
             </div>
         </div>
->>>>>>> payments
     </div>
     </div>
     </div>
@@ -76,8 +67,3 @@
     <h3 class="bg-success border border-primary rounded p-1 m-4 text-white">Total : <?php echo $ToTal ?>$</h3>
     <?php require "views/payments/old_payment.view.php";?>
 </div>
-<<<<<<< HEAD
-=======
-
-
->>>>>>> payments
