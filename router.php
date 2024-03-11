@@ -66,7 +66,6 @@ if (array_key_exists($uri, $routes)) {
 }
 
 
-
 require "layouts/header.php";
 if (!empty($_SESSION['user'])) {
     if ($uri != '/' && $uri != '/form_admin_signin' && $uri != '/form_staff_signin') {
@@ -83,7 +82,6 @@ if (!empty($_SESSION['user'])) {
         require $page;
         require "layouts/footer.php";
     } else {
-
         require $page;
     }
 }

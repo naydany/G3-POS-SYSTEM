@@ -21,7 +21,6 @@ if($_SESSION['Products'] != []){
             <!-- //*button search -->
 
             <form action="#" method="post">
-
                 <div class="card-header input-group-append w-200 ">
                     <select id="select-categories" name="users">
                         <option value="">Select category:</option>
@@ -29,19 +28,12 @@ if($_SESSION['Products'] != []){
                         foreach ($categories as $category) :
                         ?>
                             <option value="<?= $category['cate_name']; ?>"><?= $category['cate_name']; ?></option>
-                            <?php
-                            // while ($row = mysqli_fetch_assoc($result)) {
-                            //     $categoryName = $category['cate_name'];
-                            //     echo "<option value='$categoryName'>$categoryName</option>";
-                            // }
-                            ?>
                         <?php
                         endforeach;
                         ?>
 
                     </select>
                 </div>
-                <!-- <div id="txtHint"><b>Person info will be listed here...</b></div> -->
 
             </form>
 
@@ -404,7 +396,7 @@ if($_SESSION['Products'] != []){
                 <button type="button" class="close" data-dismiss="modal">&times;</button>
             </div>
             <div class="modal-body">
-                <form action="../../controllers/items/create.controller.php" method="post" class="d-flex flex-xl-column" enctype="multipart/form-data">
+                <form action="../../controllers/items/create.controller.php" method="post" class="d-flex flex-xl-column p-3 ml-1" enctype="multipart/form-data">
                     <div class="form-row">
                         <div class=" form-group mr-5">
                             <label for="pro_name">Name</label>
@@ -425,7 +417,7 @@ if($_SESSION['Products'] != []){
                     <div class="form-row  mt-3">
                         <div class="form-group mr-5">
                             <label>Code</label>
-                            <input type="number" class="form-control" placeholder="Enter Code" name="code">
+                            <input type="text" class="form-control" placeholder="Enter Code" name="code">
                         </div>
                         <div class="form-group">
                             <label>Category</label>
@@ -439,7 +431,7 @@ if($_SESSION['Products'] != []){
                     <?php endfor; ?>
                     </select>
                     </div>
-                    <div class="form-row  mt-3">
+                    <div class="form-row mt-3">
                         <div class="form-group mr-5">
                             <label>Price</label>
                             <input type="text" class="form-control" placeholder="Enter Price" name="price">

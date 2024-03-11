@@ -17,9 +17,6 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         <div class="card-body d-flex flex-column align-items-center justify-content-start">
             <img id='tapImg' class="rounded-circle img-thumbnail mr-3" src="../../assets/images/<?= $_SESSION['user']['image'] ?>" alt="Profile Image" id="profileImage" style="height: 140px; width: 140px; object-fit: cover; z-index: 1; margin-top: 70px;">
             <!-- chage profile -->
-            <!-- endfor -->
-            <!-- <img class="rounded-circle img-thumbnail mr-3" src="../../assets/images/<?= $_SESSION['user']['image'] ?>" alt="Profile Image" id="profileImage" style="height: 140px; width: 140px; object-fit: cover; z-index: 1; margin-top: 70px;"> -->
-            <!-- <img class="rounded-circle img-thumbnail mr-3" src="../../assetsages/<?= $_SESSION['user']['image'] ?>" alt="Profile Image" id="profileImage" style="height: 140px; width: 140px; object-fit: cover; z-index: 1; margin-top: 70px;"> -->
             <h2 class="card-title text-center m/imt-3"><?= $_SESSION['user']['name'] ?></h2>
             <h6 class="card-title text-center mt-3"><?= $_SESSION['user']['email'] ?></h6>
             <form action="../../controllers/admin/update_profile.controller.php" method="post" enctype="multipart/form-data">
@@ -47,20 +44,20 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         }
     };
 </script>
-
-<h3 class="card-title ml-5 text-danger mt-3">Details:</h3>
-<ul class="list-group list-group-flush">
-    <li class="list-group-item ml-3">
-        <span>This is your profile page You can customize your profile as you want And also change password too .</span>
-    </li>
-    <li class="list-group-item ml-3"><b>Role:</b> <?= $_SESSION['user']['role'] ?></li>
-    <li class="list-group-item ml-3"><b>Number phone:</b> <?= $_SESSION['user']['phone'] ?></li>
-    <li class="list-group-item ml-3"><b>Country:</b> <?= $_SESSION['user']['address']  ?></li>
-</ul>
-<div class="card-body">
-    <a href="/update_profile"><button type="button" class="btn btn-outline-primary float-right">Update
-            detail</button></a>
-</div>
+<div class="card card-control mx-auto" style="width: 50rem;">
+    <h3 class="card-title ml-5 text-danger mt-3">Details:</h3>
+    <ul class="list-group list-group-flush">
+        <li class="list-group-item ml-3">
+            <span>This is your profile page You can customize your profile as you want And also change password too .</span>
+        </li>
+        <li class="list-group-item ml-3"><b>Role:</b> <?= $_SESSION['user']['role'] ?></li>
+        <li class="list-group-item ml-3"><b>Number phone:</b> <?= $_SESSION['user']['phone'] ?></li>
+        <li class="list-group-item ml-3"><b>Country:</b> <?= $_SESSION['user']['address']  ?></li>
+    </ul>
+    <div class="card-body">
+        <a href="/update_profile"><button type="button" class="btn btn-outline-primary float-right">Update
+                detail</button></a>
+    </div>
 </div>
 
 <script>
@@ -93,17 +90,4 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         }
         reader.readAsDataURL(this.files[0]);
     });
-
-    // $('#profileImageInput').on('change', function() {
-    //     var reader = new FileReader();
-    //     reader.onload = function(e) {
-    //         uploadProfileCrop.croppie('bind', {
-    //             url: e.target.result
-    //         }).then(function() {
-    //             console.log('jQuery bind complete');
-    //         });
-    //     }
-    //     reader.readAsDataURL(this.files[0]);
-    // });
-
-    // Add event listeners
+</script>
