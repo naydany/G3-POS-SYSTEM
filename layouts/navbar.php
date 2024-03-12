@@ -15,7 +15,7 @@ if ($page == 'controllers/categories/category.controller.php') {
     $current_poge = "staff";
 } elseif ($page == 'controllers/suppliers/supplier.controller.php') {
     $current_poge = "supplier";
-}elseif ($page == 'controllers/admin/table_admin.controller.php') {
+} elseif ($page == 'controllers/admin/table_admin.controller.php') {
     $current_poge = "admin";
 }
 ?>
@@ -74,7 +74,6 @@ if ($page == 'controllers/categories/category.controller.php') {
         </div>
     </li>
 
-    <!-- Nav Item - Pages Collapse Menu -->
 
     <!-- Nav Item - Charts -->
     <li class="nav-item">
@@ -172,6 +171,57 @@ if ($page == 'controllers/categories/category.controller.php') {
                         </form>
                     </div>
                 </li>
+
+
+                <!-- Nav Item Alerts -->
+                <li class="nav-item dropdown no-arrow mx-1">
+                    <a class="nav-link dropdown-toggle" href="#" id="alertsDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                        <i class="bi bi-bell-fill"><span class="badge badge-danger badge-counter">+9</span></i>
+                        <!-- Counter - Alerts -->
+
+                    </a>
+                    <!-- Dropdown - Alerts -->
+                    <div class="dropdown-list dropdown-menu dropdown-menu-right shadow animated--grow-in" aria-labelledby="alertsDropdown">
+                        <h6 class="dropdown-header">
+                            Alerts Center
+                        </h6>
+                        <a class="dropdown-item d-flex align-items-center" href="#">
+                            <div class="mr-3">
+                                <div class="icon-circle bg-primary">
+                                    <i class="bi bi-cart-check-fill text-white"></i>
+                                </div>
+                            </div>
+                            <div>
+                                <div class="small text-gray-500">March 11, 2024</div>
+                                <span class="font-weight-bold">New product are added to stock!</span>
+                            </div>
+                        </a>
+                        <a class="dropdown-item d-flex align-items-center" href="#">
+                            <div class="mr-3">
+                                <div class="icon-circle bg-success">
+                                    <i class="bi bi-cart-x-fill text-white"></i>
+                                </div>
+                            </div>
+                            <div>
+                                <div class="small text-gray-500">March 10, 2024</div>
+                                Banana out of stock
+                            </div>
+                        </a>
+                        <a class="dropdown-item d-flex align-items-center" href="#">
+                            <div class="mr-3">
+                                <div class="icon-circle bg-warning">
+                                    <i class="fas fa-exclamation-triangle text-white"></i>
+                                </div>
+                            </div>
+                            <div>
+                                <div class="small text-gray-500">March 9, 2024</div>
+                                Spending Alert: We've noticed unusually high spending for your account.
+                            </div>
+                        </a>
+                    </div>
+                </li>
+
+
                 <!-- Nav Item - User Information -->
                 <li class="nav-item dropdown no-arrow">
                     <a class="nav-link dropdown-toggle" href="#" id="userDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
@@ -180,9 +230,9 @@ if ($page == 'controllers/categories/category.controller.php') {
                             $name = $_POST["name"];
                         }
                         ?>
-                        <h2 class="mr-2 d-none d-lg-inline text-gray-600 small text-bold" ><?= $_SESSION['user']['role'];?></h2>
-                        <img class="img-profile rounded-circle" style="object-fit: cover;" src="../assets/images/<?=$_SESSION['user']['image']; ?>">
-                        
+                        <h2 class="mr-2 d-none d-lg-inline text-gray-600 small text-bold"><?= $_SESSION['user']['role']; ?></h2>
+                        <img class="img-profile rounded-circle" style="object-fit: cover;" src="../assets/images/<?= $_SESSION['user']['image']; ?>">
+
                     </a>
                     <!-- Dropdown - User Information -->
                     <div class="dropdown-menu dropdown-menu-right shadow animated--grow-in" aria-labelledby="userDropdown">

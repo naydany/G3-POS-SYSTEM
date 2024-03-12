@@ -91,10 +91,17 @@
 <!-- *create form staff -->
 
 <?php if (isset($_SESSION['success'])) : ?>
+
     <div class="alert alert-success alert-dismissible fade show" id="alert">
         <button type="button" class="close" data-dismiss="alert">&times;</button>
         <?= $_SESSION['success'] ?>
     </div>
+
+    <script>
+        setTimeout(function() {
+            $('#alert').fadeOut('slow');
+        }, 3000);
+    </script>
 
 <?php
     unset($_SESSION['success']);
@@ -103,7 +110,7 @@ endif;
 <?php if (isset($_SESSION['error'])) : ?>
     <div class="alert alert-danger alert-dismissible fade show align-center" id="alert" style="width: 350px;">
         <div class="card-body px-lg-5 py-lg-5">
-            <form action="" >
+            <form action="">
                 <button type="button" class="close" data-dismiss="alert">&times;</button>
                 <?= $_SESSION['error'] ?>
             </form>

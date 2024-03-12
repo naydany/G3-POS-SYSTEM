@@ -13,25 +13,14 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 
 <div class="card mx-auto" style="width: 50rem; border: 1px solid gray;">
     <div class="card">
-        <img class="card-img-top" src="https://marketplace.canva.com/EAE2cQaUHVA/1/0/1600w/canva-black-minimal-motivation-quote-linkedin-banner-HoRi-2buBWk.jpg" alt="Cover Image" id="coverImage" style="height: 180px; object-fit: cover; position: absolute;">
+        <img class="card-img-top" src="https://wedgecommerce.com/wp-content/uploads/2018/03/pos-banner-2.jpg" alt="Cover Image" id="coverImage" style="height: 180px; object-fit: cover; position: absolute;">
         <div class="card-body d-flex flex-column align-items-center justify-content-start">
-            <img class="rounded-circle img-thumbnail mr-3" src="https://t4.ftcdn.net/jpg/03/83/25/83/360_F_383258331_D8imaEMl8Q3lf7EKU2Pi78Cn0R7KkW9o.jpg" alt="Profile Image" id="profileImage" style="height: 140px; width: 140px; object-fit: cover; z-index: 1; margin-top: 70px;">
-            <!-- chage profile -->
-
-                
-
-            <!-- endfor -->
-            <!-- <img class="rounded-circle img-thumbnail mr-3" src="../../assets/images/<?=$_SESSION['user']['image'] ?>" alt="Profile Image" id="profileImage" style="height: 140px; width: 140px; object-fit: cover; z-index: 1; margin-top: 70px;"> -->
-            <!-- <img class="rounded-circle img-thumbnail mr-3" src="../../assets/images/<?= $_SESSION['user']['image'] ?>" alt="Profile Image" id="profileImage" style="height: 140px; width: 140px; object-fit: cover; z-index: 1; margin-top: 70px;"> -->
+            <img class="rounded-circle img-thumbnail mr-3" src="https://img.freepik.com/free-vector/hand-drawn-iranian-women-illustration_23-2149855924.jpg?t=st=1709997754~exp=1709998354~hmac=cd65a27ece0d5b6ca6b032f56a8d5cb17f1da29a1528c2a6e0c3ba58a90b4931&w=826" alt="Profile Image" id="profileImage" style="height: 140px; width: 140px; object-fit: cover; z-index: 1; margin-top: 70px;">
+            
             <h2 class="card-title text-center mt-3"><?= $_SESSION['user']['name'] ?></h2>
             <h6 class="card-title text-center mt-3"><?= $_SESSION['user']['email'] ?></h6>
 
             <form action="../../controllers/admin/update_profile.controller.php" method="post">
-                <!-- <div>
-                        <label for="coverImageInput" class="d-block text-center btn btn-light btn-sm mt-2">
-                            <input type="file" id="coverImageInput" accept="image/*" class="d-none" onchange="loadFile(event, 'coverImage')">
-                        </label>
-                    </div> -->
 
                 <input type="file" id="profileImageInput" accept="image/*" name="imageprofile">
                 <button hidden id="upload" type="submit"></button>
@@ -51,20 +40,18 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
                     </form>
                     
                 </div>
+                <!-- code here  -->
+
+
+                
             </div>
         </div>
     </div>
-    <!-- <script>
-        document.getElementById("profileImage").addEventListener("click", function() {
-            let profile = document.getElementById("profileImageInput");
-            profile.click();
-            if (profile.value != '') {
-                document.getElementById('upload').click();
 
-            }
-        });
-    </script> -->
+    <!-- end -->
+
     <h3 class="card-title ml-5 text-danger mt-3">Details:</h3>
+   
     <ul class="list-group list-group-flush">
         <li class="list-group-item ml-3">
             <span>This is your profile page You can customize your profile as you want And also change password too .</span>
@@ -115,7 +102,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     //     reader.onload = function(e) {
     //         uploadProfileCrop.croppie('bind', {
     //             url: e.target.result
-    //         }).then(function() {
+    //         }).then(function() { 
     //             console.log('jQuery bind complete');
     //         });
     //     }

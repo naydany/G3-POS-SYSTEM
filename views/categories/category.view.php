@@ -141,11 +141,11 @@
 
                     <div class="form-group">
                         <label for="title" class="text-primary m-2">Create</label>
-                        <input type="text" class="form-control" name="category" placeholder="Category_name">
+                        <input type="text" class="form-control" name="category" placeholder="Name">
                     </div>
                     <div class="form-group">
                         <label for="comment" class="text-primary m-2">Comment</label>
-                        <input type="text" class="form-control" name="description" placeholder="Category_name">
+                        <input type="text" class="form-control" name="description" placeholder="Your comment ....">
 
                     </div>
                 </div>

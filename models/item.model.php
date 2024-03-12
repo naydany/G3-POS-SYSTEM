@@ -1,4 +1,5 @@
 <?php
+
 function createItem(
     string $pro_name,
     string $pro_code,
@@ -6,11 +7,16 @@ function createItem(
     string $pro_img,
     string $pro_price,
     string $pro_cate,
-    string $sup_name
+    string $sup_name,
 ): bool {
+
+    $timezone = new DateTimeZone('Asia/Phnom_Penh');
+    $date = new DateTime('now', $timezone);
+    $time = $date->format('Y-m-d H:i:s');
+
     global $connection;
-    $statement = $connection->prepare("insert into products (pro_img,pro_name, pro_code, cate_name, sup_name, pro_quantity, pro_price) 
-    values ( :image, :name,:code, :cate, :sup_name, :quantity, :price)");
+    $statement = $connection->prepare("insert into products (pro_img,pro_name, pro_code, cate_name, sup_name, pro_quantity, pro_price, pro_date) 
+    values ( :image, :name,:code, :cate, :sup_name, :quantity, :price, :date)");
     $statement->execute([
         ':name' => $pro_name,
         ':code' => $pro_code,
@@ -19,8 +25,7 @@ function createItem(
         ':sup_name' =>  $sup_name,
         ':quantity' => $pro_quan,
         ':price' => $pro_price,
-
-
+        ':date' => $time,
     ]);
 
     return $statement->rowCount() > 0;
