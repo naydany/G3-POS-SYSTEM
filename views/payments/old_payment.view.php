@@ -2,7 +2,6 @@
     <div class="card-header border-0 d-flex text-danger">
         <h3>Old Payments</h3>
     </div>
-
     <div class="container">
         <table class="table table-bordered text-center mt-2 rounded">
             <thead class="text-secondary thead-light">
