@@ -18,7 +18,18 @@
 
 
 CREATE TABLE `payments`(
-    `pay_id` VARCHAR(255) NOT NULL,
+    `pay_id` VARCHAR(255) NOT NULL AUTO_INCREMENT PRIMARY KEY,
+    `pay_code` VARCHAR(255) NOT NULL,
+    `order_id` VARCHAR(255) NOT NULL,
+    `order_code` VARCHAR(255) NOT NULL,
+    `cus_id` INT NOT NULL,
+    `pay_atm` VARCHAR(255) NOT NULL,
+    `method` VARCHAR(255) NOT NULL,
+    `pay_date` DATETIME NOT NULL
+);
+
+CREATE TABLE `oldpayments`(
+    `pay_id` VARCHAR(255) NOT NULL AUTO_INCREMENT PRIMARY KEY,
     `pay_code` VARCHAR(255) NOT NULL,
     `order_id` VARCHAR(255) NOT NULL,
     `order_code` VARCHAR(255) NOT NULL,

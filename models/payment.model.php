@@ -35,6 +35,15 @@ function cancelPayment(int $id) : bool
     return $statement->rowCount() > 0;
 }
 
+function deleteOldPayment(int $id) : bool
+
+{
+    global $connection;
+    $statement = $connection->prepare("delete from oldpayments where pay_id = :pay_id");
+    $statement->execute([':pay_id' => $id]);
+    return $statement->rowCount() > 0;
+}
+
 
 function successPayment(int $id): array
 {
@@ -44,3 +53,48 @@ function successPayment(int $id): array
     return $statement->fetchAll();
     
 }
+
+
+function deletOrder(): array
+{
+    global $connection;
+    $statement = $connection->prepare("DELETE FROM payments");
+    $statement->execute();
+    return $statement->fetchAll();
+    
+}
+
+
+function oldPayment(): array
+{
+    global $connection;
+    $statement = $connection->prepare("INSERT INTO oldpayments (pay_code, pro_name, pay_totalprice, pay_date, pro_quantity, pro_price, method_status, cus_id)
+    SELECT pay_code, pro_name, pay_totalprice, pay_date, pro_quantity, pro_price, method_status, cus_id  FROM payments;");
+    $statement->execute();
+    return $statement->fetchAll();
+    
+}
+
+function getOldPayments(): array
+{
+    global $connection;
+    $statement = $connection->prepare("select * from oldpayments");
+    $statement->execute();
+    return $statement->fetchAll();
+}
+
+function addMoreoldPayment(string $method, int $customerID, string $date):bool
+{
+    global $connection;
+    $statement = $connection->prepare("update payments set cus_id = :cus_id,
+    method_status = :method_status where pay_date = :pay_date");
+    $statement->execute([
+        ":method_status" => $method,
+        ":cus_id" => $customerID,
+        ":pay_date" => $date
+    ]);
+    return $statement->rowCount() > 0;
+}
+
+
+

@@ -1,6 +1,6 @@
 <div class="card-header pl-5 pr-5 py-3 d-flex justify-content-between">
-    <h5 class="ml-5 font-weight-bold text-primary">Category</h5>
-    <button type="button" class="btn btn-outline-primary mr-5" data-toggle="modal" data-target="#medalCreate">
+    <h4 class="font-weight-bold text-primary">Category</h4>
+    <button type="button" class="btn btn-outline-primary" data-toggle="modal" data-target="#medalCreate">
         <i class="bi bi-plus-circle mr-2"></i>Add new Category
     </button>
 </div>
@@ -29,7 +29,7 @@
                     <div class="modal-dialog" role="document">
                         <div class="modal-content">
                             <div class="modal-header">
-                                <h5 class="modal-title" id="exampleModalLabel">Edit Categry</h5>
+                                <h5 class="modal-title text-danger ml-3" id="exampleModalLabel">Edit Categry</h5>
                                 <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                                     <span aria-hidden="true">&times;</span>
                                 </button>
@@ -61,7 +61,7 @@
                     <div class="modal-dialog">
                         <div class="modal-content">
                             <div class="modal-header">
-                                <h5 class="modal-title" id="exampleModalLabel">View Category</h5>
+                                <h5 class="modal-title text-danger" id="exampleModalLabel">View Category</h5>
                                 <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                                     <span aria-hidden="true">&times;</span>
                                 </button>
@@ -76,19 +76,19 @@
                                 <form action="../../controllers/items/create.controller.php" class="d-flex flex-xl-column" method="post">
                                     <div class="table-responsive">
                                         <div class="form-group">
-                                            <span class="text-primary">ID: </span> <?= $cate['cate_id'] ?>
+                                            <span class="text-dark mr-3">ID: </span><span class="text-danger"> <?= $cate['cate_id'] ?></span>
                                         </div>
                                         <div class="form-group">
-                                            <span class="text-primary">Name: </span> <?= $cate['cate_name'] ?>
+                                            <span class="text-dark mr-3">Name: </span><span class="text-danger"> <?= $cate['cate_name'] ?></span>
                                         </div>
                                         <div class="form-group">
-                                            <span class="text-primary">Cate Date: </span> <?= $cate['cate_date'] ?>
+                                            <span class="text-dark mr-3">Cate Date: </span><span class="text-danger"><?= $cate['cate_date'] ?></span>
                                         </div>
                                         <div class="form-group">
-                                            <span class="text-primary">Products :</span> <?php echo $numberOfproduct; ?>
+                                            <span class="text-dark mr-3">Products :</span><span class="text-danger"> <?php echo $numberOfproduct; ?></span>
                                         </div>
                                     </div>
-                                    <span class="text-primary">Descriptionn: </span> <?= $cate['cate_desc'] ?>
+                                    <span class="text-primary mr-3">Descriptionn: </span> <span class="text-danger"><?= $cate['cate_desc'] ?></span>
                                 </form>
                             </div>
                         </div>
@@ -109,7 +109,7 @@
                                 <a href="../../controllers/categories/delete_category.controller.php?id=<?= $cate['cate_id'] ?> " onclick="return confirm('Do you want to delete this product?')">
                                     <i class="bi bi-trash3 text-danger btn btn-lg ml-1"></i></a>
 
-                                <i class="bi bi-question-circle text-info btn btn-lg ml-1" data-toggle="modal" data-target="#exampleModals<?= $cate['cate_id'] ?>"></i>
+                                <i class="bi bi-eye-fill text-info btn btn-lg ml-1" data-toggle="modal" data-target="#exampleModals<?= $cate['cate_id'] ?>"></i>
 
                             </div>
                     </td>
@@ -131,7 +131,7 @@
     <div class="modal-dialog">
         <div class="modal-content">
             <div class="modal-header">
-                <h5 class="modal-title" id="exampleModalLabel">Add Category</h5>
+                <h5 class="modal-title text-danger" id="exampleModalLabel">Add Category</h5>
                 <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                     <span aria-hidden="true">&times;</span>
                 </button>
@@ -140,12 +140,12 @@
                 <div class="modal-body">
 
                     <div class="form-group">
-                        <label for="title" class="text-primary m-2">Create</label>
-                        <input type="text" class="form-control" name="category" placeholder="Name">
+                        <label for="title" class="text-primary m-2">Name</label>
+                        <input type="text" class="form-control" name="category" placeholder="Cate name">
                     </div>
                     <div class="form-group">
                         <label for="comment" class="text-primary m-2">Comment</label>
-                        <input type="text" class="form-control" name="description" placeholder="Your comment ....">
+                        <input type="text" class="form-control" name="description" placeholder="comment Cate ">
 
                     </div>
                 </div>
