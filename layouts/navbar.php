@@ -97,7 +97,7 @@ if ($page == 'controllers/categories/category.controller.php') {
         </a>
         <div id="collapse" class="collapse" aria-labelledby="headingTwo" data-parent="#accordionSidebar">
             <div class="bg-white py-2 collapse-inner rounded">
-                <h6 class="collapse-header">staff Contains:</h6>
+                <h6 class="collapse-header">User Contains:</h6>
                 <a class="collapse-item" href="/staffs">staffs</a>
                 <a class="collapse-item" href="/admin_table">admin</a>
             </div>
@@ -111,11 +111,20 @@ if ($page == 'controllers/categories/category.controller.php') {
     </li>
     <!-- Divider -->
     <hr class="sidebar-divider d-none d-md-block">
-
     <li class="nav-item">
-        <a class="nav-link" href="/reports">
+        <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
             <i class="fas fa-fw fa-chart-area"></i>
-            <span>Reports</span></a>
+            <span>Reports</span>
+        </a>
+        <div id="collapseOne" class="collapse" aria-labelledby="headingTwo" data-parent="#accordionSidebar">
+            <div class="bg-white py-2 collapse-inner rounded">
+                <h6 class="collapse-header">Report Contains:</h6>
+                <a class="collapse-item" href="#">__detail dashboard</a>
+                <a class="collapse-item" href="#">__sale report</a>
+                <a class="collapse-item" href="#">__payment report</a>
+                
+            </div>
+        </div>
     </li>
     <!-- Sidebar Toggler (Sidebar) -->
     <div class="text-center d-none d-md-inline">

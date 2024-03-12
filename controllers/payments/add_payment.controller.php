@@ -1,6 +1,7 @@
 <?php
 require "../../database/database.php";
 require "../../models/payment.model.php";
+
 if ($_SERVER['REQUEST_METHOD'] == "POST") {
     if ($_POST['price'] !== '' && $_POST['code'] !== '' && $_POST['name'] !== '' && $_POST['quantity'] !== '') {
         $price = $_POST["price"];
@@ -14,4 +15,5 @@ if ($_SERVER['REQUEST_METHOD'] == "POST") {
         $add = createPayment($code, $resultWithSymbol, $name, $price, $quantity);
     }
 }
-header('location: /order');
+require "../../controllers/items/notification_item.controller.php";
+// header('location: /order');
