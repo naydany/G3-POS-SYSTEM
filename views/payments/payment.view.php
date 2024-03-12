@@ -15,9 +15,6 @@
             </div>
         </div>
     </div>
-    </div>
-    </div>
-
     <div class="container mt-3">
         <table class="table table-bordered text-center mt-2 rounded">
             <thead class="text-secondary thead-light">
@@ -64,6 +61,15 @@
         $ToTal +=  $new['pay_totalprice'];
     }
     ?>
-    <h3 class="bg-success border border-primary rounded p-1 m-4 text-white">Total : <?php echo $ToTal ?>$</h3>
-    <?php require "views/payments/old_payment.view.php";?>
+    <h3 class="bg-success border border-primary rounded p-1 pl-4 m-4 text-white">Total : <?php echo $ToTal ?>$</h3>
+    <div class="d-flex justify-content-end">
+        <div class="align-self-end ">
+            <a href="/old_payment" class="btn btn-outline-primary mr-4">
+                <i class="fas fa-plus"></i> <i class="bi bi-currency-dollar"></i>
+                Start to Pay
+            </a>
+        </div>
+    </div>
+</div>
+<?php require "views/payments/old_payment.view.php"; ?>
 </div>
