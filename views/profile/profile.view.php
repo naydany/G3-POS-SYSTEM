@@ -15,56 +15,42 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     <div class="card">
         <img class="card-img-top" src="https://marketplace.canva.com/EAE2cQaUHVA/1/0/1600w/canva-black-minimal-motivation-quote-linkedin-banner-HoRi-2buBWk.jpg" alt="Cover Image" id="coverImage" style="height: 180px; object-fit: cover; position: absolute;">
         <div class="card-body d-flex flex-column align-items-center justify-content-start">
-<<<<<<< HEAD
-<<<<<<< HEAD
-            <img class="rounded-circle img-thumbnail mr-3" src="https://t4.ftcdn.net/jpg/03/83/25/83/360_F_383258331_D8imaEMl8Q3lf7EKU2Pi78Cn0R7KkW9o.jpg" alt="Profile Image" id="profileImage" style="height: 140px; width: 140px; object-fit: cover; z-index: 1; margin-top: 70px;">
+            <img id='tapImg' class="rounded-circle img-thumbnail mr-3" src="../../assets/images/<?= $_SESSION['user']['image'] ?>" alt="Profile Image" id="profileImage" style="height: 140px; width: 140px; object-fit: cover; z-index: 1; margin-top: 70px;">
             <!-- chage profile -->
-
-                
-
-            <!-- endfor -->
-=======
-            <img class="rounded-circle img-thumbnail mr-3" src="../../assets/images/<?=$_SESSION['user']['image'] ?>" alt="Profile Image" id="profileImage" style="height: 140px; width: 140px; object-fit: cover; z-index: 1; margin-top: 70px;">
->>>>>>> bd9740e123c314ca67539badf790ec25a1be6998
-=======
-            <img class="rounded-circle img-thumbnail mr-3" src="../../assets/images/<?= $_SESSION['user']['image'] ?>" alt="Profile Image" id="profileImage" style="height: 140px; width: 140px; object-fit: cover; z-index: 1; margin-top: 70px;">
->>>>>>> 96e0a5bf5cd4afbbe554cbbf73018fb552e3aa8f
-            <h2 class="card-title text-center mt-3"><?= $_SESSION['user']['name'] ?></h2>
+            <h2 class="card-title text-center m/imt-3"><?= $_SESSION['user']['name'] ?></h2>
             <h6 class="card-title text-center mt-3"><?= $_SESSION['user']['email'] ?></h6>
-
-            <div style="display: flex;">
-                <div>
-                    <form action="../../controllers/admin/update_profile.controller.php" method="post">
-                        <label for="coverImageInput" class="d-block text-center btn btn-light btn-sm mt-2">
-                            <input type="file" id="coverImageInput" accept="image/*" class="d-none" onchange="loadFile(event, 'coverImage')">
-                        </label>
-                </div>
-                <div>
-                    <label for="profileImageInput" class="d-block text-center btn btn-light btn-sm mt-2">
-<<<<<<< HEAD
-                        <input type="file" id="profileImageInput" accept="image/*" class="d-none" onchange="loadFile(event, 'profileImage')">
-                        <?php if ($_SESSION['user']['image']) : ?>
-                            <img id="profileImage" src="<?= $_SESSION['user']['imageprofile'] ?>" alt="Profile Image">
-                        <?php else : ?>
-                            <img id="profileImage" src="path_to_default_image" alt="Default Profile Image" style="display: none;">
-                        <?php endif; ?>
-=======
-                        <input type="file" id="profileImageInput" accept="image/*" class="d-none" name="imageprofile">
->>>>>>> bd9740e123c314ca67539badf790ec25a1be6998
-                    </label>
-                    <button hidden id="upload"></button>
-                    </form>
-                    
-                </div>
-            </div>
+            <form action="../../controllers/admin/update_profile.controller.php" method="post" enctype="multipart/form-data">
+                <input hidden type="file" id="profileImageInput" name="image" onchange="readyUpload()">
+                <button hidden id="upload" type="submit"></button>
+            </form>
         </div>
     </div>
+</div>
+
+<!-- upload image  -->
+<script>
+    // element from HTML
+    let tapImg = document.getElementById('tapImg');
+    let inputImg = document.getElementById('profileImageInput');
+    let button = document.getElementById('upload');
+    // Call to click on input of image
+    tapImg.addEventListener('click', function() {
+        inputImg.click();
+    });
+    // Call to change image
+    function readyUpload() {
+        if (inputImg.value != "") {
+            button.click();
+        }
+    };
+</script>
+<div class="card card-control mx-auto" style="width: 50rem;">
     <h3 class="card-title ml-5 text-danger mt-3">Details:</h3>
     <ul class="list-group list-group-flush">
         <li class="list-group-item ml-3">
             <span>This is your profile page You can customize your profile as you want And also change password too .</span>
         </li>
-        <li class="list-group-item ml-3 "><b>Role:</b> <?= $_SESSION['user']['role'] ?></li>
+        <li class="list-group-item ml-3"><b>Role:</b> <?= $_SESSION['user']['role'] ?></li>
         <li class="list-group-item ml-3"><b>Number phone:</b> <?= $_SESSION['user']['phone'] ?></li>
         <li class="list-group-item ml-3"><b>Country:</b> <?= $_SESSION['user']['address']  ?></li>
     </ul>
@@ -73,20 +59,6 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
                 detail</button></a>
     </div>
 </div>
-
-<script>
-    document.getElementById("coverImage").addEventListener("click", function() {
-        document.getElementById("coverImageInput").click();
-    });
-    document.getElementById("profileImage").addEventListener("click", function() {
-        let profile = document.getElementById("profileImageInput");
-        profile.click();
-        if (profile.value != '') {
-            document.getElementById('upload').click();
-
-        }
-    });
-</script>
 
 <script>
     var uploadCoverCrop;
@@ -106,18 +78,6 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
             }
         });
     });
-    uploadProfileCrop = $('#upload-profile-demo').croppie({
-        enableExif: true,
-        viewport: {
-            width: 140,
-            height: 140,
-            type: 'circle'
-        },
-        boundary: {
-            width: 140,
-            height: 140
-        }
-    });
 
     $('#coverImageInput').on('change', function() {
         var reader = new FileReader();
@@ -130,23 +90,4 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         }
         reader.readAsDataURL(this.files[0]);
     });
-
-    $('#profileImageInput').on('change', function() {
-        var reader = new FileReader();
-        reader.onload = function(e) {
-            uploadProfileCrop.croppie('bind', {
-                url: e.target.result
-            }).then(function() {
-                console.log('jQuery bind complete');
-            });
-        }
-        reader.readAsDataURL(this.files[0]);
-    });
-
-    // Add event listeners
 </script>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/croppie/2.6.5/croppie.min.js"></script>
-<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/croppie/2.6.5/croppie.min.css">
-<?php
-    require "layouts/footer.php";
-?>

@@ -1,20 +1,103 @@
 <!-- Begin Page Content -->
 
+<?php
+$products = null;
+
+if($_SESSION['Products'] != []){
+    $products = $_SESSION['Products'];
+}else{
+    $products = getItem();
+}
+
+?>
+
 <div class="container-fluid">
 
     <!-- DataTales Example -->
     <div class="card shadow ">
         <div class="card-header py-3 d-flex justify-content-between">
-            <h5 class="mt-2 ml-4 font-weight-bold text-primary">Items</h5>
+            <h5 class="mt-2 ml-4 font-weight-bold text-primary mt-3">All Products</h5>
+
+            <!-- //*button search -->
+
+            <form action="#" method="post">
+                <div class="card-header input-group-append w-200 ">
+                    <select id="select-categories" name="users">
+                        <option value="">Select category:</option>
+                        <?php
+                        foreach ($categories as $category) :
+                        ?>
+                            <option value="<?= $category['cate_name']; ?>"><?= $category['cate_name']; ?></option>
+                        <?php
+                        endforeach;
+                        ?>
+
+                    </select>
+                </div>
+
+            </form>
+
             <div class="card-header py-3 d-flex justify-content-between">
                 <button type="button" class="btn btn-outline-primary " data-toggle="modal" data-target="#myModal"><i class="bi bi-plus-circle mr-3"></i>Create New Product
                 </button>
             </div>
         </div>
+        <!-- ajax -->
+        <script>
+            $(document).ready(function() {
+                $('#select-categories').change(() => {
+                    const category = $('#select-categories').val();
+                    $.ajax({
+                        url: '../../controllers/items/select_items.controller.php',
+                        method: "POST",
+                        data: {
+                            category: category
+                        }
+                    })
+                    location.href = '/items';
+                });
+
+            });
+
+            // $.ajax({
+            //     url: '../../controllers/items/select_items.controller.php',
+            //     method: "GET",
+            //     async: true,
+            //     success: function(response){
+            //         var items = JSON.parse(response);
+            //         console.log(response);
+            //     }
+            // })
+        </script>
+
+        <!-- *table order -->
+
+        <!-- *php -->
+        <?php
+
+        // $user = $_POST['users'];
+
+
+        // $q = $_GET['name'];
+        // echo $q;
+
+        // $connection = mysqli_connect('localhost', 'peter', 'abc123');
+        // if (!$con) {
+        //     die('Could not connect: ' . mysqli_error($con));
+        // }
+
+        // mysqli_select_db($con, "ajax_demo");
+        // $sql = "SELECT * FROM user WHERE id = '" . $q . "'";
+        // $result = mysqli_query($con, $sql);
+
+
+        ?>
         <div class="card-body">
             <div class="table-responsive pr-3 pl-3">
                 <table class="table table-bordered text-center" id="dataTable" width="100%" cellspacing="0">
                     <thead class="bg-primary text-white thead-light">
+
+
                         <tr>
                             <th>ID</th>
                             <th>Image</th>
@@ -29,9 +112,6 @@
 
                     <tbody>
                         <?php
-
-
-                        $products = getItem();
                         foreach ($products as $pro) :
                         ?>
                             <tr>
@@ -172,125 +252,6 @@
                                     </div>
                                 </div>
 
-                            <!-- !test -->
-                            <style>
-                                .create_item {
-                                    /* display: none; */
-                                    position: fixed;
-                                    z-index: 8;
-                                    left: 0;
-                                    top: 0;
-                                    width: 100%;
-                                    height: 100%;
-                                    overflow: auto;
-                                    background-color: rgb(0, 0, 0);
-                                    background-color: rgba(0, 0, 0, 0.4);
-
-                                }
-                                form {
-                                    box-shadow: 0 3px 5px #f5f5f5;
-                                    background: #eee;
-                                }
-                                .modal_dialog {
-                                    position: absolute;
-                                    z-index: 3;
-                                }
-                            </style>
-                            <script>
-                                const pop = document.querySelector('.create_item');
-                                const open_pop = document.querySelector('#create_item');
-
-                                function openForm() {
-                                    document.querySelector(".create_item").style.display = "block";
-                                }
-
-                                function closeForm() {
-                                    document.querySelector(".create_item").style.display = "none";
-                                }
-                            </script>
-
-                            <!-- popup create product  -->
-                            <?php
-                            $categories = countNameCategory();
-                            $suppliers = countNameSuppliers();
-                            ?>
-                            <div class="modal create_item" id="exampleIteams" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
-                                <div class="modal-dialog" class="border border-danger" role="document">
-                                    <div class="modal-content rounded-top" style="width: 600px;">
-                                        <div class="modal-header">
-                                            <h3 class="modal-title text-danger text-bold ml-4" id="exampleModalLabel">Form create</h3>
-                                            <button type="button" onclick="closeForm()" class="close_item" data-dismiss="modal" aria-label="Close">
-                                                <span aria-hidden="true">&times;</span>
-                                            </button>
-                                        </div>
-
-                                        <div class="m-2 d-flex flex-colum container justify-content-center">
-                                            <div class="card-body">
-                                                <form action="../../controllers/items/create.controller.php" method="post" class="d-flex flex-xl-column" enctype="multipart/form-data">
-                                                    <!-- <input type="hidden" name="id" onclick="closeForm()" class="close_item"> -->
-                                                    <!-- <div class=" div-1 w-400 " > -->
-                                                    <div class="form-row">
-
-                                                        <div class=" form-group mr-5">
-                                                            <label for="pro_name">Name</label>
-                                                            <input type="text" class="form-control" placeholder="Enter Name" name="name">
-                                                        </div>
-                                                        <div class="form-group">
-                                                            <label>supplier</label><br>
-                                                            <select class="custom-select " id="inputGroupSelect01" name="supplier" style="width: 240px;">
-                                                                <option selected>Choose supplier...</option>
-                                                                <?php for ($i = 0; $i < count($suppliers); $i++) : ?>
-                                                                    <option value="<?= $suppliers[$i][0] ?>"><?= $suppliers[$i][0] ?></option>
-                                                                <?php endfor; ?>
-                                                            </select>
-                                                        </div>
-                                                    </div>
-                                                    <div class="form-row  mt-3">
-                                                        <div class="form-group mr-5">
-                                                            <label>Code</label>
-                                                            <input type="number" class="form-control" placeholder="Enter Code" name="code">
-                                                        </div>
-                                                        <div class="form-group">
-                                                            <label>Category</label>
-                                                            <select class="custom-select" id="inputGroupSelect01" name="category">
-                                                                <option selected>Choose category...</option>
-                                                                <?php for ($i = 0; $i < count($categories); $i++) : ?>
-                                                                    <option value="<?= $categories[$i][0] ?>"><?= $categories[$i][0] ?></option>
-                                                                <?php endfor; ?>
-                                                            </select>
-
-                                                        </div>
-                                                    </div>
-
-                                                    <div class="form-row  mt-3">
-                                                        <div class="form-group mr-5">
-                                                            <label>Price</label>
-                                                            <input type="text" class="form-control" placeholder="Enter Price" name="price">
-                                                        </div>
-                                                        <div class="form-group" style="width: 240px;">
-                                                            <label>Quantity</label>
-                                                            <input type="number" class="form-control" placeholder="Enter Quantity" name="quantity">
-                                                        </div>
-                                                    </div>
-
-                                                    <div class="form-row  mt-3">
-                                                        <div class="form-group " style="width: 500px;">
-                                                            <label>Image</label>
-                                                            <input type="file" class="form-control" placeholder="Insert Image" name="image">
-                                                        </div>
-                                                    </div>
-
-                                                    <button type="submit" class="btn btn-primary w-25 mt-3">Submit</button>
-                                                    <!-- </div> -->
-                                                </form>
-                                            </div>
-                                        </div>
-
-                                    </div>
-                                </div>
-                            </div>
-                            <!-- end  -->
-
                         <?php endforeach; ?>
                     </tbody>
                 </table>
@@ -314,7 +275,7 @@
                 <button type="button" class="close" data-dismiss="modal">&times;</button>
             </div>
             <div class="modal-body">
-                <form action="../../controllers/items/create.controller.php" method="post" class="d-flex flex-xl-column" enctype="multipart/form-data">
+                <form action="../../controllers/items/create.controller.php" method="post" class="d-flex flex-xl-column p-3 ml-1" enctype="multipart/form-data">
                     <div class="form-row">
                         <div class=" form-group mr-5">
                             <label for="pro_name">Name</label>
@@ -335,7 +296,7 @@
                     <div class="form-row  mt-3">
                         <div class="form-group mr-5">
                             <label>Code</label>
-                            <input type="number" class="form-control" placeholder="Enter Code" name="code">
+                            <input type="text" class="form-control" placeholder="Enter Code" name="code">
                         </div>
                         <div class="form-group">
                             <label>Category</label>
@@ -349,7 +310,7 @@
                     <?php endfor; ?>
                     </select>
                     </div>
-                    <div class="form-row  mt-3">
+                    <div class="form-row mt-3">
                         <div class="form-group mr-5">
                             <label>Price</label>
                             <input type="text" class="form-control" placeholder="Enter Price" name="price">
@@ -369,5 +330,6 @@
                 </form>
             </div>
         </div>
-</div>
+    </div>
 
+</div>
