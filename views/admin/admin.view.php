@@ -130,7 +130,14 @@ endif;
                     <td><?= $order['pro_price'] ?>$</td>
                     <td><?= $order['pro_qty'] ?></td>
                     <td><?= $order['tatal_price'] ?>$</td>
-                    <td>Not Paid</td>
+                    <td>
+                        <?php if ($order['order_status'] != "Paid" && $order['order_status'] != 1) {
+                            echo "<span class='badge badge-danger'>Not Paid</span>";
+                        } else {
+                            echo "<span class='badge badge-success'>Paid</span>"; 
+                        }
+                        ?>
+                    </td>
                     <td><?= $order['order_date'] ?></td>
                 </tr>
             <?php endforeach; ?>

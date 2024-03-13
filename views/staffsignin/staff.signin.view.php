@@ -1,3 +1,5 @@
+
+
 <?php if (isset($_SESSION['success'])) : ?>
     <div class="alert alert-success alert-dismissible fade show" id="alert">
         <button type="button" class="close" data-dismiss="alert">&times;</button>
@@ -58,7 +60,7 @@ endif;
                                 </div>
                                 <div class="row justify-content-between">
                                     <a href="/" class="btn btn-primary my-4"><i class="bi bi-caret-left">back</i></a>
-                                    <a href="/admin" class="btn btn-primary my-4">alifd<i class="bi bi-caret-right"></i></a>
+                                    <button type="submit" name="login" class="btn btn-primary my-4 mr-3">Log In</button>
                                 </div>
                             </form>
                         </div>

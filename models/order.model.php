@@ -34,3 +34,16 @@ function addOrder($name,$price,$quantity,$resultWithSymbol): bool
     ]);
     return $statement->rowCount() > 0;
 }
+
+function updateOrder(string $paid ,string $date): bool
+{
+    echo $paid ;
+    echo $date ;
+    global $connection;
+    $statement = $connection->prepare("update orders_detail set order_status = :order_status where order_date = :order_date");
+    $statement->execute([
+        ':order_status' => $paid,
+        ':order_date' => $date
+    ]);
+    return $statement->rowCount() > 0;
+}

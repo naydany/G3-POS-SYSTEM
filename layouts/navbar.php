@@ -121,7 +121,7 @@ if ($page == 'controllers/categories/category.controller.php') {
                 <h6 class="collapse-header">Report Contains:</h6>
                 <a class="collapse-item" href="/reports">__detail dashboard</a>
                 <a class="collapse-item" href="#">__sale report</a>
-                <a class="collapse-item" href="#">__payment report</a>
+                <a class="collapse-item" href="/payment_report">Payment Report</a>
                 
             </div>
         </div>

@@ -4,7 +4,7 @@
 session_start();
 
 require '../../database/database.php';
-require '../../models/staff_login.model.php';
+require '../../models/user_login.model.php';
 
 if ($_SERVER['REQUEST_METHOD'] == 'POST') {
 
@@ -15,12 +15,14 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
    
     if(count($staff) > 0) {
         
-        if (password_verify($password, $staff['cas_password'])) {
+        if (password_verify($password, $staff['password'])) {
             $_SESSION['success'] = "Login successful";
             $_SESSION['user'] = $staff;
 
-            if ($staff['role'] === 'staff') {
+            if ($staff['role'] === 'stock manager') {
                 header('Location:/admin');
+            }elseif($staff['role'] === 'cashier'){
+                header('Location:/normal');
             } 
             
         } else {
