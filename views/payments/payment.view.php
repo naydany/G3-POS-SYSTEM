@@ -1,20 +1,22 @@
 <div class="container">
     <div class="card-header py-3 d-flex justify-content-between ">
         <div class="card-header border-0">
-            <a href="/orders" class="btn btn-outline-primary">
+            <a href="Path_to_pay.view.php" class="btn btn-outline-primary">
                 <i class="fas fa-plus"></i> <i class="fas fa-utensils"></i>
                 Make A New Order
             </a>
         </div>
         <div class="d-flex">
             <div class="card-header border-0">
-                <a href="/old_payment" class="btn btn-outline-primary">
+                <a href="/path_payment" class="btn btn-outline-primary">
                     <i class="fas fa-plus"></i> <i class="bi bi-currency-dollar"></i>
                     Start to Pay
                 </a>
             </div>
         </div>
     </div>
+   
+
     <div class="container mt-3">
         <table class="table table-bordered text-center mt-2 rounded">
             <thead class="text-secondary thead-light">
@@ -117,30 +119,3 @@
 </div>
 <?php require "views/payments/old_payment.view.php"; ?>
 </div>
-<<<<<<< HEAD
-
-<script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
-<script>
-    document.getElementById('payForm').addEventListener('submit', function (event) {
-        event.preventDefault();
-        // Check if card input is empty
-        var cardInput = document.querySelector('select[name="supplier"]').value;
-        if (cardInput.trim() === 'Choose card...') {
-            Swal.fire({
-                icon: "error",
-                title: "Please choose a card",
-                text: "Something went wrong!",
-            });
-        } else {
-            Swal.fire({
-                icon: "success",
-                title: "Payment Successful",
-                text: "Thank you! Your payment is complete",
-            }).then(() => {
-                window.location.href = "/payments";
-            });
-        }
-    });
-</script>
-=======
->>>>>>> 21d8c85ad1511794cb6bdcd9198331c42bddc0de
