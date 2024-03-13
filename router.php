@@ -41,6 +41,7 @@ if (isset($_SESSION['user'])) {
              
             '/path_payment' => 'controllers/payments/path_payment.controller.php',
             '/payment_report' => 'controllers/reports/payment_report.controller.php',
+            '/sale_report' => 'controllers/reports/sale_report.controller.php',
 
         ];
     } elseif ($_SESSION['user']['role'] === 'stock manager') {
