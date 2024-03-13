@@ -98,7 +98,9 @@ if ($page == 'controllers/categories/category.controller.php') {
             <div class="bg-white py-2 collapse-inner rounded">
                 <h6 class="collapse-header">User Contains:</h6>
                 <a class="collapse-item" href="/staffs">staffs</a>
+                <?php if ($_SESSION['user']['role'] != 'cashier') : ?>
                 <a class="collapse-item" href="/admin_table">admin</a>
+                <?php endif; ?>
             </div>
         </div>
     </li>
