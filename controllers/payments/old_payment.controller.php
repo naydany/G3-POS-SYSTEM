@@ -1,7 +1,7 @@
 <?php
-require "../../database/database.php";
-require "../../models/payment.model.php";
-require "../../models/order.model.php";
+require "database/database.php";
+require "models/payment.model.php";
+require "models/order.model.php";
 
 if ($_SERVER['REQUEST_METHOD'] == "POST") {
     if ($_POST['customerID'] !== '' && $_POST['code'] !== '' && $_POST['amounts'] !== '' && $_POST['pay_method'] !== '') {

@@ -38,7 +38,9 @@ if (isset($_SESSION['user'])) {
             '/form_admin' => 'controllers/admin/form_admin.controller.php',
             '/form_payment' => 'controllers/payments/form.payment.controller.php',
             '/old_payment' => 'controllers/payments/old_payment.controller.php',
-            '/old_payment' => 'controllers/payments/path_payment.controller.php',
+             
+            '/path_payment' => 'controllers/payments/path_payment.controller.php',
+            '/payment_report' => 'controllers/reports/payment_report.controller.php',
 
         ];
     } elseif ($_SESSION['user']['role'] === 'stock manager') {
@@ -69,9 +71,8 @@ if (isset($_SESSION['user'])) {
             '/form_admin' => 'controllers/admin/form_admin.controller.php',
             '/form_payment' => 'controllers/payments/form.payment.controller.php',
             '/old_payment' => 'controllers/payments/old_payment.controller.php',
-            '/path_payment' => 'controllers/payments/path_payment.controller.php',
-            
-            '/payment_report' => 'controllers/reports/payment_report.controller.php',
+          
+           
 
         ];
     }
