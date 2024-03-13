@@ -91,6 +91,13 @@ function countNameSuppliers(): array
 }
 
 
+function notificationProduct() : array
+{
+    global $connection;
+    $statement = $connection->prepare("select * from products");
+    $statement->execute();
+    return $statement->fetchAll();
+}
 function selectCategory(string $name_cate)
 {
     global $connection;

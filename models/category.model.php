@@ -69,5 +69,3 @@ function countProductInCategory(string $name_category): array
     $statement->execute([':cate_name' => $name_category]);
     return $statement->fetchAll();
 }
-
-

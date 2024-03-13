@@ -22,8 +22,8 @@ endif;
     <div class="main-content" style="margin: auto; width:600px; margin-top: 120px;">
 
         <div class="card shadow border-0 mx-auto" style="text-align: center; padding: 5%; background: linear-gradient(135deg, rgba(0, 0, 0, 0.2), rgba(0, 0, 0, 0.2)); -webkit-backdrop-filter: blur(90px); backdrop-filter: blur(10px); box-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.37); border: 1px solid rgba(255, 255, 255, 0.18); border-radius: 32px;">
-           
-        <!-- Page content -->
+
+            <!-- Page content -->
             <div class="card-body px-lg-5 py-lg-5">
                 <h1 class="h3 mb-0 text-white">Staff</h1><br>
                 <form action="../../controllers/staffsignin/staff_signin_check.controller.php" method="post">

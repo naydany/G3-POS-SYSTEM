@@ -1,9 +1,8 @@
 
 <?php
 session_start();
-
 require '../../database/database.php';
-require '../../models/admin_login.model.php';
+require '../../models/user_login.model.php';
 
 if ($_SERVER['REQUEST_METHOD'] == 'POST') {
     $email = htmlspecialchars($_POST['admin_email']);
@@ -18,12 +17,9 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
 
             if ($user['role'] === 'admin') {
                 header('Location:/admin');
-            } else {
-                header('Location:/normal');
             }
         } else {
             $_SESSION['error'] = "Wrong password";
-            
             header('Location:/form_admin_signin');
         }
     } else {
