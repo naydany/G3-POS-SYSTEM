@@ -19,11 +19,11 @@
         <table class="table table-bordered text-center mt-2 rounded">
             <thead class="text-secondary thead-light">
                 <tr>
-                    <th>Code</th>
-                    <th>Product</th>
-                    <th>Total Price</th>
-                    <th>Date</th>
-                    <th>Action</th>
+                    <th class="text-center">Code</th>
+                    <th class="text-center">Products</th>
+                    <th class="text-center">Total Price</th>
+                    <th class="text-center">Date</th>
+                    <th class="text-center">Action</th>
                 </tr>
             </thead>
             <tbody>
@@ -32,15 +32,14 @@
                 foreach ($payments as $payment) :
                 ?>
                     <tr>
-                        <td><?= $payment['pay_code'] ?></td>
-                        <td><?= $payment['pro_name'] ?></td>
-                        <td><?= $payment['pay_totalprice'] ?>$</td>
-                        <td><?= $payment['pay_date'] ?></td>
-                        <td>
+                        <td class="text-center"><?= $payment['pay_code'] ?></td>
+                        <td class="text-center"><?= $payment['pro_name'] ?></td>
+                        <td class="text-center"><?= $payment['pay_totalprice'] ?></td>
+                        <td class="text-center"><?= $payment['pay_date'] ?></td>
+                        <td class="text-center">
                             <div class="btn-group">
-                                <a href="/form_payment?id=<?= $payment['pay_id'] ?>">
-                                <i class="bi bi-credit-card btn btn-lg ml-3 text-success" style="font-size: 24px;"></i>
-                                </a>
+
+                                <i class="bi bi-credit-card btn btn-lg ml-3 text-success" data-toggle="modal" data-target="#formpayment<?= $payment['pay_id'] ?>" style="font-size: 24px;"></i>
 
                                 <a onclick="return confirm('Do you want to cancel this payment?')" href="controllers/payments/cancel_payment.controller.php?id=<?= $payment['pay_id'] ?>">
                                     <i class="bi bi-x-circle text-danger btn btn-lg ml-3"></i>
@@ -119,7 +118,6 @@
 <?php require "views/payments/old_payment.view.php"; ?>
 </div>
 <<<<<<< HEAD
-
 
 <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
 <script>
