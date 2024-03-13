@@ -1,6 +1,7 @@
 <?php
 require "../../database/database.php";
 require "../../models/payment.model.php";
+require "../../models/order.model.php";
 if ($_SERVER['REQUEST_METHOD'] == "POST") {
     if ($_POST['price'] !== '' && $_POST['code'] !== '' && $_POST['name'] !== '' && $_POST['quantity'] !== '') {
         $price = $_POST["price"];
