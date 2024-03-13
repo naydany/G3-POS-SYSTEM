@@ -65,7 +65,6 @@ if (isset($_SESSION['user'])) {
             '/form_admin_signup' => 'controllers/adminlogin/admin.signup.controller.php',
 
             '/order_product' => 'controllers/orders/update_order.controller.php',
-            '/order' => 'controllers/orders/order.controller.php',
             '/suppliers' => 'controllers/suppliers/supplier.controller.php',
 
             '/admin_table' => 'controllers/admin/table_admin.controller.php',
