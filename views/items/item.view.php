@@ -1,51 +1,67 @@
 <!-- Begin Page Content -->
+
+<?php
+$products = null;
+
+if ($_SESSION['Products'] != []) {
+    $products = $_SESSION['Products'];
+} else {
+    $products = getItem();
+}
+
+?>
+
 <div class="container-fluid">
 
     <!-- DataTales Example -->
     <div class="card shadow ">
         <div class="card-header py-3 d-flex justify-content-between">
-            <h5 class="mt-2 ml-4 font-weight-bold text-primary">Items</h5>
-            <div class="card-header py-3 d-flex justify-content-between">
-                <button type="button" class="btn btn-outline-primary " data-toggle="modal" data-target="#myModal"><i class="bi bi-plus-circle mr-3"></i>Create New Product
-                </button>
-            </div>
+            <h5 class="mt-2 ml-4 font-weight-bold text-primary mt-3">All Products</h5>
+
+            <!-- //*button search -->
+
+            <form action="#" method="post">
+                <div class="card-header input-group-append w-200 ">
+                    <select id="select-categories" name="users">
+                        <option value="">Select category:</option>
+                        <?php
+                        foreach ($categories as $category) :
+                        ?>
+                            <option value="<?= $category['cate_name']; ?>"><?= $category['cate_name']; ?></option>
+                        <?php
+                        endforeach;
+                        ?>
+
+                    </select>
+                </div>
+
+            </form>
+            <?php if ($_SESSION['user']['role'] != 'cashier') : ?>
+                <div class="card-header py-3 d-flex justify-content-between">
+                    <button type="button" class="btn btn-outline-primary " data-toggle="modal" data-target="#myModal"><i class="bi bi-plus-circle mr-3"></i>Create New Product
+                    </button>
+                </div>
+            <?php endif; ?>
         </div>
-        <!-- *script cate_select -->
+        <!-- ajax -->
         <script>
-            function showUser(str) {
-                if (str == "") {
-                    document.getElementById("txtHint").innerHTML = "";
-                    return;
-                } else {
-                    var xmlhttp = new XMLHttpRequest();
-                    xmlhttp.onreadystatechange = function() {
-                        if (this.readyState == 4 && this.status == 200) {
-                            document.getElementById("txtHint").innerHTML = this.responseText;
+            $(document).ready(function() {
+                $('#select-categories').change(() => {
+                    const category = $('#select-categories').val();
+                    $.ajax({
+                        url: '../../controllers/items/select_items.controller.php',
+                        method: "POST",
+                        data: {
+                            category: category
                         }
-                    };
-                    xmlhttp.open("GET", "family.php?q=" + str, true);
-                    xmlhttp.send();
-                }
-            }
+                    })
+                    location.href = '/items';
+                });
+
+            });
         </script>
 
-        <!-- *table order -->
 
-        <!-- *php -->
-        <?php
-        // $q = intval($_GET['q']);
-
-        // $con = mysqli_connect('localhost', 'peter', 'abc123');
-        // if (!$con) {
-        //     die('Could not connect: ' . mysqli_error($con));
-        // }
-
-        // mysqli_select_db($con, "ajax_demo");
-        // $sql = "SELECT * FROM user WHERE id = '" . $q . "'";
-        // $result = mysqli_query($con, $sql);
-
-
-        ?>
         <div class="card-body">
             <div class="table-responsive pr-3 pl-3">
                 <table class="table table-bordered text-center" id="dataTable" width="100%" cellspacing="0">
@@ -66,9 +82,6 @@
 
                     <tbody>
                         <?php
-
-
-                        $products = getItem();
                         foreach ($products as $pro) :
                         ?>
                             <tr>
@@ -92,9 +105,13 @@
                                     <?= $pro['pro_price'] ?>$
                                 </td>
                                 <td>
-                                    <a onclick="return confirm('Do you want to delete this product?')" href="../../controllers/items/delete_item.controller.php?id=<?= $pro['pro_id'] ?>"><i class="bi bi-trash3 text-danger btn btn-lg ml-3"></i></a>
+                                    <?php if ($_SESSION['user']['role'] != 'cashier') : ?>
+                                        <a onclick="return confirm('Do you want to delete this product?')" href="../../controllers/items/delete_item.controller.php?id=<?= $pro['pro_id'] ?>"><i class="bi bi-trash3 text-danger btn btn-lg ml-3"></i></a>
+                                    <?php endif; ?>
 
-                                    <i class="bi bi-pencil-fill text-success btn btn-lg ml-3" data-toggle="modal" data-target="#exampleModalUpdate<?= $pro['pro_id'] ?>"></i>
+                                    <?php if ($_SESSION['user']['role'] != 'cashier') : ?>
+                                        <i class="bi bi-pencil-fill text-success btn btn-lg ml-3" data-toggle="modal" data-target="#exampleModalUpdate<?= $pro['pro_id'] ?>"></i>
+                                    <?php endif; ?>
 
                                     <i class="bi bi-eye-fill text-info btn btn-lg ml-3 " id="view_item" data-toggle="modal" data-target="#ModalView<?= $pro['pro_id'] ?>"></i>
 
@@ -172,48 +189,49 @@
                             </div>
 
                             <!-- popup update  -->
+                            <?php if ($_SESSION['user']['role'] != 'cashier') : ?>
+                                <div class="modal fade" id="exampleModalUpdate<?= $pro['pro_id'] ?>" tabindex="-1" role="dialog" aria-labelledby="exampleModalUpdateTitle" aria-hidden="true">
+                                    <div class="modal-dialog" role="document">
+                                        <div class="modal-content">
+                                            <div class="modal-header">
+                                                <h3 class="modal-title text-danger ml-4" id="exampleModalUpdateTitle">Update
+                                                </h3>
+                                                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                                    <span aria-hidden="true">&times;</span>
+                                                </button>
+                                            </div>
+                                            <div class="modal-body">
 
-                            <div class="modal fade" id="exampleModalUpdate<?= $pro['pro_id'] ?>" tabindex="-1" role="dialog" aria-labelledby="exampleModalUpdateTitle" aria-hidden="true">
-                                <div class="modal-dialog" role="document">
-                                    <div class="modal-content">
-                                        <div class="modal-header">
-                                            <h3 class="modal-title text-danger ml-4" id="exampleModalUpdateTitle">Update
-                                            </h3>
-                                            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                                                <span aria-hidden="true">&times;</span>
-                                            </button>
-                                        </div>
-                                        <div class="modal-body">
-
-                                            <div class="m-3 d-flex justify-content-center flex-column">
-                                                <form action="controllers/items/update_item.controller.php" method="post" class="d-flex ml-5">
-                                                    <input type="hidden" name="id" value="<?= $pro['pro_id'] ?>">
-                                                    <div class=" div-1 w-200">
-                                                        <div class=" form-group ">
-                                                            <label for="pro_name">Name</label>
-                                                            <input type="text" class="form-control w-100" value="<?= $pro['pro_name'] ?>" placeholder="Enter Name" name="name">
+                                                <div class="m-3 d-flex justify-content-center flex-column">
+                                                    <form action="controllers/items/update_item.controller.php" method="post" class="d-flex ml-5">
+                                                        <input type="hidden" name="id" value="<?= $pro['pro_id'] ?>">
+                                                        <div class=" div-1 w-200">
+                                                            <div class=" form-group ">
+                                                                <label for="pro_name">Name</label>
+                                                                <input type="text" class="form-control w-100" value="<?= $pro['pro_name'] ?>" placeholder="Enter Name" name="name">
+                                                            </div>
+                                                            <div class="form-group">
+                                                                <label>Code</label>
+                                                                <input type="text" class="form-control" value="<?= $pro['pro_code'] ?>" placeholder="Enter Code" name="code">
+                                                            </div>
+                                                            <div class="form-group">
+                                                                <label>Quantity</label>
+                                                                <input type="number" class="form-control" value="<?= $pro['pro_quantity'] ?>" placeholder="Enter Quantity" name="quantity">
+                                                            </div>
+                                                            <div class="form-group">
+                                                                <label>Price</label>
+                                                                <input type="text" class="form-control" value="<?= $pro['pro_price'] ?>" placeholder="Enter Price" name="price">
+                                                            </div>
                                                         </div>
-                                                        <div class="form-group">
-                                                            <label>Code</label>
-                                                            <input type="text" class="form-control" value="<?= $pro['pro_code'] ?>" placeholder="Enter Code" name="code">
+                                                        <div class="modal-footer">
+                                                            <button type="submit" class="btn btn-primary">Save changes</button>
                                                         </div>
-                                                        <div class="form-group">
-                                                            <label>Quantity</label>
-                                                            <input type="number" class="form-control" value="<?= $pro['pro_quantity'] ?>" placeholder="Enter Quantity" name="quantity">
-                                                        </div>
-                                                        <div class="form-group">
-                                                            <label>Price</label>
-                                                            <input type="text" class="form-control" value="<?= $pro['pro_price'] ?>" placeholder="Enter Price" name="price">
-                                                        </div>
-                                                    </div>
-                                                    <div class="modal-footer">
-                                                        <button type="submit" class="btn btn-primary">Save changes</button>
-                                                    </div>
-                                                </form>
+                                                    </form>
+                                                </div>
                                             </div>
                                         </div>
                                     </div>
-                                </div>
+                                <?php endif; ?>
 
                                 <!-- !test -->
                                 <style>
@@ -349,73 +367,72 @@
 <!-- popup create product  -->
 
 
-<div class="modal fade" id="myModal">
-    <div class="modal-dialog">
-        <div class="modal-content" style="width: 580px;">
-            <div class="modal-header">
-                <h4 class="modal-title text-danger">Form Create</h4>
-                <button type="button" class="close" data-dismiss="modal">&times;</button>
-            </div>
-            <div class="modal-body">
-                <form action="../../controllers/items/create.controller.php" method="post" class="d-flex flex-xl-column" enctype="multipart/form-data">
-                    <div class="form-row">
-                        <div class=" form-group mr-5">
-                            <label for="pro_name">Name</label>
-                            <input type="text" class="form-control" placeholder="Enter Name" name="name">
+<?php if ($_SESSION['user']['role'] != 'cashier') : ?>
+
+    <div class="modal fade" id="myModal">
+        <div class="modal-dialog">
+            <div class="modal-content" style="width: 580px;">
+                <div class="modal-header">
+                    <h4 class="modal-title text-danger">Form Create</h4>
+                    <button type="button" class="close" data-dismiss="modal">&times;</button>
+                </div>
+                <div class="modal-body">
+                    <form action="../../controllers/items/create.controller.php" method="post" class="d-flex flex-xl-column p-3 ml-1" enctype="multipart/form-data">
+                        <div class="form-row">
+                            <div class=" form-group mr-5">
+                                <label for="pro_name">Name</label>
+                                <input type="text" class="form-control" placeholder="Enter Name" name="name">
+                            </div>
+                            <div class="form-group">
+                                <label>supplier</label><br>
+                                <select class="custom-select " id="inputGroupSelect01" name="supplier" style="width: 240px;">
+                                    <option selected>Choose supplier...</option>
+                                    <?php for ($i = 0; $i < count($suppliers); $i++) : ?>
+                                        <option value="<?= $suppliers[$i][0] ?>">
+                                            <?= $suppliers[$i][0] ?>
+                                        </option>
+                                    <?php endfor; ?>
+                                </select>
+                            </div>
                         </div>
-                        <div class="form-group">
-                            <label>supplier</label><br>
-                            <select class="custom-select " id="inputGroupSelect01" name="supplier" style="width: 240px;">
-                                <option selected>Choose supplier...</option>
-                                <?php for ($i = 0; $i < count($suppliers); $i++) : ?>
-                                    <option value="<?= $suppliers[$i][0] ?>">
-                                        <?= $suppliers[$i][0] ?>
-                                    </option>
-                                <?php endfor; ?>
-                            </select>
+                        <div class="form-row  mt-3">
+                            <div class="form-group mr-5">
+                                <label>Code</label>
+                                <input type="text" class="form-control" placeholder="Enter Code" name="code">
+                            </div>
+                            <div class="form-group">
+                                <label>Category</label>
+                                <select class="custom-select" id="inputGroupSelect01" name="category">
+                                    <option selected>Choose category...</option>
+                                    <?php for ($i = 0; $i < count($categories); $i++) : ?>
+                            </div>
+                            <option value="<?= $categories[$i][0] ?>">
+                                <?= $categories[$i][0] ?>
+                            </option>
+                        <?php endfor; ?>
+                        </select>
                         </div>
-                    </div>
-                    <div class="form-row  mt-3">
-                        <div class="form-group mr-5">
-                            <label>Code</label>
-                            <input type="number" class="form-control" placeholder="Enter Code" name="code">
+                        <div class="form-row mt-3">
+                            <div class="form-group mr-5">
+                                <label>Price</label>
+                                <input type="text" class="form-control" placeholder="Enter Price" name="price">
+                            </div>
+                            <div class="form-group" style="width: 240px;">
+                                <label>Quantity</label>
+                                <input type="number" class="form-control" placeholder="Enter Quantity" name="quantity">
+                            </div>
                         </div>
-                        <div class="form-group">
-                            <label>Category</label>
-                            <select class="custom-select" id="inputGroupSelect01" name="category">
-                                <option selected>Choose category...</option>
-                                <?php for ($i = 0; $i < count($categories); $i++) : ?>
+                        <div class="form-row  mt-3">
+                            <div class="form-group " style="width: 500px;">
+                                <label>Image</label>
+                                <input type="file" class="form-control" placeholder="Insert Image" name="image">
+                            </div>
                         </div>
-                        <option value="<?= $categories[$i][0] ?>">
-                            <?= $categories[$i][0] ?>
-                        </option>
-                    <?php endfor; ?>
-                    </select>
-                    </div>
-                    <div class="form-row  mt-3">
-                        <div class="form-group mr-5">
-                            <label>Price</label>
-                            <input type="text" class="form-control" placeholder="Enter Price" name="price">
-                        </div>
-                        <div class="form-group" style="width: 240px;">
-                            <label>Quantity</label>
-                            <input type="number" class="form-control" placeholder="Enter Quantity" name="quantity">
-                        </div>
-                    </div>
-                    <div class="form-row  mt-3">
-                        <div class="form-group " style="width: 500px;">
-                            <label>Image</label>
-                            <input type="file" class="form-control" placeholder="Insert Image" name="image">
-                        </div>
-                    </div>
-                    <!-- <div class="form-row  mt-3">
-                        <div class="form-group " style="width: 500px;">
-                            <label>Date</label>
-                            <input type="date" class="form-control" placeholder="" name="date">
-                        </div>
-                    </div> -->
-                    <button type="submit" class="btn btn-primary w-25 mt-3">Submit</button>
-                </form>
+                        <button type="submit" class="btn btn-primary w-25 mt-3">Submit</button>
+                    </form>
+                </div>
             </div>
         </div>
+
     </div>
+<?php endif; ?>

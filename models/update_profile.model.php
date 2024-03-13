@@ -1,6 +1,6 @@
 <?php
 
-function changeProfile($userID, $nameID): bool
+function uploadProfile($userID, $nameID): bool
 {
     global $connection;
     $query = "UPDATE users SET image = :image WHERE id = :id";

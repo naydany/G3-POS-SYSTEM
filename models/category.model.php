@@ -69,14 +69,3 @@ function countProductInCategory(string $name_category): array
     $statement->execute([':cate_name' => $name_category]);
     return $statement->fetchAll();
 }
-
-
-function selectCategory(string $name_cate)
-{
-    global $connection;
-    $statement = $connection->prepare("select cate_name from categories where cate_name = :name_cate");
-    $statement->execute([
-        ":name_cate" => $name_cate,
-    ]);
-    return $statement->fetchAll();
-}

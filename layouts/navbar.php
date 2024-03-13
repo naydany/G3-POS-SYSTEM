@@ -10,7 +10,7 @@ if ($page == 'controllers/categories/category.controller.php') {
 } elseif ($page == 'controllers/orders/order.controller.php') {
     $current_poge = "order";
 } elseif ($page == 'controllers/payments/payment.controller.php') {
-    $current_poge = "payment";
+    $current_poge = "oldpayments";
 } elseif ($page == 'controllers/staffs/staff.controller.php') {
     $current_poge = "staff";
 } elseif ($page == 'controllers/suppliers/supplier.controller.php') {
@@ -96,9 +96,11 @@ if ($page == 'controllers/categories/category.controller.php') {
         </a>
         <div id="collapse" class="collapse" aria-labelledby="headingTwo" data-parent="#accordionSidebar">
             <div class="bg-white py-2 collapse-inner rounded">
-                <h6 class="collapse-header">staff Contains:</h6>
+                <h6 class="collapse-header">User Contains:</h6>
                 <a class="collapse-item" href="/staffs">staffs</a>
+                <?php if ($_SESSION['user']['role'] != 'cashier') : ?>
                 <a class="collapse-item" href="/admin_table">admin</a>
+                <?php endif; ?>
             </div>
         </div>
     </li>
@@ -110,11 +112,20 @@ if ($page == 'controllers/categories/category.controller.php') {
     </li>
     <!-- Divider -->
     <hr class="sidebar-divider d-none d-md-block">
-
     <li class="nav-item">
-        <a class="nav-link" href="/reports">
+        <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
             <i class="fas fa-fw fa-chart-area"></i>
-            <span>Reports</span></a>
+            <span>Reports</span>
+        </a>
+        <div id="collapseOne" class="collapse" aria-labelledby="headingTwo" data-parent="#accordionSidebar">
+            <div class="bg-white py-2 collapse-inner rounded">
+                <h6 class="collapse-header">Report Contains:</h6>
+                <a class="collapse-item" href="/reports">__detail dashboard</a>
+                <a class="collapse-item" href="#">__sale report</a>
+                <a class="collapse-item" href="/payment_report">Payment Report</a>
+                
+            </div>
+        </div>
     </li>
     <!-- Sidebar Toggler (Sidebar) -->
     <div class="text-center d-none d-md-inline">
@@ -137,17 +148,17 @@ if ($page == 'controllers/categories/category.controller.php') {
                 <i class="fa fa-bars"></i>
             </button>
 
-            <!-- Topbar Search -->
-            <form class="d-none d-sm-inline-block form-inline mr-auto ml-md-3 my-2 my-md-0 mw-100 navbar-search">
-                <div class="input-group">
-                    <input type="text" class="form-control bg-light border-0 small" placeholder="Search name pro..." aria-label="Search" aria-describedby="basic-addon2" id="<?php echo $current_poge ?>">
-                    <div class="input-group-append">
-                        <button class="btn btn-primary" type="button" id="cate-product">
-                            <i class="fas fa-search fa-sm"></i>
-                        </button>
-                    </div>
-                </div>
-            </form>
+             <!-- Topbar Search -->
+             <form class="d-none d-sm-inline-block form-inline mr-auto ml-md-3 my-2 my-md-0 mw-100 navbar-search">
+                 <div class="input-group">
+                    <input type="text" class="form-control bg-light border-0 small" placeholder="Search" aria-label="Search" aria-describedby="basic-addon2" id="<?php echo $current_poge ?>">
+                     <div class="input-group-append">
+                         <button class="btn btn-primary" type="button">
+                             <i class="fas fa-search fa-sm"></i>
+                         </button>
+                     </div>
+                 </div>
+             </form>
 
             <!-- Topbar Navbar -->
             <ul class="navbar-nav ml-auto">
@@ -171,57 +182,55 @@ if ($page == 'controllers/categories/category.controller.php') {
                         </form>
                     </div>
                 </li>
-
-
-                <!-- Nav Item Alerts -->
-                <li class="nav-item dropdown no-arrow mx-1">
-                    <a class="nav-link dropdown-toggle" href="#" id="alertsDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                        <i class="bi bi-bell-fill"><span class="badge badge-danger badge-counter">+9</span></i>
-                        <!-- Counter - Alerts -->
-
-                    </a>
-                    <!-- Dropdown - Alerts -->
-                    <div class="dropdown-list dropdown-menu dropdown-menu-right shadow animated--grow-in" aria-labelledby="alertsDropdown">
-                        <h6 class="dropdown-header">
-                            Alerts Center
-                        </h6>
-                        <a class="dropdown-item d-flex align-items-center" href="#">
-                            <div class="mr-3">
-                                <div class="icon-circle bg-primary">
-                                    <i class="bi bi-cart-check-fill text-white"></i>
-                                </div>
-                            </div>
-                            <div>
-                                <div class="small text-gray-500">March 11, 2024</div>
-                                <span class="font-weight-bold">New product are added to stock!</span>
-                            </div>
-                        </a>
-                        <a class="dropdown-item d-flex align-items-center" href="#">
-                            <div class="mr-3">
-                                <div class="icon-circle bg-success">
-                                    <i class="bi bi-cart-x-fill text-white"></i>
-                                </div>
-                            </div>
-                            <div>
-                                <div class="small text-gray-500">March 10, 2024</div>
-                                Banana out of stock
-                            </div>
-                        </a>
-                        <a class="dropdown-item d-flex align-items-center" href="#">
-                            <div class="mr-3">
-                                <div class="icon-circle bg-warning">
-                                    <i class="fas fa-exclamation-triangle text-white"></i>
-                                </div>
-                            </div>
-                            <div>
-                                <div class="small text-gray-500">March 9, 2024</div>
-                                Spending Alert: We've noticed unusually high spending for your account.
-                            </div>
-                        </a>
-                    </div>
-                </li>
-
-
+                
+                 <!-- Nav Item - Alerts -->
+                 <li class="nav-item dropdown no-arrow mx-1">
+                     <a class="nav-link dropdown-toggle" href="#" id="alertsDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                         <i class="fas fa-bell fa-fw"></i>
+                         <!-- Counter - Alerts -->
+                         <span class="badge badge-danger badge-counter">3+</span>
+                     </a>
+                     <!-- Dropdown - Alerts -->
+                     <div class="dropdown-list dropdown-menu dropdown-menu-right shadow animated--grow-in" aria-labelledby="alertsDropdown">
+                         <h6 class="dropdown-header">
+                             Alerts Center
+                         </h6>
+                         <a class="dropdown-item d-flex align-items-center" href="#">
+                             <div class="mr-3">
+                                 <div class="icon-circle bg-primary">
+                                     <i class="fas fa-file-alt text-white"></i>
+                                 </div>
+                             </div>
+                             <div>
+                                 <div class="small text-gray-500">December 12, 2019</div>
+                                 <span class="font-weight-bold">A new monthly report is ready to download!</span>
+                             </div>
+                         </a>
+                         <a class="dropdown-item d-flex align-items-center" href="#">
+                             <div class="mr-3">
+                                 <div class="icon-circle bg-success">
+                                     <i class="fas fa-donate text-white"></i>
+                                 </div>
+                             </div>
+                             <div>
+                                 <div class="small text-gray-500">December 7, 2019</div>
+                                 $290.29 has been deposited into your account!
+                             </div>
+                         </a>
+                         <a class="dropdown-item d-flex align-items-center" href="#">
+                             <div class="mr-3">
+                                 <div class="icon-circle bg-warning">
+                                     <i class="fas fa-exclamation-triangle text-white"></i>
+                                 </div>
+                             </div>
+                             <div>
+                               <div class="small text-gray-500">December 2, 2019</div>
+                                 Spending Alert: We've noticed unusually high spending for your account.
+                             </div>
+                         </a>
+                         <a class="dropdown-item text-center small text-gray-500" href="#">Show All Alerts</a>
+                     </div>
+                 </li>
                 <!-- Nav Item - User Information -->
                 <li class="nav-item dropdown no-arrow">
                     <a class="nav-link dropdown-toggle" href="#" id="userDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">

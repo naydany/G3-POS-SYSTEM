@@ -1,7 +1,10 @@
 <div class="container mt-4">
-    <button type="button" class="btn btn-outline-primary mr-5" data-toggle="modal" data-target="#modalAdmin">
-        <i class="fas fa-user-plus"></i> Add new admin
-    </button>
+    <h4>Table store admin</h4>
+    <?php if ($_SESSION['user']['role'] != 'stock manager') : ?>
+        <button type="button" class="btn btn-outline-primary mr-5" data-toggle="modal" data-target="#modalAdmin">
+            <i class="fas fa-user-plus"></i> Add new admin
+        </button>
+    <?php endif; ?>
 </div>
 
 <div class="container mt-4">
@@ -12,7 +15,9 @@
                 <th>Name</th>
                 <th>Email</th>
                 <th>Address</th>
+                <?php if ($_SESSION['user']['role'] != 'stock manager') : ?>
                 <th>Action</th>
+                <?php endif; ?>
             </tr>
         </thead>
 
@@ -52,21 +57,26 @@
                 </div>
 </div>
 
-<tr>
-    <td><?= $user['id'] ?></td>
-    <td><?= $user['name'] ?></td>
-    <td><?= $user['email'] ?></td>
-    <td><?= $user['address'] ?></td>
-    <td>
-        <div class="btn-group">
-            <a onclick="return confirm('Do you want to delete this product?')" href="controllers/admin/delete_admin.controller.php?id=<?= $user['id'] ?>"><i class="bi bi-trash3 text-danger btn btn-lg ml-1"></i></a>
-            <i class="bi bi-pencil-square text-success btn btn-lg ml-1" data-toggle="modal" data-target="#modalUpdate<?= $user['id'] ?>"></i>
-        </div>
-    </td>
-</tr>
-</tbody>
-<?php endforeach; ?>
-</table>
+
+                <tr>
+                    <td><?= $user['id'] ?></td>
+                    <td><?= $user['name'] ?></td>
+                    <td><?= $user['email'] ?></td>
+                    <td><?= $user['address'] ?></td>
+                    <?php if ($_SESSION['user']['role'] != 'stock manager') : ?>
+                    <td>
+                        <div class="btn-group">
+                        
+                            <a onclick="return confirm('Do you want to delete this product?')" href="controllers/admin/delete_admin.controller.php?id=<?= $user['id'] ?>"><i class="bi bi-trash3 text-danger btn btn-lg ml-1"></i></a>
+                            <i class="bi bi-pencil-square text-success btn btn-lg ml-1" data-toggle="modal" data-target="#modalUpdate<?= $user['id'] ?>"></i>
+                            
+                        </div>
+                    </td>
+                    <?php endif; ?>
+                </tr>
+        </tbody>
+    <?php endforeach; ?>
+    </table>
 </div>
 
 <!-- *popup create staff -->
