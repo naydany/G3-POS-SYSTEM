@@ -1,7 +1,7 @@
 
     <div class="container mt-3">
         <table class="table table-bordered text-center mt-2 rounded">
-            <h4 class="m-5">Payment Report</h4>
+            <h4 class="m-5 text-primary">Payment Report</h4>
             <thead class="text-secondary thead-light">
 
                 <tr>
