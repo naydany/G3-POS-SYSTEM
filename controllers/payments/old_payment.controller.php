@@ -1,6 +1,6 @@
 <?php
-require "../../database/database.php";
-require "../../models/payment.model.php";
+require "database/database.php";
+require "models/payment.model.php";
 
 if ($_SERVER['REQUEST_METHOD'] == "POST") {
     if ($_POST['customerID'] !== '' && $_POST['code'] !== '' && $_POST['amounts'] !== '' && $_POST['pay_method'] !== '') {
@@ -15,10 +15,11 @@ if ($_SERVER['REQUEST_METHOD'] == "POST") {
             $addMore_oldPayment = addMoreoldPayment($method, $customerID, $date);
         }
     }
+    header('Location:/payments');
 }
 $add_oldPayment = oldPayment();
 $getOldPayments = getOldPayments();
 deletOrder();
-header('Location:/payments');
+
 
 
