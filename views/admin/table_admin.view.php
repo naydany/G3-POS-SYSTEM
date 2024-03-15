@@ -1,7 +1,10 @@
 <div class="container mt-4">
-    <button type="button" class="btn btn-outline-primary mr-5" data-toggle="modal" data-target="#modalAdmin">
-        <i class="fas fa-user-plus"></i> Add new admin
-    </button>
+    <h4>Table store admin</h4>
+    <?php if ($_SESSION['user']['role'] != 'stock manager') : ?>
+        <button type="button" class="btn btn-outline-primary mr-5" data-toggle="modal" data-target="#modalAdmin">
+            <i class="fas fa-user-plus"></i> Add new admin
+        </button>
+    <?php endif; ?>
 </div>
 
 <div class="container mt-4">
@@ -12,7 +15,9 @@
                 <th>Name</th>
                 <th>Email</th>
                 <th>Address</th>
+                <?php if ($_SESSION['user']['role'] != 'stock manager') : ?>
                 <th>Action</th>
+                <?php endif; ?>
             </tr>
         </thead>
 
@@ -24,33 +29,33 @@
                 <!-- *popup update admin -->
                 <div class="modal fade" id="modalUpdate<?= $user['id'] ?>" role="dialog" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
                     <div class="modal-dialog" role="document">
-                        <div class=" d-flex justify-content-center admin_show modal-content">
-                            <div class="card p-5 ml-3 w-200">
+                        <div class="modal-content card p-5 ml-3 w-200">
+                            <!-- <div class="card p-5 ml-3 w-200"> -->
 
-                                <h3>Update</h3>
-                                <form action="../../controllers/admin/update_admin.controller.php" class='d-flex flex-xl-column' method='post'>
-                                    <input type="hidden" name="id" value="<?= $user['id'] ?>">
-                                    <div class="form-group">
-                                        <label for="name">name:</label>
-                                        <input type="text" class="form-control" id="name" name='name' value="<?= $user['name'] ?>">
-                                    </div>
+                            <h3>Update</h3>
+                            <form action="../../controllers/admin/update_admin.controller.php" class='d-flex flex-xl-column' method='post'>
+                                <input type="hidden" name="id" value="<?= $user['id'] ?>">
+                                <div class="form-group">
+                                    <label for="name">name:</label>
+                                    <input type="text" class="form-control" id="name" name='name' value="<?= $user['name'] ?>">
+                                </div>
 
-                                    <div class="form-group">
-                                        <label for="email">email:</label>
-                                        <input type="text" class="form-control" id="email" name='email' value="<?= $user['email'] ?>">
-                                    </div>
+                                <div class="form-group">
+                                    <label for="email">email:</label>
+                                    <input type="text" class="form-control" id="email" name='email' value="<?= $user['email'] ?>">
+                                </div>
 
-                                    <div class="form-group">
-                                        <label for="address">address:</label>
-                                        <input type="text" class="form-control" id="address" name='address' value="<?= $user['address'] ?>">
-                                    </div>
+                                <div class="form-group">
+                                    <label for="address">address:</label>
+                                    <input type="text" class="form-control" id="address" name='address' value="<?= $user['address'] ?>">
+                                </div>
 
-                                    <button type="submit" class="btn btn-primary">Submit</button>
-                                </form>
-                            </div>
+                                <button type="submit" class="btn btn-primary">Submit</button>
+                            </form>
                         </div>
                     </div>
                 </div>
+</div>
 
 
                 <tr>
@@ -58,12 +63,16 @@
                     <td><?= $user['name'] ?></td>
                     <td><?= $user['email'] ?></td>
                     <td><?= $user['address'] ?></td>
+                    <?php if ($_SESSION['user']['role'] != 'stock manager') : ?>
                     <td>
                         <div class="btn-group">
+                        
                             <a onclick="return confirm('Do you want to delete this product?')" href="controllers/admin/delete_admin.controller.php?id=<?= $user['id'] ?>"><i class="bi bi-trash3 text-danger btn btn-lg ml-1"></i></a>
                             <i class="bi bi-pencil-square text-success btn btn-lg ml-1" data-toggle="modal" data-target="#modalUpdate<?= $user['id'] ?>"></i>
+                            
                         </div>
                     </td>
+                    <?php endif; ?>
                 </tr>
         </tbody>
     <?php endforeach; ?>
@@ -140,7 +149,6 @@
                     </div>
                 </div>
             </div>
-
 
             </form>
         </div>

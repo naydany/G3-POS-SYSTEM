@@ -13,7 +13,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 
 <div class="card mx-auto" style="width: 50rem; border: 1px solid gray;">
     <div class="card">
-        <img class="card-img-top" src="https://marketplace.canva.com/EAE2cQaUHVA/1/0/1600w/canva-black-minimal-motivation-quote-linkedin-banner-HoRi-2buBWk.jpg" alt="Cover Image" id="coverImage" style="height: 180px; object-fit: cover; position: absolute;">
+        <img class="card-img-top" src="https://wedgecommerce.com/wp-content/uploads/2018/03/pos-banner-2.jpg" alt="Cover Image" id="coverImage" style="height: 180px; object-fit: cover; position: absolute;">
         <div class="card-body d-flex flex-column align-items-center justify-content-start">
             <img id='tapImg' class="rounded-circle img-thumbnail mr-3" src="../../assets/images/<?= $_SESSION['user']['image'] ?>" alt="Profile Image" id="profileImage" style="height: 140px; width: 140px; object-fit: cover; z-index: 1; margin-top: 70px;">
             <!-- chage profile -->
@@ -46,6 +46,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 </script>
 <div class="card card-control mx-auto" style="width: 50rem;">
     <h3 class="card-title ml-5 text-danger mt-3">Details:</h3>
+   
     <ul class="list-group list-group-flush">
         <li class="list-group-item ml-3">
             <span>This is your profile page You can customize your profile as you want And also change password too .</span>

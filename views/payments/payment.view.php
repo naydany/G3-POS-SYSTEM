@@ -61,7 +61,7 @@
                             <div class=" div-1">
                                 <div class=" form-group">
                                     <label for="pro_name">Customer ID</label>
-                                    <input type="text" class="form-control w-100" value="<?= $customer ?>" placeholder="Enter Name" name="customerID">
+                                    <input type="text" class="form-control w-100" value="<?= $customer?>" placeholder="Enter Name" name="customerID">
                                 </div>
                                 <div class="form-group">
                                     <label>Pay Code</label>

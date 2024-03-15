@@ -22,7 +22,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
             if ($staff['role'] === 'stock manager') {
                 header('Location:/admin');
             }elseif($staff['role'] === 'cashier'){
-                header('Location:/normal');
+                header('Location:/admin');
             } 
             
         } else {
