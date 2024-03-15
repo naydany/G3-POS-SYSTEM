@@ -41,6 +41,8 @@ if (isset($_SESSION['user'])) {
              
             '/path_payment' => 'controllers/payments/path_payment.controller.php',
             '/payment_report' => 'controllers/reports/payment_report.controller.php',
+
+            '/dashboard_report'=>'controllers/reports/dashboard_report.controller.php',
             
 
         ];
