@@ -1,6 +1,6 @@
 
 
-    <h4 class="ml-5 text-primary">Make Order</h4>
+    <h4 class="text-primary" style="margin-left: 8.3%">Make Order</h4>
     <div class="container mt-3">
         <table class="table table-bordered text-center mt-2 rounded">
             <thead class="text-secondary thead-light">
@@ -22,8 +22,8 @@
                         <td>
                             <div class="btn-group">
                                 <a href="/order_product?id=<?= $product['pro_id'] ?>">
-                                    <button class="btn btn-sm btn-danger">
-                                        <i class="fas fa-handshake"></i>
+                                    <button class="btn btn-success">
+                                        <i class="bi bi-cart"></i>
                                         Place order
                                     </button>
                                 </a>
