@@ -85,11 +85,10 @@
     </style>
 </head>
 
-<body class="bg-light text-primary">
-    <img src="https://static.vecteezy.com/system/resources/previews/006/852/804/non_2x/abstract-blue-background-simple-design-for-your-website-free-vector.jpg" alt="bg style">
+<body class=" text-primary">
     <div class="flex-center position-ref full-height">
-        <div class="content">
-            <div class="title m-b-md">
+        <div class="content ">
+            <div class="title m-b-md text-light">
                 POS Management System
             </div>
             <div class="links">

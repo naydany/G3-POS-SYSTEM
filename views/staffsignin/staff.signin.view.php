@@ -17,15 +17,15 @@ endif;
 endif;
 ?>
 
-<body class="bg-dark" style="background-image: url(https://static.vecteezy.com/system/resources/previews/006/852/804/non_2x/abstract-blue-background-simple-design-for-your-website-free-vector.jpg); background-size: cover; background-position: center; width: 100%; user-select: none;">
+<body class="bg-primary">
+    <img src="https://res.cloudinary.com/peter-white/image/upload/v1692280681/equipment_hero_830520cbec.png" alt="bg backgroud" style="height: 100vh;">
+    <div class="main-content" style="margin: auto; width:600px; margin-top: 70px;">
 
-    <div class="main-content" style="margin: auto; width:600px; margin-top: 120px;">
+        <div class="card shadow border-0 mx-auto" style="text-align: center; padding: 5%; background: linear-gradient(135deg, rgba(255, 255, 255, 0.8), rgba(255, 255, 255, 0.8)); -webkit-backdrop-filter: blur(90px); backdrop-filter: blur(10px); box-shadow: 0 6px 22px 0 rgba(0, 0, 0, 0.37); border: 1px solid rgba(255, 255, 255, 0.18); border-radius: 22px;">
 
-        <div class="card shadow border-0 mx-auto" style="text-align: center; padding: 5%; background: linear-gradient(135deg, rgba(0, 0, 0, 0.2), rgba(0, 0, 0, 0.2)); -webkit-backdrop-filter: blur(90px); backdrop-filter: blur(10px); box-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.37); border: 1px solid rgba(255, 255, 255, 0.18); border-radius: 32px;">
-           
-        <!-- Page content -->
+            <!-- Page content -->
             <div class="card-body px-lg-5 py-lg-5">
-                <h1 class="h3 mb-0 text-white">Staff</h1><br>
+                <h1 class="h3 mb-0 text-dark">Login for staff</h1><br>
                 <form action="../../controllers/staffsignin/staff_signin_check.controller.php" method="post">
                     <div class="form-group mb-3">
                         <div class="input-group input-group-alternative">
@@ -47,14 +47,9 @@ endif;
                         </div>
                     </div>
 
-                    <div class="custom-control custom-control-alternative custom-checkbox">
-                        <input class="custom-control-input" id="customCheckLogin" type="checkbox">
-                        <label class="custom-control-label" for="customCheckLogin">
-                            <span class="text-dark">Remember me</span>
-                        </label>
-                    </div>
+
                     <div class="row justify-content-between">
-                        <a href="/" class="btn btn-primary my-4">Back</a>
+                        <a href="" class="mt-5">Forgot your password?</a>
                         <button class="btn btn-primary my-4">Log In</button>
                     </div>
                 </form>
