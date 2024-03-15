@@ -15,7 +15,7 @@ if ($page == 'controllers/categories/category.controller.php') {
     $current_poge = "staff";
 } elseif ($page == 'controllers/suppliers/supplier.controller.php') {
     $current_poge = "supplier";
-}elseif ($page == 'controllers/admin/table_admin.controller.php') {
+} elseif ($page == 'controllers/admin/table_admin.controller.php') {
     $current_poge = "admin";
 }
 ?>
@@ -74,7 +74,6 @@ if ($page == 'controllers/categories/category.controller.php') {
         </div>
     </li>
 
-    <!-- Nav Item - Pages Collapse Menu -->
 
     <!-- Nav Item - Charts -->
     <li class="nav-item">
@@ -99,7 +98,9 @@ if ($page == 'controllers/categories/category.controller.php') {
             <div class="bg-white py-2 collapse-inner rounded">
                 <h6 class="collapse-header">User Contains:</h6>
                 <a class="collapse-item" href="/staffs">staffs</a>
+                <?php if ($_SESSION['user']['role'] != 'cashier') : ?>
                 <a class="collapse-item" href="/admin_table">admin</a>
+                <?php endif; ?>
             </div>
         </div>
     </li>
@@ -238,7 +239,7 @@ if ($page == 'controllers/categories/category.controller.php') {
                             $name = $_POST["name"];
                         }
                         ?>
-                        <h2 class="mr-2 d-none d-lg-inline text-gray-600 small text-bold" ><?= $_SESSION['user']['role'];?></h2>
+                       
                         <img class="img-profile rounded-circle" style="object-fit: cover;" src="../assets/images/<?=$_SESSION['user']['image']; ?>">
                         
                     </a>

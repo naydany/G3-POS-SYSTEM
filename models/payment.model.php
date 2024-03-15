@@ -96,5 +96,17 @@ function addMoreoldPayment(string $method, int $customerID, string $date):bool
     return $statement->rowCount() > 0;
 }
 
+function getCustomerID(){
+    global $connection;
+    $statement = $connection->prepare("select cus_id from oldpayments");
+    $statement->execute();
+    return $statement->fetchAll();
+}
 
 
+function getPrice(){
+    global $connection;
+    $statement = $connection->prepare("select pay_totalprice from oldpayments");
+    $statement->execute();
+    return $statement->fetchAll();
+}
