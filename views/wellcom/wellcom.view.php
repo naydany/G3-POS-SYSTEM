@@ -55,8 +55,9 @@
         .content {
             text-align: center;
             padding: 5%;
-            background: linear-gradient(135deg, rgba(3, 138, 255, 0.4), rgba(3, 138, 255, 0.4));            -webkit-backdrop-filter: blur(90px);
-            backdrop-filter: blur(40px);
+            background: linear-gradient(135deg, rgba(0, 0, 0, 0.2), rgba(0, 0, 0, 0.2));            
+            -webkit-backdrop-filter: blur(90px);
+            backdrop-filter: blur(10px);
             box-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.37);
             border: 1px solid rgba(255, 255, 255, 0.18);
             border-radius: 32px;
@@ -85,8 +86,8 @@
 </head>
 
 <body class="bg-light text-primary">
-    <img src="https://posbytz.com/wp-content/uploads/2022/08/Best-POS-Software-for-Restaurants-in-India.png" alt="">
-    <div class="flex-center position-ref full-height ">
+    <img src="https://static.vecteezy.com/system/resources/previews/006/852/804/non_2x/abstract-blue-background-simple-design-for-your-website-free-vector.jpg" alt="bg style">
+    <div class="flex-center position-ref full-height">
         <div class="content">
             <div class="title m-b-md">
                 POS Management System

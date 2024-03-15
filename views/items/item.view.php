@@ -173,6 +173,12 @@ if ($_SESSION['Products'] != []) {
                                                                     <?= $pro['sup_name'] ?>
                                                                 </span></label>
                                                         </div>
+                                                        <div class="form-group">
+                                                            <label for="recipient-name" class="col-form-label ">Date:
+                                                                <span class="text-danger">
+                                                                    <?= $pro['pro_date'] ?>
+                                                                </span></label>
+                                                        </div>
                                                     </form>
                                                 </div>
                                             </div>
@@ -183,7 +189,7 @@ if ($_SESSION['Products'] != []) {
                             </div>
 
                             <!-- popup update  -->
-                            <?php if ($_SESSION['user']['role'] != 'cashier') : ?>
+                             <?php if ($_SESSION['user']['role'] != 'cashier') : ?>
                                 <div class="modal fade" id="exampleModalUpdate<?= $pro['pro_id'] ?>" tabindex="-1" role="dialog" aria-labelledby="exampleModalUpdateTitle" aria-hidden="true">
                                     <div class="modal-dialog" role="document">
                                         <div class="modal-content">
@@ -239,8 +245,6 @@ if ($_SESSION['Products'] != []) {
 
 <!-- popup create product  -->
 
-<!-- /.container-fluid -->
-<!-- The Modal -->
 
 <?php if ($_SESSION['user']['role'] != 'cashier') : ?>
 
@@ -308,6 +312,9 @@ if ($_SESSION['Products'] != []) {
                 </div>
             </div>
         </div>
+    </div>
+    </div>
 
+    </div>
     </div>
 <?php endif; ?>

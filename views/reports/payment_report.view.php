@@ -24,12 +24,6 @@
                         <td><?= $oldpay['pro_name'] ?>$</td>
                         <td><?= $oldpay['pay_totalprice'] ?>$</td>
                         <td><?= $oldpay['pay_date'] ?></td>
-                        <!-- <td>
-                            <div class="btn-group">
-                                <a onclick="return confirm('Do you want to cancel this payment?')" href="controllers/payments/delete_oldpayment.controller.php?id=<?= $oldpay['pay_id'] ?>">
-                                    <i class="bi bi-x-circle text-danger btn btn-lg ml-3"></i>
-                                </a>
-                        </td> -->
                     </tr>
                 <?php endforeach; ?>
             </tbody>

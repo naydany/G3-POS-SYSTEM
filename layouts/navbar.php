@@ -15,7 +15,7 @@ if ($page == 'controllers/categories/category.controller.php') {
     $current_poge = "staff";
 } elseif ($page == 'controllers/suppliers/supplier.controller.php') {
     $current_poge = "supplier";
-}elseif ($page == 'controllers/admin/table_admin.controller.php') {
+} elseif ($page == 'controllers/admin/table_admin.controller.php') {
     $current_poge = "admin";
 }
 ?>
@@ -74,7 +74,6 @@ if ($page == 'controllers/categories/category.controller.php') {
         </div>
     </li>
 
-    <!-- Nav Item - Pages Collapse Menu -->
 
     <!-- Nav Item - Charts -->
     <li class="nav-item">

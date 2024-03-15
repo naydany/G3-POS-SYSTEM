@@ -1,6 +1,6 @@
 <div class="container p-5 m-5 d-flex justify-content-center">
     <div class="card p-5 w-50">
-        <legend class="text-primary">payments</legend>
+        <legend class="text-primary">Payments</legend>
         <form action="/your_form_action_url" class="d-flex flex-column" method="post" id="orderForm">
 
             <?php
@@ -43,6 +43,7 @@
         </form>
     </div>
 </div>
+
 
 <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
 <script>

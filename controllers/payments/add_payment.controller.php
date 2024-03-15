@@ -19,4 +19,4 @@ if ($_SERVER['REQUEST_METHOD'] == "POST") {
     // order();
 }
 
-header('location: /order');
+header('location: /orders');

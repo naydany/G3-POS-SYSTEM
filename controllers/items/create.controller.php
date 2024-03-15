@@ -12,9 +12,10 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
     $pro_price = $_POST['price'];
     $pro_cate = $_POST['category'];
     $pro_quan = $_POST['quantity'];
+    $pro_date = $_POST['date'];
 
     // echo $imgProfile;
-    if (!empty($pro_name) && !empty($pro_code) && !empty($pro_price) && !empty($pro_cate) && !empty($pro_quan)) {
+    if (!empty($pro_name) && !empty($pro_code) && !empty($pro_price) && !empty($pro_cate) && !empty($pro_quan) )  {
 
         $directory = "../../assets/images/";
         $target_file = $directory . '.' . basename($_FILES['image']['name']);
