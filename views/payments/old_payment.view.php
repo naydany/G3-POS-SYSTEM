@@ -26,7 +26,7 @@
                         <td><?= $oldpay['pay_code'] ?></td>
                         <td><?= $oldpay['pro_name'] ?></td>
                         <td><?= $oldpay['pro_price'] ?>$</td>
-                        <td><?= $oldpay['pro_quantity'] ?>$</td>
+                        <td><?= $oldpay['pro_quantity'] ?></td>
                         <td><?= $oldpay['pay_totalprice'] ?>$</td>
                         <td><?= $oldpay['pay_date'] ?></td>
                         <td><?= $oldpay['cus_id'] ?></td>
