@@ -140,36 +140,40 @@ foreach ($totalPrices as $totalPrice) {
 
     <h1 class="h3 mb-0 text-gray-800">Order Detail</h1><br>
     <table class="table bg-white text-black">
-        <thead class="text-secondary thead-light ">
+        <thead class="text-white bg-primary">
             <tr>
                 <th>ID</th>
                 <th>Product Name</th>
                 <th>Unit Price</th>
-                <th>quantity</th>
+                <th>Quantity</th>
                 <th>Total price</th>
                 <th>Status</th>
                 <th>Date</th>
             </tr>
         </thead>
+
         <tbody>
-            <tr>
-                <td>001</td>
-                <td>Headphone</td>
-                <td>$20</td>
-                <td>2</td>
-                <td>$40</td>
-                <td>Paid</td>
-                <td>17/02/2024</td>
-            </tr>
-            <tr>
-                <td>002</td>
-                <td>Laptop</td>
-                <td>$1,000</td>
-                <td>2</td>
-                <td>$2,000</td>
-                <td>Not Paid</td>
-                <td>16/02/2024</td>
-            </tr>
+            <?php
+            require "models/order.model.php";
+            $orders = getOrdersDetail();
+            foreach ($orders as $order) : ?>
+                <tr>
+                    <td><?= $order['order_detail_id'] ?></td>
+                    <td><?= $order['pro_name'] ?></td>
+                    <td><?= $order['pro_price'] ?>$</td>
+                    <td><?= $order['pro_qty'] ?></td>
+                    <td><?= $order['tatal_price'] ?>$</td>
+                    <td>
+                        <?php if ($order['order_status'] != "Paid" && $order['order_status'] != 1) {
+                            echo "<span class='badge badge-danger'>Not Paid</span>";
+                        } else {
+                            echo "<span class='badge badge-success'>Paid</span>";
+                        }
+                        ?>
+                    </td>
+                    <td><?= $order['order_date'] ?></td>
+                </tr>
+            <?php endforeach; ?>
         </tbody>
     </table>
 </div>
