@@ -1,14 +1,4 @@
-<!-- <!DOCTYPE html>
-<html lang="en">
 
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.2/css/all.min.css">
-    <title>order</title>
-</head>
-<body> -->
 <div class="card-header py-3 d-flex justify-content-between">
     <h5 class="mt-2 ml-4 font-weight-bold text-primary">Supplier</h5>
     <div class="card-header d-flex justify-content-between">

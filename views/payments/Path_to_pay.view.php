@@ -1,4 +1,4 @@
-<div class="m-5 d-flex justify-content-center flex-column">
+<!-- <div class="m-5 d-flex justify-content-center flex-column">
 
     <form action="controllers/payments/old_payment.controller.php" method="post" class=" text-left d-flex ml-5">
 
@@ -33,4 +33,4 @@
         </div>
 
     </form>
-</div>
+</div> -->
