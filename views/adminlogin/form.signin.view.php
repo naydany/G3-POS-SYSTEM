@@ -16,8 +16,9 @@ endif;
     unset($_SESSION['error']);
 endif;
 ?>
+<!-- background-image: url(&quot;//vendfrontendassets.freetls.fastly.net/images/backgrounds/login-background-xseries.jpg&quot;); -->
 
-<body class="bg-dark" style="background-image: url(https://static.vecteezy.com/system/resources/previews/006/852/804/non_2x/abstract-blue-background-simple-design-for-your-website-free-vector.jpg); background-size: cover; background-position: center; width: 100%; user-select: none;">
+<body class="bg-dark" style="background-image: url()">
 
     <div class="main-content" style="margin: auto; width:600px; margin-top: 120px;">
 
