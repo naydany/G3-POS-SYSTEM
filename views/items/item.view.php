@@ -233,7 +233,7 @@ if ($_SESSION['Products'] != []) {
                                     </div>
                                 <?php endif; ?>
 
-                        <?php endforeach; ?>
+                            <?php endforeach; ?>
                     </tbody>
                 </table>
             </div>
@@ -312,16 +312,9 @@ if ($_SESSION['Products'] != []) {
                 </div>
             </div>
         </div>
-<<<<<<< HEAD
-<<<<<<< HEAD
     </div>
-=======
     </div>
 
-</div>
->>>>>>> 8d97142162347be17945dfc840efdcd76afed99b
-=======
-
+    </div>
     </div>
 <?php endif; ?>
->>>>>>> notify
