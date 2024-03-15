@@ -55,7 +55,7 @@ endif;
                     </div>
                     <div class="row justify-content-between">
                         <a href="/" class="btn btn-primary my-4">Back</a>
-                        <a href="/admin" class="btn btn-primary my-4">Log In</a>
+                        <button class="btn btn-primary my-4">Log In</button>
                     </div>
                 </form>
             </div>

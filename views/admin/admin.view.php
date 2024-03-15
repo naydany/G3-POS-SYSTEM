@@ -1,3 +1,5 @@
+
+
 <?php if (isset($_SESSION['success'])) : ?>
     <div class="alert alert-success alert-dismissible fade show" id="alert">
         <button type="button" class="close" data-dismiss="alert">&times;</button>
@@ -28,9 +30,7 @@ $current_number = "";
 $count = 0;
 
 foreach ($customerID as $num) {
-    // print_r($num);
     foreach ($num as $getcus) {
-        // echo $getcus;
         if ($getcus != $current_number) {
             $current_number = $getcus;
             $count = 1;
@@ -40,7 +40,6 @@ foreach ($customerID as $num) {
     }
 }
 
-// print_r($price);
 $totalOrder_price = 0;
 foreach ($totalPrices as $totalPrice) {
     $totalOrder_price += $totalPrice['pay_totalprice'];
@@ -53,7 +52,7 @@ foreach ($totalPrices as $totalPrice) {
     <div class="d-sm-flex align-items-center justify-content-between mb-4">
         <h1 class="h3 mb-0 text-gray-800">Dashboard</h1>
         <div class="bg-">
-            <h6 class="mr-2 d-none d-lg-inline text-dark text-bold ">Wellcom <span class="text-danger font-weight-bold"><?= $_SESSION['user']['name']; ?></span> to page <span class="text-danger font-weight-bold"><?= $_SESSION['user']['role']; ?></span></h6>
+            <h5 class="mr-2 d-none d-lg-inline text-dark text-bold ">Wellcome <span class="text-danger font-weight-bold "><?= $_SESSION['user']['name']; ?></span></h5>
         </div>
     </div>
 
