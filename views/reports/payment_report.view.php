@@ -14,14 +14,14 @@
             </thead>
             <tbody>
                 <?php
-                require "controllers/payments/old_payment.controller.php";
+                // require "controllers/reports/payment_report.controller.php";
                 $oldpays = getOldPayments();
                 foreach ($oldpays as $oldpay) :
                 ?>
                     <tr>
                         <td><?= $oldpay['pay_code'] ?></td>
                         <td><?= $oldpay['method_status'] ?></td>
-                        <td><?= $oldpay['pro_name'] ?>$</td>
+                        <td><?= $oldpay['pro_name'] ?></td>
                         <td><?= $oldpay['pay_totalprice'] ?>$</td>
                         <td><?= $oldpay['pay_date'] ?></td>
                     </tr>
