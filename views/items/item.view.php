@@ -189,7 +189,7 @@ if ($_SESSION['Products'] != []) {
                             </div>
 
                             <!-- popup update  -->
-                            <?php if ($_SESSION['user']['role'] != 'cashier') : ?>
+                             <?php if ($_SESSION['user']['role'] != 'cashier') : ?>
                                 <div class="modal fade" id="exampleModalUpdate<?= $pro['pro_id'] ?>" tabindex="-1" role="dialog" aria-labelledby="exampleModalUpdateTitle" aria-hidden="true">
                                     <div class="modal-dialog" role="document">
                                         <div class="modal-content">
