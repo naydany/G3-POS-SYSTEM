@@ -120,9 +120,9 @@ if ($page == 'controllers/categories/category.controller.php') {
         <div id="collapseOne" class="collapse" aria-labelledby="headingTwo" data-parent="#accordionSidebar">
             <div class="bg-white py-2 collapse-inner rounded">
                 <h6 class="collapse-header">Report Contains:</h6>
-                <a class="collapse-item" href="/reports">__detail dashboard</a>
+                <a class="collapse-item" href="/dashboard_report">__detail dashboard</a>
                 <a class="collapse-item" href="#">__sale report</a>
-                <a class="collapse-item" href="/payment_report">Payment Report</a>
+                <a class="collapse-item" href="/payment_report">__Payment Report</a>
                 
             </div>
         </div>
@@ -239,9 +239,9 @@ if ($page == 'controllers/categories/category.controller.php') {
                             $name = $_POST["name"];
                         }
                         ?>
-                        <h2 class="mr-2 d-none d-lg-inline text-gray-600 small text-bold"><?= $_SESSION['user']['role']; ?></h2>
-                        <img class="img-profile rounded-circle" style="object-fit: cover;" src="../assets/images/<?= $_SESSION['user']['image']; ?>">
-
+                       
+                        <img class="img-profile rounded-circle" style="object-fit: cover;" src="../assets/images/<?=$_SESSION['user']['image']; ?>">
+                        
                     </a>
                     <!-- Dropdown - User Information -->
                     <div class="dropdown-menu dropdown-menu-right shadow animated--grow-in" aria-labelledby="userDropdown">

@@ -75,11 +75,3 @@ function accountExist(string $email): array
 }
 
 
-
-function countNameCategory(): array
-{
-    global $connection;
-    $statement = $connection->prepare("select cate_name from categories");
-    $statement->execute();
-    return $statement->fetchAll();
-}

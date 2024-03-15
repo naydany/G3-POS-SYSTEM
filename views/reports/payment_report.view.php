@@ -14,7 +14,6 @@
             </thead>
             <tbody>
                 <?php
-                // require "controllers/reports/payment_report.controller.php";
                 $oldpays = getOldPayments();
                 foreach ($oldpays as $oldpay) :
                 ?>

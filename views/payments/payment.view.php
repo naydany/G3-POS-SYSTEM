@@ -97,6 +97,14 @@
     }
     ?>
     <h3 class="bg-success border border-primary rounded p-1 pl-4 m-4 text-white">Total : <?php echo $ToTal ?>$</h3>
+    <div class="d-flex justify-content-end">
+        <div class="align-self-end ">
+            <a href="/path_payment" class="btn btn-outline-primary mr-4">
+                <i class="fas fa-plus"></i> <i class="bi bi-currency-dollar"></i>
+                Start to Pay
+            </a>
+        </div>
+    </div>
 </div>
 <?php require "views/payments/old_payment.view.php"; ?>
 </div>
