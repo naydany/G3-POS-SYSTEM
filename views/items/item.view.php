@@ -2,11 +2,14 @@
 
 <?php
 $products = null;
-
+// print_r($_SESSION['Products']);
 if ($_SESSION['Products'] != []) {
     $products = $_SESSION['Products'];
-} else {
+} elseif($_SESSION['Products'] != ''){
     $products = getItem();
+}
+else {
+    $products = [];
 }
 
 ?>
@@ -22,8 +25,8 @@ if ($_SESSION['Products'] != []) {
 
             <form action="#" method="post">
                 <div class="card-header input-group-append w-200 ">
-                    <select id="select-categories" name="users">
-                        <option value="">Select category:</option>
+                    <select id="select-categories" class="border-primary" name="users" style="padding: 6px;">
+                        <option value="">selece category   </option>
                         <?php
                         foreach ($categories as $category) :
                         ?>
@@ -61,13 +64,10 @@ if ($_SESSION['Products'] != []) {
             });
         </script>
 
-
         <div class="card-body">
             <div class="table-responsive pr-3 pl-3">
                 <table class="table table-bordered text-center" id="dataTable" width="100%" cellspacing="0">
                     <thead class="bg-primary text-white thead-light">
-
-
                         <tr>
                             <th>ID</th>
                             <th>Image</th>
