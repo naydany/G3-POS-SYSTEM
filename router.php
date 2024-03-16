@@ -7,8 +7,8 @@ $routes = [
     '/' => 'controllers/wellcom/wellcom.controller.php',
     '/form_staff_signin' => 'controllers/staffsignin/form.signin.controller.php',
     '/form_admin_signin' => 'controllers/adminlogin/form.signin.controller.php',
+    '/forget_password' => 'controllers/staffsignin/forget_password.controller.php',
 ];
-
 
 if (isset($_SESSION['user'])) {
     if ($_SESSION['user']['role'] === 'admin') {
@@ -32,8 +32,6 @@ if (isset($_SESSION['user'])) {
             '/order_product' => 'controllers/orders/update_order.controller.php',
             '/order' => 'controllers/orders/order.controller.php',
 
-
-
             '/form_create' => 'controllers/items/create_item.controller.php',
             '/update_item' => 'controllers/items/edit_item.controller.php',
             '/update_admin' => 'controllers/admin/edit_admin.controller.php',
@@ -54,6 +52,7 @@ if (isset($_SESSION['user'])) {
             '/dashboard_report'=>'controllers/reports/dashboard_report.controller.php',
             
             '/sale_report' => 'controllers/reports/sale_report.controller.php',
+            '/forget_password' => 'controllers/staffsignin/forget_password.controller.php',
 
         ];
     } elseif ($_SESSION['user']['role'] === 'stock manager') {
@@ -82,6 +81,8 @@ if (isset($_SESSION['user'])) {
             '/form_admin' => 'controllers/admin/form_admin.controller.php',
             '/form_payment' => 'controllers/payments/form.payment.controller.php',
             '/old_payment' => 'controllers/payments/old_payment.controller.php',
+         
+            '/forget_password' => 'controllers/staffsignin/forget_password.controller.php',
 
         ];
     }elseif($_SESSION['user']['role'] === 'cashier') {
@@ -110,9 +111,8 @@ if (isset($_SESSION['user'])) {
             '/form_admin' => 'controllers/admin/form_admin.controller.php',
             '/form_payment' => 'controllers/payments/form.payment.controller.php',
             '/old_payment' => 'controllers/payments/old_payment.controller.php',
-          
-           
-
+            '/forget_password' => 'controllers/staffsignin/forget_password.controller.php',
+        
         ];
     }
 }
@@ -128,7 +128,7 @@ if (array_key_exists($uri, $routes)) {
 
 require "layouts/header.php";
 if (!empty($_SESSION['user'])) {
-    if ($uri != '/' && $uri != '/form_admin_signin' && $uri != '/form_staff_signin') {
+    if ($uri != '/' && $uri != '/form_admin_signin' && $uri != '/form_staff_signin' && $uri != '/forget_password') {
         require "layouts/navbar.php";
         require $page;
         require "layouts/footer.php";
@@ -136,7 +136,7 @@ if (!empty($_SESSION['user'])) {
         require $page;
     }
 } elseif (empty($_SESSION['user'])) {
-    if ($uri != '/' && $uri != '/form_admin_signin' && $uri != '/form_staff_signin') {
+    if ($uri != '/' && $uri != '/form_admin_signin' && $uri != '/form_staff_signin' && $uri != '/forget_password') {
         // $page = 'views/errors/404.php';
         $page = 'controllers/wellcom/wellcom.controller.php';
         require $page;

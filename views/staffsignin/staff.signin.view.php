@@ -46,10 +46,8 @@ endif;
                             <span class="input-group-text" style="display: none;" id="showPass" onclick="togglePasswordVisibility()"><i class="bi-eye"></i></span>
                         </div>
                     </div>
-
-
                     <div class="row justify-content-between">
-                        <a href="" class="mt-5">Forgot your password?</a>
+                        <a href="/forget_password" class="mt-5">Forgot your password?</a>
                         <button class="btn btn-primary my-4">Log In</button>
                     </div>
                 </form>
