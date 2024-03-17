@@ -2,11 +2,14 @@
 
 <?php
 $products = null;
-
+// print_r($_SESSION['Products']);
 if ($_SESSION['Products'] != []) {
     $products = $_SESSION['Products'];
-} else {
+} elseif($_SESSION['Products'] != ''){
     $products = getItem();
+}
+else {
+    $products = [];
 }
 
 ?>
@@ -22,8 +25,8 @@ if ($_SESSION['Products'] != []) {
 
             <form action="#" method="post">
                 <div class="card-header input-group-append w-200 ">
-                    <select id="select-categories" name="users">
-                        <option value="">Select category:</option>
+                    <select id="select-categories" class="border-primary" name="users" style="padding: 6px;">
+                        <option value="">selece category   </option>
                         <?php
                         foreach ($categories as $category) :
                         ?>
@@ -61,13 +64,10 @@ if ($_SESSION['Products'] != []) {
             });
         </script>
 
-
         <div class="card-body">
             <div class="table-responsive pr-3 pl-3">
                 <table class="table table-bordered text-center" id="dataTable" width="100%" cellspacing="0">
                     <thead class="bg-primary text-white thead-light">
-
-
                         <tr>
                             <th>ID</th>
                             <th>Image</th>
@@ -106,14 +106,14 @@ if ($_SESSION['Products'] != []) {
                                 </td>
                                 <td>
                                     <?php if ($_SESSION['user']['role'] != 'cashier') : ?>
-                                        <a onclick="return confirm('Do you want to delete this product?')" href="../../controllers/items/delete_item.controller.php?id=<?= $pro['pro_id'] ?>"><i class="bi bi-trash3 text-danger btn btn-lg ml-3"></i></a>
+                                        <a onclick="return confirm('Do you want to delete this product?')" href="../../controllers/items/delete_item.controller.php?id=<?= $pro['pro_id'] ?>"><i class="bi bi-pencil-square text-success btn btn-lg ml-1"></i></a>
                                     <?php endif; ?>
 
                                     <?php if ($_SESSION['user']['role'] != 'cashier') : ?>
-                                        <i class="bi bi-pencil-fill text-success btn btn-lg ml-3" data-toggle="modal" data-target="#exampleModalUpdate<?= $pro['pro_id'] ?>"></i>
+                                        <i class="bi bi-trash3 text-danger btn btn-lg ml-1" data-toggle="modal" data-target="#exampleModalUpdate<?= $pro['pro_id'] ?>"></i>
                                     <?php endif; ?>
 
-                                    <i class="bi bi-eye-fill text-info btn btn-lg ml-3 " id="view_item" data-toggle="modal" data-target="#ModalView<?= $pro['pro_id'] ?>"></i>
+                                    <i class="bi bi-eye-fill text-info btn btn-lg ml-1 " id="view_item" data-toggle="modal" data-target="#ModalView<?= $pro['pro_id'] ?>"></i>
 
                                 </td>
 

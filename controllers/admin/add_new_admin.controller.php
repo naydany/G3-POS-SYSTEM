@@ -13,7 +13,6 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
     $role = $_POST['role'];
     $imgProfile = $_FILES['imageprofile'];
     print_r($imgProfile);
-    // echo $imgProfile;
 
     if (!empty($name) && !empty($email) && !empty($password) && !empty($address) && !empty($phone)  && !empty($role)) {
 
