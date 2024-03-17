@@ -61,7 +61,7 @@
                             <div class=" div-1">
                                 <div class=" form-group">
                                     <label for="pro_name">Customer ID</label>
-                                    <input type="text" class="form-control w-100" value="<?= $customer?>" placeholder="Enter Name" name="customerID">
+                                    <input type="text" class="form-control w-100" value="<?= $customer ?>" placeholder="Enter Name" name="customerID">
                                 </div>
                                 <div class="form-group">
                                     <label>Pay Code</label>
@@ -98,5 +98,5 @@
     ?>
     <h3 class="bg-success border border-primary rounded p-1 pl-4 m-4 text-white">Total : <?php echo $ToTal ?>$</h3>
 
-<?php require "views/payments/old_payment.view.php"; ?>
+    <?php require "views/payments/old_payment.view.php"; ?>
 </div>

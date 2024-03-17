@@ -47,8 +47,6 @@ if (isset($_SESSION['user'])) {
             '/old_payment' => 'controllers/payments/old_payment.controller.php',
              
             '/path_payment' => 'controllers/payments/path_payment.controller.php',
-          
-
             '/dashboard_report'=>'controllers/reports/dashboard_report.controller.php',
             '/sale_report' => 'controllers/reports/sale_report.controller.php',
             '/payment_report' => 'controllers/reports/payment_report.controller.php',
@@ -56,6 +54,7 @@ if (isset($_SESSION['user'])) {
 
             '/forget_password' => 'controllers/staffsignin/forget_password.controller.php',
             '/recipt_order' => 'controllers/payments/recipt_order.controller.php',
+            '/complete_pay' => 'controllers/payments/store_oldpay.controller.php',
 
         ];
     } elseif ($_SESSION['user']['role'] === 'stock manager') {
@@ -85,7 +84,18 @@ if (isset($_SESSION['user'])) {
             '/form_payment' => 'controllers/payments/form.payment.controller.php',
             '/old_payment' => 'controllers/payments/old_payment.controller.php',
          
+            '/path_payment' => 'controllers/payments/path_payment.controller.php',
+          
+
+            '/dashboard_report'=>'controllers/reports/dashboard_report.controller.php',
+            '/sale_report' => 'controllers/reports/sale_report.controller.php',
+            '/payment_report' => 'controllers/reports/payment_report.controller.php',
+            '/employee_report' => 'controllers/reports/employee_report.controller.php',
+
             '/forget_password' => 'controllers/staffsignin/forget_password.controller.php',
+            '/recipt_order' => 'controllers/payments/recipt_order.controller.php',
+            '/complete_pay' => 'controllers/payments/store_oldpay.controller.php',
+
 
         ];
     }elseif($_SESSION['user']['role'] === 'cashier') {
@@ -114,7 +124,18 @@ if (isset($_SESSION['user'])) {
             '/form_admin' => 'controllers/admin/form_admin.controller.php',
             '/form_payment' => 'controllers/payments/form.payment.controller.php',
             '/old_payment' => 'controllers/payments/old_payment.controller.php',
+            '/path_payment' => 'controllers/payments/path_payment.controller.php',
+          
+
+            '/dashboard_report'=>'controllers/reports/dashboard_report.controller.php',
+            '/sale_report' => 'controllers/reports/sale_report.controller.php',
+            '/payment_report' => 'controllers/reports/payment_report.controller.php',
+            '/employee_report' => 'controllers/reports/employee_report.controller.php',
+
             '/forget_password' => 'controllers/staffsignin/forget_password.controller.php',
+            '/recipt_order' => 'controllers/payments/recipt_order.controller.php',
+            '/complete_pay' => 'controllers/payments/store_oldpay.controller.php',
+
         
         ];
     }
