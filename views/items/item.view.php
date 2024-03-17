@@ -106,17 +106,17 @@ else {
                                 </td>
                                 <td>
                                     <?php if ($_SESSION['user']['role'] != 'cashier') : ?>
-                                        <a onclick="return confirm('Do you want to delete this product?')" href="../../controllers/items/delete_item.controller.php?id=<?= $pro['pro_id'] ?>"><i class="bi bi-pencil-square text-success btn btn-lg ml-1"></i></a>
+                                        <i class="bi bi-pencil-square text-success btn btn-lg ml-1" data-toggle="modal" data-target="#exampleModalUpdate<?= $pro['pro_id'] ?>"></i>
                                     <?php endif; ?>
-
+                                    
                                     <?php if ($_SESSION['user']['role'] != 'cashier') : ?>
-                                        <i class="bi bi-trash3 text-danger btn btn-lg ml-1" data-toggle="modal" data-target="#exampleModalUpdate<?= $pro['pro_id'] ?>"></i>
+                                        <a onclick="return confirm('Do you want to delete this product?')" href="../../controllers/items/delete_item.controller.php?id=<?= $pro['pro_id'] ?>"><i class="bi bi-trash3 text-danger btn btn-lg ml-1"></i></a>
                                     <?php endif; ?>
-
+                                        
                                     <i class="bi bi-eye-fill text-info btn btn-lg ml-1 " id="view_item" data-toggle="modal" data-target="#ModalView<?= $pro['pro_id'] ?>"></i>
 
                                 </td>
-
+    
                                 <!-- popup view -->
 
                             </tr>
