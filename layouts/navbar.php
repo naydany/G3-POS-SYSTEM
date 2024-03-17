@@ -120,9 +120,10 @@ if ($page == 'controllers/categories/category.controller.php') {
         <div id="collapseOne" class="collapse" aria-labelledby="headingTwo" data-parent="#accordionSidebar">
             <div class="bg-white py-2 collapse-inner rounded">
                 <h6 class="collapse-header">Report Contains:</h6>
-                <a class="collapse-item" href="/dashboard_report">__detail dashboard</a>
-                <a class="collapse-item" href="/sale_report">__sale report</a>
+                <a class="collapse-item" href="/dashboard_report">__Detail Dashboard</a>
+                <a class="collapse-item" href="/sale_report">__Sale Report</a>
                 <a class="collapse-item" href="/payment_report">__Payment Report</a>
+                <a class="collapse-item" href="/employee_report">__Employee Report</a>
 
             </div>
         </div>
