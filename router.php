@@ -47,11 +47,13 @@ if (isset($_SESSION['user'])) {
             '/old_payment' => 'controllers/payments/old_payment.controller.php',
              
             '/path_payment' => 'controllers/payments/path_payment.controller.php',
-            '/payment_report' => 'controllers/reports/payment_report.controller.php',
+          
 
             '/dashboard_report'=>'controllers/reports/dashboard_report.controller.php',
-            
             '/sale_report' => 'controllers/reports/sale_report.controller.php',
+            '/payment_report' => 'controllers/reports/payment_report.controller.php',
+            '/employee_report' => 'controllers/reports/employee_report.controller.php',
+
             '/forget_password' => 'controllers/staffsignin/forget_password.controller.php',
             '/recipt_order' => 'controllers/payments/recipt_order.controller.php',
 
