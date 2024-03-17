@@ -1,7 +1,7 @@
 
     <div class="container mt-3">
-        <table class="table table-bordered text-center mt-2 rounded">
-            <h4 class="m-5 text-primary">Payment Report</h4>
+        <h4 class="text-primary" style="margin-top: 5%;">Payment Report</h4>
+        <table class="table table-bordered text-center">
             <thead class="text-secondary thead-light">
                 <tr>
                     <th>Payment Code</th>

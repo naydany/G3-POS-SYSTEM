@@ -1,6 +1,6 @@
 <div class="container mt-3">
-    <table class="table table-bordered text-center mt-2 rounded">
-        <h4 class="m-5 text-primary">Orders Reports</h4>
+    <h4 class="text-primary" style="margin-top: 5%;">Orders Reports</h4>
+    <table class="table table-bordered text-center">
         <thead class="text-secondary thead-light">
 
             <tr>

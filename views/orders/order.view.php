@@ -22,7 +22,7 @@
                         <td>
                             <div class="btn-group">
                                 <a href="/order_product?id=<?= $product['pro_id'] ?>">
-                                    <button class="btn btn-success">
+                                    <button class="btn btn-success" style="font-size: smaller;">
                                         <i class="bi bi-cart"></i>
                                         Place order
                                     </button>
