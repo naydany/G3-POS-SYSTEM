@@ -138,41 +138,91 @@ foreach ($totalPrices as $totalPrice) {
     </div>
 
     <h1 class="h3 mb-0 text-gray-800">Order Detail</h1><br>
-    <table class="table bg-white text-black">
-        <thead class="text-white bg-primary">
-            <tr>
-                <th>ID</th>
-                <th>Product Name</th>
-                <th>Unit Price</th>
-                <th>Quantity</th>
-                <th>Total price</th>
-                <th>Status</th>
-                <th>Date</th>
-            </tr>
-        </thead>
+        <p class="text-muted">Showing 1 to 10 of 100 rows  
+            <select class=" form-control-sm" name="row" id="row">
+                <option>5</option>
+                <option>10</option>
+                <option>25</option>
+                <option>40</option>
+                <option>60</option>
+                <option>80</option>
+                <option>100</option>
+            </select> rows per page
+        </p>
 
-        <tbody>
-            <?php
-            require "models/order.model.php";
-            $orders = getOrdersDetail();
-            foreach ($orders as $order) : ?>
+        <table class="table bg-white text-black">
+            <thead class="text-white bg-primary">
                 <tr>
-                    <td><?= $order['order_detail_id'] ?></td>
-                    <td><?= $order['pro_name'] ?></td>
-                    <td><?= $order['pro_price'] ?>$</td>
-                    <td><?= $order['pro_qty'] ?></td>
-                    <td><?= $order['tatal_price'] ?>$</td>
-                    <td>
-                        <?php if ($order['order_status'] != "Paid" && $order['order_status'] != 1) {
-                            echo "<span class='badge badge-danger'>Not Paid</span>";
-                        } else {
-                            echo "<span class='badge badge-success'>Paid</span>";
-                        }
-                        ?>
-                    </td>
-                    <td><?= $order['order_date'] ?></td>
+                    <th>ID</th>
+                    <th>Product Name</th>
+                    <th>Unit Price</th>
+                    <th>Quantity</th>
+                    <th>Total price</th>
+                    <th>Status</th>
+                    <th>Date</th>
                 </tr>
-            <?php endforeach; ?>
-        </tbody>
-    </table>
+            </thead>
+
+            <tbody id="orderTableBody">
+                <?php
+                require "models/order.model.php";
+                $orders = getOrdersDetail();
+                foreach ($orders as $order) : ?>
+                    <tr>
+                        <td><?= $order['order_detail_id'] ?></td>
+                        <td><?= $order['pro_name'] ?></td>
+                        <td><?= $order['pro_price'] ?>$</td>
+                        <td><?= $order['pro_qty'] ?></td>
+                        <td><?= $order['tatal_price'] ?>$</td>
+                        <td>
+                            <?php if ($order['order_status'] != "Paid" && $order['order_status'] != 1) {
+                                echo "<span class='badge badge-danger'>Not Paid</span>";
+                            } else {
+                                echo "<span class='badge badge-success'>Paid</span>";
+                            }
+                            ?>
+                        </td>
+                        <td><?= $order['order_date'] ?></td>
+                    </tr>
+                <?php endforeach; ?>
+            </tbody>
+        </table>
+
+        <script>
+
+            function getSelectedRows() {
+                return localStorage.getItem('selectedRows') || 5; 
+            }
+
+
+            function setSelectedRows(value) {
+                localStorage.setItem('selectedRows', value);
+            }
+
+        
+            document.addEventListener('DOMContentLoaded', function() {
+                var selectedRows = getSelectedRows();
+                document.getElementById('row').value = selectedRows;
+                updateTableDisplay(selectedRows); 
+            });
+
+        
+            function updateTableDisplay(selectedRows) {
+                var tableRows = document.querySelectorAll('#orderTableBody tr');
+                tableRows.forEach(function(row, index) {
+                    if (index < selectedRows) {
+                        row.style.display = '';
+                    } else {
+                        row.style.display = 'none';
+                    }
+                });
+            }
+
+
+            document.getElementById('row').addEventListener('change', function() {
+                var selectedRows = parseInt(this.value);
+                setSelectedRows(selectedRows); 
+                updateTableDisplay(selectedRows); 
+            });
+        </script>
 </div>
