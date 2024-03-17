@@ -1,8 +1,15 @@
+
 <div class="container mt-3">
     <table class="table table-bordered text-center mt-2 rounded">
-        <h4 class="m-5 text-primary">Orders Reports</h4>
-        <thead class="text-secondary thead-light">
 
+        <div class="card-header py-3 d-flex justify-content-between">
+            <h4 class="m-5 text-primary">Sales Reports</h4>
+            <button class="btn btn-outline-primary h-50 mt-5" id="export_data"><i class="bi bi-file-earmark-arrow-down"></i>
+                Export Data
+            </button>
+        </div>
+
+        <thead class="text-secondary thead-light">
             <tr>
                 <th>Order ID</th>
                 <th>Product</th>
@@ -14,7 +21,7 @@
         </thead>
         <tbody>
             <?php
-            require "models/order.model.php";
+             require "models/order.model.php";
             $orders = getOrdersDetail();
             foreach ($orders as $order) : ?>
                 <tr>
@@ -40,6 +47,10 @@
 <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"></script>
 <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
-</body>
-
-</html>
+<script>
+    $(document).ready(function() {
+        $('#export_data').click(function() {
+            window.location.href = 'export.php'; 
+        });
+    });
+</script>
