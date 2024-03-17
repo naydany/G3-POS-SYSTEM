@@ -1,5 +1,5 @@
-<div class="container mt-3">
-    <h4 class="text-primary" style="margin-top: 5%;">Orders Reports</h4>
+<div class="container mt-4">
+    <h4 class="m-5 text-primary" style="margin-top: 5%;">Orders Reports</h4>
     <table class="table table-bordered text-center">
         <thead class="text-secondary thead-light">
 

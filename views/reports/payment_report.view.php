@@ -1,5 +1,5 @@
 
-    <div class="container mt-3">
+    <div class="container mt-4">
         <h4 class="text-primary" style="margin-top: 5%;">Payment Report</h4>
         <table class="table table-bordered text-center">
             <thead class="text-secondary thead-light">
