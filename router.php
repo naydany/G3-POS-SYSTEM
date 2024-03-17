@@ -55,6 +55,7 @@ if (isset($_SESSION['user'])) {
             '/employee_report' => 'controllers/reports/employee_report.controller.php',
 
             '/forget_password' => 'controllers/staffsignin/forget_password.controller.php',
+            '/recipt_order' => 'controllers/payments/recipt_order.controller.php',
 
         ];
     } elseif ($_SESSION['user']['role'] === 'stock manager') {
