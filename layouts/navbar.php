@@ -17,6 +17,8 @@ if ($page == 'controllers/categories/category.controller.php') {
     $current_poge = "supplier";
 } elseif ($page == 'controllers/admin/table_admin.controller.php') {
     $current_poge = "admin";
+}elseif ($page == 'controllers/admin/recipt_order.controller.php'){
+    $current_poge = "recipt";
 }
 ?>
 <script src=".././vendor/chart.js/search_category.js"></script>
@@ -26,6 +28,7 @@ if ($page == 'controllers/categories/category.controller.php') {
 <script src=".././/vendor/chart.js/search_staff.js"></script>
 <script src=".././/vendor/chart.js/search_supplier.js"></script>
 <script src=".././/vendor/chart.js/search_admin.js"></script>
+<script src=".././/vendor/chart.js/custom_order.js"></script>
 
 
 
