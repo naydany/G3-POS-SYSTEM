@@ -1,5 +1,9 @@
-<div class="container mt-4">
-    <h4 class="text-primary" style="margin-top: 5%;">Employee Report</h4>
+<div class="card-header py-3 d-flex justify-content-between">
+    <h4 class="m-5 text-primary">Employee Reports</h4>
+    <button class="btn btn-outline-primary h-50 mt-5" id="export_btn"><i class="bi bi-file-earmark-arrow-down"></i>
+        Export Data
+    </button>
+</div>
         <table class="table table-bordered text-center" id = "employee_data">
             <thead class="text-secondary thead-light">
                 <tr>
@@ -30,9 +34,21 @@
         </table>
 </div>
 
+<script src="https://cdnjs.cloudflare.com/ajax/libs/xlsx/0.17.5/xlsx.full.min.js"></script>
 <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"></script>
 <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
-</body>
 
-</html>
+<script>
+    function export_table_data_to_excel(type) {
+        var data = document.getElementById("employee_data");
+        var file = XLSX.utils.table_to_book(data, {
+            sheet: "sheet1"
+        });
+        XLSX.writeFile(file, 'file.' + type);
+    }
+    const export_button = document.getElementById("export_btn");
+    export_button.addEventListener('click', () => {
+        export_table_data_to_excel('xlsx');
+    });
+</script>
