@@ -1,4 +1,4 @@
-<div class="card-header py-3 d-flex justify-content-between">
+<div class="card-header d-flex justify-content-between">
     <h4 class="m-5 text-primary">Sales Reports</h4>
     <button class="btn btn-outline-primary h-50 mt-5" id="export_button"><i class="bi bi-file-earmark-arrow-down"></i>
         Export Data
