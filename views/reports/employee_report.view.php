@@ -1,6 +1,6 @@
 <div class="container mt-4">
     <h4 class="text-primary" style="margin-top: 5%;">Employee Report</h4>
-        <table class="table table-bordered text-center">
+        <table class="table table-bordered text-center" id = "employee_data">
             <thead class="text-secondary thead-light">
                 <tr>
                     <th>Employee ID</th>

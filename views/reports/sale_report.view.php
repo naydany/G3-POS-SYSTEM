@@ -4,7 +4,7 @@
         Export Data
     </button>
 </div>
-</div>
+
 <div class="container mt-3">
     <table class="table table-bordered text-center" id="sale_data">
         <thead class="text-secondary thead-light">
