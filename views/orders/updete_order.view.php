@@ -1,6 +1,6 @@
 
 
-<div class="container p-5 m-5 d-flex justify-content-center">
+<div class="container p-5 ml-2 d-flex justify-content-center">
   <div class="card p-5 w-50">
     <form action="controllers/payments/add_payment.controller.php" class="d-flex flex-column" method="post" id="orderForm">
       <legend class="text-primary">Order</legend>

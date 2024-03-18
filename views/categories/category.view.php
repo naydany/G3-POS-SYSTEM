@@ -16,7 +16,7 @@
             <tr>
                 <th>Id</th>
                 <th>Category Name</th>
-                <th>Date</th>
+                <th>Create Date</th>
                 <th>Action</th>
             </tr>
         </thead>
