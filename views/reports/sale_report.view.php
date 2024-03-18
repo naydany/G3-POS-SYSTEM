@@ -6,7 +6,8 @@
 </div>
 
 <div class="container mt-3">
-    <table class="table table-bordered text-center" id="sale_data">
+    <h4 class="text-primary" style="margin-top: 5%;">Orders Reports</h4>
+    <table class="table table-bordered text-center mt-2 rounded">
         <thead class="text-secondary thead-light">
 
             <tr>
@@ -26,8 +27,8 @@
                 <tr>
                     <td><?= $order['order_detail_id'] ?></td>
                     <td><?= $order['pro_name'] ?></td>
-                    <td><?= $order['pro_price'] ?>$</td>
-                    <td><?= $order['tatal_price'] ?></td>
+                    <td><?= $order['pro_price'] ?></td>
+                    <td><?= $order['tatal_price'] ?>$</td>
                     <td>
                         <?php if ($order['order_status'] != "Paid" && $order['order_status'] != 1) {
                             echo "<span class='badge badge-danger'>Not Paid</span>";
