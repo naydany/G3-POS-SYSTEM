@@ -1,4 +1,5 @@
 <?php
+session_start();
 require '../../database/database.php';
 require '../../models/admin.model.php';
 if ($_SERVER['REQUEST_METHOD'] == 'POST') {
@@ -11,9 +12,11 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
         $id = $_POST['id'];
         
         $update = updateAdmin($id, $name, $email, $address);
-
+        $_SESSION['success'] = 'Update admin is success';
         header('location:/admin_table');
+        
     }else{
-        // header('location:/admin_table');
+        header('location:/admin_table');
+        $_SESSION['error'] = 'form is not complete';
     }
 }
