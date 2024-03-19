@@ -72,7 +72,7 @@ if ($page == 'controllers/categories/category.controller.php') {
             <div class="bg-white py-2 collapse-inner rounded">
                 <h6 class="collapse-header">Product Contains:</h6>
                 <a class="collapse-item" href="/categories">Categories</a>
-                <a class="collapse-item" href="/items">Items</a>
+                <a class="collapse-item" href="/items">Products</a>
             </div>
         </div>
     </li>
