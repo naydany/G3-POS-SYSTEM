@@ -76,7 +76,7 @@
             font-weight: 600;
             letter-spacing: .1rem;
             text-decoration: none;
-            text-transform: upបpercase;
+            text-transform: uppercase;
         }
 
         .m-b-md {
