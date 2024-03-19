@@ -90,7 +90,7 @@ else {
                                 </td>
                                 <td><img width="50px" height="50px" style="object-fit: cover;" class="rounded-circle" src="assets/images/<?= $pro['pro_img'] ?>" alt=""></td>
                                 <td>
-                                    <?= $pro['pro_name'] ?>
+                                    <?= $pro['pro_name']  ?>
                                 </td>
                                 <td>
                                     <?= $pro['pro_code'] ?>

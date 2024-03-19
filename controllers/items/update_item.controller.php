@@ -2,12 +2,12 @@
 require_once '../../database/database.php';
 require_once '../../models/item.model.php';
 if ($_SERVER['REQUEST_METHOD'] == "POST") {
-        $pro_name = $_POST['name'];
-        $pro_code = $_POST['code'];
-        $pro_price = $_POST['price'];
-        $pro_cate = $_POST['cate'];
-        $pro_quan = $_POST['quantity'];
-        $pro_id=$_POST['id'];
+        $pro_name = htmlspecialchars($_POST['name']);
+        $pro_code = htmlspecialchars($_POST['code']);
+        $pro_price = htmlspecialchars($_POST['price']);
+        $pro_cate = htmlspecialchars($_POST['cate']);
+        $pro_quan = htmlspecialchars($_POST['quantity']);
+        $pro_id= htmlspecialchars($_POST['id']);
 
         $isUpdated = updateItem($pro_name, $pro_code, $pro_price, $pro_quan, $pro_id);
         if ($isUpdated) {
