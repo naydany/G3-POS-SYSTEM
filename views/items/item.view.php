@@ -1,18 +1,44 @@
+
+
+<?php if (isset($_SESSION['success'])) : ?>
+    <div class="alert alert-success alert-dismissible fade show" id="alert">
+        <button type="button" class="close" data-dismiss="alert">&times;</button>
+        <?= $_SESSION['success'] ?>
+    </div>
+<?php
+    unset($_SESSION['success']);
+endif;
+?>
+<?php if (isset($_SESSION['error'])) : ?>
+    <div class="alert alert-danger alert-dismissible fade show align-center" id="alert" style="width: 350px;">
+        <div class="card-body px-lg-5 py-lg-5">
+            <form action="">
+                <button type="button" class="close" data-dismiss="alert">&times;</button>
+                <?= $_SESSION['error'] ?>
+            </form>
+        </div>
+    </div>
+<?php
+    unset($_SESSION['error']);
+endif;
+?>
+
+
 <!-- Begin Page Content -->
 
 <?php
 $products = null;
-
+// print_r($_SESSION['Products']);
 if ($_SESSION['Products'] != []) {
     $products = $_SESSION['Products'];
-} else {
+} elseif ($_SESSION['Products'] != '') {
     $products = getItem();
+} else {
+    $products = [];
 }
-
 ?>
 
 <div class="container-fluid">
-
     <!-- DataTales Example -->
     <div class="card shadow ">
         <div class="card-header py-3 d-flex justify-content-between">
@@ -22,8 +48,8 @@ if ($_SESSION['Products'] != []) {
 
             <form action="#" method="post">
                 <div class="card-header input-group-append w-200 ">
-                    <select id="select-categories" name="users">
-                        <option value="">Select category:</option>
+                    <select id="select-categories" class="border-primary rounded text-primary" name="users" style="padding: 6px;">
+                        <option value="">selece category </option>
                         <?php
                         foreach ($categories as $category) :
                         ?>
@@ -61,13 +87,10 @@ if ($_SESSION['Products'] != []) {
             });
         </script>
 
-
         <div class="card-body">
             <div class="table-responsive pr-3 pl-3">
                 <table class="table table-bordered text-center" id="dataTable" width="100%" cellspacing="0">
                     <thead class="bg-primary text-white thead-light">
-
-
                         <tr>
                             <th>ID</th>
                             <th>Image</th>
@@ -90,7 +113,7 @@ if ($_SESSION['Products'] != []) {
                                 </td>
                                 <td><img width="50px" height="50px" style="object-fit: cover;" class="rounded-circle" src="assets/images/<?= $pro['pro_img'] ?>" alt=""></td>
                                 <td>
-                                    <?= $pro['pro_name'] ?>
+                                    <?= $pro['pro_name']  ?>
                                 </td>
                                 <td>
                                     <?= $pro['pro_code'] ?>
@@ -106,14 +129,14 @@ if ($_SESSION['Products'] != []) {
                                 </td>
                                 <td>
                                     <?php if ($_SESSION['user']['role'] != 'cashier') : ?>
-                                        <a onclick="return confirm('Do you want to delete this product?')" href="../../controllers/items/delete_item.controller.php?id=<?= $pro['pro_id'] ?>"><i class="bi bi-trash3 text-danger btn btn-lg ml-3"></i></a>
+                                        <i class="bi bi-pencil-square text-success btn btn-lg ml-1" data-toggle="modal" data-target="#exampleModalUpdate<?= $pro['pro_id'] ?>"></i>
                                     <?php endif; ?>
 
                                     <?php if ($_SESSION['user']['role'] != 'cashier') : ?>
-                                        <i class="bi bi-pencil-fill text-success btn btn-lg ml-3" data-toggle="modal" data-target="#exampleModalUpdate<?= $pro['pro_id'] ?>"></i>
+                                        <a onclick="return confirm('Do you want to delete this product?')" href="../../controllers/items/delete_item.controller.php?id=<?= $pro['pro_id'] ?>"><i class="bi bi-trash3 text-danger btn btn-lg ml-1"></i></a>
                                     <?php endif; ?>
 
-                                    <i class="bi bi-eye-fill text-info btn btn-lg ml-3 " id="view_item" data-toggle="modal" data-target="#ModalView<?= $pro['pro_id'] ?>"></i>
+                                    <i class="bi bi-eye-fill text-info btn btn-lg ml-1 " id="view_item" data-toggle="modal" data-target="#ModalView<?= $pro['pro_id'] ?>"></i>
 
                                 </td>
 
@@ -250,13 +273,13 @@ if ($_SESSION['Products'] != []) {
 
     <div class="modal fade" id="myModal">
         <div class="modal-dialog">
-            <div class="modal-content" style="width: 580px;">
+            <div class="modal-content" style="width:580px; ">
                 <div class="modal-header">
                     <h4 class="modal-title text-danger">Form Create</h4>
                     <button type="button" class="close" data-dismiss="modal">&times;</button>
                 </div>
                 <div class="modal-body">
-                    <form action="../../controllers/items/create.controller.php" method="post" class="d-flex flex-xl-column p-3 ml-1" enctype="multipart/form-data">
+                    <form action="../../controllers/items/create.controller.php" method="post" id="form-create" class="d-flex flex-xl-column p-3 ml-1" enctype="multipart/form-data">
                         <div class="form-row">
                             <div class=" form-group mr-5">
                                 <label for="pro_name">Name</label>
@@ -312,5 +335,12 @@ if ($_SESSION['Products'] != []) {
                 </div>
             </div>
         </div>
+<<<<<<< HEAD
     </div>
 <?php endif; ?>
+=======
+        
+    </div>
+
+<?php endif; ?>
+>>>>>>> b4ea96e7c9d877de712de6d71fe2e805094e42d8

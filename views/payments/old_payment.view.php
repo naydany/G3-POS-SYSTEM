@@ -2,6 +2,17 @@
     <div class="card-header border-0 d-flex text-danger">
         <h3>Old Payments</h3>
     </div>
+    <p class="text-muted ml-4">Showing 1 to 10 of 100 rows  
+            <select class="form-control-sm" name="row" id="row">
+                <option>5</option>
+                <option>10</option>
+                <option>25</option>
+                <option>40</option>
+                <option>60</option>
+                <option>80</option>
+                <option>100</option>
+            </select> rows per page
+        </p>
     <div class="container">
         <table class="table table-bordered text-center mt-2 rounded">
             <thead class="text-secondary thead-light">
@@ -12,12 +23,12 @@
                     <th>Quantity</th>
                     <th>Total Price</th>
                     <th>Date</th>
-                    <th>customerID</th>
+                    <th>CustomerID</th>
                     <th>Status</th>
                     <th>Action</th>
                 </tr>
             </thead>
-            <tbody>
+            <tbody id="oldPaymentsTableBody">
                 <?php
                 $oldpays = getOldPayments();
                 foreach ($oldpays as $oldpay) :
@@ -26,7 +37,7 @@
                         <td><?= $oldpay['pay_code'] ?></td>
                         <td><?= $oldpay['pro_name'] ?></td>
                         <td><?= $oldpay['pro_price'] ?>$</td>
-                        <td><?= $oldpay['pro_quantity'] ?>$</td>
+                        <td><?= $oldpay['pro_quantity'] ?></td>
                         <td><?= $oldpay['pay_totalprice'] ?>$</td>
                         <td><?= $oldpay['pay_date'] ?></td>
                         <td><?= $oldpay['cus_id'] ?></td>
@@ -36,10 +47,43 @@
                                 <a onclick="return confirm('Do you want to cancel this payment?')" href="controllers/payments/delete_oldpayment.controller.php?id=<?= $oldpay['pay_id'] ?>">
                                     <i class="bi bi-x-circle text-danger btn btn-lg ml-3"></i>
                                 </a>
+                            </div>
                         </td>
                     </tr>
                 <?php endforeach; ?>
             </tbody>
         </table>
+        <script>
+            function getSelectedRows() {
+                return localStorage.getItem('selectedRows') || 5; 
+            }
+
+            function setSelectedRows(value) {
+                localStorage.setItem('selectedRows', value);
+            }
+
+            document.addEventListener('DOMContentLoaded', function() {
+                var selectedRows = getSelectedRows();
+                document.getElementById('row').value = selectedRows;
+                updateTableDisplay(selectedRows); 
+            });
+
+            function updateTableDisplay(selectedRows) {
+                var tableRows = document.querySelectorAll('#oldPaymentsTableBody tr');
+                tableRows.forEach(function(row, index) {
+                    if (index < selectedRows) {
+                        row.style.display = '';
+                    } else {
+                        row.style.display = 'none';
+                    }
+                });
+            }
+
+            document.getElementById('row').addEventListener('change', function() {
+                var selectedRows = parseInt(this.value);
+                setSelectedRows(selectedRows); 
+                updateTableDisplay(selectedRows); 
+            });
+        </script>
     </div>
 </div>

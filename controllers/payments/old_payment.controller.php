@@ -18,12 +18,11 @@ if ($_SERVER['REQUEST_METHOD'] == "POST") {
             $Paid = updateOrder($Paid,$date);
         }
     }
-    header('Location:/payments');
+ 
 }
 $add_oldPayment = oldPayment();
 $getOldPayments = getOldPayments();
 
-deletOrder();
+// deletOrder();
 
-
-
+header('Location:/recipt_order');

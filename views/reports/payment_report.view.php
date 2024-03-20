@@ -1,9 +1,8 @@
 
-    <div class="container mt-3">
+    <div class="container mt-4">
+        <h4 class="text-primary" style="margin-top: 5%;">Payment Report</h4>
         <table class="table table-bordered text-center mt-2 rounded">
-            <h4 class="m-5 text-primary">Payment Report</h4>
             <thead class="text-secondary thead-light">
-
                 <tr>
                     <th>Payment Code</th>
                     <th>Payment Method</th>
@@ -14,14 +13,13 @@
             </thead>
             <tbody>
                 <?php
-                require "controllers/payments/old_payment.controller.php";
                 $oldpays = getOldPayments();
                 foreach ($oldpays as $oldpay) :
                 ?>
                     <tr>
                         <td><?= $oldpay['pay_code'] ?></td>
                         <td><?= $oldpay['method_status'] ?></td>
-                        <td><?= $oldpay['pro_name'] ?>$</td>
+                        <td><?= $oldpay['pro_name'] ?></td>
                         <td><?= $oldpay['pay_totalprice'] ?>$</td>
                         <td><?= $oldpay['pay_date'] ?></td>
                     </tr>
@@ -34,5 +32,4 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"></script>
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
 </body>
-
 </html>

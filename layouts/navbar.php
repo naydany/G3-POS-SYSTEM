@@ -17,6 +17,8 @@ if ($page == 'controllers/categories/category.controller.php') {
     $current_poge = "supplier";
 } elseif ($page == 'controllers/admin/table_admin.controller.php') {
     $current_poge = "admin";
+}elseif ($page == 'controllers/admin/recipt_order.controller.php'){
+    $current_poge = "recipt";
 }
 ?>
 <script src=".././vendor/chart.js/search_category.js"></script>
@@ -26,7 +28,7 @@ if ($page == 'controllers/categories/category.controller.php') {
 <script src=".././/vendor/chart.js/search_staff.js"></script>
 <script src=".././/vendor/chart.js/search_supplier.js"></script>
 <script src=".././/vendor/chart.js/search_admin.js"></script>
-<script src=".././/vendor/chart.js/notification.js"></script>
+<script src=".././/vendor/chart.js/custom_order.js"></script>
 
 
 
@@ -70,7 +72,7 @@ if ($page == 'controllers/categories/category.controller.php') {
             <div class="bg-white py-2 collapse-inner rounded">
                 <h6 class="collapse-header">Product Contains:</h6>
                 <a class="collapse-item" href="/categories">Categories</a>
-                <a class="collapse-item" href="/items">Items</a>
+                <a class="collapse-item" href="/items">Products</a>
             </div>
         </div>
     </li>
@@ -121,9 +123,10 @@ if ($page == 'controllers/categories/category.controller.php') {
         <div id="collapseOne" class="collapse" aria-labelledby="headingTwo" data-parent="#accordionSidebar">
             <div class="bg-white py-2 collapse-inner rounded">
                 <h6 class="collapse-header">Report Contains:</h6>
-                <a class="collapse-item" href="/reports">__detail dashboard</a>
-                <a class="collapse-item" href="#">__sale report</a>
-                <a class="collapse-item" href="/payment_report">Payment Report</a>
+                <a class="collapse-item" href="/dashboard_report">__Detail Dashboard</a>
+                <a class="collapse-item" href="/sale_report">__Sale Report</a>
+                <a class="collapse-item" href="/payment_report">__Payment Report</a>
+                <a class="collapse-item" href="/employee_report">__Employee Report</a>
 
             </div>
         </div>
@@ -274,7 +277,7 @@ if ($page == 'controllers/categories/category.controller.php') {
                             $name = $_POST["name"];
                         }
                         ?>
-                        <h2 class="mr-2 d-none d-lg-inline text-gray-600 small text-bold"><?= $_SESSION['user']['role']; ?></h2>
+                        <span class="mr-2 d-none d-lg-inline text-dark text-bold "><span class="  text-uppercase"><?= $_SESSION['user']['role']; ?></span></span>
                         <img class="img-profile rounded-circle" style="object-fit: cover;" src="../assets/images/<?= $_SESSION['user']['image']; ?>">
 
                     </a>

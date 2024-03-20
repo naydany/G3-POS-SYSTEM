@@ -1,3 +1,26 @@
+
+
+
+<?php if (isset($_SESSION['success'])) : ?>
+    <div class="alert alert-success alert-dismissible fade show" id="alert">
+        <button type="button" class="close" data-dismiss="alert">&times;</button>
+        <?= $_SESSION['success'] ?>
+    </div>
+<?php
+    unset($_SESSION['success']);
+endif;
+?>
+<?php if (isset($_SESSION['error'])) : ?>
+    <div class="alert alert-danger alert-dismissible fade show" id="alert">
+        <button type="button" class="close" data-dismiss="alert">&times;</button>
+        <?= $_SESSION['error'] ?>
+    </div>
+<?php
+    unset($_SESSION['error']);
+endif;
+?>
+
+
 <div class="container mt-4">
     <h4>Table store admin</h4>
     <?php if ($_SESSION['user']['role'] != 'stock manager') : ?>
@@ -63,6 +86,7 @@
     <td><?= $user['name'] ?></td>
     <td><?= $user['email'] ?></td>
     <td><?= $user['address'] ?></td>
+<<<<<<< HEAD
     <td>
         <div class="btn-group">
             <a onclick="return confirm('Do you want to delete this product?')" href="controllers/admin/delete_admin.controller.php?id=<?= $user['id'] ?>"><i class="bi bi-trash3 text-danger btn btn-lg ml-1"></i></a>
@@ -79,6 +103,8 @@
     <td><?= $user['name'] ?></td>
     <td><?= $user['email'] ?></td>
     <td><?= $user['address'] ?></td>
+=======
+>>>>>>> b4ea96e7c9d877de712de6d71fe2e805094e42d8
     <?php if ($_SESSION['user']['role'] != 'stock manager') : ?>
         <td>
             <div class="btn-group">
@@ -91,8 +117,13 @@
     <?php endif; ?>
 </tr>
 </tbody>
+<<<<<<< HEAD
 </table>
 
+=======
+<?php endforeach; ?>
+</table>
+>>>>>>> b4ea96e7c9d877de712de6d71fe2e805094e42d8
 </div>
 
 <!-- *popup create staff -->

@@ -1,3 +1,27 @@
+
+<?php if (isset($_SESSION['success'])) : ?>
+        <div class="alert alert-success alert-dismissible fade show" id="alert">
+            <button type="button" class="close" data-dismiss="alert">&times;</button>
+            <?= $_SESSION['success'] ?>
+        </div>
+
+    <?php
+        unset($_SESSION['success']);
+    endif;
+    ?>
+    <?php if (isset($_SESSION['error'])) : ?>
+        <div class="alert alert-danger alert-dismissible fade show align-center" id="alert" style="width: 350px;">
+            <div class="card-body px-lg-5 py-lg-5">
+                <form action="">
+                    <button type="button" class="close" data-dismiss="alert">&times;</button>
+                    <?= $_SESSION['error'] ?>
+                </form>
+            </div>
+        </div>
+    <?php
+        unset($_SESSION['error']);
+    endif;
+    ?>
 <div class="container mt-4">
     <h4>Table stor staff</h4>
     <?php if ($_SESSION['user']['role'] != 'cashier' && $_SESSION['user']['role'] != 'stock manager') : ?>
@@ -12,11 +36,11 @@
         <thead class="bg-primary text-white thead-light">
             <tr>
                 <th class="text-center">ID</th>
-                <th class="text-center">name</th>
-                <th class="text-center">number</th>
-                <th class="text-center">emial</th>
-                <th class="text-center">address</th>
-                <th class="text-center">role</th>
+                <th class="text-center">Name</th>
+                <th class="text-center">Number</th>
+                <th class="text-center">Emial</th>
+                <th class="text-center">Address</th>
+                <th class="text-center">Role</th>
                 <?php if ($_SESSION['user']['role'] != 'cashier' && $_SESSION['user']['role'] != 'stock manager') : ?>
                 <th class="text-center">Action</th>
                 <?php endif; ?>
@@ -24,10 +48,8 @@
         </thead>
         <tbody>
             <?php
-
             $users = getstaffs();
             foreach ($users as $user) :
-
             ?>
                 <tr>
                     <td class="text-center"><?= $user['id'] ?></td>
@@ -40,7 +62,7 @@
                         <td class="text-center">
                             <div class="btn-group">
 
-                                <a onclick="return confirm('Do you want to delete this product?')" href="controllers/staffs/delete_staff.controller.php?id=<?= $user['id'] ?>"><i class="bi bi-trash3 text-danger btn btn-lg ml-1"></i></a>
+                                <a onclick="return confirm('Do you really want to remove this staff member?')" href="controllers/staffs/delete_staff.controller.php?id=<?= $user['id'] ?>"><i class="bi bi-trash3 text-danger btn btn-lg ml-1"></i></a>
                                 <i class="bi bi-pencil-square text-success btn btn-lg ml-1" data-toggle="modal" data-target="#modalUpdateStaff<?= $user['id'] ?>"></i>
                             </div>
                         </td>
@@ -94,29 +116,7 @@
 
 <?php if ($_SESSION['user']['role'] != 'cashier') : ?>
 
-    <?php if (isset($_SESSION['success'])) : ?>
-        <div class="alert alert-success alert-dismissible fade show" id="alert">
-            <button type="button" class="close" data-dismiss="alert">&times;</button>
-            <?= $_SESSION['success'] ?>
-        </div>
 
-    <?php
-        unset($_SESSION['success']);
-    endif;
-    ?>
-    <?php if (isset($_SESSION['error'])) : ?>
-        <div class="alert alert-danger alert-dismissible fade show align-center" id="alert" style="width: 350px;">
-            <div class="card-body px-lg-5 py-lg-5">
-                <form action="">
-                    <button type="button" class="close" data-dismiss="alert">&times;</button>
-                    <?= $_SESSION['error'] ?>
-                </form>
-            </div>
-        </div>
-    <?php
-        unset($_SESSION['error']);
-    endif;
-    ?>
 
     <div class="modal fade" id="modalsCreate" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
         <div class="modal-dialog">

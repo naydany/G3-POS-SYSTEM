@@ -97,12 +97,24 @@ function addMoreoldPayment(string $method, int $customerID, string $date):bool
     return $statement->rowCount() > 0;
 }
 
+function getCustomerID(){
+    global $connection;
+    $statement = $connection->prepare("select cus_id from oldpayments");
+    $statement->execute();
+    return $statement->fetchAll();
+}
 
-function getQuantity(string $pro_name):array{ 
+function getQuantity(string $pro_name):array
     {
         global $connection;
         $statement = $connection->prepare("select pro_quantity from products where pro_name = :pro_name ");
         $statement->execute([':pro_name' => $pro_name]);
         return $statement->fetch();
     }
+
+function getPrice(){
+    global $connection;
+    $statement = $connection->prepare("select pay_totalprice from oldpayments");
+    $statement->execute();
+    return $statement->fetchAll();
 }

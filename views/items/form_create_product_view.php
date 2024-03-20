@@ -21,6 +21,7 @@
                 <div class="input-group mb-3">
                     <select class="custom-select" id="inputGroupSelect01" name="supplier">
                         <option selected>Choose supplier...</option>
+                        <option value="all">All</option>
                         <?php for($i = 0; $i<count($suppliers);$i++) : ?>
                               <option value="<?= $suppliers[$i][0] ?>"><?= $suppliers[$i][0] ?></option>  
                         <?php endfor; ?>
