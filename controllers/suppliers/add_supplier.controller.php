@@ -4,17 +4,19 @@ require '../../models/supplier.model.php';
 
 if ($_SERVER['REQUEST_METHOD'] == 'POST') {
 
-    $name = $_POST['name'];
-    $phone = $_POST['phone'];
-    $address = $_POST['address'];
+    if (!empty($_POST['name'] && $_POST['phone'] && $address = $_POST['address'])) {
+        $name = $_POST['name'];
+        $phone = $_POST['phone'];
+        $address = $_POST['address'];
 
-    $add = createSupplier( $name,  $phone, $address);
+        $add = createSupplier($name,  $phone, $address);
 
-    if ($add ){
-        header('Location:/suppliers');
+        if ($add) {
+            header('Location:/suppliers');
+            $_SESSION['success']= 'Add new supplier was successfully';
+        } 
     }else{
-        header('Location:/create_staffs');
+        header('Location:/suppliers');
+        $_SESSION['error']='You need to complete place emty!';
     }
 }
-
-

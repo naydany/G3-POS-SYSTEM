@@ -5,13 +5,11 @@ $products = null;
 // print_r($_SESSION['Products']);
 if ($_SESSION['Products'] != []) {
     $products = $_SESSION['Products'];
-} elseif($_SESSION['Products'] != ''){
+} elseif ($_SESSION['Products'] != '') {
     $products = getItem();
-}
-else {
+} else {
     $products = [];
 }
-
 ?>
 
 <div class="container-fluid">
@@ -25,8 +23,8 @@ else {
 
             <form action="#" method="post">
                 <div class="card-header input-group-append w-200 ">
-                    <select id="select-categories" class="border-primary" name="users" style="padding: 6px;">
-                        <option value="">selece category   </option>
+                    <select id="select-categories" class="border-primary rounded text-primary" name="users" style="padding: 6px;">
+                        <option value="">selece category </option>
                         <?php
                         foreach ($categories as $category) :
                         ?>
@@ -108,15 +106,15 @@ else {
                                     <?php if ($_SESSION['user']['role'] != 'cashier') : ?>
                                         <i class="bi bi-pencil-square text-success btn btn-lg ml-1" data-toggle="modal" data-target="#exampleModalUpdate<?= $pro['pro_id'] ?>"></i>
                                     <?php endif; ?>
-                                    
+
                                     <?php if ($_SESSION['user']['role'] != 'cashier') : ?>
                                         <a onclick="return confirm('Do you want to delete this product?')" href="../../controllers/items/delete_item.controller.php?id=<?= $pro['pro_id'] ?>"><i class="bi bi-trash3 text-danger btn btn-lg ml-1"></i></a>
                                     <?php endif; ?>
-                                        
+
                                     <i class="bi bi-eye-fill text-info btn btn-lg ml-1 " id="view_item" data-toggle="modal" data-target="#ModalView<?= $pro['pro_id'] ?>"></i>
 
                                 </td>
-    
+
                                 <!-- popup view -->
 
                             </tr>
@@ -189,7 +187,7 @@ else {
                             </div>
 
                             <!-- popup update  -->
-                             <?php if ($_SESSION['user']['role'] != 'cashier') : ?>
+                            <?php if ($_SESSION['user']['role'] != 'cashier') : ?>
                                 <div class="modal fade" id="exampleModalUpdate<?= $pro['pro_id'] ?>" tabindex="-1" role="dialog" aria-labelledby="exampleModalUpdateTitle" aria-hidden="true">
                                     <div class="modal-dialog" role="document">
                                         <div class="modal-content">
@@ -256,7 +254,7 @@ else {
                     <button type="button" class="close" data-dismiss="modal">&times;</button>
                 </div>
                 <div class="modal-body">
-                    <form action="../../controllers/items/create.controller.php" method="post" class="d-flex flex-xl-column p-3 ml-1" enctype="multipart/form-data">
+                    <form action="../../controllers/items/create.controller.php" method="post" id="form-create" class="d-flex flex-xl-column p-3 ml-1" enctype="multipart/form-data">
                         <div class="form-row">
                             <div class=" form-group mr-5">
                                 <label for="pro_name">Name</label>
@@ -312,9 +310,10 @@ else {
                 </div>
             </div>
         </div>
-    </div>
+        
     </div>
 
-    </div>
-    </div>
+
+
+
 <?php endif; ?>

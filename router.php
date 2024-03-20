@@ -32,6 +32,7 @@ if (isset($_SESSION['user'])) {
             '/order_product' => 'controllers/orders/update_order.controller.php',
             '/order' => 'controllers/orders/order.controller.php',
 
+            '/form_create_item' => 'controllers/items/create.controller.php',
             '/form_create' => 'controllers/items/create_item.controller.php',
             '/update_item' => 'controllers/items/edit_item.controller.php',
             '/update_admin' => 'controllers/admin/edit_admin.controller.php',
