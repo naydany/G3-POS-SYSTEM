@@ -41,7 +41,6 @@ else {
 ?>
 
 <div class="container-fluid">
-
     <!-- DataTales Example -->
     <div class="card shadow ">
         <div class="card-header py-3 d-flex justify-content-between">
