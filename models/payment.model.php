@@ -18,6 +18,7 @@ function createPayment( string $code,string $totalprice, string $name, string $p
     ]);
     return $statement->rowCount() > 0;
 }
+
 function getPayments(): array
 {
     global $connection;
@@ -97,4 +98,11 @@ function addMoreoldPayment(string $method, int $customerID, string $date):bool
 }
 
 
-
+function getQuantity(string $pro_name):array{ 
+    {
+        global $connection;
+        $statement = $connection->prepare("select pro_quantity from products where pro_name = :pro_name ");
+        $statement->execute([':pro_name' => $pro_name]);
+        return $statement->fetch();
+    }
+}

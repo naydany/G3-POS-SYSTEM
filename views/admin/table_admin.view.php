@@ -16,7 +16,7 @@
                 <th>Email</th>
                 <th>Address</th>
                 <?php if ($_SESSION['user']['role'] != 'stock manager') : ?>
-                <th>Action</th>
+                    <th>Action</th>
                 <?php endif; ?>
             </tr>
         </thead>
@@ -57,7 +57,7 @@
                 </div>
 </div>
 
-<<<<<<< HEAD
+
 <tr>
     <td><?= $user['id'] ?></td>
     <td><?= $user['name'] ?></td>
@@ -73,28 +73,26 @@
 </tbody>
 <?php endforeach; ?>
 </table>
-=======
 
-                <tr>
-                    <td><?= $user['id'] ?></td>
-                    <td><?= $user['name'] ?></td>
-                    <td><?= $user['email'] ?></td>
-                    <td><?= $user['address'] ?></td>
-                    <?php if ($_SESSION['user']['role'] != 'stock manager') : ?>
-                    <td>
-                        <div class="btn-group">
-                        
-                            <a onclick="return confirm('Do you want to delete this product?')" href="controllers/admin/delete_admin.controller.php?id=<?= $user['id'] ?>"><i class="bi bi-trash3 text-danger btn btn-lg ml-1"></i></a>
-                            <i class="bi bi-pencil-square text-success btn btn-lg ml-1" data-toggle="modal" data-target="#modalUpdate<?= $user['id'] ?>"></i>
-                            
-                        </div>
-                    </td>
-                    <?php endif; ?>
-                </tr>
-        </tbody>
-    <?php endforeach; ?>
-    </table>
->>>>>>> 6c6bea14e7091d859c6b32bae74ce85df1f68354
+<tr>
+    <td><?= $user['id'] ?></td>
+    <td><?= $user['name'] ?></td>
+    <td><?= $user['email'] ?></td>
+    <td><?= $user['address'] ?></td>
+    <?php if ($_SESSION['user']['role'] != 'stock manager') : ?>
+        <td>
+            <div class="btn-group">
+
+                <a onclick="return confirm('Do you want to delete this product?')" href="controllers/admin/delete_admin.controller.php?id=<?= $user['id'] ?>"><i class="bi bi-trash3 text-danger btn btn-lg ml-1"></i></a>
+                <i class="bi bi-pencil-square text-success btn btn-lg ml-1" data-toggle="modal" data-target="#modalUpdate<?= $user['id'] ?>"></i>
+
+            </div>
+        </td>
+    <?php endif; ?>
+</tr>
+</tbody>
+</table>
+
 </div>
 
 <!-- *popup create staff -->

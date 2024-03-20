@@ -312,6 +312,5 @@ if ($_SESSION['Products'] != []) {
                 </div>
             </div>
         </div>
-
     </div>
 <?php endif; ?>

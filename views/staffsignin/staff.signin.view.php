@@ -1,5 +1,3 @@
-
-
 <?php if (isset($_SESSION['success'])) : ?>
     <div class="alert alert-success alert-dismissible fade show" id="alert">
         <button type="button" class="close" data-dismiss="alert">&times;</button>
@@ -26,6 +24,7 @@ endif;
         <div class="card shadow border-0 mx-auto" style="text-align: center; padding: 5%; background: linear-gradient(135deg, rgba(0, 0, 0, 0.2), rgba(0, 0, 0, 0.2)); -webkit-backdrop-filter: blur(90px); backdrop-filter: blur(10px); box-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.37); border: 1px solid rgba(255, 255, 255, 0.18); border-radius: 32px;">
            
         <!-- Page content -->
+<<<<<<< HEAD
         <div class="container mt-5 pb-5">
             <div class="row justify-content-left">
                 <div class="col-lg-6 col-md-7">
@@ -64,6 +63,17 @@ endif;
                                     <button type="submit" name="login" class="btn btn-primary my-4 mr-3">Log In</button>
                                 </div>
                             </form>
+=======
+            <div class="card-body px-lg-5 py-lg-5">
+                <h1 class="h3 mb-0 text-white">Staff</h1><br>
+                <form action="../../controllers/staffsignin/staff_signin_check.controller.php" method="post">
+                    <div class="form-group mb-3">
+                        <div class="input-group input-group-alternative">
+                            <div class="input-group-prepend">
+                                <span class="input-group-text"><i class="bi bi-envelope"></i></span>
+                            </div>
+                            <input class="form-control" required name="staff_email" placeholder="Email" type="email">
+>>>>>>> 4b29eb17959543485cb8f37c47153e324402b039
                         </div>
                     </div>
 

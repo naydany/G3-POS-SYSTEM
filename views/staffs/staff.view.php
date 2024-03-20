@@ -79,7 +79,6 @@
                                         <label for="address">address:</label>
                                         <input type="text" class="form-control" id="address" name='address' value="<?= $user['address'] ?>">
                                     </div>
-
                                     <button type="submit" class="btn btn-primary">Submit</button>
                                 </form>
                             </div>

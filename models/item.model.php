@@ -91,13 +91,6 @@ function countNameSuppliers(): array
 }
 
 
-function notificationProduct() : array
-{
-    global $connection;
-    $statement = $connection->prepare("select * from products");
-    $statement->execute();
-    return $statement->fetchAll();
-}
 function selectCategory(string $name_cate)
 {
     global $connection;
@@ -106,5 +99,19 @@ function selectCategory(string $name_cate)
         ":name_cate" => $name_cate,
     ]);
     return $statement->fetchAll();
+}
+
+
+function updateStock(string $pro_name, int $pro_quan): bool
+{
+
+    global $connection;
+    $statement = $connection->prepare("update products set pro_quantity = :pro_quantity
+    where pro_name = :pro_name");
+    $statement->execute([
+        ":pro_name" => $pro_name,
+        ":pro_quantity" => $pro_quan,
+    ]);
+    return $statement->rowCount() > 0;
 }
 

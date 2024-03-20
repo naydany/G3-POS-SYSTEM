@@ -3,7 +3,8 @@ require "./database/database.php";
 require "./models/payment.model.php";
 
 $news = getPayments();
-$allOldPays = getOldPayments();
+$allOldPays = getOldPayments();var_dump($allOldPay);
+
 
 $customer = 0;
 $lastIndex = null;

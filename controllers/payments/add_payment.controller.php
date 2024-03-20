@@ -2,6 +2,7 @@
 require "../../database/database.php";
 require "../../models/payment.model.php";
 require "../../models/order.model.php";
+require "../../models/item.model.php";
 if ($_SERVER['REQUEST_METHOD'] == "POST") {
     if ($_POST['price'] !== '' && $_POST['code'] !== '' && $_POST['name'] !== '' && $_POST['quantity'] !== '') {
         $price = $_POST["price"];
@@ -16,7 +17,11 @@ if ($_SERVER['REQUEST_METHOD'] == "POST") {
         $add = createPayment($code, $resultWithSymbol, $name, $price, $quantity);
     }
     addOrder($name,$price,$quantity,$resultWithSymbol);
-    // order();
+
+    $subtract = getQuantity($name);
+    $stock = $subtract["pro_quantity"];
+    $stock_quantity = $stock - $quantity;
+    updateStock($name,$stock_quantity);
 }
 
-header('location: /order');
+header('location: /orders');

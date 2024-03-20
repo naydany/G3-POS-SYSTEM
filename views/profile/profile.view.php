@@ -15,7 +15,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     <div class="card">
         <img class="card-img-top" src="https://wedgecommerce.com/wp-content/uploads/2018/03/pos-banner-2.jpg" alt="Cover Image" id="coverImage" style="height: 180px; object-fit: cover; position: absolute;">
         <div class="card-body d-flex flex-column align-items-center justify-content-start">
-<<<<<<< HEAD
+
             <img class="rounded-circle img-thumbnail mr-3" src="https://img.freepik.com/free-vector/hand-drawn-iranian-women-illustration_23-2149855924.jpg?t=st=1709997754~exp=1709998354~hmac=cd65a27ece0d5b6ca6b032f56a8d5cb17f1da29a1528c2a6e0c3ba58a90b4931&w=826" alt="Profile Image" id="profileImage" style="height: 140px; width: 140px; object-fit: cover; z-index: 1; margin-top: 70px;">
             
             <h2 class="card-title text-center mt-3"><?= $_SESSION['user']['name'] ?></h2>
@@ -51,7 +51,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 
     <!-- end -->
 
-=======
+
             <img id='tapImg' class="rounded-circle img-thumbnail mr-3" src="../../assets/images/<?= $_SESSION['user']['image'] ?>" alt="Profile Image" id="profileImage" style="height: 140px; width: 140px; object-fit: cover; z-index: 1; margin-top: 70px;">
             <!-- chage profile -->
             <h2 class="card-title text-center m/imt-3"><?= $_SESSION['user']['name'] ?></h2>
@@ -82,7 +82,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     };
 </script>
 <div class="card card-control mx-auto" style="width: 50rem;">
->>>>>>> 6c6bea14e7091d859c6b32bae74ce85df1f68354
+
     <h3 class="card-title ml-5 text-danger mt-3">Details:</h3>
    
     <ul class="list-group list-group-flush">
@@ -129,7 +129,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         }
         reader.readAsDataURL(this.files[0]);
     });
-<<<<<<< HEAD
+
 
     // $('#profileImageInput').on('change', function() {
     //     var reader = new FileReader();
@@ -144,6 +144,4 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     // });
 
     // Add event listeners
-=======
-</script>
->>>>>>> 6c6bea14e7091d859c6b32bae74ce85df1f68354
+
