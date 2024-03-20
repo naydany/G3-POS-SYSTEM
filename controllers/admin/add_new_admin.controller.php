@@ -5,12 +5,12 @@ require '../../models/admin.model.php';
 
 if ($_SERVER['REQUEST_METHOD'] == 'POST') {
 
-    $name = $_POST['name'];
-    $email = $_POST['email'];
-    $password = $_POST['password'];
-    $address = $_POST['address'];
-    $phone = $_POST['number'];
-    $role = $_POST['role'];
+    $name = htmlspecialchars($_POST['name']);
+    $email = htmlspecialchars($_POST['email']);
+    $password = htmlspecialchars($_POST['password']);
+    $address = htmlspecialchars($_POST['address']);
+    $phone = htmlspecialchars($_POST['number']);
+    $role = htmlspecialchars($_POST['role']);
     $imgProfile = $_FILES['imageprofile'];
 
 

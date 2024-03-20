@@ -1,3 +1,29 @@
+
+
+<?php if (isset($_SESSION['success'])) : ?>
+    <div class="alert alert-success alert-dismissible fade show" id="alert">
+        <button type="button" class="close" data-dismiss="alert">&times;</button>
+        <?= $_SESSION['success'] ?>
+    </div>
+<?php
+    unset($_SESSION['success']);
+endif;
+?>
+<?php if (isset($_SESSION['error'])) : ?>
+    <div class="alert alert-danger alert-dismissible fade show align-center" id="alert" style="width: 350px;">
+        <div class="card-body px-lg-5 py-lg-5">
+            <form action="">
+                <button type="button" class="close" data-dismiss="alert">&times;</button>
+                <?= $_SESSION['error'] ?>
+            </form>
+        </div>
+    </div>
+<?php
+    unset($_SESSION['error']);
+endif;
+?>
+
+
 <!-- Begin Page Content -->
 
 <?php
@@ -13,7 +39,6 @@ if ($_SESSION['Products'] != []) {
 ?>
 
 <div class="container-fluid">
-
     <!-- DataTales Example -->
     <div class="card shadow ">
         <div class="card-header py-3 d-flex justify-content-between">
@@ -88,7 +113,7 @@ if ($_SESSION['Products'] != []) {
                                 </td>
                                 <td><img width="50px" height="50px" style="object-fit: cover;" class="rounded-circle" src="assets/images/<?= $pro['pro_img'] ?>" alt=""></td>
                                 <td>
-                                    <?= $pro['pro_name'] ?>
+                                    <?= $pro['pro_name']  ?>
                                 </td>
                                 <td>
                                     <?= $pro['pro_code'] ?>
@@ -312,8 +337,5 @@ if ($_SESSION['Products'] != []) {
         </div>
         
     </div>
-
-
-
 
 <?php endif; ?>

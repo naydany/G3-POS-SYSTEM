@@ -1,3 +1,26 @@
+
+
+
+<?php if (isset($_SESSION['success'])) : ?>
+    <div class="alert alert-success alert-dismissible fade show" id="alert">
+        <button type="button" class="close" data-dismiss="alert">&times;</button>
+        <?= $_SESSION['success'] ?>
+    </div>
+<?php
+    unset($_SESSION['success']);
+endif;
+?>
+<?php if (isset($_SESSION['error'])) : ?>
+    <div class="alert alert-danger alert-dismissible fade show" id="alert">
+        <button type="button" class="close" data-dismiss="alert">&times;</button>
+        <?= $_SESSION['error'] ?>
+    </div>
+<?php
+    unset($_SESSION['error']);
+endif;
+?>
+
+
 <div class="container mt-4">
     <h4>Table store admin</h4>
     <?php if ($_SESSION['user']['role'] != 'stock manager') : ?>
