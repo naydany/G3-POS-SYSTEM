@@ -52,7 +52,7 @@ foreach ($totalPrices as $totalPrice) {
     <div class="d-sm-flex align-items-center justify-content-between mb-4">
         <h1 class="h3 mb-0 text-gray-800">Dashboard</h1>
         <div class="bg-">
-            <h5 class="mr-2 d-none d-lg-inline text-dark text-bold ">Wellcome <span class="text-danger font-weight-bold "><?= $_SESSION['user']['name']; ?></span></h5>
+            <h6 class="mr-2 d-none d-lg-inline text-dark text-bold ">Wellcome <span class="text-danger font-weight-bold "><?= $_SESSION['user']['name']; ?></span></h6>
         </div>
     </div>
 

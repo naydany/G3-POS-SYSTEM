@@ -24,7 +24,6 @@ if (isset($_SESSION['user'])) {
             '/payments' => 'controllers/payments/payment.controller.php',
             '/staffs' => 'controllers/staffs/staff.controller.php',
             '/profile' => 'controllers/profile/profile.controller.php',
-            '/update_profile' => 'controllers/profile/update_detail.controller.php',
 
             '/admin_signin' => 'controllers/adminlogin/admin.login.controller.php',
             '/form_admin_signin' => 'controllers/adminlogin/form.signin.controller.php',
@@ -72,7 +71,6 @@ if (isset($_SESSION['user'])) {
             '/staffs' => 'controllers/staffs/staff.controller.php',
 
             '/profile' => 'controllers/profile/profile.controller.php',
-            '/update_profile' => 'controllers/profile/update_detail.controller.php',
 
             '/admin_signin' => 'controllers/adminlogin/admin.login.controller.php',
             '/form_admin_signin' => 'controllers/adminlogin/form.signin.controller.php',
@@ -87,7 +85,6 @@ if (isset($_SESSION['user'])) {
             '/old_payment' => 'controllers/payments/old_payment.controller.php',
          
             '/path_payment' => 'controllers/payments/path_payment.controller.php',
-          
 
             '/dashboard_report'=>'controllers/reports/dashboard_report.controller.php',
             '/sale_report' => 'controllers/reports/sale_report.controller.php',
@@ -113,7 +110,6 @@ if (isset($_SESSION['user'])) {
             '/staffs' => 'controllers/staffs/staff.controller.php',
 
             '/profile' => 'controllers/profile/profile.controller.php',
-            '/update_profile' => 'controllers/profile/update_detail.controller.php',
 
             '/admin_signin' => 'controllers/adminlogin/admin.login.controller.php',
             '/form_admin_signin' => 'controllers/adminlogin/form.signin.controller.php',

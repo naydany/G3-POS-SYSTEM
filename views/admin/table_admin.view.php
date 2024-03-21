@@ -22,9 +22,9 @@ endif;
 
 
 <div class="container mt-4">
-    <h4>Table store admin</h4>
+    <h5 class="mt-2">Table store admin</h5>
     <?php if ($_SESSION['user']['role'] != 'stock manager') : ?>
-        <button type="button" class="btn btn-outline-primary mr-5" data-toggle="modal" data-target="#modalAdmin">
+        <button type="button" class="btn btn-outline-primary mr-5 mt-3" data-toggle="modal" data-target="#modalAdmin">
             <i class="fas fa-user-plus"></i> Add new admin
         </button>
     <?php endif; ?>

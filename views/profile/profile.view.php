@@ -55,10 +55,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         <li class="list-group-item ml-3"><b>Number phone:</b> <?= $_SESSION['user']['phone'] ?></li>
         <li class="list-group-item ml-3"><b>Country:</b> <?= $_SESSION['user']['address']  ?></li>
     </ul>
-    <div class="card-body">
-        <a href="/update_profile"><button type="button" class="btn btn-outline-primary float-right">Update
-                detail</button></a>
-    </div>
+
 </div>
 
 <script>

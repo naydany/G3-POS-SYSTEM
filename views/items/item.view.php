@@ -1,5 +1,3 @@
-
-
 <?php if (isset($_SESSION['success'])) : ?>
     <div class="alert alert-success alert-dismissible fade show" id="alert">
         <button type="button" class="close" data-dismiss="alert">&times;</button>
@@ -27,15 +25,14 @@ endif;
 <!-- Begin Page Content -->
 
 <?php
-$products = null;
-// print_r($_SESSION['Products']);
-if ($_SESSION['Products'] != []) {
-    $products = $_SESSION['Products'];
-} elseif ($_SESSION['Products'] != '') {
-    $products = getItem();
-} else {
-    $products = [];
-}
+// $products = null;
+// // print_r($_SESSION['Products']);
+// if ($_SESSION['Products'] != []) {
+//     $products = $_SESSION['Products'];
+// }  else {
+//     $products = getItem();
+// }
+$products = getItem();
 ?>
 
 <div class="container-fluid">
@@ -47,9 +44,10 @@ if ($_SESSION['Products'] != []) {
             <!-- //*button search -->
 
             <form action="#" method="post">
-                <div class="card-header input-group-append w-200 ">
-                    <select id="select-categories" class="border-primary rounded text-primary" name="users" style="padding: 6px;">
-                        <option value="">selece category </option>
+                <div class="card-header input-group-append w-300 " style="margin-left: 360px;">
+                    <select id="select-categories" class="border-primary rounded text-primary mt-1" name="users" style="padding: 7px;">
+                        <option disabled selected>selece category </option>
+                        <option value="">All</option>
                         <?php
                         foreach ($categories as $category) :
                         ?>
@@ -69,22 +67,29 @@ if ($_SESSION['Products'] != []) {
                 </div>
             <?php endif; ?>
         </div>
-        <!-- ajax -->
-        <script>
-            $(document).ready(function() {
-                $('#select-categories').change(() => {
-                    const category = $('#select-categories').val();
-                    $.ajax({
-                        url: '../../controllers/items/select_items.controller.php',
-                        method: "POST",
-                        data: {
-                            category: category
-                        }
-                    })
-                    location.href = '/items';
-                });
 
+
+        <script>
+
+            document.getElementById('select-categories').addEventListener('change', (e) => {
+                var products = document.querySelectorAll('#product');
+                countCard = 0;
+                products.forEach(product => {
+                    var categories = document.getElementById('select-categories').value.toLocaleLowerCase();
+                    var category = product.children[4].textContent.toLocaleLowerCase();
+                    if (category.includes(categories) === true) {
+                        product.style.display = '';
+                        document.querySelector('.noData').style.display = 'none';
+                    } else {
+                        product.style.display = 'none';
+                        countCard += 1;
+                        if (countCard == products.length) {
+                            document.querySelector('.noData').style.display = '';
+                        }
+                    }
+                });
             });
+            
         </script>
 
         <div class="card-body">
@@ -107,7 +112,7 @@ if ($_SESSION['Products'] != []) {
                         <?php
                         foreach ($products as $pro) :
                         ?>
-                            <tr>
+                            <tr id="product">
                                 <td>
                                     <?= $pro['pro_id'] ?>
                                 </td>
@@ -257,8 +262,12 @@ if ($_SESSION['Products'] != []) {
                                 <?php endif; ?>
 
                             <?php endforeach; ?>
-                    </tbody>
+                        </tbody>
+                        <!-- <tr id="noData" >No has the produces of this category</tr> -->
                 </table>
+                <div class="noData" style="display: none;" >
+                    <h2 class="text-center">No has the produces of this category</h2>
+                </div>
             </div>
 
         </div>
@@ -335,7 +344,7 @@ if ($_SESSION['Products'] != []) {
                 </div>
             </div>
         </div>
-        
+
     </div>
 
 <?php endif; ?>
