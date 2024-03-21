@@ -86,6 +86,25 @@ endif;
     <td><?= $user['name'] ?></td>
     <td><?= $user['email'] ?></td>
     <td><?= $user['address'] ?></td>
+<<<<<<< HEAD
+    <td>
+        <div class="btn-group">
+            <a onclick="return confirm('Do you want to delete this product?')" href="controllers/admin/delete_admin.controller.php?id=<?= $user['id'] ?>"><i class="bi bi-trash3 text-danger btn btn-lg ml-1"></i></a>
+            <i class="bi bi-pencil-square text-success btn btn-lg ml-1" data-toggle="modal" data-target="#modalUpdate<?= $user['id'] ?>"></i>
+        </div>
+    </td>
+</tr>
+</tbody>
+<?php endforeach; ?>
+</table>
+
+<tr>
+    <td><?= $user['id'] ?></td>
+    <td><?= $user['name'] ?></td>
+    <td><?= $user['email'] ?></td>
+    <td><?= $user['address'] ?></td>
+=======
+>>>>>>> b4ea96e7c9d877de712de6d71fe2e805094e42d8
     <?php if ($_SESSION['user']['role'] != 'stock manager') : ?>
         <td>
             <div class="btn-group">
@@ -98,8 +117,13 @@ endif;
     <?php endif; ?>
 </tr>
 </tbody>
+<<<<<<< HEAD
+</table>
+
+=======
 <?php endforeach; ?>
 </table>
+>>>>>>> b4ea96e7c9d877de712de6d71fe2e805094e42d8
 </div>
 
 <!-- *popup create staff -->
