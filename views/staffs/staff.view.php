@@ -1,7 +1,31 @@
+
+<?php if (isset($_SESSION['success'])) : ?>
+        <div class="alert alert-success alert-dismissible fade show" id="alert">
+            <button type="button" class="close" data-dismiss="alert">&times;</button>
+            <?= $_SESSION['success'] ?>
+        </div>
+
+    <?php
+        unset($_SESSION['success']);
+    endif;
+    ?>
+    <?php if (isset($_SESSION['error'])) : ?>
+        <div class="alert alert-danger alert-dismissible fade show align-center" id="alert" style="width: 350px;">
+            <div class="card-body px-lg-5 py-lg-5">
+                <form action="">
+                    <button type="button" class="close" data-dismiss="alert">&times;</button>
+                    <?= $_SESSION['error'] ?>
+                </form>
+            </div>
+        </div>
+    <?php
+        unset($_SESSION['error']);
+    endif;
+    ?>
 <div class="container mt-4">
-    <h4>Table stor staff</h4>
+    <h5 mt-2>Table stor staff</h5>
     <?php if ($_SESSION['user']['role'] != 'cashier' && $_SESSION['user']['role'] != 'stock manager') : ?>
-        <button type="button" class="btn btn-outline-primary mr-5" data-toggle="modal" data-target="#modalsCreate">
+        <button type="button" class="btn btn-outline-primary mr-5 mt-3" data-toggle="modal" data-target="#modalsCreate">
             <i class="fas fa-user-plus"></i> Add new Staff
         </button>
     <?php endif; ?>
@@ -101,29 +125,7 @@
 
 <?php if ($_SESSION['user']['role'] != 'cashier') : ?>
 
-    <?php if (isset($_SESSION['success'])) : ?>
-        <div class="alert alert-success alert-dismissible fade show" id="alert">
-            <button type="button" class="close" data-dismiss="alert">&times;</button>
-            <?= $_SESSION['success'] ?>
-        </div>
 
-    <?php
-        unset($_SESSION['success']);
-    endif;
-    ?>
-    <?php if (isset($_SESSION['error'])) : ?>
-        <div class="alert alert-danger alert-dismissible fade show align-center" id="alert" style="width: 350px;">
-            <div class="card-body px-lg-5 py-lg-5">
-                <form action="">
-                    <button type="button" class="close" data-dismiss="alert">&times;</button>
-                    <?= $_SESSION['error'] ?>
-                </form>
-            </div>
-        </div>
-    <?php
-        unset($_SESSION['error']);
-    endif;
-    ?>
 
     <div class="modal fade" id="modalsCreate" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
         <div class="modal-dialog">
@@ -147,7 +149,7 @@
                                         </div>
                                         <div class="col-md-6">
                                             <label for="phone">Phone Number:</label>
-                                            <input type="phone" class="form-control" id="phone" name='phone'>
+                                            <input type="number" class="form-control" id="phone" name='phone'>
                                         </div>
                                     </div>
                                     <hr>

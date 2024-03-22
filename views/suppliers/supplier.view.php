@@ -1,3 +1,27 @@
+
+
+
+<?php if (isset($_SESSION['success'])) : ?>
+    <div class="alert alert-success alert-dismissible fade show" id="alert">
+        <button type="button" class="close" data-dismiss="alert">&times;</button>
+        <?= $_SESSION['success'] ?>
+    </div>
+<?php
+    unset($_SESSION['success']);
+endif;
+?>
+<?php if (isset($_SESSION['error'])) : ?>
+    <div class="alert alert-danger alert-dismissible fade show" id="alert">
+        <button type="button" class="close" data-dismiss="alert">&times;</button>
+        <?= $_SESSION['error'] ?>
+    </div>
+<?php
+    unset($_SESSION['error']);
+endif;
+?>
+
+
+
 <div class="card-header py-3 d-flex justify-content-between">
     <h5 class="mt-2 font-weight-bold text-primary" style="margin-left: 7%;">Supplier</h5>
     <?php if ($_SESSION['user']['role'] != 'cashier') : ?>
@@ -6,8 +30,8 @@
         </div>
     <?php endif; ?>
 </div>
-<div class="container mt-3">
-    <table class="table table-bordered text-center mt-2 rounded">
+<div class="container">
+    <table class="table table-bordered text-center rounded">
         <thead class="text-secondary thead-light">
             <tr>
                 <th>ID</th>

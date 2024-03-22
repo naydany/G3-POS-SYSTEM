@@ -1,7 +1,27 @@
+<?php if (isset($_SESSION['success'])) : ?>
+    <div class="alert alert-success alert-dismissible fade show" id="alert">
+        <button type="button" class="close" data-dismiss="alert">&times;</button>
+        <?= $_SESSION['success'] ?>
+    </div>
+<?php
+    unset($_SESSION['success']);
+endif;
+?>
+<?php if (isset($_SESSION['error'])) : ?>
+    <div class="alert alert-danger alert-dismissible fade show" id="alert">
+        <button type="button" class="close" data-dismiss="alert">&times;</button>
+        <?= $_SESSION['error'] ?>
+    </div>
+<?php
+    unset($_SESSION['error']);
+endif;
+?>
+
+
 <div class="container mt-4">
-    <h4>Table store admin</h4>
+    <h5 class="mt-2">Table store admin</h5>
     <?php if ($_SESSION['user']['role'] != 'stock manager') : ?>
-        <button type="button" class="btn btn-outline-primary mr-5" data-toggle="modal" data-target="#modalAdmin">
+        <button type="button" class="btn btn-outline-primary mr-5 mt-3" data-toggle="modal" data-target="#modalAdmin">
             <i class="fas fa-user-plus"></i> Add new admin
         </button>
     <?php endif; ?>
@@ -129,7 +149,7 @@
                                 <div class="form-row">
                                     <div class="col-md-6">
                                         <label for="number">Phone Number:</label>
-                                        <input type="phone" class="form-control" id="phone" name='phone'>
+                                        <input type="number" class="form-control" id="phone" name='phone'>
                                     </div>
                                     <div class="col-md-6">
                                         <label for="role">Role</label>

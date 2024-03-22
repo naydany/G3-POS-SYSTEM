@@ -1,6 +1,6 @@
 <?php
 
-function createAdmin(string $name, int $phone, string $email, string $password, string $address, string $role, string $img): bool
+function createAdmin(string $name, string $email, string $password, string $address, int $phone, string $role, string $img): bool
 {
 
     global $connection;

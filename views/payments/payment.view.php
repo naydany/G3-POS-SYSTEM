@@ -6,6 +6,12 @@
                 Make A New Order
             </a>
         </div>
+        <div class="card-header border-0">
+            <a href="controllers/items/notification_item.controller.php" class="btn btn-outline-primary">
+                <i class="fas fa-plus"></i> <i class="fas fa-utensils"></i>
+                Notification
+            </a>
+        </div>
         <div class="card-header py-3 d-flex justify-content-between">
             <button type="button" class="btn btn-outline-primary" data-toggle="modal" data-target="#paymentForm">
                 Start Payment
@@ -13,8 +19,8 @@
         </div>
     </div>
 
-    <div class="container mt-3">
-        <table class="table table-bordered text-center mt-2 rounded">
+    <div class="container">
+        <table class="table table-bordered text-center rounded">
             <thead class="text-secondary thead-light">
                 <tr>
                     <th class="text-center">Code</th>

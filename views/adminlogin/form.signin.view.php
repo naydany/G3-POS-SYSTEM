@@ -53,7 +53,7 @@ endif;
 
                     </div>
                     <div class="row justify-content-between">
-                        <a href="" class="mt-5">Forgot your password?</a>
+                        <a href="/admin_forget_password" class="mt-5">Forgot your password?</a>
                         <button type="submit" name="login" class="btn btn-primary my-4 mr-3">Log In</button>
                     </div>
                 </form>

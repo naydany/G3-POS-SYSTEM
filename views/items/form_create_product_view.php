@@ -17,13 +17,13 @@
             </div>
             <div class="form-group">
                 <label>supplier</label>
-                <!-- <input type="text" class="form-control" placeholder="Enter Category" name="cate"> -->
+               
                 <div class="input-group mb-3">
                     <select class="custom-select" id="inputGroupSelect01" name="supplier">
                         <option selected>Choose supplier...</option>
                         <option value="all">All</option>
-                        <?php for($i = 0; $i<count($suppliers);$i++) : ?>
-                              <option value="<?= $suppliers[$i][0] ?>"><?= $suppliers[$i][0] ?></option>  
+                        <?php for ($i = 0; $i < count($suppliers); $i++) : ?>
+                            <option value="<?= $suppliers[$i][0] ?>"><?= $suppliers[$i][0] ?></option>
                         <?php endfor; ?>
                     </select>
                 </div>
@@ -39,7 +39,7 @@
             </div>
             <div class="form-group">
                 <label>Category</label>
-                <!-- <input type="text" class="form-control" placeholder="Enter Category" name="cate"> -->
+               
                 <div class="input-group mb-3">
                     <select class="custom-select" id="inputGroupSelect01" name="category">
                         <option selected>Choose category...</option>

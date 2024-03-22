@@ -45,7 +45,7 @@
 
 <div class="container mt-4"> 
     <h4 class="text-primary" style="margin-top: 5%;">Products sold</h4>
-    <p class="text-muted">Showing 1 to 10 of 100 rows  
+    <p class="text-muted">select order
         <select class="form-control-sm" name="row" id="row">
             <option>5</option>
             <option>10</option>
@@ -54,7 +54,7 @@
             <option>60</option>
             <option>80</option>
             <option>100</option>
-        </select> rows per page
+        </select> 
     </p>
     <table class="table table-bordered text-center mt-2 rounded">
         <thead class="text-secondary thead-light">

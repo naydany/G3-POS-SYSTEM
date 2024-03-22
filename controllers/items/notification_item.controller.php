@@ -1,12 +1,27 @@
 <?php
-require "../../models/item.model.php";
-$nodes = getItem();
+require "../../database/database.php";
 
-foreach ($nodes  as $node) {
-    $OPO = $node['pro_quantity'];
+function notification(): array
+{
+    global $connection;
+    $statement = $connection->prepare("select * from products where pro_quantity < 10");
+    $statement->execute();
+    return $statement->fetchAll();
+}
+?>
 
-    if($OPO < 7){
-        echo $OPO;
-    }
+
+require "../../database/database.php";
+
+function notification(): array
+{
+    global $connection;
+    $statement = $connection->prepare("SELECT * FROM products WHERE pro_quantity < 10");
+    $statement->execute();
+    return $statement->fetchAll();
 }
 
+// Fetch notifications and return JSON response
+$notifications = notification();
+echo json_encode($notifications);
+?>
