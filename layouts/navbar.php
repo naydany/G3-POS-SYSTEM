@@ -189,51 +189,85 @@ if ($page == 'controllers/categories/category.controller.php') {
 
                 <!-- Nav Item - Alerts -->
                 <li class="nav-item dropdown no-arrow mx-1">
+                <?php
+                    require "database/database.php";
+                    require "models/notification.model.php";
+                    $notifications = notification();
+                    $note = 0;
+                    foreach ($notifications as $notification) {
+                        $note +=1;
+                    }
+                    ?>
                     <a class="nav-link dropdown-toggle" href="#" id="alertsDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                         <i class="fas fa-bell fa-fw"></i>
                         <!-- Counter - Alerts -->
-                        <span class="badge badge-danger badge-counter">3+</span>
+                        <span id="notificationCounter" class="badge badge-danger badge-counter"><?php echo $note ?>+</span>
                     </a>
                     <!-- Dropdown - Alerts -->
                     <div class="dropdown-list dropdown-menu dropdown-menu-right shadow animated--grow-in" aria-labelledby="alertsDropdown">
                         <h6 class="dropdown-header">
                             Alerts Center
                         </h6>
-                        <a class="dropdown-item d-flex align-items-center" href="#">
-                            <div class="mr-3">
-                                <div class="icon-circle bg-primary">
-                                    <i class="fas fa-file-alt text-white"></i>
-                                </div>
-                            </div>
-                            <div>
-                                <div class="small text-gray-500">December 12, 2019</div>
-                                <span class="font-weight-bold">A new monthly report is ready to download!</span>
-                            </div>
-                        </a>
-                        <a class="dropdown-item d-flex align-items-center" href="#">
-                            <div class="mr-3">
-                                <div class="icon-circle bg-success">
-                                    <i class="fas fa-donate text-white"></i>
-                                </div>
-                            </div>
-                            <div>
-                                <div class="small text-gray-500">December 7, 2019</div>
-                                $290.29 has been deposited into your account!
-                            </div>
-                        </a>
-                        <a class="dropdown-item d-flex align-items-center" href="#">
-                            <div class="mr-3">
-                                <div class="icon-circle bg-warning">
-                                    <i class="fas fa-exclamation-triangle text-white"></i>
-                                </div>
-                            </div>
-                            <div>
-                                <div class="small text-gray-500">December 2, 2019</div>
-                                Spending Alert: We've noticed unusually high spending for your account.
-                            </div>
-                        </a>
-                        <a class="dropdown-item text-center small text-gray-500" href="#">Show All Alerts</a>
                     </div>
+                    
+                    <script>
+                        function displayNotifications() {
+                            document.getElementById("alertsDropdown").nextElementSibling.innerHTML = '';
+                            let bg = true;
+                            <?php foreach ($notifications as $notification) : ?>
+                                var notificationItem = document.createElement("a");
+                                notificationItem.className = "dropdown-item d-flex align-items-center";
+                                notificationItem.href = "#";
+
+                                var iconDiv = document.createElement("div");
+                                iconDiv.className = "mr-3";
+                                var iconCircle = document.createElement("div");
+                                if(bg == true){
+                                    iconCircle.className = "icon-circle bg-info";
+                                    bg = false
+                                }else{
+                                    iconCircle.className = "icon-circle bg-warning";
+                                    bg = true
+                                }
+                            
+                                var icon = document.createElement("i");
+                                icon.className = "bi bi-building-fill-x text-white";
+                                iconCircle.appendChild(icon);
+                                iconDiv.appendChild(iconCircle);
+
+                                var notificationContent = document.createElement("div");
+                                var notificationDate = document.createElement("div");
+                                notificationDate.className = "small text-gray-500";
+                                notificationDate.textContent = "<?php echo date('F j, Y'); ?>";
+                                var notificationText = document.createElement("span");
+                                notificationText.className = "font-weight-bold";
+                                notificationText.textContent = "Product: <?php echo $notification['pro_name']; ?> is low in quantity.";
+                                notificationContent.appendChild(notificationDate);
+                                notificationContent.appendChild(notificationText);
+
+                                notificationItem.appendChild(iconDiv);
+                                notificationItem.appendChild(notificationContent);
+
+                                document.getElementById("alertsDropdown").nextElementSibling.appendChild(notificationItem);
+                            <?php endforeach; ?>
+                        }
+
+                        function checkItems() {
+                            var xhr = new XMLHttpRequest();
+                            xhr.open("GET", "check_items.php", true);
+                            xhr.onreadystatechange = function() {
+                                if (xhr.readyState == 4 && xhr.status == 200) {
+                                    console.log(xhr.responseText);
+                                    displayNotifications();
+                                }
+                            };
+                            xhr.send();
+                        }
+
+                        displayNotifications();
+                        setInterval(checkItems, 100000);
+                    </script>
+
                 </li>
                 <!-- Nav Item - User Information -->
                 <li class="nav-item dropdown no-arrow">

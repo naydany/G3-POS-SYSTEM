@@ -1,18 +1,19 @@
 <?php
+session_start();
 require_once '../../database/database.php';
 require_once '../../models/item.model.php';
 
 if ($_SERVER['REQUEST_METHOD'] == "POST") {
 
 
-    $pro_name = $_POST['name'];
-    $pro_code = $_POST['code'];
-    $pro_price = $_POST['price'];
-    $pro_cate = $_POST['category'];
-    $pro_quan = $_POST['quantity'];
-    $pro_original_price = $_POST['original_price'];
-    $pro_id = $_POST['id'];
-    $imgProfile = $_FILES['imageItem'];
+    $pro_name = htmlspecialchars($_POST['name']);
+    $pro_code = htmlspecialchars($_POST['code']);
+    $pro_price = htmlspecialchars ($_POST['price']);
+    $pro_cate = htmlspecialchars ($_POST['category']);
+    $pro_quan = htmlspecialchars($_POST['quantity']);
+    $pro_original_price = htmlspecialchars ($_POST['original_price']);
+    $pro_id = htmlspecialchars ($_POST['id']);
+    $imgProfile = htmlspecialchars($_FILES['imageItem']);
 
     // echo $imgProfile;
     // var_dump($imgProfile);
