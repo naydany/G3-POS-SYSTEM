@@ -6,12 +6,15 @@ require '../../models/staff.model.php';
 if ($_SERVER['REQUEST_METHOD'] == 'POST') {
 
     $name = htmlspecialchars($_POST['name']);
-    $number = htmlspecialchars($_POST['number']);
+    $number = htmlspecialchars($_POST['phone']);
     $email = htmlspecialchars($_POST['email']);
     $password = htmlspecialchars($_POST['password']);
     $address = htmlspecialchars($_POST['address']);
     $role = htmlspecialchars($_POST['roles']);
     $image = $_FILES['imagestaff'];
+
+    $numericPhoneNumber = filter_var($number, FILTER_SANITIZE_NUMBER_INT);
+    $phoneNumberInt = intval($numericPhoneNumber);
 
     if (!empty($name) && !empty($email) && !empty($password) && !empty($number) && !empty($address) && !empty($role) && !empty($image)) {
 
@@ -29,11 +32,11 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
             $nameInDirectory = $directory . $newFileName . '.' . $imageExtension;
             $nameInDB = $newFileName . '.' . $imageExtension;
             move_uploaded_file($_FILES["imagestaff"]["tmp_name"], $nameInDirectory);
-
+ 
             $encryptPassword = password_hash($password, PASSWORD_BCRYPT);
             $staff = accountExist($email);
             if (count($staff) == 0) {
-                createStaffs($name, $number, $email, $encryptPassword, $address, $role, $nameInDB);
+                createStaffs($name, $phoneNumberInt, $email, $encryptPassword, $address, $role, $nameInDB);
                 header('Location: /staffs');
                 $_SESSION['success'] = "Account successfully created";
             } else {

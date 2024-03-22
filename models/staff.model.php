@@ -1,6 +1,6 @@
 <?php
 
-function createStaffs( string $name, int $number, string $email, string $password, string $address,string $role,string $image ) : bool
+function createStaffs( string $name, int $phone, string $email, string $password, string $address,string $role,string $image ) : bool
 {
 
     $timezone = new DateTimeZone('Asia/Phnom_Penh');
@@ -8,10 +8,10 @@ function createStaffs( string $name, int $number, string $email, string $passwor
     $time = $date->format('Y-m-d H:i:s');
 
     global $connection;
-    $statement = $connection->prepare("insert into users (name,phone,email,password, address, role, image) values (:name,:number,:email,:password, :address, :role, :image)");
+    $statement = $connection->prepare("insert into users (name,phone,email,password, address, role, image) values (:name,:phone,:email,:password, :address, :role, :image)");
     $statement->execute([
         ':name' => $name,
-        ':number' => $number,
+        ':phone' => $phone,
         ':email' => $email,
         ':password' => $password,
         // ':date' => $time,
@@ -47,18 +47,19 @@ function editeStaff(int $id): array
     return $statement->fetch();
 }
 
-function updateStaffs( int $id, string $name, int $number, string $email, string $address) : bool
+function updateStaffs( int $id, string $name, int $phone, string $email, string $address, string $role) : bool
 {
 
 
     global $connection;
-    $statement = $connection->prepare("update users set name = :name,phone = :number,email = :email, address = :address where id = :id");
+    $statement = $connection->prepare("update users set name = :name,phone = :phone,email = :email, address = :address, role = :role where id = :id");
     $statement->execute([
         ':name' => $name,
-        ':number' => $number,
+        ':phone' => $phone,
         ':email' => $email,
         ':address' => $address,
-        ':id' => $id
+        ':id' => $id,
+        ':role' => $role
 
     ]);
 

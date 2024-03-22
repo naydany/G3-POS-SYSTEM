@@ -1,6 +1,6 @@
 <?php
 
-function createAdmin(string $name, string $email, string $password, string $address, int $phone, string $role, string $img): bool
+function createAdmin(string $name, int $phone, string $email, string $password, string $address, string $role, string $img): bool
 {
 
     global $connection;
@@ -43,13 +43,14 @@ function editeAdmin(int $id): array
     return $statement->fetch();
 }
 
-function updateAdmin(int $id, string $name, string $email, string $address): bool
+function updateAdmin(int $id, string $name, string $phone, string $email, string $address): bool
 {
 
     global $connection;
-    $statement = $connection->prepare("update users set name = :name, email = :email, address = :address where id = :id");
+    $statement = $connection->prepare("update users set name = :name, phone = :phone, email = :email, address = :address where id = :id");
     $statement->execute([
         ':name' => $name,
+        ':phone' => $phone,
         ':email' => $email,
         ':address' => $address,
         ':id' => $id
