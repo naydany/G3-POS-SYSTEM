@@ -10,6 +10,9 @@ function createItem(
     string $sup_name,
     string $pro_original_price
 ): bool {
+    $timezone = new DateTimeZone('Asia/Phnom_Penh');
+    $date = new DateTime('now', $timezone);
+    $time = $date->format('Y-m-d H:i:s');
 
     $timezone = new DateTimeZone('Asia/Phnom_Penh');
     $date = new DateTime('now', $timezone);
@@ -26,6 +29,7 @@ function createItem(
         ':sup_name' => $sup_name,
         ':quantity' => $pro_quan,
         ':price' => $pro_price,
+        ':pro_date' => $time,
         ':pro_original_price' => $pro_original_price,
         ':pro_date' => $time,
     ]);
