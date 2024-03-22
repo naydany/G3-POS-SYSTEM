@@ -12,8 +12,9 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
     $pro_price = $_POST['price'];
     $pro_cate = $_POST['category'];
     $pro_quan = $_POST['quantity'];
+    $pro_original_price = $_POST['original_price'];
 
-    // echo $imgProfile;
+    echo $imgProfile;
     if (!empty($pro_name) && !empty($pro_code) && !empty($pro_price) && !empty($pro_cate) && !empty($pro_quan) )  {
 
         $directory = "../../assets/images/";
@@ -31,7 +32,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
                 $nameInDB = $newFileName . '.' . $imageExtension;
                 move_uploaded_file($_FILES["image"]["tmp_name"], $nameInDirectory);
 
-                $isCreated = createItem($pro_name, $pro_code, $pro_quan, $nameInDB, $pro_price, $pro_cate, $sup_name);
+                $isCreated = createItem($pro_name, $pro_code, $pro_quan, $nameInDB, $pro_price, $pro_cate, $sup_name,$pro_original_price);
                 if ($isCreated) {
                     header('location: /items');
                 } else {

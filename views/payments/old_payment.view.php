@@ -2,7 +2,7 @@
     <div class="card-header border-0 d-flex text-danger">
         <h3>Old Payments</h3>
     </div>
-    <p class="text-muted ml-4">Showing 1 to 10 of 100 rows  
+    <p class="text-muted ml-4">select order  
             <select class="form-control-sm" name="row" id="row">
                 <option>5</option>
                 <option>10</option>
@@ -11,7 +11,7 @@
                 <option>60</option>
                 <option>80</option>
                 <option>100</option>
-            </select> rows per page
+            </select>
         </p>
     <div class="container">
         <table class="table table-bordered text-center mt-2 rounded">

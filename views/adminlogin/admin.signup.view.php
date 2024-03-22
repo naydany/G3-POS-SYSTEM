@@ -1,21 +1,21 @@
 <?php
-   if(isset($_SESSION['admin'])) {
+if (isset ($_SESSION['admin'])) {
     $user = $_SESSION['admin'];
     if ($user['role'] === "Admin") {
-      header("Location: /admin");
+        header("Location: /admin");
     } else {
-      header('Location: /normal');
+        header('Location: /normal');
     }
     die();
 }
 ?>
 
-<?php if (isset($_SESSION['error'])) : ?>
+<?php if (isset ($_SESSION['error'])): ?>
     <div class="alert alert-danger alert-dismissible fade show" id="alert">
         <button type="button" class="close" data-dismiss="alert">&times;</button>
         <?= $_SESSION['error'] ?>
     </div>
-<?php
+    <?php
     unset($_SESSION['error']);
 endif;
 ?>
@@ -46,7 +46,8 @@ endif;
                                         <div class="input-group-prepend">
                                             <span class="input-group-text"><i class="bi bi-person-circle"></i></span>
                                         </div>
-                                        <input type="text" class="form-control" placeholder="Enter name" id="name" name="name">
+                                        <input type="text" class="form-control" placeholder="Enter name" id="name"
+                                            name="name">
                                     </div>
                                 </div>
                                 <div class="form-group mb-3">
@@ -54,7 +55,8 @@ endif;
                                         <div class="input-group-prepend">
                                             <span class="input-group-text"><i class="bi bi-envelope-fill"></i></span>
                                         </div>
-                                        <input class="form-control" required name="admin_email" placeholder="Email" type="email">
+                                        <input class="form-control" required name="admin_email" placeholder="Email"
+                                            type="email">
                                     </div>
                                 </div>
                                 <div class="form-group">
@@ -62,7 +64,8 @@ endif;
                                         <div class="input-group-prepend">
                                             <span class="input-group-text"><i class="bi bi-unlock-fill"></i></span>
                                         </div>
-                                        <input class="form-control" required name="admin_password" placeholder="Password" type="password">
+                                        <input class="form-control" required name="admin_password"
+                                            placeholder="Password" type="password">
                                     </div>
                                 </div>
                                 <div class="form-group">
