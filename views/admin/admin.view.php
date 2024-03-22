@@ -136,9 +136,10 @@ foreach ($totalPrices as $totalPrice) {
             </div>
         </div>
     </div>
-    <h1 class="h3 mb-0 text-gray-800">Order Detail</h1><br>
-        <p class="text-muted">select order
-            <select class=" form-control-sm" name="row" id="row">
+    <div class="d-flex mt-5 mb-1">
+    <h1 class="h3 mb-0 text-gray-800">Order Detail</h1>
+        <p class="ml-3">
+            <select class=" form-control-sm text-gray-800" name="row" id="row">
                 <option>5</option>
                 <option>10</option>
                 <option>25</option>
@@ -148,8 +149,9 @@ foreach ($totalPrices as $totalPrice) {
                 <option>100</option>
             </select> 
         </p>
+    </div>
 
-        <table class="table bg-white text-black">
+        <table class="table bg-white text-black text-center">
             <thead class="text-white bg-primary">
                 <tr>
                     <th>ID</th>
