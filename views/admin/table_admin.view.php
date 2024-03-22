@@ -33,6 +33,7 @@ endif;
             <tr>
                 <th>ID</th>
                 <th>Name</th>
+                <th>Phone Number</th>
                 <th>Email</th>
                 <th>Address</th>
                 <?php if ($_SESSION['user']['role'] != 'stock manager') : ?>
@@ -56,17 +57,22 @@ endif;
                             <form action="../../controllers/admin/update_admin.controller.php" class='d-flex flex-xl-column' method='post'>
                                 <input type="hidden" name="id" value="<?= $user['id'] ?>">
                                 <div class="form-group">
-                                    <label for="name">name:</label>
+                                    <label for="name">Name:</label>
                                     <input type="text" class="form-control" id="name" name='name' value="<?= $user['name'] ?>">
                                 </div>
 
                                 <div class="form-group">
-                                    <label for="email">email:</label>
+                                    <label for="number">Phone Number:</label>
+                                    <input type="phone" class="form-control" id="phone" name='phone' value='<?= $user['phone'] ?>'>
+                                </div>
+
+                                <div class="form-group">
+                                    <label for="email">Email:</label>
                                     <input type="text" class="form-control" id="email" name='email' value="<?= $user['email'] ?>">
                                 </div>
 
                                 <div class="form-group">
-                                    <label for="address">address:</label>
+                                    <label for="address">Address:</label>
                                     <input type="text" class="form-control" id="address" name='address' value="<?= $user['address'] ?>">
                                 </div>
 
@@ -81,6 +87,7 @@ endif;
 <tr>
     <td><?= $user['id'] ?></td>
     <td><?= $user['name'] ?></td>
+    <td><?= $user['phone'] ?></td>
     <td><?= $user['email'] ?></td>
     <td><?= $user['address'] ?></td>
     <?php if ($_SESSION['user']['role'] != 'stock manager') : ?>
@@ -123,31 +130,32 @@ endif;
                                         <input type="hidden" name="prod_id" value="" class="form-control">
                                     </div>
                                     <div class="col-md-6">
-                                        <label for="email">email:</label>
+                                        <label for="email">Email:</label>
                                         <input type="text" class="form-control" id="email" name='email'>
                                     </div>
                                 </div>
                                 <hr>
                                 <div class="form-row">
                                     <div class="col-md-6">
-                                        <label for="password">password:</label>
+                                        <label for="password">Password:</label>
                                         <input type="number" class="form-control" id="password" name='password'>
                                     </div>
                                     <div class="col-md-6">
-                                        <label for="address">address:</label>
+                                        <label for="address">Address:</label>
                                         <input type="text" class="form-control" id="address" name='address'>
                                     </div>
                                 </div>
                                 <hr>
                                 <div class="form-row">
                                     <div class="col-md-6">
-                                        <label for="number">number phone:</label>
-                                        <input type="number" class="form-control" id="number" name='number'>
+                                        <label for="number">Phone Number:</label>
+                                        <input type="number" class="form-control" id="phone" name='phone'>
                                     </div>
-                                    <div class="col-md-6 mt-4">
+                                    <div class="col-md-6">
+                                        <label for="role">Role</label>
                                         <select class="custom-select" name="role" id="inputGroupSelect02">
                                             <!-- <option selected>Choose...</option> -->
-                                            <option value="admin">Admin</option>
+                                            <option value="admin" selected>Admin</option>
                                         </select>
 
                                     </div>

@@ -13,7 +13,7 @@ if ($_SERVER['REQUEST_METHOD'] == "POST") {
     $pro_quan = htmlspecialchars($_POST['quantity']);
     $pro_original_price = htmlspecialchars ($_POST['original_price']);
     $pro_id = htmlspecialchars ($_POST['id']);
-    $imgProfile = htmlspecialchars($_FILES['imageItem']);
+    $imgProfile = $_FILES['imageItem'];
 
     // echo $imgProfile;
     // var_dump($imgProfile);
@@ -46,9 +46,12 @@ if ($_SERVER['REQUEST_METHOD'] == "POST") {
             }
         } else {
             $_SESSION['error'] = "Not Image file!";
-            header('Location: /form_create');
+            header('location: /items');
             exit();
         }
+    }else{
+        header('location: /items');
+        $_SESSION['error'] = "Please to complete all file!";
     }
 
 }
