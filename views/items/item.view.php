@@ -45,7 +45,7 @@ $products = getItem();
 
             <form action="#" method="post">
                 <div class="card-header input-group-append w-200 ">
-                    <select id="select-categories" class="border-primary" name="users" style="padding: 6px;">
+                    <select id="select-categories" class="border-primary text-primary rounded" name="users" style="padding: 6px;">
                         <option value="">selece category </option>
                         <?php
                         foreach ($categories as $category):
@@ -104,7 +104,6 @@ $products = getItem();
                             <th>Name</th>
                             <th>Code</th>
                             <th>Category</th>
-                            <th>Original price</th>
                             <th>Quantity</th>
                             <th>Price</th>
                             <th>Action</th>
@@ -129,9 +128,6 @@ $products = getItem();
                                 </td>
                                 <td>
                                     <?= $pro['cate_name'] ?>
-                                </td>
-                                <td>
-                                    <?= $pro['pro_original_price'] ?>$
                                 </td>
                                 <td>
                                     <?= $pro['pro_quantity'] ?>

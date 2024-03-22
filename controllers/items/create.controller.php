@@ -13,12 +13,12 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
     $pro_price = htmlspecialchars($_POST['price']);
     $pro_cate = htmlspecialchars($_POST['category']);
     $pro_quan = htmlspecialchars($_POST['quantity']);
+    $pro_original_price = htmlspecialchars($_POST['original_price']);
     $pro_image = $_FILES['image'];
 
 
-
     // echo $imgProfile;
-    if (!empty($pro_name) && !empty($pro_code) && !empty($pro_price) && !empty($pro_cate) && !empty($pro_quan) && !empty($sup_name) && !empty($pro_image['name'])) {
+    if (!empty($pro_name) && !empty($pro_code) && !empty($pro_price) && !empty($pro_cate) && !empty($pro_quan) && !empty($sup_name) && !empty($pro_image['name'])& !empty($pro_original_price)) {
 
         $directory = "../../assets/images/";
         $target_file = $directory . '.' . basename($_FILES['image']['name']);
