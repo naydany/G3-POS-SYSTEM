@@ -234,6 +234,10 @@ if ($page == 'controllers/categories/category.controller.php') {
                                 icon.className = "bi bi-building-fill-x text-white";
                                 iconCircle.appendChild(icon);
                                 iconDiv.appendChild(iconCircle);
+                                var btn = document.createElement("button")
+                                btn.className = "btn btn-danger";
+                                btn.textContent = "delete";
+                                
 
                                 var notificationContent = document.createElement("div");
                                 var notificationDate = document.createElement("div");
@@ -244,6 +248,7 @@ if ($page == 'controllers/categories/category.controller.php') {
                                 notificationText.textContent = "Product: <?php echo $notification['pro_name']; ?> is low in quantity.";
                                 notificationContent.appendChild(notificationDate);
                                 notificationContent.appendChild(notificationText);
+                                notificationContent.appendChild(btn);
 
                                 notificationItem.appendChild(iconDiv);
                                 notificationItem.appendChild(notificationContent);

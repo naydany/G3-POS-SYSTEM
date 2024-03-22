@@ -15,7 +15,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
     $pro_quan = htmlspecialchars($_POST['quantity']);
 
     // echo $imgProfile;
-    if (!empty($pro_name) && !empty($pro_code) && !empty($pro_price) && !empty($pro_cate) && !empty($pro_quan) && !empty($sup_name) && !empty($_POST['upload'])) {
+    if (!empty($pro_name) && !empty($pro_code) && !empty($pro_price) && !empty($pro_cate) && !empty($pro_quan) && !empty($sup_name)) {
 
         $directory = "../../assets/images/";
         $target_file = $directory . '.' . basename($_FILES['image']['name']);

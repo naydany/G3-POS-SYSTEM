@@ -335,12 +335,7 @@ if ($_SESSION['Products'] != []) {
                 </div>
             </div>
         </div>
-<<<<<<< HEAD
-    </div>
-<?php endif; ?>
-=======
         
     </div>
 
 <?php endif; ?>
->>>>>>> b4ea96e7c9d877de712de6d71fe2e805094e42d8
