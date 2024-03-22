@@ -12,8 +12,9 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
     $address = htmlspecialchars($_POST['address']);
     $role = htmlspecialchars($_POST['roles']);
     $imageProfile = $_FILES['imagestaff'];
+    print_r($imageProfile);
 
-    if (!empty($name) && !empty($email) && !empty($password) && !empty($number) && !empty($address) && !empty($role) && !empty($_POST['upload'])) {
+    if (!empty($name) && !empty($email) && !empty($password) && !empty($number) && !empty($address) && !empty($role) && !empty($imageProfile['name'])) {
 
         $directory = "../../assets/images/";
         $target_file = $directory . '.' . basename($_FILES['imagestaff']['name']);

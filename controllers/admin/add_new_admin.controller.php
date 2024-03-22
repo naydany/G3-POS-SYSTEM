@@ -1,5 +1,6 @@
 
 <?php
+session_start();
 require '../../database/database.php';
 require '../../models/admin.model.php';
 
@@ -14,7 +15,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
     $imgProfile = $_FILES['imageprofile'];
 
 
-    if (!empty($name) && !empty($email) && !empty($password) && !empty($address) && !empty($phone)  && !empty($role) && !empty($_POST['upload'])) {
+    if (!empty($name) && !empty($email) && !empty($password) && !empty($address) && !empty($phone)  && !empty($role) && !empty($imgProfile['name'])) {
 
         $directory = "../../assets/images/";
         $target_file = $directory . '.' . basename($_FILES['imageprofile']['name']);

@@ -30,8 +30,8 @@ endif;
         </div>
     <?php endif; ?>
 </div>
-<div class="container mt-3">
-    <table class="table table-bordered text-center mt-2 rounded">
+<div class="container">
+    <table class="table table-bordered text-center rounded">
         <thead class="text-secondary thead-light">
             <tr>
                 <th>ID</th>

@@ -23,9 +23,9 @@
     endif;
     ?>
 <div class="container mt-4">
-    <h4>Table stor staff</h4>
+    <h5 mt-2>Table stor staff</h5>
     <?php if ($_SESSION['user']['role'] != 'cashier' && $_SESSION['user']['role'] != 'stock manager') : ?>
-        <button type="button" class="btn btn-outline-primary mr-5" data-toggle="modal" data-target="#modalsCreate">
+        <button type="button" class="btn btn-outline-primary mr-5 mt-3" data-toggle="modal" data-target="#modalsCreate">
             <i class="fas fa-user-plus"></i> Add new Staff
         </button>
     <?php endif; ?>
