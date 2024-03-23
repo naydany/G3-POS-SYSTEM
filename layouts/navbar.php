@@ -244,6 +244,7 @@ if ($page == 'controllers/categories/category.controller.php') {
                                 notificationText.textContent = "Product: <?php echo $notification['pro_name']; ?> is low in quantity.";
                                 notificationContent.appendChild(notificationDate);
                                 notificationContent.appendChild(notificationText);
+                             
 
                                 notificationItem.appendChild(iconDiv);
                                 notificationItem.appendChild(notificationContent);
