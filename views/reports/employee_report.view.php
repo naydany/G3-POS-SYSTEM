@@ -1,14 +1,15 @@
-<div class="card-header py-3 d-flex justify-content-between">
-    <h4 class="ml-2 text-primary">Employee Reports</h4>
-    <button class="btn btn-outline-primary h-50 mt-1" id="export_btn"><i class="bi bi-file-earmark-arrow-down"></i>
+<div class="container mt-4">
+<div class="card-header d-flex justify-content-between">
+    <h4 class="text-primary">Employee Reports</h4>
+    <button class="btn btn-outline-primary" id="export_btn"><i class="bi bi-file-earmark-arrow-down"></i>
         Export Data
     </button>
 </div>
         <table class="table table-bordered text-center" id = "employee_data">
             <thead class="text-secondary thead-light">
                 <tr>
-                    <th>Employee ID</th>
-                    <th>Employee Name</th>
+                    <th>ID</th>
+                    <th>Name</th>
                     <th>Role</th>
                     <th>Email</th>
                     <th>Address</th>
@@ -52,3 +53,4 @@
         export_table_data_to_excel('xlsx');
     });
 </script>
+</div>

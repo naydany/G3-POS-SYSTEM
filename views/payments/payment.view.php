@@ -6,10 +6,6 @@
                 Make A New Order
             </a>
         </div>
-<<<<<<< HEAD
-       
-=======
->>>>>>> 84011cea4c70d2f1b2717eb298a9ead6ea37cb08
         <div class="card-header py-3 d-flex justify-content-between">
             <button type="button" class="btn btn-outline-primary" data-toggle="modal" data-target="#paymentForm">
                 Start Payment
