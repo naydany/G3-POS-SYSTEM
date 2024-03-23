@@ -20,9 +20,9 @@ endif;
 
 
 <div class="card-header pl-5 pr-5 py-3 d-flex justify-content-between">
-    <h4 class="font-weight-bold text-primary" style="margin-left: 10px">Category</h4>
+    <h4 class="font-weight-bold text-primary" style="margin-left: 68px">Category</h4>
     <?php if ($_SESSION['user']['role'] != 'cashier'): ?>
-        <div class="" style="padding-left: 20px;">
+        <div class="" style="padding-right: 65px;">
             <button type="button" class="btn btn-outline-primary " data-toggle="modal" data-target="#medalCreate">
                 <i class="bi bi-plus-circle mr-2"></i>Add new Category
             </button>
