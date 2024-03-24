@@ -21,6 +21,7 @@ if($_SERVER['REQUEST_METHOD'] == 'POST'){
         else{
             $_SESSION['error'] = 'fail';
             // header('location: /controllers/login/verification.controller.php');
+            header('Location: /verify_otp');
         }
     }
 }

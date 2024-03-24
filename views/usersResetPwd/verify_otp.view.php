@@ -28,14 +28,14 @@ endif;
         <div class="card shadow border-0 mx-auto ">
             <!-- Page content -->
             <div class="card-body px-lg-5 py-lg-5">
-                <h1 class="h3 mb-0 text-dark">Verify OTP</h1><br>
+                <h1 class="h3 mb-0 text-dark">Verify with OTP</h1><br>
                 <form action="controllers/usersResetPwd/comfirm_otp.controller.php" method="post">
 
                     <div class="input-group mb-3">
                         <br>
                         <div>
-                            <label class="">Code OTP</label>
-                            <input type="number" name="otp" class="form-control" id="nameInput" required name="password_otp" placeholder="code otp" style="width:500px">
+                            <label class="">Enter Code</label>
+                            <input type="text" name="otp" class="form-control" id="nameInput" required name="password_otp" placeholder="code ..." style="width:500px">
                         </div>
                     </div>
                     <div class="row justify-content-between">

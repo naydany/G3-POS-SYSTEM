@@ -49,8 +49,8 @@ if($_SERVER['REQUEST_METHOD'] == 'POST'){
                 // Back to your account for login
                 // header('location: /login');
 
-                echo 'success';
-                $_SESSION['failed'] = 'success';
+           
+                $_SESSION['success'] = 'success';
 
                 if ($_SESSION['user']['role']=='admin'){
                     header('location: /form_admin_signin');
@@ -59,17 +59,17 @@ if($_SERVER['REQUEST_METHOD'] == 'POST'){
                 }
                 
             }else{
-                $_SESSION['failed'] = 'fail';
-                echo 'error';
+                $_SESSION['error'] = 'fail';
+                
             }
         }else{
-            $_SESSION['failed'] = 'fail';
+            $_SESSION['error'] = 'Passwold not mach together!';
             // header('location: /views/login/change.pwd.view.php');
-            echo 'da';
+            header('Location: /change_password');
         }
     }else{
-        $_SESSION['failed'] = 'fail';
+        $_SESSION['error'] = '';
         // header('location: /views/login/change.pwd.view.php');
-        echo 'nyny';
+       
     }
 }
