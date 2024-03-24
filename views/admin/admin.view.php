@@ -55,9 +55,9 @@ foreach ($totalPrices as $totalPrice) {
     </div>
 
     <!-- Content Row -->
-    <div class="row">
+    <div class="d-flex row justify-content-between">
+        <!-- Earnings (Monthly) Card Example 4-->
 
-        <!-- Earnings (Monthly) Card Example -->
         <div class="col-xl-3 col-md-6 mb-4">
             <div class="card border-left-primary shadow h-100 py-2">
                 <div class="card-body">
@@ -75,7 +75,7 @@ foreach ($totalPrices as $totalPrice) {
             </div>
         </div>
 
-        <!-- Earnings (Monthly) Card Example -->
+        <!-- Earnings (Monthly) Card Example 3-->
         <div class="col-xl-3 col-md-6 mb-4">
             <div class="card border-left-success shadow h-100 py-2">
                 <div class="card-body">
@@ -92,7 +92,7 @@ foreach ($totalPrices as $totalPrice) {
                 </div>
             </div>
         </div>
-        <!-- Earnings (Monthly) Card Example -->
+        <!-- Earnings (Monthly) Card Example 2-->
         <div class="col-xl-3 col-md-6 mb-4">
             <div class="card border-left-info shadow h-100 py-2">
                 <div class="card-body">
@@ -115,7 +115,7 @@ foreach ($totalPrices as $totalPrice) {
                 </div>
             </div>
         </div>
-        <!-- Pending Requests Card Example -->
+        <!-- Pending Requests Card Example 1-->
         <div class="col-xl-3 col-md-6 mb-4">
             <div class="card border-left-warning shadow h-100 py-2">
                 <div class="card-body">
@@ -127,100 +127,195 @@ foreach ($totalPrices as $totalPrice) {
                         </div>
                         <div class="col-auto">
                             <i class="bi bi-coin fa-2x text-gray-300"></i>
-                            <!-- <i class="fas fa-tags fa-2x text-gray-300"></i> -->
                         </div>
                     </div>
                 </div>
             </div>
         </div>
-    </div>
-    <div class="d-flex mt-5">
-    <h1 class="h3 mb-0 text-gray-800">Order Detail</h1><br>
-    <p class="text-danger ml-3">
-        <select class=" form-control-sm" name="row" id="row">
-            <option>5</option>
-            <option>10</option>
-            <option>25</option>
-            <option>40</option>
-            <option>60</option>
-            <option>80</option>
-            <option>100</option>
-        </select>
-        
+
     </div>
 
-    <table class="table bg-white text-black text-center">
-        <thead class="text-white bg-primary rounded">
-            <tr>
-                <th>ID</th>
-                <th>Product Name</th>
-                <th>Unit Price</th>
-                <th>Quantity</th>
-                <th>Total price</th>
-                <th>Status</th>
-                <th>Date</th>
-            </tr>
-        </thead>
+</div>
 
-        <tbody id="orderTableBody">
-            <?php
-            require "models/order.model.php";
-            $orders = getOrdersDetail();
-            foreach ($orders as $order) : ?>
-                <tr>
-                    <td><?= $order['order_detail_id'] ?></td>
-                    <td><?= $order['pro_name'] ?></td>
-                    <td><?= $order['pro_price'] ?>$</td>
-                    <td><?= $order['pro_qty'] ?></td>
-                    <td><?= $order['tatal_price'] ?>$</td>
-                    <td>
-                        <?php if ($order['order_status'] != "Paid" && $order['order_status'] != 1) {
-                            echo "<span class='badge badge-danger'>Not Paid</span>";
-                        } else {
-                            echo "<span class='badge badge-success'>Paid</span>";
-                        }
-                        ?>
-                    </td>
-                    <td><?= $order['order_date'] ?></td>
-                </tr>
-            <?php endforeach; ?>
-        </tbody>
-    </table>
 
-    <script>
-        function getSelectedRows() {
-            return localStorage.getItem('selectedRows') || 5;
+<div class="d-flex row">
+    <!-- Pie Chart -->
+
+    <div class="mt-5 ">
+        <?php
+        require "models/order.model.php";
+        $orders = getOrdersDetail();
+
+        $groupQuantities = [];
+
+        foreach ($orders as $item) {
+            $groupName = $item['pro_name'];
+            $quantity = $item['pro_qty'];
+
+            if (isset($groupQuantities[$groupName])) {
+                $groupQuantities[$groupName] += $quantity;
+            } else {
+                $groupQuantities[$groupName] = $quantity;
+            }
         }
 
-
-        function setSelectedRows(value) {
-            localStorage.setItem('selectedRows', value);
+        $labels = [];
+        $data = [];
+        foreach ($groupQuantities as $groupName => $quantity) {
+            $labels[] = $groupName;
+            $data[] = $quantity;
         }
 
+        $colors = [];
+        for ($i = 0; $i < count($data); $i++) {
+            $colors[] = sprintf("#%06X", mt_rand(0, 0xFFFFFF));
+        }
+        ?>
 
-        document.addEventListener('DOMContentLoaded', function() {
-            var selectedRows = getSelectedRows();
-            document.getElementById('row').value = selectedRows;
-            updateTableDisplay(selectedRows);
-        });
+        <div>
+            <div class="card shadow">
+                <div class="card-header d-flex flex-row align-items-center justify-content-between">
+                    <h6 class="m-0 font-weight-bold text-primary">Revenue Sources</h6>
+                    <div class="dropdown no-arrow">
+                        <a class="dropdown-toggle" href="#" role="button" id="dropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                            <i class="fas fa-ellipsis-v fa-sm fa-fw text-gray-400"></i>
+                        </a>
+                        <!-- <div class="dropdown-menu dropdown-menu-right shadow animated--fade-in" aria-labelledby="dropdownMenuLink">
+                                <div class="dropdown-header">Dropdown Header:</div>
+                                <a class="dropdown-item" href="#">Action</a>
+                                <a class="dropdown-item" href="#">Another action</a>
+                                <div class="dropdown-divider"></div>
+                                <a class="dropdown-item" href="#">Something else here</a>
+                            </div> -->
+                    </div>
+                </div>
 
+                <div class="card-body">
+                    <div class="chart-pie">
+                        <canvas id="myPieChart" style="height: 13px;"></canvas>
+                    </div>
+                    <div class="mt-4 text-center small">
+                        <?php for ($i = 0; $i < count($labels); $i++) { ?>
+                            <span class="">
+                                <i class="fas fa-circle" style="color: <?php echo $colors[$i]; ?>"></i> <?php echo $labels[$i]; ?>
+                            </span>
+                        <?php } ?>
+                    </div>
+                </div>
+            </div>
+        </div>
 
-        function updateTableDisplay(selectedRows) {
-            var tableRows = document.querySelectorAll('#orderTableBody tr');
-            tableRows.forEach(function(row, index) {
-                if (index < selectedRows) {
-                    row.style.display = '';
-                } else {
-                    row.style.display = 'none';
-                }
+        <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+
+        <script>
+            document.addEventListener("DOMContentLoaded", function() {
+                var ctx = document.getElementById("myPieChart").getContext("2d");
+                new Chart(ctx, {
+                    type: 'pie',
+                    data: {
+                        labels: <?php echo json_encode($labels); ?>,
+                        datasets: [{
+                            data: <?php echo json_encode($data); ?>,
+                            backgroundColor: <?php echo json_encode($colors); ?>,
+                        }]
+                    },
+                    options: {
+                        responsive: true
+                    }
+                });
             });
-        }
+        </script>
+    </div>
+    <!-- <table></table> -->
+    <div class="ml-3">
+        <div class="d-flex mt-1">
+            <h1 class="h3 mb-0 text-gray-800" style="margin-left: 500px;">Order Detail</h1><br>
+            <p class="text-danger ml-3">
+                <select class=" form-control-sm" name="row" id="row">
+                    <option>5</option>
+                    <option>10</option>
+                    <option>25</option>
+                    <option>40</option>
+                    <option>60</option>
+                    <option>80</option>
+                    <option>100</option>
+                </select>
+
+        </div>
+        <div style="height: 400px; overflow: auto;">
+            <table class="table bg-white text-black text-center">
+                <thead class="text-white bg-primary rounded">
+                    <tr>
+                        <th>ID</th>
+                        <th>P_Name</th>
+                        <th>Unit Price</th>
+                        <th>Quantity</th>
+                        <th>Total price</th>
+                        <th>Status</th>
+                        <th>Date</th>
+                    </tr>
+                </thead>
+
+                <tbody id="orderTableBody">
+                    <?php
+
+                    $orders = getOrdersDetail();
+                    foreach ($orders as $order) : ?>
+                        <tr>
+                            <td><?= $order['order_detail_id'] ?></td>
+                            <td><?= $order['pro_name'] ?></td>
+                            <td><?= $order['pro_price'] ?>$</td>
+                            <td><?= $order['pro_qty'] ?></td>
+                            <td><?= $order['tatal_price'] ?>$</td>
+                            <td>
+                                <?php if ($order['order_status'] != "Paid" && $order['order_status'] != 1) {
+                                    echo "<span class='badge badge-danger'>Not Paid</span>";
+                                } else {
+                                    echo "<span class='badge badge-success'>Paid</span>";
+                                }
+                                ?>
+                            </td>
+                            <td><?= $order['order_date'] ?></td>
+                        </tr>
+                    <?php endforeach; ?>
+                </tbody>
+            </table>
+
+            <script>
+                function getSelectedRows() {
+                    return localStorage.getItem('selectedRows') || 5;
+                }
 
 
-        document.getElementById('row').addEventListener('change', function() {
-            var selectedRows = parseInt(this.value);
-            setSelectedRows(selectedRows);
-            updateTableDisplay(selectedRows);
-        });
-    </script>
+                function setSelectedRows(value) {
+                    localStorage.setItem('selectedRows', value);
+                }
+
+
+                document.addEventListener('DOMContentLoaded', function() {
+                    var selectedRows = getSelectedRows();
+                    document.getElementById('row').value = selectedRows;
+                    updateTableDisplay(selectedRows);
+                });
+
+
+                function updateTableDisplay(selectedRows) {
+                    var tableRows = document.querySelectorAll('#orderTableBody tr');
+                    tableRows.forEach(function(row, index) {
+                        if (index < selectedRows) {
+                            row.style.display = '';
+                        } else {
+                            row.style.display = 'none';
+                        }
+                    });
+                }
+                document.getElementById('row').addEventListener('change', function() {
+                    var selectedRows = parseInt(this.value);
+                    setSelectedRows(selectedRows);
+                    updateTableDisplay(selectedRows);
+                });
+            </script>
+        </div>
+    </div>
+</div>
 </div>
