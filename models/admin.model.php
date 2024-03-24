@@ -76,3 +76,27 @@ function accountExist(string $email): array
 }
 
 
+function OTP(string $email, int $OTP) : bool
+{
+    global $connection;
+    $statement = $connection->prepare("update users set otp = :otp where email = :email");
+    $statement->execute([
+        ':email' =>$email ,
+        ':otp' =>  $OTP
+    ]);
+
+    return $statement->rowCount() > 0;
+}
+
+
+function confirmOTP($OTP)
+{
+    global $connection;
+    $statement = $connection->prepare("select * from users where otp= :otp");
+    $statement->execute([
+        ':otp' => $OTP
+    ]);
+
+    return $statement->rowCount() > 0;
+
+}

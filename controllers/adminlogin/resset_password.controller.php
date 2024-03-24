@@ -8,13 +8,17 @@ use PHPMailer\PHPMailer\SMTP;
 use PHPMailer\PHPMailer\Exception;
 //Load Composer's autoloader
 require '../../vendor/autoload.php';
+require '../../database/database.php';
+require '../../models/admin.model.php';
 
 
 // Get value from input
 if ($_SERVER['REQUEST_METHOD'] == 'POST') {
     if (isset($_POST['email'])) {
         $email = $_POST['email'];
-
+       
+        $OTP = mt_rand(100000, 999999);
+        $setOTP = OTP($email,$OTP);
         //Create an instance; passing `true` enables exceptions
         $mail = new PHPMailer(true);
 
@@ -36,13 +40,24 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
             //Content
             $mail->isHTML(true);                                  //Set email format to HTML
             $mail->Subject = 'POS-System';
-            $mail->Body    = "Reset password";
+            $mail->Body    = "<b>Dear User</b>
+            <h3>We received a request to reset your password.</h3>
+            <h3>So here is your verify OTP code is $OTP <br></h3
+            <p>And you can also click the below link to reset your password</p>
+            http://localhost/login-System/Login-System-main/reset_psw.php
+            <br><br>
+            <p>With regrads,</p>
+            <b>Programming with Lam</b>";
             $mail->AltBody = 'This is the body in plain text for non-HTML mail clients';
 
             $mail->send();
             echo 'Message has been sent';
+  
+            header('Location: /verify_otp');
         } catch (Exception $e) {
             echo "Message could not be sent. Mailer Error: {$mail->ErrorInfo}";
         }
     }
+    
+    // require '../../views/adminlogin/comfirm_password.view.php';
 }
