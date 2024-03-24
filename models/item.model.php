@@ -31,7 +31,6 @@ function createItem(
         ':price' => $pro_price,
         ':pro_date' => $time,
         ':pro_original_price' => $pro_original_price,
-        ':pro_date' => $time,
     ]);
 
     return $statement->rowCount() > 0;
