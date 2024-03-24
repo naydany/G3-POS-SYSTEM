@@ -149,18 +149,6 @@ foreach ($totalPrices as $totalPrice) {
         
     </div>
 
-<<<<<<< HEAD
-        <table class="table bg-white text-black " >
-            <thead class="text-white bg-primary">
-                <tr style="text-align: center;">
-                    <th>ID</th>
-                    <th>Product Name</th>
-                    <th>Unit Price</th>
-                    <th>Quantity</th>
-                    <th>Total price</th>
-                    <th>Status</th>
-                    <th>Date</th>
-=======
     <table class="table bg-white text-black text-center">
         <thead class="text-white bg-primary rounded">
             <tr>
@@ -194,49 +182,15 @@ foreach ($totalPrices as $totalPrice) {
                         ?>
                     </td>
                     <td><?= $order['order_date'] ?></td>
->>>>>>> 520851510ed35c79cf3eee69386d92e2a80019fe
                 </tr>
             <?php endforeach; ?>
         </tbody>
     </table>
 
-<<<<<<< HEAD
-            <tbody id="orderTableBody">
-                <?php
-                require "models/order.model.php";
-                $orders = getOrdersDetail();
-                foreach ($orders as $order) : ?>
-                    <tr style="text-align: center;">
-                        <td><?= $order['order_detail_id'] ?></td>
-                        <td><?= $order['pro_name'] ?></td>
-                        <td><?= $order['pro_price'] ?>$</td>
-                        <td><?= $order['pro_qty'] ?></td>
-                        <td><?= $order['tatal_price'] ?>$</td>
-                        <td>
-                            <?php if ($order['order_status'] != "Paid" && $order['order_status'] != 1) {
-                                echo "<span class='badge badge-danger'>Not Paid</span>";
-                            } else {
-                                echo "<span class='badge badge-success'>Paid</span>";
-                            }
-                            ?>
-                        </td>
-                        <td><?= $order['order_date'] ?></td>
-                    </tr>
-                <?php endforeach; ?>
-            </tbody>
-        </table>
-
-        <script>
-
-            function getSelectedRows() {
-                return localStorage.getItem('selectedRows') || 5; 
-            }
-=======
     <script>
         function getSelectedRows() {
             return localStorage.getItem('selectedRows') || 5;
         }
->>>>>>> 520851510ed35c79cf3eee69386d92e2a80019fe
 
 
         function setSelectedRows(value) {
