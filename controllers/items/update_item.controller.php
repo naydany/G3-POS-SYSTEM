@@ -11,14 +11,12 @@ if ($_SERVER['REQUEST_METHOD'] == "POST") {
     $pro_price = htmlspecialchars ($_POST['price']);
     $pro_cate = htmlspecialchars ($_POST['category']);
     $pro_quan = htmlspecialchars($_POST['quantity']);
-    $pro_original_price = htmlspecialchars ($_POST['original_price']);
+    $pro_original_price = htmlspecialchars(floatval($_POST['original_price']));
     $pro_id = htmlspecialchars ($_POST['id']);
     $imgProfile = $_FILES['imageItem'];
 
     // echo $imgProfile;
     // var_dump($imgProfile);
-
-
 
     if (!empty ($pro_name) && !empty ($pro_code) && !empty($pro_price) && !empty($pro_cate) && !empty($pro_quan)&& !empty($pro_original_price)&& !empty($imgProfile['name']) ) {
 
@@ -37,7 +35,7 @@ if ($_SERVER['REQUEST_METHOD'] == "POST") {
                 $nameInDB = $newFileName . '.' . $imageExtension;
                 move_uploaded_file($imgProfile['tmp_name'], $nameInDirectory);
 
-                $isUpdated = updateItem($nameInDB, $pro_name, $pro_code, $pro_price, $pro_quan, $pro_id, $pro_original_price);
+                $isUpdated = updateItem($nameInDB, $pro_name, $pro_code, $pro_price, $pro_quan, $pro_id, $pro_original_price,$pro_cate);
                 if ($isUpdated) {
                     header('location: /items');
                 } else {

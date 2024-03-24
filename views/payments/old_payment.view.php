@@ -1,8 +1,7 @@
 <div class="container mt-5">
-    <div class="card-header border-0 d-flex text-danger">
+    <div class="card-header border-0 mt-5 d-flex text-danger">
         <h3>Old Payments</h3>
-    </div>
-    <p class="text-muted ml-4">select order  
+        <p class="text-muted ml-4">
             <select class="form-control-sm" name="row" id="row">
                 <option>5</option>
                 <option>10</option>
@@ -13,8 +12,10 @@
                 <option>100</option>
             </select>
         </p>
+    </div>
+    
     <div class="container">
-        <table class="table table-bordered text-center mt-2 rounded">
+        <table class="table table-bordered text-center mt-1 rounded">
             <thead class="text-secondary thead-light">
                 <tr>
                     <th>Code</th>

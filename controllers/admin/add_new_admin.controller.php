@@ -10,7 +10,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
     $email = htmlspecialchars($_POST['email']);
     $password = htmlspecialchars($_POST['password']);
     $address = htmlspecialchars($_POST['address']);
-    $phone = htmlspecialchars($_POST['number']);
+    $phone = htmlspecialchars($_POST['phone']);
     $role = htmlspecialchars($_POST['role']);
     $imgProfile = $_FILES['imageprofile'];
 

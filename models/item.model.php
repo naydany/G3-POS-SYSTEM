@@ -10,6 +10,9 @@ function createItem(
     string $sup_name,
     string $pro_original_price
 ): bool {
+    $timezone = new DateTimeZone('Asia/Phnom_Penh');
+    $date = new DateTime('now', $timezone);
+    $time = $date->format('Y-m-d H:i:s');
 
     $timezone = new DateTimeZone('Asia/Phnom_Penh');
     $date = new DateTime('now', $timezone);
@@ -26,6 +29,7 @@ function createItem(
         ':sup_name' => $sup_name,
         ':quantity' => $pro_quan,
         ':price' => $pro_price,
+        ':pro_date' => $time,
         ':pro_original_price' => $pro_original_price,
         ':pro_date' => $time,
     ]);
@@ -49,12 +53,12 @@ function getItem(): array
     return $statement->fetchAll();
 }
 
-function updateItem(string $pro_img, string $pro_name, string $pro_code, string $pro_price, int $pro_quan, int $pro_id, int $pro_original_price): bool
+function updateItem(string $pro_img, string $pro_name, string $pro_code, string $pro_price, int $pro_quan, int $pro_id, int $pro_original_price,string $pro_cate): bool
 {
 
     global $connection;
     $statement = $connection->prepare("update products set pro_img = :pro_img, pro_name = :pro_name, pro_code = :pro_code, pro_price = :pro_price, pro_original_price =:pro_original_price,
-    pro_quantity = :pro_quantity where pro_id = :pro_id");
+    pro_quantity = :pro_quantity, cate_name = :cate_name where pro_id = :pro_id");
     // $statement->execute();
     $statement->execute([
         ":pro_img" => $pro_img,
@@ -64,6 +68,7 @@ function updateItem(string $pro_img, string $pro_name, string $pro_code, string 
         ":pro_price" => $pro_price,
         ":pro_original_price" => $pro_original_price,
         ":pro_id" => $pro_id,
+        ":cate_name" => $pro_cate,
     ]);
 
     return $statement->rowCount() > 0;

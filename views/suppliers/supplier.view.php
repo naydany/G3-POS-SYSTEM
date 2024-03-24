@@ -23,9 +23,9 @@ endif;
 
 
 <div class="card-header py-3 d-flex justify-content-between">
-    <h5 class="mt-2 font-weight-bold text-primary" style="margin-left: 7%;">Supplier</h5>
+    <h5 class="mt-2 font-weight-bold text-primary" style="margin-left: 7.7%;">Supplier</h5>
     <?php if ($_SESSION['user']['role'] != 'cashier') : ?>
-        <div class="card-header d-flex justify-content-between">
+        <div class="card-header d-flex justify-content-between" style="margin-right: 5.9%;"> 
             <button type="button" class="btn btn-outline-primary" data-toggle="modal" data-target="#create_suppliers"><i class="bi bi-person-plus-fill"></i> Add New Supplier</button>
         </div>
     <?php endif; ?>

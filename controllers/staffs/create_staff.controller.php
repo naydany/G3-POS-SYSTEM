@@ -6,13 +6,16 @@ require '../../models/staff.model.php';
 if ($_SERVER['REQUEST_METHOD'] == 'POST') {
 
     $name = htmlspecialchars($_POST['name']);
-    $number = htmlspecialchars($_POST['number']);
+    $number = htmlspecialchars($_POST['phone']);
     $email = htmlspecialchars($_POST['email']);
     $password = htmlspecialchars($_POST['password']);
     $address = htmlspecialchars($_POST['address']);
     $role = htmlspecialchars($_POST['roles']);
     $imageProfile = $_FILES['imagestaff'];
     print_r($imageProfile);
+
+    $numericPhoneNumber = filter_var($number, FILTER_SANITIZE_NUMBER_INT);
+    $phoneNumberInt = intval($numericPhoneNumber);
 
     if (!empty($name) && !empty($email) && !empty($password) && !empty($number) && !empty($address) && !empty($role) && !empty($imageProfile['name'])) {
 

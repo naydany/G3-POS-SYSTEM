@@ -1,5 +1,3 @@
-
-
 <?php if (isset($_SESSION['success'])) : ?>
     <div class="alert alert-success alert-dismissible fade show" id="alert">
         <button type="button" class="close" data-dismiss="alert">&times;</button>
@@ -136,19 +134,22 @@ foreach ($totalPrices as $totalPrice) {
             </div>
         </div>
     </div>
+    <div class="d-flex mt-5">
     <h1 class="h3 mb-0 text-gray-800">Order Detail</h1><br>
-        <p class="text-muted">select order
-            <select class=" form-control-sm" name="row" id="row">
-                <option>5</option>
-                <option>10</option>
-                <option>25</option>
-                <option>40</option>
-                <option>60</option>
-                <option>80</option>
-                <option>100</option>
-            </select> 
-        </p>
+    <p class="text-danger ml-3">
+        <select class=" form-control-sm" name="row" id="row">
+            <option>5</option>
+            <option>10</option>
+            <option>25</option>
+            <option>40</option>
+            <option>60</option>
+            <option>80</option>
+            <option>100</option>
+        </select>
+        
+    </div>
 
+<<<<<<< HEAD
         <table class="table bg-white text-black " >
             <thead class="text-white bg-primary">
                 <tr style="text-align: center;">
@@ -159,9 +160,47 @@ foreach ($totalPrices as $totalPrice) {
                     <th>Total price</th>
                     <th>Status</th>
                     <th>Date</th>
-                </tr>
-            </thead>
+=======
+    <table class="table bg-white text-black text-center">
+        <thead class="text-white bg-primary rounded">
+            <tr>
+                <th>ID</th>
+                <th>Product Name</th>
+                <th>Unit Price</th>
+                <th>Quantity</th>
+                <th>Total price</th>
+                <th>Status</th>
+                <th>Date</th>
+            </tr>
+        </thead>
 
+        <tbody id="orderTableBody">
+            <?php
+            require "models/order.model.php";
+            $orders = getOrdersDetail();
+            foreach ($orders as $order) : ?>
+                <tr>
+                    <td><?= $order['order_detail_id'] ?></td>
+                    <td><?= $order['pro_name'] ?></td>
+                    <td><?= $order['pro_price'] ?>$</td>
+                    <td><?= $order['pro_qty'] ?></td>
+                    <td><?= $order['tatal_price'] ?>$</td>
+                    <td>
+                        <?php if ($order['order_status'] != "Paid" && $order['order_status'] != 1) {
+                            echo "<span class='badge badge-danger'>Not Paid</span>";
+                        } else {
+                            echo "<span class='badge badge-success'>Paid</span>";
+                        }
+                        ?>
+                    </td>
+                    <td><?= $order['order_date'] ?></td>
+>>>>>>> 520851510ed35c79cf3eee69386d92e2a80019fe
+                </tr>
+            <?php endforeach; ?>
+        </tbody>
+    </table>
+
+<<<<<<< HEAD
             <tbody id="orderTableBody">
                 <?php
                 require "models/order.model.php";
@@ -192,36 +231,42 @@ foreach ($totalPrices as $totalPrice) {
             function getSelectedRows() {
                 return localStorage.getItem('selectedRows') || 5; 
             }
+=======
+    <script>
+        function getSelectedRows() {
+            return localStorage.getItem('selectedRows') || 5;
+        }
+>>>>>>> 520851510ed35c79cf3eee69386d92e2a80019fe
 
 
-            function setSelectedRows(value) {
-                localStorage.setItem('selectedRows', value);
-            }
+        function setSelectedRows(value) {
+            localStorage.setItem('selectedRows', value);
+        }
 
-        
-            document.addEventListener('DOMContentLoaded', function() {
-                var selectedRows = getSelectedRows();
-                document.getElementById('row').value = selectedRows;
-                updateTableDisplay(selectedRows); 
+
+        document.addEventListener('DOMContentLoaded', function() {
+            var selectedRows = getSelectedRows();
+            document.getElementById('row').value = selectedRows;
+            updateTableDisplay(selectedRows);
+        });
+
+
+        function updateTableDisplay(selectedRows) {
+            var tableRows = document.querySelectorAll('#orderTableBody tr');
+            tableRows.forEach(function(row, index) {
+                if (index < selectedRows) {
+                    row.style.display = '';
+                } else {
+                    row.style.display = 'none';
+                }
             });
-
-        
-            function updateTableDisplay(selectedRows) {
-                var tableRows = document.querySelectorAll('#orderTableBody tr');
-                tableRows.forEach(function(row, index) {
-                    if (index < selectedRows) {
-                        row.style.display = '';
-                    } else {
-                        row.style.display = 'none';
-                    }
-                });
-            }
+        }
 
 
-            document.getElementById('row').addEventListener('change', function() {
-                var selectedRows = parseInt(this.value);
-                setSelectedRows(selectedRows); 
-                updateTableDisplay(selectedRows); 
-            });
-        </script>
+        document.getElementById('row').addEventListener('change', function() {
+            var selectedRows = parseInt(this.value);
+            setSelectedRows(selectedRows);
+            updateTableDisplay(selectedRows);
+        });
+    </script>
 </div>

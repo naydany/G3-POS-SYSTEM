@@ -42,7 +42,7 @@
                 <th class="text-center">Address</th>
                 <th class="text-center">Role</th>
                 <?php if ($_SESSION['user']['role'] != 'cashier' && $_SESSION['user']['role'] != 'stock manager') : ?>
-                <th class="text-center">Action</th>
+                    <th class="text-center">Action</th>
                 <?php endif; ?>
             </tr>
         </thead>
@@ -83,24 +83,33 @@
                                     <input type="hidden" name="cas_id" value="<?= $user['id'] ?>">
 
                                     <div class="form-group">
-                                        <label for="name">name:</label>
+                                        <label for="name">Name:</label>
                                         <input type="text" class="form-control" id="name" name='name' value="<?= $user['name'] ?>">
                                     </div>
 
                                     <div class="form-group">
-                                        <label for="number">number:</label>
-                                        <input type="number" class="form-control" id="number" name='number' value="<?= $user['phone'] ?>">
+                                        <label for="phone">Phone Number:</label>
+                                        <input type="phone" class="form-control" id="phone" name='phone' value="<?= $user['phone'] ?>">
                                     </div>
 
                                     <div class="form-group">
-                                        <label for="email">email:</label>
+                                        <label for="email">Email:</label>
                                         <input type="text" class="form-control" id="email" name='email' value="<?= $user['email'] ?>">
                                     </div>
 
                                     <div class="form-group">
-                                        <label for="address">address:</label>
+                                        <label for="address">Address:</label>
                                         <input type="text" class="form-control" id="address" name='address' value="<?= $user['address'] ?>">
                                     </div>
+                                    <div class="form-group">
+                                        <label for="role">Role:</label>
+                                        <select class="custom-select" name="role" id="inputGroupSelect02"  value="<?= $user['address'] ?>">
+                                            <option selected disabled>Choose...</option>
+                                            <option value="cashier">Cashier</option>
+                                            <option value="stock manager">Stock Manager</option>
+                                        </select>
+                                    </div>
+
                                     <button type="submit" class="btn btn-primary">Submit</button>
                                 </form>
                             </div>
@@ -108,7 +117,7 @@
                     </div>
                 </div>
         </tbody>
-        <?php endforeach; ?>
+    <?php endforeach; ?>
     </table>
 </div>
 
@@ -139,31 +148,32 @@
                                             <input type="text" class="form-control" id="name" name='name'>
                                         </div>
                                         <div class="col-md-6">
-                                            <label for="number">number phone:</label>
-                                            <input type="number" class="form-control" id="number" name='number'>
+                                            <label for="phone">Phone Number:</label>
+                                            <input type="number" class="form-control" id="phone" name='phone'>
                                         </div>
                                     </div>
                                     <hr>
                                     <div class="form-row">
                                         <div class="col-md-6">
-                                            <label for="email">email:</label>
+                                            <label for="email">Email:</label>
                                             <input type="text" class="form-control" id="email" name='email'>
                                         </div>
 
                                         <div class="col-md-6">
-                                            <label for="password">password:</label>
+                                            <label for="password">Password:</label>
                                             <input type="text" class="form-control" id="password" name='password'>
                                         </div>
                                     </div>
                                     <hr>
                                     <div class="form-row">
                                         <div class="col-md-6">
-                                            <label for="address">address:</label>
+                                            <label for="address">Address:</label>
                                             <input type="text" class="form-control" id="address" name='address'>
                                         </div>
-                                        <div class="col-md-6 mt-4">
+                                        <div class="col-md-6">
+                                            <label for="role">Role:</label>
                                             <select class="custom-select" name="roles" id="inputGroupSelect02">
-                                                <option selected>Choose...</option>
+                                                <option selected disabled>Choose...</option>
                                                 <option value="cashier">Cashier</option>
                                                 <option value="stock manager">Stock Manager</option>
                                             </select>

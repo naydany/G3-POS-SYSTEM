@@ -43,13 +43,14 @@ function editeAdmin(int $id): array
     return $statement->fetch();
 }
 
-function updateAdmin(int $id, string $name, string $email, string $address): bool
+function updateAdmin(int $id, string $name, string $phone, string $email, string $address): bool
 {
 
     global $connection;
-    $statement = $connection->prepare("update users set name = :name, email = :email, address = :address where id = :id");
+    $statement = $connection->prepare("update users set name = :name, phone = :phone, email = :email, address = :address where id = :id");
     $statement->execute([
         ':name' => $name,
+        ':phone' => $phone,
         ':email' => $email,
         ':address' => $address,
         ':id' => $id

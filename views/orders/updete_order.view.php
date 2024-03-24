@@ -30,22 +30,31 @@
     document.getElementById('orderForm').addEventListener('submit', function(event) {
       event.preventDefault();
 
-      // Check if quantity input is empty
+      // Check if quantity input is emptyz
       var quantityInput = document.querySelector('input[name="quantity"]').value;
-      if (quantityInput.trim() === '') {
+      if (quantityInput == <?php echo $quantityINStock ?> || quantityInput < <?php echo $quantityINStock ?>) {
+        if (quantityInput.trim() === '') {
+          Swal.fire({
+            icon: "error",
+            title: "Please input quantity",
+            text: "Something went wrong!",
+          });
+        } else {
+          Swal.fire({
+            icon: "success",
+            title: "Order Successful",
+            text: "Thank you! Your order is complete",
+          }).then(() => {
+            document.getElementById('orderForm').submit();
+          });
+        }
+      }else{
+        
         Swal.fire({
-          icon: "error",
-          title: "Please input quantity",
-          text: "Something went wrong!",
-        });
-      } else {
-        Swal.fire({
-          icon: "success",
-          title: "Order Successful",
-          text: "Thank you! Your order is complete",
-        }).then(() => {
-          document.getElementById('orderForm').submit();
-        });
+            icon: "error",
+            title: "The product in stock is lower than the order.",
+            text: "Something went wrong!",
+          });
       }
     });
 

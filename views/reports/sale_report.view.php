@@ -1,4 +1,5 @@
-<div class="card-header py-3 d-flex justify-content-between">
+<div class="container mt-4">
+<div class="card-header d-flex justify-content-between">
     <h4 class=" text-primary">Sales Reports</h4>
     <button class="btn btn-outline-primary h-50 " id="export_button"><i class="bi bi-file-earmark-arrow-down"></i>
         Export Data
@@ -58,3 +59,4 @@
         export_table_data_to_excel('xlsx');
     });
 </script>
+</div>

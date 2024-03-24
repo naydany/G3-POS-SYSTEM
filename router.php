@@ -8,6 +8,8 @@ $routes = [
     '/form_staff_signin' => 'controllers/staffsignin/form.signin.controller.php',
     '/form_admin_signin' => 'controllers/adminlogin/form.signin.controller.php',
     '/forget_password' => 'controllers/staffsignin/forget_password.controller.php',
+    '/staff_forget_password' => 'controllers/staffsignin/forget_password.controller.php',
+    '/admin_forget_password' => 'controllers/adminlogin/forget_password.controller.php',
 ];
 
 if (isset($_SESSION['user'])) {
