@@ -1,10 +1,13 @@
+
+<body class="bg-primary">
+    
 <div class="main-content" style="margin: auto; width:600px; margin-top: 70px;">
 
     <div class="card shadow border-0 mx-auto">
         <!-- Page content -->
         <div class="card-body px-lg-5 py-lg-5">
             <h1 class="h3 mb-0 text-dark">Reset Password</h1><br>
-            <form action="../../controllers/staffsignin/email.controller.php" method="post">
+            <form action="controllers/usersResetPwd/resset_password.controller.php" method="post">
                 <h6 class="mb-3">
                     Enter your username to receive a link by name
                 </h6>
@@ -24,3 +27,5 @@
         </div>
     </div>
 </div>
+
+</body>

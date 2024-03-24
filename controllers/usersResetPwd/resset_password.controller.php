@@ -11,12 +11,13 @@ require '../../vendor/autoload.php';
 require '../../database/database.php';
 require '../../models/admin.model.php';
 
+session_start();
 
 // Get value from input
 if ($_SERVER['REQUEST_METHOD'] == 'POST') {
     if (isset($_POST['email'])) {
         $email = $_POST['email'];
-       
+        $_SESSION['email'] = $email;
         $OTP = mt_rand(100000, 999999);
         $setOTP = OTP($email,$OTP);
         //Create an instance; passing `true` enables exceptions

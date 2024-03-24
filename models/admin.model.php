@@ -100,3 +100,15 @@ function confirmOTP($OTP)
     return $statement->rowCount() > 0;
 
 }
+
+function changePassword($newPassword,$email): bool
+{
+    global $connection;
+    $statement = $connection->prepare("update users set password = :password where email=:email");
+    $statement->execute([
+        ':password'=>$newPassword,
+        ':email' => $email,
+    ]);
+
+    return $statement->rowCount()>0;
+}
