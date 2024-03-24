@@ -148,7 +148,7 @@ foreach ($totalPrices as $totalPrice) {
         </select>
         
     </div>
-
+    
     <table class="table bg-white text-black text-center">
         <thead class="text-white bg-primary rounded">
             <tr>
