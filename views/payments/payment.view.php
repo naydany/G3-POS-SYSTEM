@@ -14,7 +14,7 @@
     </div>
 
     <div class="container mt-3">
-        <table class="table table-bordered text-center mt-2 rounded">
+        <table class="table table-bordered text-center mt-2 rounded" >
             <thead class="text-secondary thead-light">
                 <tr>
                     <th class="text-center">Code</th>

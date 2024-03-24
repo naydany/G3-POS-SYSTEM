@@ -68,7 +68,7 @@ if ($_SESSION['Products'] != []) {
 
         <div class="card-body">
             <div class="table-responsive pr-3 pl-3">
-                <table class="table table-bordered text-center" id="dataTable" width="100%" cellspacing="0">
+                <table class="table table-bordered text-center" id="dataTable" width="100%" cellspacing="0" >
                     <thead class="bg-primary text-white thead-light">
                         <tr>
                             <th>ID</th>

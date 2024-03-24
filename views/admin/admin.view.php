@@ -147,9 +147,9 @@ foreach ($totalPrices as $totalPrice) {
             </select> 
         </p>
 
-        <table class="table bg-white text-black">
+        <table class="table bg-white text-black " >
             <thead class="text-white bg-primary">
-                <tr>
+                <tr style="text-align: center;">
                     <th>ID</th>
                     <th>Product Name</th>
                     <th>Unit Price</th>
@@ -165,7 +165,7 @@ foreach ($totalPrices as $totalPrice) {
                 require "models/order.model.php";
                 $orders = getOrdersDetail();
                 foreach ($orders as $order) : ?>
-                    <tr>
+                    <tr style="text-align: center;">
                         <td><?= $order['order_detail_id'] ?></td>
                         <td><?= $order['pro_name'] ?></td>
                         <td><?= $order['pro_price'] ?>$</td>
