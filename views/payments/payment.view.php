@@ -19,8 +19,8 @@
         </div>
     </div>
 
-    <div class="container">
-        <table class="table table-bordered text-center rounded">
+    <div class="container mt-3">
+        <table class="table table-bordered text-center mt-2 rounded" >
             <thead class="text-secondary thead-light">
                 <tr>
                     <th class="text-center">Code</th>
