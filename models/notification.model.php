@@ -7,4 +7,3 @@ function notification(): array
     $statement->execute();
     return $statement->fetchAll();
 }
-?>

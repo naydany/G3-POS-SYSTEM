@@ -58,7 +58,8 @@ if (isset($_SESSION['user'])) {
             '/admin_forget_password' => 'controllers/adminlogin/forget_password.controller.php',
             '/recipt_order' => 'controllers/payments/recipt_order.controller.php',
             '/complete_pay' => 'controllers/payments/store_oldpay.controller.php',
-
+            '/verify_otp' => 'controllers/usersResetPwd/verify_otp.controller.php',
+            '/change_password' => 'controllers/usersResetPwd/comfirm_change.controller.php',
         ];
     } elseif ($_SESSION['user']['role'] === 'stock manager') {
         $routes = [
@@ -97,6 +98,12 @@ if (isset($_SESSION['user'])) {
             '/recipt_order' => 'controllers/payments/recipt_order.controller.php',
             '/complete_pay' => 'controllers/payments/store_oldpay.controller.php',
 
+            '/staff_forget_password' => 'controllers/staffsignin/forget_password.controller.php',
+            '/admin_forget_password' => 'controllers/adminlogin/forget_password.controller.php',
+            '/recipt_order' => 'controllers/payments/recipt_order.controller.php',
+            '/complete_pay' => 'controllers/payments/store_oldpay.controller.php',
+            '/verify_otp' => 'controllers/usersResetPwd/verify_otp.controller.php',
+            '/change_password' => 'controllers/usersResetPwd/comfirm_change.controller.php',
 
         ];
     }elseif($_SESSION['user']['role'] === 'cashier') {
@@ -136,7 +143,12 @@ if (isset($_SESSION['user'])) {
             '/recipt_order' => 'controllers/payments/recipt_order.controller.php',
             '/complete_pay' => 'controllers/payments/store_oldpay.controller.php',
 
-        
+            '/staff_forget_password' => 'controllers/staffsignin/forget_password.controller.php',
+            '/admin_forget_password' => 'controllers/adminlogin/forget_password.controller.php',
+            '/recipt_order' => 'controllers/payments/recipt_order.controller.php',
+            '/complete_pay' => 'controllers/payments/store_oldpay.controller.php',
+            '/verify_otp' => 'controllers/usersResetPwd/verify_otp.controller.php',
+            '/change_password' => 'controllers/usersResetPwd/comfirm_change.controller.php',
         ];
     }
 }
@@ -152,7 +164,7 @@ if (array_key_exists($uri, $routes)) {
 
 require "layouts/header.php";
 if (!empty($_SESSION['user'])) {
-    if ($uri != '/' && $uri != '/form_admin_signin' && $uri != '/form_staff_signin' && $uri != '/staff_forget_password' && $uri != '/admin_forget_password') {
+    if ($uri != '/' && $uri != '/form_admin_signin' && $uri != '/form_staff_signin' && $uri != '/staff_forget_password' && $uri != '/admin_forget_password' && $uri != '/verify_otp' && $uri != '/change_password') {
         require "layouts/navbar.php";
         require $page;
         require "layouts/footer.php";
@@ -160,7 +172,7 @@ if (!empty($_SESSION['user'])) {
         require $page;
     }
 } elseif (empty($_SESSION['user'])) {
-    if ($uri != '/' && $uri != '/form_admin_signin' && $uri != '/form_staff_signin' && $uri != '/staff_forget_password' && $uri != '/admin_forget_password') {
+    if ($uri != '/' && $uri != '/form_admin_signin' && $uri != '/form_staff_signin' && $uri != '/staff_forget_password' && $uri != '/admin_forget_password' && $uri != '/verify_otp' && $uri != '/change_password') {
         // $page = 'views/errors/404.php';
         $page = 'controllers/wellcom/wellcom.controller.php';
         require $page;

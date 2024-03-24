@@ -76,3 +76,39 @@ function accountExist(string $email): array
 }
 
 
+function OTP(string $email, int $OTP) : bool
+{
+    global $connection;
+    $statement = $connection->prepare("update users set otp = :otp where email = :email");
+    $statement->execute([
+        ':email' =>$email ,
+        ':otp' =>  $OTP
+    ]);
+
+    return $statement->rowCount() > 0;
+}
+
+
+function confirmOTP($OTP)
+{
+    global $connection;
+    $statement = $connection->prepare("select * from users where otp= :otp");
+    $statement->execute([
+        ':otp' => $OTP
+    ]);
+
+    return $statement->rowCount() > 0;
+
+}
+
+function changePassword($newPassword,$email): bool
+{
+    global $connection;
+    $statement = $connection->prepare("update users set password = :password where email=:email");
+    $statement->execute([
+        ':password'=>$newPassword,
+        ':email' => $email,
+    ]);
+
+    return $statement->rowCount()>0;
+}

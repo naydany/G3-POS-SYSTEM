@@ -28,11 +28,15 @@ function accountExist(string $email): array
     }
 }
 
-// function getAllUsers(): array {
-//     global $connection;
-//     $statement = $connection->prepare("SELECT * FROM admins WHERE role = :role ORDER BY id ASC ");
-//     $statement->execute([
-//         ':role' => 'user'
-//     ]);
-//     return $statement->fetchAll();
-// }
+// Set opt
+function OTP(string $email, int $OTP) : bool
+{
+    global $connection;
+    $STMT = $connection->prepare("UPDATE users SET otp = :otp WHERE email = :email");
+    $STMT->execute([
+        ':email' => $email,
+        ':otp' => $OTP
+    ]);
+
+    return $STMT->rowCount() > 0;
+}
