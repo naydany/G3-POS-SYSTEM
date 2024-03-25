@@ -36,7 +36,7 @@ endif;
                 <div class="input-group mb-3">
                     <br>
                     <div>
-                        <label >Inter password</label>
+                        <label >Enter password</label>
                         <input type="number" name="new_pwd" class="form-control" id="nameInput" required name="password" placeholder="new password" style="width:500px">
                     </div>
                     <div>
