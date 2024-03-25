@@ -68,10 +68,9 @@ foreach ($totalPrices as $totalPrice) {
 </div>
 
 
-<div class="d-flex row">
+<div class="d-flex rowp-1">
     <!-- Pie Chart -->
-
-    <div class="mt-1">
+    <div class="mt-5 ">
         <?php
         require "models/order.model.php";
         $orders = getOrdersDetail();
@@ -102,7 +101,7 @@ foreach ($totalPrices as $totalPrice) {
         }
         ?>
 
-        <div class="d-flex mr-3">
+        <div>
             <div class="card shadow ml-4">
                 <div class="card-header d-flex flex-row align-items-center justify-content-between">
                     <h6 class="m-0 font-weight-bold text-primary">Revenue Sources</h6>
@@ -114,11 +113,11 @@ foreach ($totalPrices as $totalPrice) {
                     </div>
                 </div>
 
-                <div class="card-body">
+                <div class="card-body" >
                     <div class="chart-pie">
-                        <canvas id="myPieChart" style="height: 10x;"></canvas>
+                        <canvas id="myPieChart"></canvas>
                     </div>
-                    <div class="mt-4 text-center small">
+                    <div class="text-center small">
                         <?php for ($i = 0; $i < count($labels); $i++) { ?>
                             <span class="">
                                 <i class="fas fa-circle" style="color: <?php echo $colors[$i]; ?>"></i> <?php echo $labels[$i]; ?>
@@ -255,9 +254,9 @@ foreach ($totalPrices as $totalPrice) {
                     <tr>
                         <th>ID</th>
                         <th>P_Name</th>
-                        <th>Unit Price</th>
+                        <th>Uni_Price</th>
                         <th>Quantity</th>
-                        <th>Total price</th>
+                        <th>Total_price</th>
                         <th>Status</th>
                         <th>Date</th>
                     </tr>

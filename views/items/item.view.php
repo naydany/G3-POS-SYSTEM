@@ -85,7 +85,7 @@ $products = getItem();
             });
         </script>
 
-        <div class="card-body">
+        <div class="card-body" style="height: 500px; overflow: auto;">
             <div class="table-responsive pr-3 pl-3">
                 <table class="table table-bordered text-center" id="dataTable" width="100%" cellspacing="0" >
                     <thead class="bg-primary text-white thead-light">
