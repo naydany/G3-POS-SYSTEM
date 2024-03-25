@@ -1,4 +1,3 @@
-
 <?php if (isset($_SESSION['success'])) : ?>
     <div class="alert alert-success alert-dismissible fade show" id="alert">
         <button type="button" class="close" data-dismiss="alert">&times;</button>
@@ -59,10 +58,80 @@ foreach ($totalPrices as $totalPrice) {
     <div class="d-flex row justify-content-between">
         <!-- Earnings (Monthly) Card Example 4-->
 
+        <div class="col-xl-3 col-md-6 mb-4">
+            <div class="card border-left-primary shadow h-100 py-2">
+                <div class="card-body">
+                    <div class="row no-gutters align-items-center">
+                        <div class="col mr-2">
+                            <div class="text-xs font-weight-bold text-primary text-uppercase mb-1">
+                                CUSTOMERS</div>
+                            <div class="h5 mb-0 font-weight-bold text-gray-800"><?= $current_number ?></div>
+                        </div>
+                        <div class="col-auto">
+                            <i class="fas fa-user fa-2x text-gray-300"></i>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
 
-
+        <!-- Earnings (Monthly) Card Example 3-->
+        <div class="col-xl-3 col-md-6 mb-4">
+            <div class="card border-left-success shadow h-100 py-2">
+                <div class="card-body">
+                    <div class="row no-gutters align-items-center">
+                        <div class="col mr-2">
+                            <div class="text-xs font-weight-bold text-success text-uppercase mb-1">
+                                PRODUCTS</div>
+                            <div class="h5 mb-0 font-weight-bold text-gray-800"><?= count($products); ?></div>
+                        </div>
+                        <div class="col-auto">
+                            <i class="fas fa-shopping-bag fa-2x text-gray-300"></i>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- Earnings (Monthly) Card Example 2-->
+        <div class="col-xl-3 col-md-6 mb-4">
+            <div class="card border-left-info shadow h-100 py-2">
+                <div class="card-body">
+                    <div class="row no-gutters align-items-center">
+                        <div class="col mr-2">
+                            <div class="text-xs font-weight-bold text-info text-uppercase mb-1">ORDERS
+                            </div>
+                            <div class="row no-gutters align-items-center">
+                                <div class="col-auto">
+                                    <div class="h5 mb-0 mr-3 font-weight-bold text-gray-800"><?php echo count($allOrders); ?></div>
+                                </div>
+                                <div class="col">
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-auto">
+                            <i class="fas fa-shopping-cart fa-2x text-gray-300"></i>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
         <!-- Pending Requests Card Example 1-->
-
+        <div class="col-xl-3 col-md-6 mb-4">
+            <div class="card border-left-warning shadow h-100 py-2">
+                <div class="card-body">
+                    <div class="row no-gutters align-items-center">
+                        <div class="col mr-2">
+                            <div class="text-xs font-weight-bold text-warning text-uppercase mb-1">
+                                SALES</div>
+                            <div class="h5 mb-0 font-weight-bold text-gray-800">$<?php echo $totalOrder_price; ?></div>
+                        </div>
+                        <div class="col-auto">
+                            <i class="bi bi-coin fa-2x text-gray-300"></i>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
 
     </div>
 
@@ -110,7 +179,13 @@ foreach ($totalPrices as $totalPrice) {
                         <a class="dropdown-toggle" href="#" role="button" id="dropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                             <i class="fas fa-ellipsis-v fa-sm fa-fw text-gray-400"></i>
                         </a>
-
+                        <!-- <div class="dropdown-menu dropdown-menu-right shadow animated--fade-in" aria-labelledby="dropdownMenuLink">
+                                <div class="dropdown-header">Dropdown Header:</div>
+                                <a class="dropdown-item" href="#">Action</a>
+                                <a class="dropdown-item" href="#">Another action</a>
+                                <div class="dropdown-divider"></div>
+                                <a class="dropdown-item" href="#">Something else here</a>
+                            </div> -->
                     </div>
                 </div>
 
@@ -126,91 +201,8 @@ foreach ($totalPrices as $totalPrice) {
                         <?php } ?>
                     </div>
                 </div>
-
-            </div>
-
-            <div class="d-flex flex-column ">
-                <div class="d-flex">
-                    <div class="col-xl-8 col-md-6 mb-4">
-                        <div class="card border-left-warning shadow h-60 py-2">
-                            <div class="card-body">
-                                <div class="row no-gutters align-items-center">
-                                    <div class="col mr-2">
-                                        <div class="text-xs font-weight-bold text-warning text-uppercase mb-1">
-                                            SALES</div>
-                                        <div class="h5 mb-0 font-weight-bold text-gray-800">$<?php echo $totalOrder_price; ?></div>
-                                    </div>
-                                    <div class="col-auto">
-                                        <i class="bi bi-coin fa-2x text-gray-300"></i>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    <!-- Earnings (Monthly) Card Example 2-->
-                    <div class="col-xl-8 col-md-6 mb-4">
-                        <div class="card border-left-info shadow h-60 py-2">
-                            <div class="card-body">
-                                <div class="row no-gutters align-items-center">
-                                    <div class="col mr-2">
-                                        <div class="text-xs font-weight-bold text-info text-uppercase mb-1">ORDERS
-                                        </div>
-                                        <div class="row no-gutters align-items-center">
-                                            <div class="col-auto">
-                                                <div class="h5 mb-0 mr-3 font-weight-bold text-gray-800"><?php echo count($allOrders); ?></div>
-                                            </div>
-                                            <div class="col">
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <div class="col-auto">
-                                        <i class="fas fa-shopping-cart fa-2x text-gray-300"></i>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-
-                </div>
-                <div class="d-flex">
-                    <div class="col-xl-8 col-md-6 mb-4">
-                        <div class="card border-left-primary shadow h-60 py-2">
-                            <div class="card-body">
-                                <div class="row no-gutters align-items-center">
-                                    <div class="col mr-2">
-                                        <div class="text-xs font-weight-bold text-primary text-uppercase mb-1">
-                                            CUSTOMERS</div>
-                                        <div class="h5 mb-0 font-weight-bold text-gray-800"><?= $current_number ?></div>
-                                    </div>
-                                    <div class="col-auto">
-                                        <i class="fas fa-user fa-2x text-gray-300"></i>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-
-                    <!-- Earnings (Monthly) Card Example 3-->
-                    <div class="col-xl-8 col-md-6 mb-4">
-                        <div class="card border-left-success shadow h-60 py-2">
-                            <div class="card-body">
-                                <div class="row no-gutters align-items-center">
-                                    <div class="col mr-2">
-                                        <div class="text-xs font-weight-bold text-success text-uppercase mb-1">
-                                            PRODUCTS</div>
-                                        <div class="h5 mb-0 font-weight-bold text-gray-800"><?= count($products); ?></div>
-                                    </div>
-                                    <div class="col-auto">
-                                        <i class="fas fa-shopping-bag fa-2x text-gray-300"></i>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
             </div>
         </div>
-
 
         <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
 
@@ -234,9 +226,9 @@ foreach ($totalPrices as $totalPrice) {
         </script>
     </div>
     <!-- <table></table> -->
-    <div class="ml-5">
-        <div class="d-flex mt-3">
-            <h1 class="h3 mb-0 text-gray-800" style="margin-left: 700px;">Order Detail</h1><br>
+    <div class="ml-3">
+        <div class="d-flex mt-1">
+            <h1 class="h3 mb-0 text-gray-800" style="margin-left: 500px;">Order Detail</h1><br>
             <p class="text-danger ml-3">
                 <select class=" form-control-sm" name="row" id="row">
                     <option>5</option>
@@ -249,7 +241,7 @@ foreach ($totalPrices as $totalPrice) {
                 </select>
 
         </div>
-        <div style="height: 300px; width:950px;">
+        <div style="height: 400px; overflow: auto;">
             <table class="table bg-white text-black text-center">
                 <thead class="text-white bg-primary rounded">
                     <tr>
