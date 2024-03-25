@@ -2,7 +2,7 @@
     <div class="card-header py-3 d-flex justify-content-between ">
         <div class="card-header border-0">
             <a href="/orders" class="btn btn-outline-primary">
-                <i class="fas fa-plus"></i> <i class="fas fa-utensils"></i>
+                <i class="fas fa-plus"></i> <i class="bi bi-cart-plus"></i>
                 Make A New Order
             </a>
         </div>

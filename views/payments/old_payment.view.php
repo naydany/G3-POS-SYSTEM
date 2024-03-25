@@ -1,4 +1,4 @@
-<div class="container mt-5">
+<div class="container mt-5" style="height: 400px; overflow: auto;">
     <div class="card-header border-0 mt-5 d-flex text-danger">
         <h3>Old Payments</h3>
         <p class="text-muted ml-4">
