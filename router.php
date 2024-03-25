@@ -13,7 +13,7 @@ $routes = [
 ];
 
 if (isset($_SESSION['user'])) {
-    if ($_SESSION['user']['role'] === 'admin') {
+    if ($_SESSION['user']['role'] ==='admin') {
         $routes = [
             '/admin' => 'controllers/admin/admin.controller.php',
             '/' => 'controllers/wellcom/wellcom.controller.php',
@@ -100,8 +100,6 @@ if (isset($_SESSION['user'])) {
 
             '/staff_forget_password' => 'controllers/staffsignin/forget_password.controller.php',
             '/admin_forget_password' => 'controllers/adminlogin/forget_password.controller.php',
-            '/recipt_order' => 'controllers/payments/recipt_order.controller.php',
-            '/complete_pay' => 'controllers/payments/store_oldpay.controller.php',
             '/verify_otp' => 'controllers/usersResetPwd/verify_otp.controller.php',
             '/change_password' => 'controllers/usersResetPwd/comfirm_change.controller.php',
 
@@ -145,8 +143,6 @@ if (isset($_SESSION['user'])) {
 
             '/staff_forget_password' => 'controllers/staffsignin/forget_password.controller.php',
             '/admin_forget_password' => 'controllers/adminlogin/forget_password.controller.php',
-            '/recipt_order' => 'controllers/payments/recipt_order.controller.php',
-            '/complete_pay' => 'controllers/payments/store_oldpay.controller.php',
             '/verify_otp' => 'controllers/usersResetPwd/verify_otp.controller.php',
             '/change_password' => 'controllers/usersResetPwd/comfirm_change.controller.php',
         ];
@@ -182,3 +178,14 @@ if (!empty($_SESSION['user'])) {
     }
 }
 
+// if (!empty($_SESSION['user'])){
+//     if ($_SERVER['REQUEST_METHOD'] === '/admin'){
+//         session_destroy();
+//         require "layouts/navbar.php";
+//         $page = 'controllers/wellcom/wellcom.controller.php';
+//         require $page;
+//         require "layouts/footer.php";
+//     }
+// }
+
+// echo $_SESSION['user']['role'];
