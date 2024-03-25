@@ -228,7 +228,7 @@ foreach ($totalPrices as $totalPrice) {
     <!-- <table></table> -->
     <div class="ml-3">
         <div class="d-flex mt-1">
-            <h1 class="h3 mb-0 text-gray-800" style="margin-left: 500px;">Order Detail</h1><br>
+            <h5 class="mb-0 text-gray-800" style="margin-left: 400px;">Order Detail</h5><br>
             <p class="text-danger ml-3">
                 <select class=" form-control-sm" name="row" id="row">
                     <option>5</option>

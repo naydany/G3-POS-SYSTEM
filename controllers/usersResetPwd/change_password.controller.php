@@ -53,9 +53,10 @@ if($_SERVER['REQUEST_METHOD'] == 'POST'){
                 $_SESSION['success'] = 'success';
 
                 if ($_SESSION['user']['role']=='admin'){
-                    header('location: /form_admin_signin');
-                }else if($_SESSION['user']['role']=='cashier' || $_SESSION['user']=='stock manager'){
-                    header('location: /form_staff_signin');
+                    // header('location: /form_admin_signin');
+                    echo $_SESSION['user']['role'];
+                }else if($_SESSION['user']['role']=='cashier' || $_SESSION['user']['role']=='stock manager'){
+                    // header('location: /form_staff_signin');
                 }
                 
             }else{
